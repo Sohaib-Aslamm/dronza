@@ -1,0 +1,95 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Update | Social Media</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Update Social Media Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire"><a href="/adminsocialmedia" class="text-greeno">Social Media</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="row mt-5 mb-5 card container">
+
+         <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+      <div class="modal-body">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Email</label>
+                    {{ form.email }}
+                </div>
+                 <div class="col-3">
+                    <label class="white">Skype</label>
+                    {{ form.skype }}
+                </div>
+                 <div class="col-3">
+                    <label class="white">Phone</label>
+                    {{ form.phone }}
+                </div>
+
+            </div>
+          <div class="row mb-3">
+                 <div class="col-4">
+                    <label class="white">Github</label>
+                    {{ form.github }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Linkedin</label>
+                    {{ form.linkedin }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Google+</label>
+                    {{ form.google_plus }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                 <div class="col-4">
+                    <label class="white">Youtube</label>
+                    {{ form.youtube }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Facebook</label>
+                    {{ form.facebook }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Twitter</label>
+                    {{ form.twitter }}
+                </div>
+            </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn bg-greeno white">Save Media</button>
+      </div>
+             </form>
+    </div>
+
+</div>
+
+
+{% endblock content %}

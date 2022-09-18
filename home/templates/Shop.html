@@ -1,0 +1,121 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Shop</title> {% endblock title %}
+{% load  static %}
+
+{% block content %}
+
+        <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Shop</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/home">Home</a></li>
+                                    <li>Shop</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+
+
+           <div class="section-content quality-section-outer bg-white">
+                    <div class="container">
+                        <div class="quality-section-content">
+                            <div class="row justify-content-center">
+
+
+                                <div class="col-lg-4 col-md-12 m-b30">
+                                    <div class="corner-line">
+                                        <div class="wt-box d-icon-box-one bg-white shadow ">
+
+                                            <div class="wt-icon-box-wraper m-b20">
+                                                <div class="icon-xl inline-icon">
+                                                   <span class="icon-cell site-text-primary">
+                                                       <img src="{% static 'Assets/dronza_images/icons/drone-solid.png' %}">
+                                                   </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-icon-box-title title-style-2 site-text-secondry">
+                                                <h3  class="s-title-one">Dronza Shop</h3>
+                                            </div>
+
+                                            <div class="d-icon-box-content">
+                                                <p>we are transforming how businesses collect, manage, and interpret drone data.
+                                                    We're unifying the commercial drone industry under one roof by providing the
+                                                    platform
+                                                </p>
+                                                <a href="/dronzaShop" class="site-button-link site-text-primary">Go to Shop</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                 <div class="col-lg-4 col-md-12 m-b30">
+                                    <div class="corner-line">
+                                        <div class="wt-box d-icon-box-one bg-white shadow ">
+
+                                            <div class="wt-icon-box-wraper m-b20">
+                                                <div class="icon-xl inline-icon">
+                                                   <span class="icon-cell site-text-primary"><i class="fa fa-amazon"></i> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-icon-box-title title-style-2 site-text-secondry">
+                                                <h3  class="s-title-one">Amazon Shop</h3>
+                                            </div>
+
+                                            <div class="d-icon-box-content">
+                                                <p>
+                                                    dronza is also affiliated with amazon as Drone brand. In 2020 by acknowledging efforts
+                                                    amazon approach to dronza as they claim that want to enhance their business
+                                                </p>
+                                                <a href="/amazonShop" class="site-button-link site-text-primary">Go to Shop</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="quality-video-section">
+                            <span>Delivering help and hope to people through sponsorship</span>
+                            <div class="quality-video">
+                                 <a href="https://www.youtube.com/watch?v=c1XNqw2gSbU" class="mfp-video play-now">
+                                    <i class="icon fa fa-play"></i>
+                                    <span class="ripple"></span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- QUALITY SECTION END -->
+
+
+        </div>
+        <!-- CONTENT END -->
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Gallery</title> {% endblock title %}
+{% load static %}
+{% block content %}
+
+ <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Gallery</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/home">Home</a></li>
+                                    <li>Gallery</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- GALLERY SECTION START -->
+            <div class="section-full p-t80 p-b50 bg-white">
+                <div class="container-fluid">
+                    <!-- PAGINATION START -->
+                    <div class="filter-wrap work-grid p-b30 text-center">
+                        <ul class="masonry-filter">
+                                <li class="active"><a data-filter="*" href="#">All</a></li>
+
+                            {% for GL in GLLRY2 %}
+                                <li><a data-filter=".{{ GL.category }}" href="#">{{ GL.category }}</a></li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <!-- PAGINATION END -->
+
+                    <!-- GALLERY CONTENT START -->
+                     <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
+
+
+
+                         {% for GL in GLLRY %}
+                        <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 {{ GL.category }}">
+                            <div class="galleryhvr-zoom-out-down">
+                                <img src="{{ GL.image.url }}" alt="">
+                                <div class="galleryhvr-content">
+                                    <div class="galleryhvr-mid">
+                                        <h3 class="wt-title">{{ GL.title }}</h3>
+                                        <p>{{ GL.description }}</p>
+                                        <a href="{{ GL.image.url }}" class="mfp-link"><i class="fa fa-search-plus"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                         {% endfor %}
+
+
+                     </div>
+                    <!-- GALLERY CONTENT END -->
+                </div>
+            </div>
+            <!-- GALLERY SECTION END -->
+
+        </div>
+        <!-- CONTENT END -->
+
+
+{% endblock content %}

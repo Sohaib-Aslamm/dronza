@@ -1,0 +1,317 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Shop</title> {% endblock title %}
+{% load  static %}
+
+{% block content %}
+
+
+        <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Your Products</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/sellDrone">Dronza Sell Point</a></li>
+                                    <li>Your Products</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+
+
+
+
+
+                <!-- SECTION CONTENT START -->
+            <div class="section-full p-t80 p-b50">
+                <div class="container">
+                    <div class="section-content">
+
+
+<div class="container-fluid mt-5">
+
+<div class="row container-fluid justify-content-end">
+
+    {% if user.is_authenticated %}
+        <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Product</button>
+    {% else %}
+        <a href="/user_login" class="btn bg-greeno white" >+ Add Product</a>
+    {% endif %}
+</div>
+
+    <table class="table table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Camera</th>
+      <th scope="col">Category</th>
+      <th scope="col">Thumbnail</th>
+      <th scope="col" class="text-center">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in SYDProducts %}
+    <tr>
+      <td>{{ data.title }}</td>
+      <td>{{ data.price }}</td>
+      <td>{{ data.camera }}</td>
+      <td>{{ data.category }}</td>
+      <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;" /></td>
+     <td class="text-center">
+          <a class="text-center mx-2" href="/DeleteHome/{{ data.id }}/sellerProduct"><i class="fa fa-trash fa-lg" style="color: red;"></i> Delete</a>
+      </td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</div>
+
+						 <ul class="pagination m-b0 p-b0">
+
+                            {% if SYDProducts.has_previous %}
+                          <li class="page-item"><a class="page-link" href="?page={{ SYDProducts.previous_page_number }}">Previous</a></li>
+                            {% endif %}
+
+                       <li class="page-item"><a class="page-link" href="/customerProduct?page=1">First</a></li>
+
+
+                        {% for tpl in pageList %}
+                          <li class="page-item"><a class="page-link" href="/customerProduct?page={{ tpl }}">{{ tpl }}</a></li>
+                        {% endfor %}
+
+                        {% if SYDProducts.has_next  %}
+                          <li class="page-item"><a class="page-link" href="?page={{ SYDProducts.next_page_number }}">Next</a></li>
+                          <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
+                            {% endif %}
+
+                        </ul>
+
+
+
+                    </div>
+                </div>
+            </div>
+             <!-- SECTION CONTENT END -->
+
+
+        </div>
+        <!-- CONTENT END -->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content text-greeno">
+      <div class="modal-header bg-greeno">
+        <h5 class="modal-title white" id="exampleModalLongTitle">Add Your Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="hidden" value="{{ user.id }}" name="user_id">
+
+      <div class="modal-body">
+
+           <div class="row mb-3">
+
+               <div class="col-3">
+                    <label>Your Name</label>
+                   <input type="text" class="form-control" name="name" required="required"
+                   placeholder="enter your name">
+                </div>
+                <div class="col-3">
+                    <label>Email</label>
+                       <input type="email" class="form-control" name="email" required="required"
+                       placeholder="enter email">
+                </div>
+              <div class="col-3">
+                    <label>Primary Contact</label>
+                         <input type="text" class="form-control" name="pPhone" required="required"
+                         placeholder="+92 333 3333333">
+                </div>
+            <div class="col-3">
+                    <label>Secondary Contact</label>
+                         <input type="text" class="form-control" name="sPhone" required="required"
+                         placeholder="+92 300 0000000">
+                </div>
+
+          </div>
+
+            <div class="row mb-3">
+
+                <div class="col-12">
+                    <label>Enter Location</label>
+                        <input type="text" class="form-control" name="location" required="required"
+                        placeholder="F-5, Blue area Islamabad, Pakistan">
+                </div>
+
+            </div>
+
+
+            <div class="row mb-3">
+
+
+                <div class="col-12">
+                    <label>Product Title</label>
+                        <input type="text" class="form-control" name="title" required="required"
+                        placeholder="product title (DJI Mavic 2)">
+                </div>
+
+            </div>
+
+          <div class="row mb-3">
+               <div class="col-4">
+                    <label>Category</label>
+                       <select class="form-control" name="category" required>
+                           <option value="Metal">Metal</option>
+                           <option value="Fabric">Fabric</option>
+                           <option value="Wireless">Wireless</option>
+                           <option value="Plastic">Plastic</option>
+                           <option value="Titanium">Titanium</option>
+                           <option value="Other">Other</option>
+                       </select>
+                </div>
+                <div class="col-4">
+                    <label>Condition</label>
+                         <select class="form-control" name="condition" required>
+                           <option value="Mint">Mint</option>
+                           <option value="Good">Good</option>
+                           <option value="Excellent">Excellent</option>
+                       </select>
+                </div>
+                <div class="col-4">
+                    <label>Price</label>
+                       <input type="text" class="form-control" name="price" required="required"
+                       placeholder="$100 / 3000 PKR">
+                </div>
+
+          </div>
+
+
+                <div class="row mb-4">
+
+                     <div class="col-4">
+                    <label>Camera</label>
+                       <input type="text" class="form-control" name="camera" required="required"
+                       placeholder="4K HD, 8K ">
+                </div>
+
+                    <div class="col-4">
+                            <label>Color</label>
+                                <input type="text" class="form-control" name="color" required="required"
+                                placeholder="Red, Blue, White">
+                        </div>
+
+                     <div class="col-4">
+                            <label>Flight Time</label>
+                                <input type="text" class="form-control" name="flight_time" required="required"
+                                placeholder="31 Minute">
+                        </div>
+
+                </div>
+
+
+            <div class="row mb-4">
+
+                <div class="col-3">
+                    <label>Label</label>
+                       <input type="text" class="form-control" name="label1" placeholder="Ex. Brand">
+                </div>
+                <div class="col-3">
+                    <label>Input</label>
+                        <input type="text" class="form-control" name="input1" placeholder="DJI">
+                </div>
+                <div class="col-3">
+                    <label>Label</label>
+                        <input type="text" class="form-control" name="label2" placeholder="Ex. Remote">
+                </div>
+                <div class="col-3">
+                    <label>Input</label>
+                       <input type="text" class="form-control" name="input2" placeholder="Yes">
+                </div>
+
+            </div>
+
+
+           <div class="row mb-4">
+
+                <div class="col-3">
+                    <label>Label</label>
+                       <input type="text" class="form-control" name="label3" placeholder="Ex. Rechargeable">
+                </div>
+                <div class="col-3">
+                    <label>Input</label>
+                       <input type="text" class="form-control" name="input3" placeholder="Yes">
+                </div>
+                <div class="col-3">
+                    <label>Label</label>
+                        <input type="text" class="form-control" name="label4" placeholder="Ex. Weight">
+                </div>
+                <div class="col-3">
+                    <label>Input</label>
+                        <input type="text" class="form-control" name="input4" placeholder="1 pound">
+                </div>
+
+            </div>
+
+
+            <div class="row mb-4">
+                <div class="col-12">
+                    <label>Description</label>
+                    <textarea type="text" class="form-control" name="description" required="required">Write here ...</textarea>
+                </div>
+
+            </div>
+
+          <div class="row mb-3">
+              <div class="col-4">
+                  <label>Thumbnail</label>
+                  <input type="file" class="form-control-file" name="thumbnail" required="required">
+              </div>
+              <div class="col-6">
+                  <label>Images (Multiple)</label>
+                  <input type="file" name="images" class="form-control-file" multiple />
+              </div>
+          </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn bg-greeno white">Save Post</button>
+      </div>
+             </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}

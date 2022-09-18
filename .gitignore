@@ -5,7 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
-
+media/
+static/
+dronza/settings.py
 # Distribution / packaging
 .Python
 build/

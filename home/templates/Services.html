@@ -1,0 +1,223 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Services</title> {% endblock title %}
+{% load static %}
+
+{% block content %}
+
+   <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/2.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Services</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/home">Home</a></li>
+                                    <li>Services</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+ 			<!-- ALL SERVICES START -->
+            <div class="section-full p-t80 p-b40 bg-no-repeat bg-bottom-right bg-cover" style="background-image:url({% static 'images/background/bg-7.html' %})">
+                <div class="container">
+
+
+                    <!-- TITLE START-->
+                        <div class="section-head left wt-small-separator-outer">
+                            <div class="wt-small-separator site-text-primary">
+                                <div class="sep-leaf-left"></div>
+                                <div>The Best Drone Services</div>
+                                <div class="sep-leaf-right"></div>
+                            </div>
+                            <h2>Explore Our Main Services</h2>
+                        </div>
+                    <!-- TITLE END-->
+
+                        <div class="section-content">
+                            <div class="row justify-content-center d-flex">
+
+                                {% for MS in RegularServices %}
+                                <div class="col-lg-4 col-md-6 m-b30">
+                                    <div class="wt-box d-icon-box-one bg-white shadow card1">
+
+                                        <div class="wt-icon-box-wraper m-b40">
+                                            <div class="icon-xl inline-icon">
+                                                <span class="icon-cell site-text-primary"><img src="{{ MS.icons.url }}"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-icon-box-title title-style-2 site-text-secondry">
+                                            <h3  class="s-title-one">{{ MS.title }}</h3>
+                                        </div>
+
+                                        <div class="d-icon-box-content">
+                                            <p>{{ MS.Description }}</p>
+                                            <a href="javascript:;" class="site-button-link site-text-primary">Read More</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            <!-- ALL SERVICES SECTION END -->
+
+
+
+ 			<!-- ALL SERVICES START -->
+            <div class="section-full p-t80 p-b40 bg-gray">
+
+
+                <div class="container">
+
+
+                    <!-- TITLE START-->
+
+					<div class="wt-separator-two-part">
+                    	<div class="row wt-separator-two-part-row">
+                        	<div class="col-lg-5 col-md-6 wt-separator-two-part-left">
+                                <!-- TITLE START-->
+                                <div class="section-head left wt-small-separator-outer">
+                                    <div class="wt-small-separator site-text-primary">
+                                        <div class="sep-leaf-left"></div>
+                                        <div>All Services</div>
+                                        <div class="sep-leaf-right"></div>
+                                    </div>
+                                    <h2>Explore Our Main Services</h2>
+                                </div>
+                                <!-- TITLE END-->
+                            </div>
+
+                            <div class="col-lg-7 col-md-6 wt-separator-two-part-right text-left">
+                                <p>We provide expert inspection services for your organization’s mission critical assets using drone technology.</p>
+                            </div>
+
+                    	</div>
+                    </div>
+
+                    <!-- TITLE END-->
+
+                    <div class="section-content">
+                        <div class="row justify-content-center d-flex">
+
+
+                            {% for EMS in MAINSERVICES %}
+                            <div class="col-lg-4 col-md-6 m-b30">
+                                <div class="imghvr-zoom-out-down grayscale-img">
+                                    <img src="{{ EMS.icons.url }}" alt="">
+                                    <div class="imghvr-content">
+                                    	<div class="imghvr-mid">
+                                            <h3 class="wt-title">{{ EMS.title }}</h3>
+                                            <p>{{ EMS.Description }}</p>
+                                            <a href="/DetailRecord/{{ EMS.id }}/MainService" class="site-button-link site-text-primary">Read More</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ALL SERVICES SECTION END -->
+
+			<!-- OUR PLAN US START -->
+            <div class="section-full p-t80 p-b50 bg-white">
+                <div class="container">
+                        <!-- TITLE START-->
+                        <div class="section-head center wt-small-separator-outer text-center">
+                            <div class="wt-small-separator site-text-primary">
+                                <div  class="sep-leaf-left"></div>
+                                <div>Comfortable</div>
+                                <div  class="sep-leaf-right"></div>
+                            </div>
+                            <h2>Pricing Table</h2>
+                        </div>
+                        <!-- TITLE END-->
+
+                        <div class="section-content">
+                            <div class="pricingtable-row">
+                                <div class="row d-flex justify-content-center">
+
+
+                                {% for PR in PRCDT %}
+
+                                    <div class="col-lg-4 col-md-6 col-sm-12 m-b30">
+                                        <div class="pricingtable-wrapper bg-white">
+
+                                            <div class="pricingtable-inner">
+
+                                                <div class="pricing-table-top-section">
+
+                                                    <div class="pricingtable-title">
+                                                        <h2 class="title-style-2">{{ PR.category }}</h2>
+                                                    </div>
+
+                                                    <div class="pricingtable-price">
+                                                        <h2 class="pricingtable-bx"><sup class="pricingtable-sign">$</sup>{{ PR.price }}</h2>
+                                                    </div>
+
+                                                </div>
+
+                                                <ul class="pricingtable-features">
+                                                  <li>{{ PR.feature1 }}</li>
+                                                    <li>{{ PR.feature2 }}</li>
+                                                    <li>{{ PR.feature3 }}</li>
+                                                    <li>{{ PR.feature4 }}</li>
+                                                    <li>{{ PR.feature5 }}</li>
+                                                </ul>
+
+                                                <div class="pricingtable-footer">
+                                                    <a href="javascript:void(0);" class="site-button site-btn-effect">Read More</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+            </div>
+            <!-- OUR PLAN US SECTION END -->
+
+
+
+        </div>
+        <!-- CONTENT END -->
+
+
+{% endblock content %}

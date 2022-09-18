@@ -1,0 +1,104 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Blog</title> {% endblock title %}
+{% load static %}
+
+{% block content %}
+
+   <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/1.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Dronza Blog</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/home">Home</a></li>
+                                    <li>Blog</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- OUR BLOG START -->
+            <div class="section-full  p-t80 p-b50 bg-white ">
+				<div class="container">
+
+                    <!-- BLOG SECTION START -->
+                    <div class="section-content">
+                        <div class="row d-flex justify-content-center">
+                        	<!--Block one-->
+
+                            {% for post in BLOGDATA %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <!--Block one-->
+                                <div class="blog-post date-style-2">
+
+                                    <div class="wt-post-info bg-white">
+                                        <div class="wt-post-meta ">
+                                            <ul>
+                                                <li class="post-date">{{ post.created_at }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title ">
+                                            <h3 class="post-title">{{ post.title }}</h3>
+                                        </div>
+                                        <div class="wt-post-text ">
+                                            <p>{{ post.heading }}</p>
+                                        </div>
+                                        <div class="wt-post-readmore ">
+                                            <a href="/postDetail/{{ post.sNo }}" class="site-button-link black">Read More</a>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                        <ul class="pagination m-b0 p-b0">
+
+                            {% if BLOGDATA.has_previous %}
+                          <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.previous_page_number }}">Previous</a></li>
+                            {% endif %}
+
+                       <li class="page-item"><a class="page-link" href="/blog?page=1">First</a></li>
+
+
+                        {% for tpl in pageList %}
+                          <li class="page-item"><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
+                        {% endfor %}
+
+                        {% if BLOGDATA.has_next  %}
+                          <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.next_page_number }}">Next</a></li>
+                          <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
+                            {% endif %}
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+             </div>
+            <!-- OUR BLOG END -->
+
+
+
+        </div>
+        <!-- CONTENT END -->
+
+{% endblock content %}

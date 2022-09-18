@@ -1,0 +1,207 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>About</title> {% endblock title %}
+{% load static %}
+{% block content %}
+
+ <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/3.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">About Us</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/home">Home</a></li>
+                                    <li>About</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+
+            {% for TD in TTDATA %}
+            <!-- ABOUT ONE SECTION START -->
+            <div class="section-full p-t80 p-b50 bg-gray">
+            	<div class="about-section-one">
+                    <div class="container">
+                        <div class="section-content">
+                            <div class="row justify-content-center d-flex">
+
+                                <div class="col-lg-6 col-md-12 m-b30">
+                                    <div class="about-drone-one">
+                                        <div class="about-drone-one-media"><img src="{{ TD.image.url }}" alt=""  class="slide-top"></div>
+                                        <div class="about-drone-one-info"><span class="outline-title">HD 4K</span><strong>Resolution!</strong></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12 m-b30">
+                                    <div class="about-section-one-right">
+                                    <!-- TITLE START-->
+                                    <div class="left wt-small-separator-outer">
+                                        <div class="wt-small-separator site-text-primary">
+                                            <div  class="sep-leaf-left"></div>
+                                            <div>About</div>
+                                            <div  class="sep-leaf-right"></div>
+                                        </div>
+                                        <h2>{{ TD.title }}</h2>
+                                        <p> {{ TD.description }} </p>
+
+
+                                    </div>
+                                    <!-- TITLE END-->
+                                    <ul class="site-list-style-one icon-style">
+                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature1 }}</li>
+                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature2 }}</li>
+                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature3 }}</li>
+                                    </ul>
+
+                                    <a href="/services" class="site-button site-btn-effect">Explore</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            <!-- ABOUT ONE SECTION END -->
+
+<!-- QUALITY SECTION START -->
+            <div class="section-full p-t80 overlay-wraper bg-top-center bg-center" style="background-image:url({% static 'Assets/dronza_images/background/bg-1.jpg' %})">
+            	<div class="overlay-main bg-black opacity-08"></div>
+                <div class="container">
+                    <!-- TITLE START-->
+                    <div class="section-head center wt-small-separator-outer text-center text-white">
+                        <div class="wt-small-separator site-text-white">
+                            <div  class="sep-leaf-left"></div>
+                            <div>About Quality</div>
+                            <div  class="sep-leaf-right"></div>
+                        </div>
+                        <h2>We're about Quality and Trust.</h2>
+                    </div>
+                    <!-- TITLE END-->
+                </div>
+
+                <div class="section-content quality-section-outer bg-white">
+                    <div class="container">
+                        <div class="quality-section-content">
+                            <div class="row justify-content-center">
+
+
+                                {% for QTD in QTDATA %}
+                                <div class="col-lg-4 col-md-12 m-b30">
+                                    <div class="corner-line">
+                                        <div class="wt-box d-icon-box-one bg-white shadow ">
+
+                                            <div class="wt-icon-box-wraper m-b40">
+                                                <div class="icon-xl inline-icon">
+                                                   <span class="icon-cell site-text-primary"><img src="{{ QTD.icon.url }}"> </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-icon-box-title title-style-2 site-text-secondry">
+                                                <h3  class="s-title-one">{{ QTD.title }}</h3>
+                                            </div>
+
+                                            <div class="d-icon-box-content">
+                                                <p>{{ QTD.Description }}</p>
+                                                <a href="#" class="site-button-link site-text-primary">Read More</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <div class="quality-video-section">
+                            <span>Delivering help and hope to people through sponsorship</span>
+                            <div class="quality-video">
+                                 <a href="https://www.youtube.com/watch?v=c1XNqw2gSbU" class="mfp-video play-now">
+                                    <i class="icon fa fa-play"></i>
+                                    <span class="ripple"></span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- QUALITY SECTION END -->
+
+
+            <!-- OUR TEAM START -->
+            <div class="section-full p-t80 p-b50 bg-gray team-bg-section-outer">
+            	<div class="team-bg-map site-bg-secondry bg-repeat-x" style="background-image:url({% static 'images/background/bg-map2.html' %})"></div>
+                <div class="container">
+                    <div class="section-content">
+
+                    <!-- TITLE START-->
+                    <div class="section-head center wt-small-separator-outer text-center">
+                        <div class="wt-small-separator site-text-primary">
+                            <div  class="sep-leaf-left"></div>
+                            <div>Our Experts</div>
+                            <div  class="sep-leaf-right"></div>
+                        </div>
+                        <h2>Expert team</h2>
+                    </div>
+                    <!-- TITLE END-->
+
+                    <div class="section-content">
+                        <div class="row justify-content-center">
+
+                            {% for TMD in TMDATA %}
+							<div class="col-lg-4 col-md-6 col-sm-12 m-b30">
+                                <div class="wt-team-1">
+
+                                    <div class="wt-media">
+                                        <img src="{{ TMD.profile.url }}" alt="">
+                                    </div>
+
+                                    <div class="wt-info">
+                                        <div class="team-detail p-t30">
+                                            <span class="title-style-2 team-position site-text-primary">{{ TMD.designation }}</span>
+                                            <h3 class="m-t0 team-name"><a href="/teamDetail">{{ TMD.name }}</a></h3>
+                                        </div>
+                                        <div class="team-social-center">
+                                            <ul class="team-social-bar">
+                                                <li><a href="{{ TMD.socialmedia1 }}" target="_blank">Linkedin</a></li>
+                                                <li><a href="{{ TMD.socialmedia2 }}" target="_blank">Facebook</a></li>
+                                                <li><a href="{{ TMD.socialmedia3 }}" target="_blank">Twitter</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- OUR TEAM SECTION END -->
+        </div>
+        <!-- CONTENT END -->
+{% endblock content %}

@@ -1,0 +1,241 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Services</title> {% endblock title %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'images/banner/5.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Dronza Product Detail</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/shop">Dronza Shop</a></li>
+                                    <li>Product Detail</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- SECTION CONTENT START -->
+            <div class="section-full p-t80 p-b80">
+
+                <!-- PRODUCT DETAILS -->
+                <div class="container woo-entry">
+
+         <div class="col-lg-6 col-md-12  m-b30">
+                     <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
+
+
+ {% for img in prd_images %}
+
+                        <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 ">
+                            <div class="galleryhvr-zoom-out-down">
+ <div class="card shadow-lg rounded">
+                                <img src="{{ img.images.url }}" alt="">
+
+                                <div class="galleryhvr-content">
+                                    <div class="galleryhvr-mid">
+                                        <a href="{{ img.images.url }}" class="mfp-link"><i class="fa fa-search-plus"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+     </div>
+ {% endfor %}
+
+                     </div>
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                        	<div class="product-detail-info p-a30">
+                                <div class="single-product-title ">
+                                    <h2 class="post-title"><a href="javascript:void(0);">{{ shpDetail.name }}</a></h2>
+                                </div>
+                                <div class="product-single-price">
+                                	<span class="p-single-old-price">${{ shpDetail.cPrice }}</span>
+                                    <span class="p-single-new-price">${{ shpDetail.price }}</span>
+                                </div>
+
+							<div class="product-single-availability">
+								Availability: <span>{{ shpDetail.availability }}</span>
+							</div>
+                                <div class="product-single-rating">
+                                    <span class="rating-bx">
+                                     <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                                </div>
+
+
+
+                                <div class="cart clearfix ">
+
+                                    <div class="quantity btn-quantity m-b20">
+                                        <div class="input-group bootstrap-touchspin"><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="demo_vertical2" type="text" value="1" name="demo_vertical2" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn-vertical"><button class="btn btn-default bootstrap-touchspin-up" type="button"><i class="fa fa-plus"></i></button><button class="btn btn-default bootstrap-touchspin-down" type="button"><i class="fa fa-minus"></i></button></span></div>
+                                    </div>
+                                    <a href="/cart/add/{{ shpDetail.id }}"> <button class="site-button site-btn-effect m-b20">Add to Cart</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABS CONTENT START -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="wt-tabs border bg-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li><a data-toggle="tab" href="#web-design-19" class="active">Description</a></li>
+                                    <li><a data-toggle="tab" href="#graphic-design-19"> Additional information</a></li>
+                                    <li><a data-toggle="tab" href="#developement-19">Review</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="web-design-19" class="tab-pane active">
+                                        <div class=" p-a10">
+                                            <p class="m-b10">{{ shpDetail.description }}</p>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div id="graphic-design-19" class="tab-pane">
+                                        <table class="table m-b0 no-border">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Camera</b></td>
+                                                <td>{{ shpDetail.resolution }}</td>
+                                             </tr>
+                                             <tr>
+                                                <td><b>Color</b></td>
+                                                <td>{{ shpDetail.color }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>Flight Time</b></td>
+                                                <td>{{ shpDetail.flight_time }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label1 }}</b></td>
+                                                <td>{{ shpDetail.input1 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label2 }}</b></td>
+                                                <td>{{ shpDetail.input2 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label3 }}</b></td>
+                                                <td>{{ shpDetail.input3 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label4 }}</b></td>
+                                                <td>{{ shpDetail.input4 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label5 }}</b></td>
+                                                <td>{{ shpDetail.input5 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label6 }}</b></td>
+                                                <td>{{ shpDetail.input6 }}</td>
+                                            </tr>
+
+
+
+
+                                        </tbody></table>
+                                    </div>
+                                    <div id="developement-19" class="tab-pane">
+                                        <div class="bg-white p-a10">
+                                            <div id="comments">
+                                                <ol class="commentlist">
+                                                    <li class="comment">
+
+                                                        {% for cmnt in coments %}
+                                                        <div class="comment_container">
+                                                            <img class="avatar avatar-60 photo" src="{% static 'Assets/Dronza_images/testimonials/pic1.jpg' %}" alt="">
+                                                            <div class="comment-text">
+
+                                                                <p class="meta">
+                                                                    <strong class="author">{{ cmnt.author }}</strong>
+                                                                    <span><i class="fa fa-clock-o"></i> {{ cmnt.timestamp }}</span>
+                                                                </p>
+                                                                <div class="description">
+                                                                    <p>{{ cmnt.review }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                            <div id="review_form_wrapper">
+                                                <div id="review_form">
+                                                        <div id="respond" class="comment-respond">
+                                                            <h3 class="comment-reply-title" id="reply-title">Add a review</h3>
+                                                            <form class="comment-form" method="POST" action="/prodReview">
+
+                                                                {% csrf_token %}
+
+                                                                <input type="hidden" id="pdsNo" name="pdsNo" value="{{ shpDetail.id }}">
+
+                                                                <div class="comment-form-author">
+                                                                    <label>Name <span class="required">*</span></label>
+                                                                    <input type="text" aria-required="true" size="30" value="" name="author" id="author">
+                                                                </div>
+                                                                <div class="comment-form-email">
+                                                                    <label>Email <span class="required">*</span></label>
+                                                                    <input type="text" aria-required="true" size="30" value="" name="email" id="email">
+                                                                </div>
+
+                                                                <div class="comment-form-comment">
+                                                                    <label>Your Review</label>
+                                                                    <textarea aria-required="true" rows="8" cols="45" name="review" id="review"></textarea>
+                                                                </div>
+                                                                <div class="form-submit">
+                                                                    <button class="site-button site-btn-effect" type="submit">Submit</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TABS CONTENT START -->
+
+
+
+
+                </div>
+                <!-- PRODUCT DETAILS -->
+
+            </div>
+            <!-- CONTENT CONTENT END -->
+
+        </div>
+
+{% endblock content %}

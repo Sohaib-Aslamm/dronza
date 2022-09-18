@@ -1,0 +1,197 @@
+{% extends 'baseHome.html' %}
+
+{% block title %} <title>Post Detail</title> {% endblock title %}
+{% load static %}
+
+{% block content %}
+
+
+        <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            	<div class="overlay-main site-bg-primary opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">Blog Detail</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li>Post Detail</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- OUR BLOG START -->
+            <div class="section-full  p-t80 p-b50 bg-white">
+				<div class="container">
+
+                    <!-- BLOG SECTION START -->
+                    <div class="section-content">
+                        <div class="row d-flex justify-content-center">
+
+                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 m-b30">
+                               <!-- BLOG START -->
+                                      {% for data in rdPost %}
+                                <div class="blog-post blog-style-1">
+                                    <div class="wt-post-media wt-img-effect zoom-slow">
+                                        <a href="javascript:;"><img src={{ data.Icon.url }} alt=""></a>
+                                    </div>
+                                    <div class="wt-post-info  bg-white p-t30">
+                                        <div class="wt-post-meta ">
+                                            <ul>
+                                                <li class="post-category">Steel Drone</li>
+                                                <li class="post-date">{{ data.created_at }}</li>
+                                                <li class="post-comment">08 Comment</li>
+                                            </ul>
+                                        </div>
+										<div class="wt-post-title ">
+                                            <h3 class="post-title">{{ data.title }}</h3>
+                                        </div>
+
+                                        <div class="wt-post-text">
+
+                                               <h4>{{ data.heading }}</h4>
+                                           <p>{{ data.description | safe }}</p>
+                                             <blockquote>
+                                                <i class="fa fa-quote-left font-20"></i>
+                                                <p>{{ data.quote }} </p>
+                                                <span class="quoter" style="color: #d72323;">- {{ data.quote_by }}</span>
+                                             </blockquote>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+
+                                <div class="widget bg-white  widget_tag_cloud">
+                                    <h4 class="tagcloud">Tags</h4>
+                                    <div class="tagcloud">
+                                        <a href="javascript:void(0);">Analytics</a>
+                                        <a href="javascript:void(0);">Business </a>
+                                        <a href="javascript:void(0);">Consulting</a>
+                                        <a href="javascript:void(0);">Solutions </a>
+                                        <a href="javascript:void(0);">Development</a>
+                                        <a href="javascript:void(0);">Stock</a>
+                                        <a href="javascript:void(0);">Finance</a>
+                                        <a href="javascript:void(0);">Innovation</a>
+                                        <a href="javascript:void(0);">Investing</a>
+                                        <a href="javascript:void(0);">Strategic</a>
+                                        <a href="javascript:void(0);">Management</a>
+                                    </div>
+                                </div>
+
+                        <div class="clear" id="comment-list">
+                                    <div class="comments-area" id="comments">
+                                        <div>
+                                            <!-- COMMENT LIST START -->
+                                            <ol class="comment-list">
+                                              
+
+                                                <li class="comment">
+                                                    <!-- COMMENT BLOCK -->
+
+                                                    {% for coments in coments %}
+
+                                                    <div class="comment-body">
+                                                        <div class="comment-author vcard">
+                                                            <img  class="avatar photo" src={% static 'Assets/dronza_images/testimonials/user.png' %} alt="">
+                                                            <cite class="fn">{{ coments.author }}</cite>
+                                                            <span class="says">says:</span>
+                                                        </div>
+                                                        <div class="comment-meta">
+                                                            <a href="javascript:void(0);">{{ coments.timestamp }}</a>
+                                                        </div>
+                                                        <p>{{ coments.comment }}</p>
+                                                        <!--<div class="reply">-->
+                                                        <!--    <a href="javscript:;" class="comment-reply-link">Reply</a>-->
+                                                        <!--</div>-->
+                                                    </div>
+
+                                                    {% endfor %}
+
+                                                </li>
+                                            </ol>
+                                            <!-- COMMENT LIST END -->
+
+                                            <!-- LEAVE A REPLY START -->
+                                            <div class="comment-respond m-t30" id="respond">
+
+                                                <h2 class="comment-reply-title" id="reply-title">Add a Review
+                                                    <small>
+                                                        <a style="display:none;" href="#" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a>
+                                                    </small>
+                                                </h2>
+
+
+                                               <form class="comment-form" id="commentform" method="POST" action="/blogReview">
+                                                    {% csrf_token %}
+
+                                                   {% for post in rdPost %}
+                                                       <input type="hidden" id="postSno" name="postSno" value="{{ post.sNo }}">
+                                                   {% endfor %}
+                                                    <p class="comment-form-author">
+                                                        <label for="author">Name <span class="required">*</span></label>
+                                                        <input class="form-control" type="text" value="" name="author"  placeholder="Your name" id="author" required>
+                                                    </p>
+
+                                                    <p class="comment-form-email">
+                                                        <label for="email">Email <span class="required">*</span></label>
+                                                        <input class="form-control" type="text" value="" name="email" id="email" placeholder="Email" required>
+                                                    </p>
+
+
+
+                                                    <p class="comment-form-comment">
+                                                        <label for="comment">Comment</label>
+                                                        <textarea class="form-control" rows="8" name="comment" placeholder="comment" id="comment" required></textarea>
+                                                    </p>
+
+                                                    <p class="form-submit">
+                                                        <button class="site-button site-btn-effect" type="submit">Submit</button>
+                                                    </p>
+
+                                                </form>
+
+
+                                            </div>
+                                            <!-- LEAVE A REPLY END -->
+                                       </div>
+                                    </div>
+                                </div>
+                                <!-- BLOG END -->
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+             </div>
+            <!-- OUR BLOG END -->
+
+
+
+        </div>
+        <!-- CONTENT END -->
+
+
+{% endblock content %}

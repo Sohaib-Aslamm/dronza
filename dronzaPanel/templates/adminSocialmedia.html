@@ -1,0 +1,161 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Social Media | Section</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Social Media Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire">Social Media</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+<div class="container-fluid mt-5">
+
+<div class="row container-fluid justify-content-end">
+{#    {% if SMdata > 0 %}#}
+        <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Media</button>
+{#    {% else %}#}
+
+{#    {% endif %}#}
+
+</div>
+
+    <table class="table table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Skype</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Github</th>
+      <th scope="col">Linkedin</th>
+      <th scope="col">Google Plus</th>
+      <th scope="col">Youtube</th>
+      <th scope="col">facebook</th>
+      <th scope="col">Twitter</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in SMdata %}
+    <tr>
+      <td>{{ data.email }}</td>
+      <td>{{ data.skype }}</td>
+      <td>{{ data.phone }}</td>
+      <td>{{ data.github }}</td>
+      <td>{{ data.linkedin }}</td>
+      <td>{{ data.google_plus }}</td>
+      <td>{{ data.youtube }}</td>
+      <td>{{ data.facebook }}</td>
+      <td>{{ data.twitter }}</td>
+     <td class="text-center">
+          <a class="text-center mx-2" href="/Update/{{ data.id }}/socialMedia"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
+          <a class="text-center mx-2" href="/Delete/{{ data.id }}/socialMedia"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+      </td>
+        </tr>
+  {% endfor %}
+
+  </tbody>
+
+</table>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-greeno">
+        <h5 class="modal-title white" id="exampleModalLongTitle">Social Media Section</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+      <div class="modal-body">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Email</label>
+                    {{ form.email }}
+                </div>
+                 <div class="col-3">
+                    <label class="white">Skype</label>
+                    {{ form.skype }}
+                </div>
+                 <div class="col-3">
+                    <label class="white">Phone</label>
+                    {{ form.phone }}
+                </div>
+
+            </div>
+          <div class="row mb-3">
+                 <div class="col-4">
+                    <label class="white">Github</label>
+                    {{ form.github }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Linkedin</label>
+                    {{ form.linkedin }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Google+</label>
+                    {{ form.google_plus }}
+                </div>
+            </div>
+
+           <div class="row mb-3">
+                 <div class="col-4">
+                    <label class="white">Youtube</label>
+                    {{ form.youtube }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Facebook</label>
+                    {{ form.facebook }}
+                </div>
+               <div class="col-4">
+                    <label class="white">Twitter</label>
+                    {{ form.twitter }}
+                </div>
+            </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn bg-greeno white">Save Media</button>
+      </div>
+             </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}
