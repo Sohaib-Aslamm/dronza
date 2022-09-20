@@ -12,8 +12,7 @@ from django.core.paginator import Paginator
 
 from django.contrib.auth.decorators import login_required
 
-from cart.cart import Cart
-
+import stripe
 
 # Create your views here.
 
@@ -386,8 +385,6 @@ def trackOrder(request):
     product_orders = Place_Order.objects.filter(user_id=u_id).order_by('-id')[:9]
     context = {'product_orders': product_orders}
     return render(request, 'track_order.html', context)
-    
-    
 
 # <------------------------------------------ Detail Of Records ------------------------------------>
 
