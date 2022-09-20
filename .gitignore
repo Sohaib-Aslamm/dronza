@@ -7,8 +7,8 @@ __pycache__/
 *.so
 media/
 static/
-home/migrations
-dronzaPanel/migrations
+home/migrations/
+dronzaPanel/migrations/
 dronza/settings.py
 # Distribution / packaging
 .Python
