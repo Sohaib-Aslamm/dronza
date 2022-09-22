@@ -10,7 +10,7 @@ from django.contrib.auth.models import Group
 from home.models import hello
 from home.models import contact_us, Place_Order
 from django.contrib.auth import authenticate,  login as auth_login, logout
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib import messages
@@ -669,18 +669,13 @@ def Delete(request, id, type):
         return redirect('/adminOurPartner')
 
 
-
-
-
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-
 @login_required(login_url='/user_login')
-@admin_only
 def Update(request, id, type):
     if type == 'adminabout':
-        if request.method =='POST':
+        if request.method == 'POST':
             UpdateRecord = AboutTitlePost.objects.get(id=id)
             UpdateForm = AboutTitlePostForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
@@ -692,7 +687,7 @@ def Update(request, id, type):
         return render(request, 'Update/updateAboutTitlePost.html', {'form': UpdateForm})
 
     if type == 'adminqualityTrust':
-        if request.method =='POST':
+        if request.method == 'POST':
             UpdateRecord = QualityTrust.objects.get(id=id)
             UpdateForm = QualityTrustForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
@@ -704,7 +699,7 @@ def Update(request, id, type):
         return render(request, 'Update/updateQualityTrust.html', {'form': UpdateForm})
 
     if type == 'team':
-        if request.method =='POST':
+        if request.method == 'POST':
             UpdateRecord = OurTeam.objects.get(id=id)
             UpdateForm: OurTeamForm = OurTeamForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
@@ -716,7 +711,7 @@ def Update(request, id, type):
         return render(request, 'Update/updateOurTeam.html', {'form': UpdateForm})
 
     if type == 'servicesType':
-        if request.method =='POST':
+        if request.method == 'POST':
             UpdateRecord = ServicesTypes.objects.get(id=id)
             UpdateForm = ServicesTypeForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
@@ -728,7 +723,7 @@ def Update(request, id, type):
         return render(request, 'Update/updateServicesType.html', {'form': UpdateForm})
 
     if type == 'pricing':
-        if request.method =='POST':
+        if request.method == 'POST':
             UpdateRecord = Pricing.objects.get(id=id)
             UpdateForm = PricingForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
@@ -752,15 +747,18 @@ def Update(request, id, type):
         return render(request, 'Update/updateGallery.html', {'form': UpdateForm})
 
     if type == 'blog':
+
+        UpdateForm = userBlog.objects.get(sNo=id)
         if request.method == 'POST':
-            UpdateRecord = userBlog.objects.get(sNo=id)
-            UpdateForm = userBlogForm(request.POST, request.FILES, instance=UpdateRecord)
-            if UpdateForm.is_valid():
-                UpdateForm.save()
-                return redirect('/adminblog')
-        else:
-            UpdateRecord = userBlog.objects.get(sNo=id)
-            UpdateForm = userBlogForm(instance=UpdateRecord)
+            UpdateForm.title = request.POST.get('title')
+            UpdateForm.heading = request.POST.get('heading')
+            UpdateForm.tags = request.POST.get('tags')
+            UpdateForm.quote = request.POST.get('quote')
+            UpdateForm.quote_by = request.POST.get('quote_by')
+            UpdateForm.description = request.POST.get('editor1')
+            UpdateForm.save()
+            return HttpResponseRedirect('/adminblog')
+
         return render(request, 'Update/updateBlog.html', {'form': UpdateForm})
 
     if type == 'socialMedia':
@@ -775,7 +773,6 @@ def Update(request, id, type):
             UpdateForm = SocialMediaForm(instance=UpdateRecord)
         return render(request, 'Update/updateSocialMedia.html', {'form': UpdateForm})
 
-
     if type == 'HomeSlider':
         if request.method == 'POST':
             UpdateRecord = MainSlider.objects.get(id=id)
@@ -787,8 +784,6 @@ def Update(request, id, type):
             UpdateRecord = MainSlider.objects.get(id=id)
             UpdateForm = MainSliderForm(instance=UpdateRecord)
         return render(request, 'Update/updateHomeSlider.html', {'form': UpdateForm})
-
-
 
     if type == 'HowItWork':
         if request.method == 'POST':
@@ -802,8 +797,6 @@ def Update(request, id, type):
             UpdateForm = HomeHIWForm(instance=UpdateRecord)
         return render(request, 'Update/updateHowItWork.html', {'form': UpdateForm})
 
-
-
     if type == 'HowToUse':
         if request.method == 'POST':
             UpdateRecord = HomeHTU.objects.get(id=id)
@@ -815,8 +808,6 @@ def Update(request, id, type):
             UpdateRecord = HomeHTU.objects.get(id=id)
             UpdateForm = HomeHTUForm(instance=UpdateRecord)
         return render(request, 'Update/updateHowToUse.html', {'form': UpdateForm})
-
-
 
     if type == 'HomeAbout':
         if request.method == 'POST':
@@ -830,8 +821,6 @@ def Update(request, id, type):
             UpdateForm = HomeAboutForm(instance=UpdateRecord)
         return render(request, 'Update/updateHomeAbout.html', {'form': UpdateForm})
 
-
-
     if type == 'Products':
         if request.method == 'POST':
             UpdateRecord = Products.objects.get(id=id)
@@ -843,8 +832,6 @@ def Update(request, id, type):
             UpdateRecord = Products.objects.get(id=id)
             UpdateForm = ProductsForm(instance=UpdateRecord)
         return render(request, 'Update/updateDroneProducts.html', {'form': UpdateForm})
-
-
 
     if type == 'amazonProducts':
         if request.method == 'POST':
@@ -858,7 +845,6 @@ def Update(request, id, type):
             UpdateForm = amazonProductsForm(instance=UpdateRecord)
         return render(request, 'Update/updateAmazonProduct.html', {'form': UpdateForm})
 
-
     if type == 'SRFP':
         if request.method == 'POST':
             UpdateRecord = HomeSRFP.objects.get(id=id)
@@ -870,8 +856,6 @@ def Update(request, id, type):
             UpdateRecord = HomeSRFP.objects.get(id=id)
             UpdateForm = HomeSRFPForm(instance=UpdateRecord)
         return render(request, 'Update/updateHomeSRFP.html', {'form': UpdateForm})
-
-
 
     if type == 'VideoGallery':
         if request.method == 'POST':
@@ -885,8 +869,6 @@ def Update(request, id, type):
             UpdateForm = VideoGalleryForm(instance=UpdateRecord)
         return render(request, 'Update/updateHomeVideoGallery.html', {'form': UpdateForm})
 
-
-
     if type == 'PeopleSay':
         if request.method == 'POST':
             UpdateRecord = WhatPeopleSay.objects.get(id=id)
@@ -898,8 +880,6 @@ def Update(request, id, type):
             UpdateRecord = WhatPeopleSay.objects.get(id=id)
             UpdateForm = WhatPeopleSForm(instance=UpdateRecord)
         return render(request, 'Update/updatePeopleSay.html', {'form': UpdateForm})
-
-
 
     if type == 'OurPartner':
         if request.method == 'POST':
