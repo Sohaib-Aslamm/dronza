@@ -14,7 +14,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib import messages
-
+from django.core.paginator import Paginator
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -497,28 +497,30 @@ def adminsocial_media(request):
     return render(request, 'adminSocialmedia.html', {'form': SMFM, 'SMdata': SMdata})
 
 
+
 @login_required(login_url='/user_login')
 @admin_only
 def adminuser_blog(request):
     if request.method == 'POST':
-        BLGFM = userBlogForm(request.POST, request.FILES)
-        if BLGFM.is_valid():
-            TIT = BLGFM.cleaned_data['title']
-            HD = BLGFM.cleaned_data['heading']
-            TGS = BLGFM.cleaned_data['tags']
-            QT = BLGFM.cleaned_data['quote']
-            QTBY = BLGFM.cleaned_data['quote_by']
-            DSC = BLGFM.cleaned_data['description']
-            ICN = BLGFM.cleaned_data['Icon']
-            CRA = BLGFM.cleaned_data['created_at']
-            reg = userBlog(title=TIT, heading=HD, tags=TGS, quote=QT, quote_by=QTBY, description=DSC, Icon=ICN,
-                           created_at=CRA)
-            reg.save()
-            BLGFM = userBlogForm()
-    else:
-        BLGFM = userBlogForm()
-    BLGdata = userBlog.objects.all()
-    return render(request, 'adminBlog.html', {'form': BLGFM, 'BLGdata': BLGdata})
+        TIT = request.POST.get('title')
+        HD = request.POST.get('heading')
+        TGS = request.POST.get('tags')
+        QT = request.POST.get('quote')
+        QTBY = request.POST.get('quote_by')
+        CRA = request.POST.get('created_at')
+        DSC = request.POST.get('editor1')
+        ICN = request.FILES['icon']
+        reg = userBlog(title=TIT, heading=HD, tags=TGS, quote=QT, quote_by=QTBY, description=DSC, Icon=ICN,
+                       created_at=CRA)
+        reg.save()
+
+    BLGdata = userBlog.objects.all().order_by('-sNo')
+    paginator = Paginator(BLGdata, 10)
+    pageNo = request.GET.get('page')
+    BLGdataFINAL = paginator.get_page(pageNo)
+    totalPages = BLGdataFINAL.paginator.num_pages
+    context = {'BLGdata': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+    return render(request, 'adminBlog.html', context)
 
 
 @admin_only

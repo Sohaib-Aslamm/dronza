@@ -12,6 +12,7 @@ from django.core.paginator import Paginator
 
 from django.contrib.auth.decorators import login_required
 
+from cart.cart import Cart
 import stripe
 
 # Create your views here.
@@ -283,8 +284,8 @@ def thankyou(request):
 
 def orderDone(request):
     return render(request, 'Order_Done.html')
-    
-    
+
+
 def error404(request):
     return render(request, 'error404.html')
 
@@ -435,9 +436,9 @@ def DetailRecord(request, id, type):
             return redirect('/orders')
 
         return render(request, 'order_detail.html', context)
-        
-        
-        
+
+
+
     if type == 'track_order':
 
         Record = Place_Order.objects.get(id=id)
