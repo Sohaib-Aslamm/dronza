@@ -1,24 +1,25 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
     GalleryForm, userBlogForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
     ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, amazonProductsForm
-from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog,\
-    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner,\
+from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
+    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
     productImages, amazonProduct, amazonProductImages
 
 from django.contrib.auth.models import Group
 
 from home.models import hello
 from home.models import contact_us, Place_Order
-from django.contrib.auth import authenticate,  login as auth_login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib import messages
 from django.core.paginator import Paginator
+
+
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
 @unauthenticated_user
@@ -53,11 +54,9 @@ def user_login(request):
     return render(request, 'login.html')
 
 
-
 def user_logout(request):
     logout(request)
     return redirect('/admin')
-
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insert Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -70,14 +69,11 @@ def adminHome(request):
     return render(request, 'HomeAdmin.html', {'my_messages': my_messages})
 
 
-
 @login_required(login_url='/user_login')
 @admin_only
 def viewMessage(request, id):
     messages_detail = contact_us.objects.get(id=id)
     return render(request, 'viewMessages.html', {'messages_detail': messages_detail})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -101,7 +97,6 @@ def adminHomeSlider(request):
     return render(request, 'adminHomeSlider.html', {'SLDT': SLDT, 'form': MSFM})
 
 
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminHowItWork(request):
@@ -118,7 +113,6 @@ def adminHowItWork(request):
         HIWFM = HomeHIWForm()
     HIWDT = HomeHIW.objects.all()
     return render(request, 'adminHomeHowitWork.html', {'HIWDT': HIWDT, 'form': HIWFM})
-
 
 
 @login_required(login_url='/user_login')
@@ -160,7 +154,6 @@ def adminHomeAbout(request):
     return render(request, 'adminHomeAbout.html', {'form': HABTFM, 'HABDT': HABDT})
 
 
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminDroneProducts(request):
@@ -191,12 +184,11 @@ def adminDroneProducts(request):
             input6 = PRDTFM.cleaned_data['input6']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['image']
-            reg = Products(name=TIT, cPrice=CPR, price=DPR, availability=AVLBTY, color=CLR,  category=CTR,
+            reg = Products(name=TIT, cPrice=CPR, price=DPR, availability=AVLBTY, color=CLR, category=CTR,
                            featured=FTRD, description=DESC, flight_time=FLTM, resolution=RSL, label1=lbl1,
                            label2=lbl2, label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, input1=input1,
                            input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, image=ICON)
             reg.save()
-
 
             latest_id = Products.objects.latest('id').id
 
@@ -204,13 +196,11 @@ def adminDroneProducts(request):
                 products = productImages(images=f, Product_ID_id=latest_id)
                 products.save()
 
-
             PRDTFM = ProductsForm()
     else:
         PRDTFM = ProductsForm()
     PRDTDT = Products.objects.all()
     return render(request, 'adminDroneProducts.html', {'form': PRDTFM, 'PRDTDT': PRDTDT})
-
 
 
 @login_required(login_url='/user_login')
@@ -237,9 +227,11 @@ def adminAmazonProducts(request):
             BLINK = PRDTFM.cleaned_data['buyLink']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['mainIcon']
-            reg = amazonProduct(title=TIT, cPrice=CPR, dPrice=DPR, availability=AVLBTY, brand=BRND, color=CLR, itemWeight=ITMWT,
-                           controlType=CTRTP, category=CTGRY, remoteControl=RMCTR, batteryCell=BTRCL, Rechargeable=RCHRG, flight_time=FLTTIME,
-                           camera=CMRA, buyLink=BLINK, description=DESC, mainIcon=ICON)
+            reg = amazonProduct(title=TIT, cPrice=CPR, dPrice=DPR, availability=AVLBTY, brand=BRND, color=CLR,
+                                itemWeight=ITMWT,
+                                controlType=CTRTP, category=CTGRY, remoteControl=RMCTR, batteryCell=BTRCL,
+                                Rechargeable=RCHRG, flight_time=FLTTIME,
+                                camera=CMRA, buyLink=BLINK, description=DESC, mainIcon=ICON)
             reg.save()
 
             latest_id = amazonProduct.objects.latest('sNo').sNo
@@ -248,13 +240,11 @@ def adminAmazonProducts(request):
                 products = amazonProductImages(images=f, Product_ID_id=latest_id)
                 products.save()
 
-
             PRDTFM = amazonProductsForm()
     else:
         PRDTFM = amazonProductsForm()
     PRDTDT = amazonProduct.objects.all()
     return render(request, 'amazonProduct.html', {'form': PRDTFM, 'PRDTDT': PRDTDT})
-
 
 
 @login_required(login_url='/user_login')
@@ -276,7 +266,6 @@ def adminHomeSRFP(request):
     return render(request, 'adminHomeSRFP.html', {'form': SRFPFM, 'SRFPDT': SRFPDT})
 
 
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminVideoGallery(request):
@@ -292,7 +281,6 @@ def adminVideoGallery(request):
         HVGFM = VideoGalleryForm()
     HVGDT = VideoGallery.objects.all()
     return render(request, 'adminHomeVideoGallery.html', {'form': HVGFM, 'HVGDT': HVGDT})
-
 
 
 @login_required(login_url='/user_login')
@@ -312,7 +300,6 @@ def adminPeopleSay(request):
         WPSFM = WhatPeopleSForm()
     WPSDT = WhatPeopleSay.objects.all()
     return render(request, 'adminPeopleSay.html', {'form': WPSFM, 'WPSDT': WPSDT})
-
 
 
 @login_required(login_url='/user_login')
@@ -354,8 +341,6 @@ def adminaboutTitlePost(request):
     return render(request, 'adminaboutTitlePost.html', {'form': ABFM, 'ABTMD': ABTMD})
 
 
-
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminQualityTrust(request):
@@ -372,8 +357,6 @@ def adminQualityTrust(request):
         QTFM = QualityTrustForm()
     data = QualityTrust.objects.all()
     return render(request, 'adminQualityTrust.html', {'form': QTFM, 'QTdata': data})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -397,8 +380,6 @@ def adminOurTeam(request):
     return render(request, 'adminOurTeam.html', {'form': OUTFM, 'OUTdata': data})
 
 
-
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminServicesType(request):
@@ -417,7 +398,8 @@ def adminServicesType(request):
             HL6 = STFM.cleaned_data['highlight6']
             DSC = STFM.cleaned_data['Description']
             ICNS = STFM.cleaned_data['icons']
-            reg = ServicesTypes(title=TIT, Description=DSC, quote=QT, quote_by=QTB, type=type, highlight1=HL1, highlight2=HL2,
+            reg = ServicesTypes(title=TIT, Description=DSC, quote=QT, quote_by=QTB, type=type, highlight1=HL1,
+                                highlight2=HL2,
                                 highlight3=HL3, highlight4=HL4, highlight5=HL5, highlight6=HL6, icons=ICNS)
             reg.save()
             STFM = ServicesTypeForm()
@@ -449,8 +431,6 @@ def adminPricing(request):
     return render(request, 'adminPricing.html', {'form': PRCFM, 'PRCdata': PRCdata})
 
 
-
-
 @login_required(login_url='/user_login')
 @admin_only
 def adminGallery(request):
@@ -468,8 +448,6 @@ def adminGallery(request):
         GLRFM = GalleryForm()
     GLRdata = Gallery.objects.all()
     return render(request, 'adminGallery.html', {'form': GLRFM, 'GLRdata': GLRdata})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -495,7 +473,6 @@ def adminsocial_media(request):
         SMFM = SocialMediaForm()
     SMdata = SocialMedia.objects.all()
     return render(request, 'adminSocialmedia.html', {'form': SMFM, 'SMdata': SMdata})
-
 
 
 @login_required(login_url='/user_login')
@@ -525,11 +502,8 @@ def adminuser_blog(request):
 
 @admin_only
 def viewMSG(request, id):
-
     messages_detail = contact_us.objects.get(id=id)
     return render(request, 'viewMessages.html', {'messages_detail': messages_detail})
-
-
 
 
 @admin_only
@@ -537,10 +511,9 @@ def orders(request):
     product_orders = Place_Order.objects.all()
     context = {'product_orders': product_orders}
     return render(request, 'adminOrders.html', context)
-    
+
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
 @login_required(login_url='/user_login')
@@ -550,7 +523,6 @@ def MasterDelete(request, type):
         MasterDeleter = contact_us.objects.all()
         MasterDeleter.delete()
         return redirect('/admin')
-
 
 
 @login_required(login_url='/user_login')
@@ -601,67 +573,50 @@ def Delete(request, id, type):
         DeleteRecord.delete()
         return redirect('/admin')
 
-
     if type == 'HomeSlider':
         DeleteRecord = MainSlider.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminHomeSlider')
-
-
 
     if type == 'HowItWork':
         DeleteRecord = HomeHIW.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminHowItWork')
 
-
-
     if type == 'HowToUse':
         DeleteRecord = HomeHTU.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminHowToUse')
-
-
 
     if type == 'HomeAbout':
         DeleteRecord = HomeAbout.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminHomeAbout')
 
-
     if type == 'Products':
         DeleteRecord = Products.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminDroneProducts')
-
 
     if type == 'amazonProducts':
         DeleteRecord = amazonProduct.objects.get(sNo=id)
         DeleteRecord.delete()
         return redirect('/adminAmazonProducts')
 
-
-
     if type == 'SRFP':
         DeleteRecord = HomeSRFP.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminHomeSRFP')
-
-
 
     if type == 'VideoGallery':
         DeleteRecord = VideoGallery.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminVideoGallery')
 
-
-
     if type == 'PeopleSay':
         DeleteRecord = WhatPeopleSay.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/adminPeopleSay')
-
-
 
     if type == 'OurPartner':
         DeleteRecord = OurPartner.objects.get(id=id)

@@ -1,7 +1,7 @@
 from django.urls import path, include
 from dronzaPanel import views
 urlpatterns = [
-              path('admin', views.adminHome, name="admin"),
+        path('admin', views.adminHome, name="admin"),
         path('adminHomeSlider', views.adminHomeSlider, name="adminHomeSlider"),
         path('adminHowItWork', views.adminHowItWork, name="adminHowItWork"),
         path('adminHowToUse', views.adminHowToUse, name="adminHowToUse"),
