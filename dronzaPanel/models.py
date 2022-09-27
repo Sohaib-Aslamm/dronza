@@ -188,7 +188,7 @@ class productImages(models.Model):
 
 class amazonProductImages(models.Model):
     def upload_design_to(self, filename):
-        return f'amazonProducts/Product_ID/{self.Product_ID_id}/{filename}'
+        return f'AmazonProducts/Product_ID/{self.Product_ID_id}/{filename}'
 
 
     Product_ID = models.ForeignKey(amazonProduct, on_delete=models.CASCADE)
