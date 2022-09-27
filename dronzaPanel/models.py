@@ -149,23 +149,28 @@ class Products(models.Model):
     description = models.TextField(default="")
     image = models.FileField(upload_to='DronzaProducts/MainIcon', default="")
 
+
 class amazonProduct(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
     cPrice = models.CharField(max_length=100, default="")
     dPrice = models.CharField(max_length=100, default="")
     category = models.CharField(max_length=100, choices=droneCategory, default="")
-    brand = models.CharField(max_length=100, default="")
     color = models.CharField(max_length=100, default="")
     availability = models.CharField(max_length=100, choices=inStock, default="")
     featured = models.CharField(max_length=100, choices=Featured, default="")
-    itemWeight = models.CharField(max_length=100, default="")
-    controlType = models.CharField(max_length=100, default="")
-    remoteControl = models.CharField(max_length=100, choices=yesNo, default="")
-    batteryCell = models.CharField(max_length=100, default="")
-    Rechargeable = models.CharField(max_length=100, choices=yesNo, default="")
-    flight_time = models.CharField(max_length=100, default="")
-    camera = models.CharField(max_length=100, default="")
+    label1 = models.CharField(max_length=100, default="")
+    label2 = models.CharField(max_length=100, default="")
+    label3 = models.CharField(max_length=100, default="")
+    label4 = models.CharField(max_length=100, default="")
+    label5 = models.CharField(max_length=100, default="")
+    label6 = models.CharField(max_length=100, default="")
+    input1 = models.CharField(max_length=100, default="")
+    input2 = models.CharField(max_length=100, default="")
+    input3 = models.CharField(max_length=100, default="")
+    input4 = models.CharField(max_length=100, default="")
+    input5 = models.CharField(max_length=100, default="")
+    input6 = models.CharField(max_length=100, default="")
     description = models.TextField(default="")
     buyLink = models.CharField(max_length=255, default="")
     mainIcon = models.FileField(upload_to='AmazonProducts/MainIcon', default="")
@@ -188,6 +193,7 @@ class amazonProductImages(models.Model):
 
     Product_ID = models.ForeignKey(amazonProduct, on_delete=models.CASCADE)
     images = models.FileField(upload_to=upload_design_to)
+
 
 class QualityTrust(models.Model):
     title = models.CharField(max_length=255, default="")

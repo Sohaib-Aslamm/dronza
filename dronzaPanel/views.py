@@ -214,24 +214,29 @@ def adminAmazonProducts(request):
             CPR = PRDTFM.cleaned_data['cPrice']
             DPR = PRDTFM.cleaned_data['dPrice']
             AVLBTY = PRDTFM.cleaned_data['availability']
-            BRND = PRDTFM.cleaned_data['brand']
+            FTRD = PRDTFM.cleaned_data['featured']
             CLR = PRDTFM.cleaned_data['color']
             CTGRY = PRDTFM.cleaned_data['category']
-            ITMWT = PRDTFM.cleaned_data['itemWeight']
-            CTRTP = PRDTFM.cleaned_data['controlType']
-            RMCTR = PRDTFM.cleaned_data['remoteControl']
-            BTRCL = PRDTFM.cleaned_data['batteryCell']
-            RCHRG = PRDTFM.cleaned_data['Rechargeable']
-            FLTTIME = PRDTFM.cleaned_data['flight_time']
-            CMRA = PRDTFM.cleaned_data['camera']
+            label1 = PRDTFM.cleaned_data['label1']
+            input1 = PRDTFM.cleaned_data['input1']
+            label2 = PRDTFM.cleaned_data['label2']
+            input2 = PRDTFM.cleaned_data['input2']
+            label3 = PRDTFM.cleaned_data['label3']
+            input3 = PRDTFM.cleaned_data['input3']
+            label4 = PRDTFM.cleaned_data['label4']
+            input4 = PRDTFM.cleaned_data['input4']
+            label5 = PRDTFM.cleaned_data['label5']
+            input5 = PRDTFM.cleaned_data['input5']
+            label6 = PRDTFM.cleaned_data['label6']
+            input6 = PRDTFM.cleaned_data['input6']
             BLINK = PRDTFM.cleaned_data['buyLink']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['mainIcon']
-            reg = amazonProduct(title=TIT, cPrice=CPR, dPrice=DPR, availability=AVLBTY, brand=BRND, color=CLR,
-                                itemWeight=ITMWT,
-                                controlType=CTRTP, category=CTGRY, remoteControl=RMCTR, batteryCell=BTRCL,
-                                Rechargeable=RCHRG, flight_time=FLTTIME,
-                                camera=CMRA, buyLink=BLINK, description=DESC, mainIcon=ICON)
+            reg = amazonProduct(title=TIT, cPrice=CPR, dPrice=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
+                                category=CTGRY, label1=label1, input1=input1, label2=label2,
+                                input2=input2, label3=label3, input3=input3, label4=label4, input4=input4,
+                                label5=label5, input5=input5, label6=label6, input6=input6,
+                                buyLink=BLINK, description=DESC, mainIcon=ICON)
             reg.save()
 
             latest_id = amazonProduct.objects.latest('sNo').sNo
