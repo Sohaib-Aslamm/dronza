@@ -85,7 +85,7 @@ def shop(request):
 
 def dronzaShop(request):
     dronzaProducts = Products.objects.all().order_by('-id')
-    dronzapaginator = Paginator(dronzaProducts, 12)
+    dronzapaginator = Paginator(dronzaProducts, 50)
     dronzapageNo = request.GET.get('page')
     dronzaProductsFINAL = dronzapaginator.get_page(dronzapageNo)
     dronzatotalPages = dronzaProductsFINAL.paginator.num_pages
@@ -104,7 +104,7 @@ def dronzaShop(request):
 
 def amazonShop(request):
     PRDCTS = amazonProduct.objects.all().order_by('-sNo')
-    paginator = Paginator(PRDCTS, 12)
+    paginator = Paginator(PRDCTS, 50)
     pageNo = request.GET.get('page')
     PRDCTSFINAL = paginator.get_page(pageNo)
     totalPages = PRDCTSFINAL.paginator.num_pages
