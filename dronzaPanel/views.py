@@ -199,8 +199,14 @@ def adminDroneProducts(request):
             PRDTFM = ProductsForm()
     else:
         PRDTFM = ProductsForm()
-    PRDTDT = Products.objects.all()
-    return render(request, 'adminDroneProducts.html', {'form': PRDTFM, 'PRDTDT': PRDTDT})
+
+    PRDTDT = amazonProduct.objects.all().order_by('-sNo')
+    paginator = Paginator(PRDTDT, 10)
+    pageNo = request.GET.get('page')
+    BLGdataFINAL = paginator.get_page(pageNo)
+    totalPages = BLGdataFINAL.paginator.num_pages
+    context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+    return render(request, 'adminDroneProducts.html', context)
 
 
 @login_required(login_url='/user_login')
@@ -248,8 +254,14 @@ def adminAmazonProducts(request):
             PRDTFM = amazonProductsForm()
     else:
         PRDTFM = amazonProductsForm()
-    PRDTDT = amazonProduct.objects.all()
-    return render(request, 'amazonProduct.html', {'form': PRDTFM, 'PRDTDT': PRDTDT})
+
+    PRDTDT = amazonProduct.objects.all().order_by('-sNo')
+    paginator = Paginator(PRDTDT, 10)
+    pageNo = request.GET.get('page')
+    BLGdataFINAL = paginator.get_page(pageNo)
+    totalPages = BLGdataFINAL.paginator.num_pages
+    context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+    return render(request, 'amazonProduct.html', context)
 
 
 @login_required(login_url='/user_login')
