@@ -35,7 +35,7 @@
 <div class="container-fluid">
 <div class="row mt-5 mb-5 card container">
 
-   <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
       <div class="modal-body">
 
@@ -50,19 +50,15 @@
 
 
           <div class="row mb-3">
-               <div class="col-3">
+               <div class="col-4">
                     <label>C Price</label>
                         {{ form.cPrice }}
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <label>D Price</label>
                         {{ form.price }}
                 </div>
-              <div class="col-3">
-                    <label>Resolution</label>
-                        {{ form.resolution }}
-                </div>
-            <div class="col-3">
+            <div class="col-4">
                     <label>Color</label>
                         {{ form.color }}
                 </div>
@@ -71,20 +67,16 @@
 
                 <div class="row mb-4">
 
-                <div class="col-3">
-                    <label>Flight Time</label>
-                        {{ form.flight_time }}
-                </div>
-                <div class="col-3">
+                <div class="col-4">
                     <label>Availability</label>
                         {{ form.availability }}
                 </div>
 
-               <div class="col-3">
+               <div class="col-4">
                     <label>Category</label>
                         {{ form.category }}
                 </div>
-                    <div class="col-3">
+                    <div class="col-4">
                     <label>Featured</label>
                         {{ form.featured }}
                 </div>
@@ -171,10 +163,7 @@
                   <label>Main Icon</label>
                   {{ form.image }}
               </div>
-              <div class="col-6">
-                  <label>Choose sub Images (Multiple)</label>
-                  <input type="file" name="images" class="form-control-file" multiple />
-              </div>
+
           </div>
 
       </div>

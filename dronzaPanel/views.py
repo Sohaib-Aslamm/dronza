@@ -167,8 +167,6 @@ def adminDroneProducts(request):
             AVLBTY = PRDTFM.cleaned_data['availability']
             CTR = PRDTFM.cleaned_data['category']
             FTRD = PRDTFM.cleaned_data['featured']
-            FLTM = PRDTFM.cleaned_data['flight_time']
-            RSL = PRDTFM.cleaned_data['resolution']
             CLR = PRDTFM.cleaned_data['color']
             lbl1 = PRDTFM.cleaned_data['label1']
             input1 = PRDTFM.cleaned_data['input1']
@@ -185,9 +183,9 @@ def adminDroneProducts(request):
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['image']
             reg = Products(name=TIT, cPrice=CPR, price=DPR, availability=AVLBTY, color=CLR, category=CTR,
-                           featured=FTRD, description=DESC, flight_time=FLTM, resolution=RSL, label1=lbl1,
-                           label2=lbl2, label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, input1=input1,
-                           input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, image=ICON)
+                           featured=FTRD, description=DESC, label1=lbl1, label2=lbl2, label3=lbl3, label4=lbl4,
+                           label5=lbl5, label6=lbl6, input1=input1, input2=input2, input3=input3, input4=input4,
+                           input5=input5, input6=input6, image=ICON)
             reg.save()
 
             latest_id = Products.objects.latest('id').id
@@ -200,7 +198,7 @@ def adminDroneProducts(request):
     else:
         PRDTFM = ProductsForm()
 
-    PRDTDT = amazonProduct.objects.all().order_by('-sNo')
+    PRDTDT = Products.objects.all().order_by('-id')
     paginator = Paginator(PRDTDT, 10)
     pageNo = request.GET.get('page')
     BLGdataFINAL = paginator.get_page(pageNo)

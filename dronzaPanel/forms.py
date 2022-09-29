@@ -93,9 +93,9 @@ class ProductsForm(forms.ModelForm):
             'cPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'current price'}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'discounted price'}),
             'availability': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'featured': forms.Select(attrs={'class': 'form-control'}),
             'color': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Blue, Red, Black'}),
-            'resolution': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ex. 48MP, 4K Video'}),
-            'flight_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ex. 45 Minute'}),
             'label1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
             'label2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
             'label3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
@@ -108,8 +108,6 @@ class ProductsForm(forms.ModelForm):
             'input4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
             'input5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
             'input6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'featured': forms.Select(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
         }
 

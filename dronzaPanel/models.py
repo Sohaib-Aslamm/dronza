@@ -21,6 +21,7 @@ droneCategory = (
     ('Plastic', 'Plastic'),
     ('Titanium', 'Titanium'),
     ('Featured', 'Featured'),
+    ('Aluminium', 'Aluminium'),
     ('Other', 'Other'),
 
 )
@@ -129,8 +130,6 @@ class Products(models.Model):
     cPrice = models.CharField(max_length=100, default="")
     price = models.CharField(max_length=100, default="")
     availability = models.CharField(max_length=100, choices=inStock,  default="")
-    resolution = models.CharField(max_length=100, default="")
-    flight_time = models.CharField(max_length=100, default="")
     color = models.CharField(max_length=100, default="")
     featured = models.CharField(max_length=100, choices=Featured, default="")
     category = models.CharField(max_length=100, choices=droneCategory, default="")

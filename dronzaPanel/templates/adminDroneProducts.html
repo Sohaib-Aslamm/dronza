@@ -45,7 +45,7 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Price</th>
-      <th scope="col">Resolution</th>
+      <th scope="col">Availability</th>
       <th scope="col">Category</th>
       <th scope="col" class="text-center">Operations</th>
     </tr>
@@ -55,7 +55,7 @@
     <tr>
       <td>{{ data.name }}</td>
       <td>{{ data.price }}</td>
-      <td>{{ data.resolution }}</td>
+      <td>{{ data.availability }}</td>
       <td>{{ data.category }}</td>
      <td class="text-center">
           <a class="text-center mx-2" href="/Update/{{ data.id }}/Products"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
@@ -97,19 +97,15 @@
 
 
           <div class="row mb-3">
-               <div class="col-3">
+               <div class="col-4">
                     <label>C Price</label>
                         {{ form.cPrice }}
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <label>D Price</label>
                         {{ form.price }}
                 </div>
-              <div class="col-3">
-                    <label>Resolution</label>
-                        {{ form.resolution }}
-                </div>
-            <div class="col-3">
+            <div class="col-4">
                     <label>Color</label>
                         {{ form.color }}
                 </div>
@@ -118,20 +114,16 @@
 
                 <div class="row mb-4">
 
-                <div class="col-3">
-                    <label>Flight Time</label>
-                        {{ form.flight_time }}
-                </div>
-                <div class="col-3">
+                <div class="col-4">
                     <label>Availability</label>
                         {{ form.availability }}
                 </div>
 
-               <div class="col-3">
+               <div class="col-4">
                     <label>Category</label>
                         {{ form.category }}
                 </div>
-                    <div class="col-3">
+                    <div class="col-4">
                     <label>Featured</label>
                         {{ form.featured }}
                 </div>
