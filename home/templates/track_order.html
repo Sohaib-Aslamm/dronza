@@ -41,7 +41,7 @@
 
 
         <!-- SECTION CONTENT START -->
-        <div class="section-full p-t80 p-b50">
+        <div class="section-full p-t80 p-b100">
             <div class="container">
                 <div class="section-content">
 
@@ -52,6 +52,7 @@
                             <div class="row">
 
 
+                            {% if product_orders %}
                                 {% for orders in product_orders %}
                                     <!-- COLUMNS 1 -->
                                     <div class="masonry-item col-lg-4 col-md-4 m-b30">
@@ -92,6 +93,15 @@
                                     </div>
 
                                 {% endfor %}
+
+                                {% else %}
+
+                                <div class="row text-center">
+                                  <h1 class="text-greeno"><i class="fa fa-shopping-cart"></i> No orders found</h1>
+                                </div>
+
+
+                            {% endif %}
 
 
 
