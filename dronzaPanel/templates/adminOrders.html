@@ -59,11 +59,12 @@
             <!-- small box -->
             <div class="small-box " style="background-color: #404040; color: aliceblue;">
               <div class="inner">
-                  <p>{{ orders.c_phone }}</p>
+                  <p>Phone: {{ orders.c_phone }}</p>
 
-                <p>{{ orders.c_city }}</p>
+                <p>City: {{ orders.c_city }}</p>
 
-                <p class="text-greeno">{{ orders.p_grand_total }} PKR</p>
+                <p class="text-greeno">Total: {{ orders.p_grand_total }} PKR</p>
+                <p class="text-warning">Status: {{ orders.status }}</p>
 
 
 
@@ -72,8 +73,9 @@
               <div class="icon">
                 <i class="fa fa-shopping-cart"></i>
               </div>
-              <a class="small-box-footer text-warning">Status <i class="fas fa-arrow-circle-right"></i> {{ orders.status }}</a>
               <a href="/DetailRecord/{{ orders.id }}/order" class="small-box-footer">View Order <i class="fas fa-arrow-circle-right"></i></a>
+               <a href="Delete/{{ orders.id }}/deleteOrder"  class="small-box-footer">Delete Order</a>
+
             </div>
           </div>
             {% endfor %}

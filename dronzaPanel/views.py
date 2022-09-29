@@ -638,6 +638,11 @@ def Delete(request, id, type):
         DeleteRecord.delete()
         return redirect('/adminOurPartner')
 
+    if type == 'deleteOrder':
+        DeleteRecord = Place_Order.objects.get(id=id)
+        DeleteRecord.delete()
+        return redirect('/orders')
+
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
