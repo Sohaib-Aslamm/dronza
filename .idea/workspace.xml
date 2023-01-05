@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dronza.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dronza.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateOurTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateOurTeam.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminOurTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminOurTeam.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/About.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/teamDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/teamDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +36,7 @@
       <updated>1672939542590</updated>
       <workItem from="1672939543909" duration="70000" />
       <workItem from="1672939638121" duration="8553000" />
+      <workItem from="1672951852354" duration="2364000" />
     </task>
     <servers />
   </component>

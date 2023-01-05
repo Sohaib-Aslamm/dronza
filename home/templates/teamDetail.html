@@ -77,7 +77,7 @@
                                                     <li><span>Phone</span><span>{{ rec.phone }}</span></li>
                                                     <li><span>Email</span><span>{{ rec.email }}</span></li>
                                                 </ul>
-                                               <p>{{ rec.description }}</p>
+                                               <p>{{ rec.description | safe }}</p>
 
                                             </div>
                                         </div>
