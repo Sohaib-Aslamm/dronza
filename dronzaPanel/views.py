@@ -381,12 +381,17 @@ def adminOurTeam(request):
         OUTFM = OurTeamForm(request.POST, request.FILES)
         if OUTFM.is_valid():
             NM = OUTFM.cleaned_data['name']
+            EML = OUTFM.cleaned_data['email']
+            PHN = OUTFM.cleaned_data['phone']
+            EXPR = OUTFM.cleaned_data['experience']
             DSG = OUTFM.cleaned_data['designation']
             SM1 = OUTFM.cleaned_data['socialmedia1']
             SM2 = OUTFM.cleaned_data['socialmedia2']
             SM3 = OUTFM.cleaned_data['socialmedia3']
+            DESC = OUTFM.cleaned_data['description']
             PRF = OUTFM.cleaned_data['profile']
-            reg = OurTeam(name=NM, designation=DSG, socialmedia1=SM1, socialmedia2=SM2, socialmedia3=SM3, profile=PRF)
+            reg = OurTeam(name=NM, email=EML, phone=PHN, designation=DSG, experience=EXPR, socialmedia1=SM1,
+                          socialmedia2=SM2, socialmedia3=SM3, description=DESC, profile=PRF)
             reg.save()
             OUTFM = OurTeamForm()
     else:

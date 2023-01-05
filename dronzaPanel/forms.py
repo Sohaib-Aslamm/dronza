@@ -56,7 +56,6 @@ class HomeHIWForm(forms.ModelForm):
         }
 
 
-
 class HomeHTUForm(forms.ModelForm):
     class Meta:
         model = HomeHTU
@@ -66,7 +65,6 @@ class HomeHTUForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter title'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
         }
-
 
 
 class HomeAboutForm(forms.ModelForm):
@@ -112,8 +110,6 @@ class ProductsForm(forms.ModelForm):
         }
 
 
-
-
 class amazonProductsForm(forms.ModelForm):
     class Meta:
         model = amazonProduct
@@ -154,6 +150,7 @@ class QualityTrustForm(forms.ModelForm):
             'Description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
         }
 
+
 class HomeSRFPForm(forms.ModelForm):
     class Meta:
         model = HomeSRFP
@@ -167,8 +164,6 @@ class HomeSRFPForm(forms.ModelForm):
         }
 
 
-
-
 class VideoGalleryForm(forms.ModelForm):
     class Meta:
         model = VideoGallery
@@ -177,8 +172,6 @@ class VideoGalleryForm(forms.ModelForm):
         widgets = {
             'video_link': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter video link'}),
         }
-
-
 
 
 class WhatPeopleSForm(forms.ModelForm):
@@ -191,8 +184,6 @@ class WhatPeopleSForm(forms.ModelForm):
             'designation': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'your designation'}),
             'say_something': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Say Something'}),
         }
-
-
 
 
 class OurPartnerForm(forms.ModelForm):
@@ -214,9 +205,13 @@ class OurTeamForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'team member name'}),
             'designation': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'member designation'}),
-            'socialmedia1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'social media link 1'}),
-            'socialmedia2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'social media link 2'}),
-            'socialmedia3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'social media link 3'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'member@dronza.org'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+92 xxx xxxxxxx'}),
+            'experience': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '5+ Year'}),
+            'socialmedia1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Linkedin'}),
+            'socialmedia2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Facebook'}),
+            'socialmedia3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Twitter'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'write member detail...'}),
         }
 
 

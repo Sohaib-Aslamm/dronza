@@ -46,7 +46,7 @@
                             data-description="">
                                 <!-- MAIN IMAGE -->
 
-								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide1.jpg' %}"  alt=""  data-lazyload="{% static 'images/main-slider/slider3/slide1.jpg' %}" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide1.jpg' %}"  alt="dronza"  data-lazyload="{% static 'images/main-slider/slider3/slide1.jpg' %}" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
 
 
                                 <!-- LAYER NR. 0 [ for overlay ] -->
@@ -98,7 +98,7 @@
                                     <div class="rs-wave"  data-speed="10" data-angle="0" data-radius="50px">
                                       <img
                                       	  src="{% static 'Assets/dronza_images/main-slider/slider3/d-1.png' %}"
-                                          alt=""
+                                          alt="dronza"
                                           data-ww="['886px','500px','350px','250px']"
                                           data-hh="['464px','262px','183px','131px']"
                                           width="886" height="464"
@@ -276,7 +276,7 @@
                             data-description="">
                                 <!-- MAIN IMAGE -->
 
-								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide2.jpg' %}"  alt=""  data-lazyload="{% static 'images/main-slider/slider3/slide2.jpg' %}" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide2.jpg' %}"  alt="dronza"  data-lazyload="{% static 'images/main-slider/slider3/slide2.jpg' %}" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
 
 
                                 <!-- LAYER NR. 0 [ for overlay ] -->
@@ -506,7 +506,7 @@
                             data-description="">
                                 <!-- MAIN IMAGE -->
 
-								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide3.jpg' %}"  alt=""  data-lazyload="images/main-slider/slider3/slide3.jpg" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+								<img src="{% static 'Assets/dronza_images/main-slider/slider3/slide3.jpg' %}"  alt="dronza"  data-lazyload="images/main-slider/slider3/slide3.jpg" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="110" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
 
 
                                 <!-- LAYER NR. 0 [ for overlay ] -->
@@ -558,7 +558,7 @@
                                     <div  class="rs-wave"  data-speed="10" data-angle="0" data-radius="50px">
                                       <img
                                       	  src="{% static 'Assets/dronza_images/main-slider/slider3/d-3.png' %}"
-                                          alt=""
+                                          alt="dronza"
                                           data-ww="['845px','500px','350px','250px']"
                                           data-hh="['429px','254px','178px','127px']"
                                           width="845" height="429"
@@ -868,7 +868,7 @@
                                 <div class="item">
                                     <div class="product-showcase">
                                         <div class="product-show-media">
-                                            <img src="{{ PR.mainIcon.url }}" alt="">
+                                            <img src="{{ PR.image.url }}" alt="">
                                         </div>
                                         <div class="product-show-block">
                                             <div class="product-show-info shadow">
@@ -881,8 +881,8 @@
                                                 </div>
                                                 <div class="p-control">
                                                     <ul>
-                                                        <li><a href="{{ PR.buyLink }}" target="_blank"><i class="fa fa-cart-arrow-down"></i></a></li>
-                                                        <li><a href="/shopDetail/{{ PR.sNo }}" target="_blank"><i class="fa fa-eye"></i></a></li>
+                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct" target="_blank"><i class="fa fa-cart-arrow-down"></i></a></li>
+                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct" target="_blank"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1046,7 +1046,7 @@
                                     <div class="wt-info">
                                         <div class="team-detail">
                                             <span class="title-style-2 team-position site-text-primary">{{ OT.designation }}</span>
-                                            <h3 class="m-t0 team-name"><a href="/teamDetail">{{ OT.name }}</a></h3>
+                                            <h3 class="m-t0 team-name"><a href="/DetailRecord/{{ OT.id }}/teamDetail">{{ OT.name }}</a></h3>
                                         </div>
                                         <div class="team-social-center">
                                             <ul class="team-social-bar">

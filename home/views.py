@@ -31,7 +31,7 @@ def index(request):
     HIWork = HomeHIW.objects.all()
     HTUSE = HomeHTU.objects.all()
     HABT = HomeAbout.objects.all()
-    PRDCT = amazonProduct.objects.filter(featured='Featured')
+    PRDCT = Products.objects.filter(featured='Featured')
     SRFP = HomeSRFP.objects.all()
     HVG = VideoGallery.objects.all()
     OURTM = OurTeam.objects.all()
@@ -82,7 +82,6 @@ def shop(request):
     return render(request, 'Shop.html', context)
 
 
-
 def dronzaShop(request):
     dronzaProducts = Products.objects.all().order_by('-id')
     dronzapaginator = Paginator(dronzaProducts, 50)
@@ -101,7 +100,6 @@ def dronzaShop(request):
     return render(request, 'dronzaShop.html', context)
 
 
-
 def amazonShop(request):
     PRDCTS = amazonProduct.objects.all().order_by('-sNo')
     paginator = Paginator(PRDCTS, 50)
@@ -118,7 +116,6 @@ def amazonShop(request):
     return render(request, 'amazonShop.html', context)
 
 
-
 def shopDetail(request, id, type):
     if type == 'amazonProduct':
         shpDetail = amazonProduct.objects.get(sNo=id)
@@ -131,7 +128,6 @@ def shopDetail(request, id, type):
         shpDetail = Products.objects.get(id=id)
         prd_images = productImages.objects.filter(Product_ID_id=id)
         return render(request, 'dronzashopDetails.html', {'shpDetail': shpDetail, 'prd_images': prd_images})
-
 
 
 def customerProduct(request):
@@ -161,8 +157,6 @@ def customerProduct(request):
         description = request.POST.get('description')
         thumbnail = request.FILES['thumbnail']
 
-
-
         sv = sellYourDrone(name=name, email=email, sPhone=sPhone, pPhone=pPhone, location=location, title=title,
                            price=price, category=category, flight_time=flight_time, camera=camera, color=color,
                            condition=condition, label1=label1, input1=input1, label2=label2, input2=input2,
@@ -170,13 +164,11 @@ def customerProduct(request):
                            thumbnail=thumbnail, user_id=user_id)
         sv.save()
 
-
         latest_id = sellYourDrone.objects.latest('id').id
 
         for f in images:
             sellerImages = sellYourDroneImages(images=f, Product_ID_id=latest_id)
             sellerImages.save()
-
 
     user_id = request.user.id
     SYDProducts = sellYourDrone.objects.filter(user_id=user_id)
@@ -192,9 +184,6 @@ def customerProduct(request):
     return render(request, 'customerProducts.html', context)
 
 
-
-
-
 def sellDrones(request):
     sellerProducts = sellYourDrone.objects.all()
     paginator = Paginator(sellerProducts, 8)
@@ -207,9 +196,6 @@ def sellDrones(request):
     context = {'sellerProducts': sellerProductsFINAL, 'Product_Category': Product_Category, 'lastPage': totalPages,
                'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT}
     return render(request, 'sellDrone.html', context)
-
-
-
 
 
 def prodReview(request):
@@ -277,8 +263,6 @@ def blogReview(request):
     return redirect('/blog')
 
 
-
-
 def thankyou(request):
     return render(request, 'thanks.html')
 
@@ -289,7 +273,6 @@ def orderDone(request):
 
 def error404(request):
     return render(request, 'error404.html')
-
 
 
 def testing(request):
@@ -391,7 +374,6 @@ def trackOrder(request):
 # <------------------------------------------ Detail Of Records ------------------------------------>
 
 
-
 def DetailRecord(request, id, type):
     if type == 'MainService':
         Record = ServicesTypes.objects.get(id=id)
@@ -411,13 +393,16 @@ def DetailRecord(request, id, type):
         context = {'rec': Record, 'product_images': product_images}
         return render(request, 'sellDrone_Detail.html', context)
 
+    if type == 'teamDetail':
+        Record = OurTeam.objects.get(id=id)
+        context = {'rec': Record}
+        return render(request, 'teamDetail.html', context)
 
     if type == 'order':
         Record = Place_Order.objects.get(id=id)
         p_id = Record.product_id.replace("[", "").replace("]", "").replace("'", "")
         p_id = p_id.split(",")
         product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
-
 
         price_total = Record.p_total.replace("[", "").replace("]", "").replace("'", "")
         p_quantity = Record.p_quantity.replace("[", "").replace("]", "").replace("'", "")
@@ -426,8 +411,6 @@ def DetailRecord(request, id, type):
         price_total = price_total.split(",")
         p_quantity = p_quantity.split(",")
         p_price = p_price.split(",")
-
-
 
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
                    'product_data': product_data}
@@ -438,15 +421,11 @@ def DetailRecord(request, id, type):
 
         return render(request, 'order_detail.html', context)
 
-
-
     if type == 'track_order':
-
         Record = Place_Order.objects.get(id=id)
         p_id = Record.product_id.replace("[", "").replace("]", "").replace("'", "")
         p_id = p_id.split(",")
         product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
-
 
         price_total = Record.p_total.replace("[", "").replace("]", "").replace("'", "")
         p_quantity = Record.p_quantity.replace("[", "").replace("]", "").replace("'", "")
@@ -456,14 +435,11 @@ def DetailRecord(request, id, type):
         p_quantity = p_quantity.split(",")
         p_price = p_price.split(",")
 
-
-
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
                    'product_data': product_data}
         return render(request, 'track_order_detail.html', context)
 
 # <------------------------------------------ Delete Record -------------------------------------->
-
 
 
 def Delete(request, id, type):
