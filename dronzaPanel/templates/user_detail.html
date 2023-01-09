@@ -1,0 +1,101 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>User | Detail</title> {% endblock title %}
+
+{% block header %}
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+
+
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/UserList" class="text-greeno">User Dashboard</a></li>
+                        <li class="breadcrumb-item text-aspire">User Detail</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+{% block content %}
+
+
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="card shadow-lg rounded">
+                <div class="card-header text-center bg-greeno">
+                    <b class="text-danger">User Detail</b>
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <b>Username:</b> {{ Record.username }}
+                        </div>
+                        <div class="col-md-4">
+                            <b>First Name:</b> {{ Record.first_name }}
+                        </div>
+                        <div class="col-md-4">
+                            <b>Last Name:</b> {{ Record.last_name }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <b>Email:</b> {{ Record.email }}
+                        </div>
+                        <div class="col-md-4">
+                            {% if Record.is_active == True %}
+                            <b>Active:</b> <i class="fa fa-check text-success"></i>
+                            {% else %}
+                             <b>Active:</b> <i class="fa fa-times-circle text-danger"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            {% if Record.is_staff == True %}
+                            <b>Staff:</b> <i class="fa fa-check text-success"></i>
+                            {% else %}
+                             <b>Staff:</b> <i class="fa fa-times-circle text-danger"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <b>Date Joined:</b> {{ Record.date_joined }}
+                        </div>
+                        <div class="col-md-6">
+                            <b>Last Login:</b> {{ Record.last_login }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <label><b>User Hashes:</b></label>
+                            <p>{{ Record.password }}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock content %}

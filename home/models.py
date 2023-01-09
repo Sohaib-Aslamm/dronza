@@ -42,7 +42,6 @@ Visible = (
 )
 
 
-
 class hello(models.Model):
     yourName = models.CharField(max_length=100, default="")
     email = models.EmailField(default="")
@@ -59,7 +58,6 @@ class productReview(models.Model):
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
 
 
-
 class blog_Review(models.Model):
     sNo = models.AutoField(primary_key=True)
     author = models.CharField(max_length=200, default="")
@@ -69,7 +67,6 @@ class blog_Review(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
     
-    
 
 class contact_us(models.Model):
     name = models.CharField(max_length=100, default="")
@@ -78,8 +75,7 @@ class contact_us(models.Model):
     email = models.EmailField(default="")
     message = models.TextField(default="")
     
-    
-    
+
 class sellYourDrone(models.Model):
     name = models.CharField(max_length=100, default="")
     user_id = models.CharField(max_length=100, default="")
@@ -110,12 +106,8 @@ class sellYourDroneImages(models.Model):
     def upload_design_to(self, filename):
         return f'sellYourDrone/Product_ID/{self.Product_ID_id}/{filename}'
 
-
     Product_ID = models.ForeignKey(sellYourDrone, on_delete=models.CASCADE)
     images = models.FileField(upload_to=upload_design_to)
-
-
-
 
 
 class Place_Order(models.Model):

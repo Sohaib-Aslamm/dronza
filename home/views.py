@@ -14,8 +14,9 @@ from django.contrib.auth.decorators import login_required
 
 from cart.cart import Cart
 
-import stripe
+from django.contrib.auth.models import User
 
+from home.definedEmails import *
 # Create your views here.
 
 
@@ -122,12 +123,19 @@ def shopDetail(request, id, type):
         PRDRVW = amazonProduct.objects.filter(sNo=id)
         prd_images = amazonProductImages.objects.filter(Product_ID_id=id)
         coments = productReview.objects.filter(product__in=PRDRVW)
-        return render(request, 'amazonshopDetails.html', {'shpDetail': shpDetail, 'coments': coments, 'prd_images': prd_images})
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        return render(request, 'amazonshopDetails.html', {'shpDetail': shpDetail, 'coments': coments,
+                                                          'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT})
 
     if type == 'dronzaProduct':
         shpDetail = Products.objects.get(id=id)
         prd_images = productImages.objects.filter(Product_ID_id=id)
-        return render(request, 'dronzashopDetails.html', {'shpDetail': shpDetail, 'prd_images': prd_images})
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+
+        context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'dronzashopDetails.html', context)
 
 
 def customerProduct(request):
@@ -222,11 +230,15 @@ def contactus(request):
             MSG = CNTCTFM.cleaned_data['message']
             sv = contact_us(name=NM, subject=SBJ, email=EM, phone=PH, message=MSG)
             sv.save()
+            notify_contact_us(NM, EM, MSG) # send email to customer who contacted by web site
             contactForm()
             return HttpResponseRedirect('/thankyou')
     else:
         CNTCTFM = contactForm()
-    return render(request, 'contactUs.html', {'form': CNTCTFM})
+        SMDT = SocialMedia.objects.all()
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'form': CNTCTFM, 'RCPST': RCPST, 'SMDT': SMDT}
+    return render(request, 'contactUs.html',context)
 
 
 def blog(request):
@@ -272,7 +284,10 @@ def orderDone(request):
 
 
 def error404(request):
-    return render(request, 'error404.html')
+    SMDT = SocialMedia.objects.all()
+    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    context = {'RCPST': RCPST, 'SMDT': SMDT}
+    return render(request, 'error404.html', context)
 
 
 def testing(request):
@@ -359,6 +374,11 @@ def place_order(request):
                           p_total=p_total, p_grand_total=p_grand_total, c_name=c_name, c_email=c_email, c_phone=c_phone,
                           c_city=c_city, c_zip=c_zip, c_country=c_country, c_address1=c_address1, c_address2=c_address2)
         reg.save()
+
+        # sending email to customer
+        notify_order_confirmation(c_name, c_email, c_phone, c_city, c_zip, c_country, c_address1, c_address2,
+                                  p_grand_total)
+
         cart = Cart(request)
         cart.clear()
         return redirect('/order_placed')
@@ -368,34 +388,52 @@ def place_order(request):
 def trackOrder(request):
     u_id = request.user.id
     product_orders = Place_Order.objects.filter(user_id=u_id).order_by('-id')[:9]
-    context = {'product_orders': product_orders}
+    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    SMDT = SocialMedia.objects.all()
+    context = {'product_orders': product_orders, 'RCPST': RCPST, 'SMDT': SMDT}
     return render(request, 'track_order.html', context)
 
 # <------------------------------------------ Detail Of Records ------------------------------------>
 
 
 def DetailRecord(request, id, type):
+
+    if type == 'User':
+        Record = User.objects.get(id=id)
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'Record': Record, 'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'user_detail.html', context)
+
     if type == 'MainService':
         Record = ServicesTypes.objects.get(id=id)
         PriceDetail = Pricing.objects.all()
-        context = {'rec': Record, 'PRCDT': PriceDetail}
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'serviceDetail.html', context)
 
     if type == 'sellDrone':
         Record = ServicesTypes.objects.get(sNo=id)
         PriceDetail = Pricing.objects.all()
-        context = {'rec': Record, 'PRCDT': PriceDetail}
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'serviceDetail.html', context)
 
     if type == 'sellerProduct':
         Record = sellYourDrone.objects.get(id=id)
         product_images = sellYourDroneImages.objects.filter(Product_ID_id=id)
-        context = {'rec': Record, 'product_images': product_images}
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'sellDrone_Detail.html', context)
 
     if type == 'teamDetail':
         Record = OurTeam.objects.get(id=id)
-        context = {'rec': Record}
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'rec': Record, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'teamDetail.html', context)
 
     if type == 'order':
@@ -411,9 +449,10 @@ def DetailRecord(request, id, type):
         price_total = price_total.split(",")
         p_quantity = p_quantity.split(",")
         p_price = p_price.split(",")
-
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
-                   'product_data': product_data}
+                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
         if request.method == 'POST':
             Record.status = request.POST.get('status')
             Record.save()
@@ -434,9 +473,11 @@ def DetailRecord(request, id, type):
         price_total = price_total.split(",")
         p_quantity = p_quantity.split(",")
         p_price = p_price.split(",")
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
 
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
-                   'product_data': product_data}
+                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'track_order_detail.html', context)
 
 # <------------------------------------------ Delete Record -------------------------------------->

@@ -27,6 +27,7 @@ urlpatterns = [
         path('user_login', views.user_login, name="user_login"),
         path('user_logout', views.user_logout, name="user_logout"),
         path('Register', views.UserRegister, name="Register"),
+        path('UserList', views.user_list, name="UserList"),
         path('view_Message/<int:id>', views.viewMSG, name="view_Message"),
         path('Delete/<int:id>/<str:type>', views.Delete, name="Delete"),
         path('MasterDelete/<str:type>', views.MasterDelete, name="MasterDelete"),

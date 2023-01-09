@@ -1,11 +1,12 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
-    GalleryForm, userBlogForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
+    GalleryForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
     ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, amazonProductsForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
     productImages, amazonProduct, amazonProductImages
 
 from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
 
 from home.models import hello
 from home.models import contact_us, Place_Order
@@ -15,8 +16,7 @@ from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib import messages
 from django.core.paginator import Paginator
-
-
+from home.definedEmails import *
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -25,15 +25,19 @@ from django.core.paginator import Paginator
 @unauthenticated_user
 def UserRegister(request):
     if request.method == 'POST':
-        URFM = UserForm(request.POST, request.FILES)
+        URFM = UserForm(request.POST)
         if URFM.is_valid():
             user = URFM.save()
             username = URFM.cleaned_data.get('username')
+            email = URFM.cleaned_data.get('email')
+            print(username, email)
+            URFM.cleaned_data.get('password')
 
-            group = Group.objects.get(name='Customer')
+            group = Group.objects.get(name='Customer')   # assign a default group to customer
             user.groups.add(group)
 
             messages.success(request, f'Hey !  {username} your account created successfully')
+            notify_user_registration(username, email)  # Send email to user he is registered
             return redirect('/user_login')
     else:
         URFM = UserForm()
@@ -57,6 +61,13 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/admin')
+
+@login_required(login_url='/user_login')
+@admin_only
+def user_list(request):
+    users = User.objects.all()
+    context = {'users': users}
+    return render(request, 'admin_user_list.html', context)
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insert Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -548,6 +559,11 @@ def MasterDelete(request, type):
 @login_required(login_url='/user_login')
 @admin_only
 def Delete(request, id, type):
+    if type == 'User':
+        DeleteRecord = User.objects.get(id=id)
+        DeleteRecord.delete()
+        return redirect('/UserList')
+
     if type == 'adminabout':
         DeleteRecord = AboutTitlePost.objects.get(id=id)
         DeleteRecord.delete()
@@ -647,6 +663,7 @@ def Delete(request, id, type):
         DeleteRecord = Place_Order.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/orders')
+
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

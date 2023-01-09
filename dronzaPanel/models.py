@@ -292,3 +292,4 @@ class userBlog(models.Model):
     description = RichTextField(default="")
     Icon = models.ImageField(upload_to='Blog/Icons', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
+

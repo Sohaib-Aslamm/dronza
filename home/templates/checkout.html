@@ -56,15 +56,15 @@
                         </div>
                         <div class="col-md-3">
                             <label>Price</label>
-                            <input type="email" name="p_price" class="form-control" value="{{ value.price }}" readonly>
+                            <input type="text" name="p_price" class="form-control" value="{{ value.price }}" readonly>
                         </div>
                         <div class="col-md-3">
                             <label>Quantity</label>
-                            <input type="email" name="p_quantity" class="form-control" value="{{ value.quantity }}" readonly>
+                            <input type="text" name="p_quantity" class="form-control" value="{{ value.quantity }}" readonly>
                         </div>
                         <div class="col-md-3">
                             <label>Total</label>
-                            <input type="email" name="p_total" class="form-control" value=" {{ value.price|multiply:value.quantity }}" readonly>
+                            <input type="text" name="p_total" class="form-control" value=" {{ value.price|multiply:value.quantity }}" readonly>
                         </div>
 
                     </div>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-md-3">
                         <label>Email</label>
-                        <input type="email" name="c_email" class="form-control" placeholder="enter email">
+                        <input type="email" name="c_email" class="form-control" placeholder="enter valid email to get notify">
                     </div>
                     <div class="col-md-3">
                         <label>Phone</label>
