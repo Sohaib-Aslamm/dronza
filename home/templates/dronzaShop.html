@@ -91,15 +91,16 @@
                                                         <a href="/shopDetail/{{ PDCT.id }}/dronzaProduct">{{ PDCT.name }}</a>
                                                     </h3>
 
-													<div class="product-features-item"><span>Camera | </span>{{ PDCT.resolution }}</div>
+													<div class="product-features-item"><span>Camera | </span>{{ PDCT.camera }}</div>
 													<div class="product-features-item"><span>Flight Time | </span>{{ PDCT.flight_time }}</div>
 
                                                       <span class="price">
                                                         <ins>
-                                                               <span class="p-price">${{ PDCT.price }} <del>${{ PDCT.cPrice }}</del></span>
+                                                               <span class="p-price">{{ PDCT.currency }}_{{ PDCT.dPrice }}
+                                                                   <del>{{ PDCT.currency }}_{{ PDCT.cPrice }}</del></span>
                                                         </ins>
 
-                                                         <ins class="ml-4">
+                                                         <br><ins>
                                                              <a href="/shopDetail/{{ PDCT.id }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
@@ -203,14 +204,15 @@
                                                 <a href="product-detail.html">{{ FTP.name }}</a>
                                             </h3>
 
-                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.resolution }}</div>
+                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
                                             <div class="product-features-item"><span>Flight Time | </span>{{ FTP.flight_time }}</div>
 
                                             <span class="price">
                                                 <ins>
-                                                    <span><span class="Price-currencySymbol">$ </span>{{ FTP.dPrice }}<del>{{ FTP.cPrice }}</del></span>
+                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.dPrice }}
+                                                        <del>{{ FTP.currency }}_{{ FTP.cPrice }}</del></span>
                                                 </ins>
-                                                <ins class="ml-4">
+                                                <br><ins>
                                                              <a href="/shopDetail/{{ FTP.id }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                             </span>

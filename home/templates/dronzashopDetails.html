@@ -71,8 +71,8 @@
                                     <h2 class="post-title"><a href="javascript:void(0);">{{ shpDetail.name }}</a></h2>
                                 </div>
                                 <div class="product-single-price">
-                                	<span class="p-single-old-price">${{ shpDetail.cPrice }}</span>
-                                    <span class="p-single-new-price">${{ shpDetail.price }}</span>
+                                	<span class="p-single-old-price">{{ shpDetail.currency }}_{{ shpDetail.cPrice }}</span>
+                                    <span class="p-single-new-price">{{ shpDetail.currency }}_{{ shpDetail.dPrice }}</span>
                                 </div>
 
 							<div class="product-single-availability">
@@ -123,39 +123,51 @@
                                         <table class="table m-b0 no-border">
                                             <tbody>
                                             <tr>
-                                                <td><b>Camera</b></td>
-                                                <td>{{ shpDetail.resolution }}</td>
+                                                 <td><b>Name:</b></td>
+                                                <td><b>{{ shpDetail.name }}</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Price:</b></td>
+                                                <td>{{ shpDetail.currency }}_{{ shpDetail.dPrice }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Camera:</b></td>
+                                                <td>{{ shpDetail.camera }}</td>
                                              </tr>
                                              <tr>
-                                                <td><b>Color</b></td>
+                                                <td><b>Color:</b></td>
                                                 <td>{{ shpDetail.color }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>Flight Time</b></td>
+                                                <td><b>Flight Time:</b></td>
                                                 <td>{{ shpDetail.flight_time }}</td>
                                             </tr>
+                                            <tr>
+                                                <td><b>Category:</b></td>
+                                                <td>{{ shpDetail.category }}</td>
+                                            </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label1 }}</b></td>
+                                                <td><b>{{ shpDetail.label1 }}:</b></td>
                                                 <td>{{ shpDetail.input1 }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label2 }}</b></td>
+                                                <td><b>{{ shpDetail.label2 }}:</b></td>
                                                 <td>{{ shpDetail.input2 }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label3 }}</b></td>
+                                                <td><b>{{ shpDetail.label3 }}:</b></td>
                                                 <td>{{ shpDetail.input3 }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label4 }}</b></td>
+                                                <td><b>{{ shpDetail.label4 }}:</b></td>
                                                 <td>{{ shpDetail.input4 }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label5 }}</b></td>
+                                                <td><b>{{ shpDetail.label5 }}:</b></td>
                                                 <td>{{ shpDetail.input5 }}</td>
                                             </tr>
                                              <tr>
-                                                <td><b>{{ shpDetail.label6 }}</b></td>
+                                                <td><b>{{ shpDetail.label6 }}:</b></td>
                                                 <td>{{ shpDetail.input6 }}</td>
                                             </tr>
 

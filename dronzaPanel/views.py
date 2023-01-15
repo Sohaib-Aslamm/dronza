@@ -175,6 +175,8 @@ def adminDroneProducts(request):
             CPR = PRDTFM.cleaned_data['cPrice']
             DPR = PRDTFM.cleaned_data['dPrice']
             CRNCY = PRDTFM.cleaned_data['currency']
+            CMRA = PRDTFM.cleaned_data['camera']
+            FLT = PRDTFM.cleaned_data['flight_time']
             AVLBTY = PRDTFM.cleaned_data['availability']
             CTR = PRDTFM.cleaned_data['category']
             FTRD = PRDTFM.cleaned_data['featured']
@@ -193,7 +195,8 @@ def adminDroneProducts(request):
             input6 = PRDTFM.cleaned_data['input6']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['image']
-            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR, category=CTR,
+            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, camera=CMRA, flight_time=FLT,
+                           availability=AVLBTY, color=CLR, category=CTR,
                            featured=FTRD, description=DESC, label1=lbl1, label2=lbl2, label3=lbl3, label4=lbl4,
                            label5=lbl5, label6=lbl6, input1=input1, input2=input2, input3=input3, input4=input4,
                            input5=input5, input6=input6, image=ICON)

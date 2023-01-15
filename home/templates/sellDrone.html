@@ -81,7 +81,7 @@
                                                 <div class="overlay-bx">
                                                     <div class="overlay-icon">
                                                         <a href="/DetailRecord/{{ PDCT.id }}/sellerProduct" target="_blank">
-                                                            <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                            <i class="fa fa-eye wt-icon-box-xs"></i>
                                                         </a>
 
                                                   </div>
@@ -98,10 +98,10 @@
 
                                                       <span class="price">
                                                         <ins>
-                                                               <span class="p-price">${{ PDCT.dPrice }} <del>${{ PDCT.price }}</del></span>
+                                                               <span class="p-price">Price: {{ PDCT.price }}</span>
                                                         </ins>
 
-                                                         <ins class="ml-4">
+                                                         <br><ins>
                                                              <a href="/DetailRecord/{{ PDCT.id }}/sellerProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
@@ -193,15 +193,13 @@
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
                                     <div class="wt-thum-bx wt-img-overlay1">
-                                        <img src="{{ FTP.mainIcon.url }}" alt="">
+                                        <img src="{{ FTP.image.url }}" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                <a href="/shopDetail/{{ FTP.id }}/dronzaProduct">
+                                                    <i class="fa fa-eye wt-icon-box-xs"></i>
                                                 </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
+
                                           </div>
                                         </div>
                                     </div>
@@ -216,7 +214,8 @@
 
                                             <span class="price">
                                                 <ins>
-                                                    <span><span class="Price-currencySymbol">$ </span>{{ FTP.dPrice }}<del>{{ FTP.cPrice }}</del></span>
+                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.dPrice }}
+                                                        <del>{{ FTP.currency }}_{{ FTP.cPrice }}</del></span>
                                                 </ins>
                                             </span>
 

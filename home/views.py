@@ -201,8 +201,9 @@ def sellDrones(request):
     Product_Category = sellYourDrone.objects.values('category').distinct()
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    FEATURED = Products.objects.filter(featured='Featured')
     context = {'sellerProducts': sellerProductsFINAL, 'Product_Category': Product_Category, 'lastPage': totalPages,
-               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT}
+               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED}
     return render(request, 'sellDrone.html', context)
 
 
@@ -238,7 +239,7 @@ def contactus(request):
         SMDT = SocialMedia.objects.all()
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         context = {'form': CNTCTFM, 'RCPST': RCPST, 'SMDT': SMDT}
-    return render(request, 'contactUs.html',context)
+    return render(request, 'contactUs.html', context)
 
 
 def blog(request):

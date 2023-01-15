@@ -92,6 +92,8 @@ class ProductsForm(forms.ModelForm):
             'cPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'current price'}),
             'dPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'discounted price'}),
             'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '$USD, PKR'}),
+            'camera': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '8K, HD'}),
+            'flight_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '31 Minute'}),
             'availability': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             'featured': forms.Select(attrs={'class': 'form-control'}),
@@ -236,6 +238,7 @@ class ServicesTypeForm(forms.ModelForm):
             'Description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
         }
 
+
 class PricingForm(forms.ModelForm):
     class Meta:
         model = Pricing
@@ -250,7 +253,6 @@ class PricingForm(forms.ModelForm):
             'feature4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'feature 1'}),
             'feature5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'feature 1'}),
         }
-
 
 
 class GalleryForm(forms.ModelForm):

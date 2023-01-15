@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +127,7 @@
       <workItem from="1673360907710" duration="2526000" />
       <workItem from="1673426274959" duration="46000" />
       <workItem from="1673699492347" duration="609000" />
-      <workItem from="1673806835598" duration="3731000" />
+      <workItem from="1673806835598" duration="7283000" />
     </task>
     <servers />
   </component>
