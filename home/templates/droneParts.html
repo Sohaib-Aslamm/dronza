@@ -1,6 +1,6 @@
 {% extends 'baseHome.html' %}
 
-{% block title %} <title>Shop</title> {% endblock title %}
+{% block title %} <title>Drone Parts</title> {% endblock title %}
 {% load  static %}
 
 {% block content %}
@@ -15,7 +15,7 @@
                     <div class="wt-bnr-inr-entry">
                     	<div class="banner-title-outer">
                         	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Amazon Shop</h2>
+                        		<h2 class="site-text-white">Drone Parts</h2>
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
@@ -23,7 +23,7 @@
                             <div>
                                 <ul class="wt-breadcrumb breadcrumb-style-2">
                                     <li><a href="/shop">Shop</a></li>
-                                    <li>Amazon Shop</li>
+                                    <li>Drone Parts</li>
                                 </ul>
                             </div>
 
@@ -74,10 +74,10 @@
                                         <div class="wt-box wt-product-box   overflow-hide">
                                             <div class="wt-thum-bx wt-img-overlay1">
 
-                                                <img src="{{ PDCT.mainIcon.url }}" alt="">
+                                                <img src="{{ PDCT.thumbnail.url }}" alt="">
                                                 <div class="overlay-bx">
                                                     <div class="overlay-icon">
-                                                        <a href="{{ PDCT.buyLink }}" target="_blank">
+                                                        <a href="cart" target="_blank">
                                                             <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                         </a>
 
@@ -87,7 +87,7 @@
                                             <div class="wt-info">
                                                  <div class="p-a20 bg-white">
                                                     <h3 class="wt-title">
-                                                        <a href="/shopDetail/{{ PDCT.sNo }}/amazonProduct">{{ PDCT.title }}</a>
+                                                        <a href="/shopDetail/{{ PDCT.id }}/droneParts">{{ PDCT.name }}</a>
                                                     </h3>
 
 													<div class="product-features-item"><span>{{ PDCT.label1 }} | </span>{{ PDCT.input1 }}</div>
@@ -95,11 +95,12 @@
 
                                                       <span class="price">
                                                         <ins>
-                                                               <span class="p-price">${{ PDCT.dPrice }} <del>${{ PDCT.cPrice }}</del></span>
+                                                               <span class="p-price">{{ PDCT.currency }}_{{ PDCT.dPrice }}
+                                                                   <del>{{ PDCT.currency }}_{{ PDCT.cPrice }}</del></span>
                                                         </ins>
 
                                                          <ins class="ml-4">
-                                                             <a href="/shopDetail/{{ PDCT.sNo }}/amazonProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shopDetail/{{ PDCT.id }}/droneParts" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
@@ -125,11 +126,11 @@
                           <li class="page-item"><a class="page-link" href="?page={{ PRDCTS.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/amazonShop?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/drone_parts?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/amazonShop?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/drone_parts?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if PRDCTS.has_next  %}
@@ -183,7 +184,7 @@
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
                                     <div class="wt-thum-bx wt-img-overlay1">
-                                        <img src="{{ FTP.mainIcon.url }}" alt="">
+                                        <img src="{{ FTP.thumbnail.url }}" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -198,15 +199,16 @@
                                     <div class="wt-info">
                                          <div class="p-a20 bg-white">
                                             <h3 class="wt-title">
-                                                <a href="product-detail.html">{{ FTP.title }}</a>
+                                                <a>{{ FTP.title }}</a>
                                             </h3>
 
-                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
-                                            <div class="product-features-item"><span>Flight Time | </span>{{ FTP.flight_time }}</div>
+                                            <div class="product-features-item"><span>{{ FTP.label1 }} | </span>{{ FTP.input1 }}</div>
+                                            <div class="product-features-item"><span>{{ FTP.label2 }} | </span>{{ FTP.input2 }}</div>
 
                                             <span class="price">
                                                 <ins>
-                                                    <span><span class="Price-currencySymbol">$ </span>{{ FTP.dPrice }}<del>{{ FTP.cPrice }}</del></span>
+                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.dPrice }}
+                                                        <del>{{ FTP.currency }}_{{ FTP.cPrice }}</del></span>
                                                 </ins>
                                             </span>
 

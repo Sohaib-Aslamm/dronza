@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, productImages, HomeSRFP, VideoGallery, \
-    WhatPeopleSay, OurPartner, amazonProduct, amazonProductImages
+    WhatPeopleSay, OurPartner, droneParts, dronePartsImages
 
 from home.models import contact_us, productReview, blog_Review, sellYourDrone, sellYourDroneImages, Place_Order
 
@@ -101,31 +101,31 @@ def dronzaShop(request):
     return render(request, 'dronzaShop.html', context)
 
 
-def amazonShop(request):
-    PRDCTS = amazonProduct.objects.all().order_by('-sNo')
+def drone_parts(request):
+    PRDCTS = droneParts.objects.all().order_by('-id')
     paginator = Paginator(PRDCTS, 50)
     pageNo = request.GET.get('page')
     PRDCTSFINAL = paginator.get_page(pageNo)
     totalPages = PRDCTSFINAL.paginator.num_pages
-    PRDCTGRY = amazonProduct.objects.values('category').distinct()
+    PRDCTGRY = droneParts.objects.values('category').distinct()
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    FEATURED = amazonProduct.objects.filter(featured='Featured')
+    FEATURED = droneParts.objects.filter(featured='Featured')
 
     context = {'PRDCTS': PRDCTSFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
                'PRDCTGRY': PRDCTGRY, 'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT}
-    return render(request, 'amazonShop.html', context)
+    return render(request, 'droneParts.html', context)
 
 
 def shopDetail(request, id, type):
-    if type == 'amazonProduct':
-        shpDetail = amazonProduct.objects.get(sNo=id)
-        PRDRVW = amazonProduct.objects.filter(sNo=id)
-        prd_images = amazonProductImages.objects.filter(Product_ID_id=id)
+    if type == 'droneParts':
+        shpDetail = droneParts.objects.get(id=id)
+        PRDRVW = droneParts.objects.filter(id=id)
+        prd_images = dronePartsImages.objects.filter(Product_ID_id=id)
         coments = productReview.objects.filter(product__in=PRDRVW)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        return render(request, 'amazonshopDetails.html', {'shpDetail': shpDetail, 'coments': coments,
+        return render(request, 'dronepartsDetails.html', {'shpDetail': shpDetail, 'coments': coments,
                                                           'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT})
 
     if type == 'dronzaProduct':

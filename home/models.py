@@ -1,6 +1,6 @@
 from django.db import models
 import django.utils.timezone
-from dronzaPanel.models import Products, amazonProduct, userBlog
+from dronzaPanel.models import Products, droneParts, userBlog
 # Create your models here.
 
 
@@ -53,7 +53,7 @@ class productReview(models.Model):
     author = models.CharField(max_length=200, default="")
     email = models.CharField(max_length=200, default="")
     review = models.TextField(default="")
-    product = models.ForeignKey(amazonProduct, on_delete=models.CASCADE)
+    product = models.ForeignKey(droneParts, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
 

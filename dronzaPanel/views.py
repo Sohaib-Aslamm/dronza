@@ -1,9 +1,9 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
     GalleryForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
-    ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, amazonProductsForm
+    ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, dronePartsForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
-    productImages, amazonProduct, amazonProductImages
+    productImages, amazonProduct, amazonProductImages, droneParts, dronePartsImages
 
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
@@ -223,17 +223,18 @@ def adminDroneProducts(request):
 
 @login_required(login_url='/user_login')
 @admin_only
-def adminAmazonProducts(request):
+def admindroneParts(request):
     if request.method == 'POST':
         images = request.FILES.getlist('images')
-        PRDTFM = amazonProductsForm(request.POST, request.FILES)
+        PRDTFM = dronePartsForm(request.POST, request.FILES)
         if PRDTFM.is_valid():
-            TIT = PRDTFM.cleaned_data['title']
+            NAME = PRDTFM.cleaned_data['name']
             CPR = PRDTFM.cleaned_data['cPrice']
             DPR = PRDTFM.cleaned_data['dPrice']
             AVLBTY = PRDTFM.cleaned_data['availability']
             FTRD = PRDTFM.cleaned_data['featured']
             CLR = PRDTFM.cleaned_data['color']
+            CRNCY = PRDTFM.cleaned_data['currency']
             CTGRY = PRDTFM.cleaned_data['category']
             label1 = PRDTFM.cleaned_data['label1']
             input1 = PRDTFM.cleaned_data['input1']
@@ -247,33 +248,32 @@ def adminAmazonProducts(request):
             input5 = PRDTFM.cleaned_data['input5']
             label6 = PRDTFM.cleaned_data['label6']
             input6 = PRDTFM.cleaned_data['input6']
-            BLINK = PRDTFM.cleaned_data['buyLink']
             DESC = PRDTFM.cleaned_data['description']
-            ICON = PRDTFM.cleaned_data['mainIcon']
-            reg = amazonProduct(title=TIT, cPrice=CPR, dPrice=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
-                                category=CTGRY, label1=label1, input1=input1, label2=label2,
+            THMBN = PRDTFM.cleaned_data['thumbnail']
+            reg = droneParts(name=NAME, cPrice=CPR, dPrice=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
+                                category=CTGRY, label1=label1, input1=input1, label2=label2, currency=CRNCY,
                                 input2=input2, label3=label3, input3=input3, label4=label4, input4=input4,
                                 label5=label5, input5=input5, label6=label6, input6=input6,
-                                buyLink=BLINK, description=DESC, mainIcon=ICON)
+                                description=DESC, thumbnail=THMBN)
             reg.save()
 
-            latest_id = amazonProduct.objects.latest('sNo').sNo
+            latest_id = droneParts.objects.latest('id').id
 
             for f in images:
-                products = amazonProductImages(images=f, Product_ID_id=latest_id)
+                products = dronePartsImages(images=f, Product_ID_id=latest_id)
                 products.save()
 
-            PRDTFM = amazonProductsForm()
+            PRDTFM = dronePartsForm()
     else:
-        PRDTFM = amazonProductsForm()
+        PRDTFM = dronePartsForm()
 
-    PRDTDT = amazonProduct.objects.all().order_by('-sNo')
+    PRDTDT = droneParts.objects.all().order_by('-id')
     paginator = Paginator(PRDTDT, 10)
     pageNo = request.GET.get('page')
     BLGdataFINAL = paginator.get_page(pageNo)
     totalPages = BLGdataFINAL.paginator.num_pages
     context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
-    return render(request, 'amazonProduct.html', context)
+    return render(request, 'adminDroneParts.html', context)
 
 
 @login_required(login_url='/user_login')
@@ -637,10 +637,10 @@ def Delete(request, id, type):
         DeleteRecord.delete()
         return redirect('/adminDroneProducts')
 
-    if type == 'amazonProducts':
-        DeleteRecord = amazonProduct.objects.get(sNo=id)
+    if type == 'droneParts':
+        DeleteRecord = droneParts.objects.get(id=id)
         DeleteRecord.delete()
-        return redirect('/adminAmazonProducts')
+        return redirect('/adminDroneParts')
 
     if type == 'SRFP':
         DeleteRecord = HomeSRFP.objects.get(id=id)
@@ -833,17 +833,17 @@ def Update(request, id, type):
             UpdateForm = ProductsForm(instance=UpdateRecord)
         return render(request, 'Update/updateDroneProducts.html', {'form': UpdateForm})
 
-    if type == 'amazonProducts':
+    if type == 'droneParts':
         if request.method == 'POST':
-            UpdateRecord = amazonProduct.objects.get(sNo=id)
-            UpdateForm = amazonProductsForm(request.POST, request.FILES, instance=UpdateRecord)
+            UpdateRecord = droneParts.objects.get(id=id)
+            UpdateForm = dronePartsForm(request.POST, request.FILES, instance=UpdateRecord)
             if UpdateForm.is_valid():
                 UpdateForm.save()
-                return redirect('/adminAmazonProducts')
+                return redirect('/adminDroneParts')
         else:
-            UpdateRecord = amazonProduct.objects.get(sNo=id)
-            UpdateForm = amazonProductsForm(instance=UpdateRecord)
-        return render(request, 'Update/updateAmazonProduct.html', {'form': UpdateForm})
+            UpdateRecord = droneParts.objects.get(id=id)
+            UpdateForm = dronePartsForm(instance=UpdateRecord)
+        return render(request, 'Update/updateDroneParts.html', {'form': UpdateForm})
 
     if type == 'SRFP':
         if request.method == 'POST':
