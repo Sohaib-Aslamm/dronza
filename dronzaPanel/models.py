@@ -128,7 +128,8 @@ class HomeAbout(models.Model):
 class Products(models.Model):
     name = models.CharField(max_length=100, default="")
     cPrice = models.CharField(max_length=100, default="")
-    price = models.CharField(max_length=100, default="")
+    dPrice = models.CharField(max_length=100, default="")
+    currency = models.CharField(max_length=100, default="")
     availability = models.CharField(max_length=100, choices=inStock,  default="")
     color = models.CharField(max_length=100, default="")
     featured = models.CharField(max_length=100, choices=Featured, default="")

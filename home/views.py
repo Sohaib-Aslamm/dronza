@@ -230,7 +230,7 @@ def contactus(request):
             MSG = CNTCTFM.cleaned_data['message']
             sv = contact_us(name=NM, subject=SBJ, email=EM, phone=PH, message=MSG)
             sv.save()
-            notify_contact_us(NM, EM, MSG) # send email to customer who contacted by web site
+            notify_contact_us(NM, EM, MSG)  # send email to customer who contacted by web site
             contactForm()
             return HttpResponseRedirect('/thankyou')
     else:

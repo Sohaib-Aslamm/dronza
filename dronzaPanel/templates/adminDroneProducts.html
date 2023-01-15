@@ -54,7 +54,7 @@
   {% for data in PRDTDT %}
     <tr>
       <td>{{ data.name }}</td>
-      <td>{{ data.price }}</td>
+      <td>{{ data.currency }} {{ data.dPrice }}</td>
       <td>{{ data.availability }}</td>
       <td>{{ data.category }}</td>
      <td class="text-center">
@@ -97,13 +97,17 @@
 
 
           <div class="row mb-3">
-               <div class="col-4">
+               <div class="col-3">
                     <label>C Price</label>
                         {{ form.cPrice }}
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <label>D Price</label>
-                        {{ form.price }}
+                        {{ form.dPrice }}
+                </div>
+               <div class="col-2">
+                    <label>Currency</label>
+                        {{ form.currency }}
                 </div>
             <div class="col-4">
                     <label>Color</label>

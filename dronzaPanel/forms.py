@@ -90,7 +90,8 @@ class ProductsForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter name'}),
             'cPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'current price'}),
-            'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'discounted price'}),
+            'dPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'discounted price'}),
+            'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '$USD, PKR'}),
             'availability': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             'featured': forms.Select(attrs={'class': 'form-control'}),

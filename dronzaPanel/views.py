@@ -30,7 +30,6 @@ def UserRegister(request):
             user = URFM.save()
             username = URFM.cleaned_data.get('username')
             email = URFM.cleaned_data.get('email')
-            print(username, email)
             URFM.cleaned_data.get('password')
 
             group = Group.objects.get(name='Customer')   # assign a default group to customer
@@ -174,7 +173,8 @@ def adminDroneProducts(request):
         if PRDTFM.is_valid():
             TIT = PRDTFM.cleaned_data['name']
             CPR = PRDTFM.cleaned_data['cPrice']
-            DPR = PRDTFM.cleaned_data['price']
+            DPR = PRDTFM.cleaned_data['dPrice']
+            CRNCY = PRDTFM.cleaned_data['currency']
             AVLBTY = PRDTFM.cleaned_data['availability']
             CTR = PRDTFM.cleaned_data['category']
             FTRD = PRDTFM.cleaned_data['featured']
@@ -193,7 +193,7 @@ def adminDroneProducts(request):
             input6 = PRDTFM.cleaned_data['input6']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['image']
-            reg = Products(name=TIT, cPrice=CPR, price=DPR, availability=AVLBTY, color=CLR, category=CTR,
+            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR, category=CTR,
                            featured=FTRD, description=DESC, label1=lbl1, label2=lbl2, label3=lbl3, label4=lbl4,
                            label5=lbl5, label6=lbl6, input1=input1, input2=input2, input3=input3, input4=input4,
                            input5=input5, input6=input6, image=ICON)
