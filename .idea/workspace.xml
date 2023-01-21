@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/home/templates/update/customerProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneParts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneParts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneParts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneParts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/cart_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cart_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/droneParts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/droneParts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronepartsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronepartsDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
@@ -146,6 +135,7 @@
       <workItem from="1673699492347" duration="609000" />
       <workItem from="1673806835598" duration="16847000" />
       <workItem from="1674233049806" duration="11452000" />
+      <workItem from="1674322920822" duration="10850000" />
     </task>
     <servers />
   </component>

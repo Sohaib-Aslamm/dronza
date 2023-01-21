@@ -33,6 +33,7 @@ urlpatterns = [
     path('postDetail/<int:sNo>', views.postDetail, name="postDetail"),
     path('DetailRecord/<int:id>/<str:type>', views.DetailRecord, name="DetailRecord"),
     path('DeleteHome/<int:id>/<str:type>', views.Delete, name="DeleteHome"),
+    path('UpdateHome/<int:id>/<str:type>', views.UpdateHome, name="UpdateHome"),
     path('error404', views.error404, name="error404"),
 
 

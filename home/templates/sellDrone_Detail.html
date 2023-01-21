@@ -71,7 +71,7 @@
                                     <h2 class="post-title"><a href="javascript:void(0);">{{ rec.title }}</a></h2>
                                 </div>
                                 <div class="product-single-price">
-                                    <span class="p-single-new-price">${{ rec.price }}</span>
+                                    <span class="p-single-new-price">Price: {{ rec.price }}</span>
                                 </div>
 
                             </div>
@@ -99,23 +99,20 @@
                                     <div id="graphic-design-19" class="tab-pane">
                                         <table class="table m-b0 no-border">
                                             <tbody>
-                                            <tr>
-                                                <td><b>Camera</b></td>
-                                                <td>{{ rec.camera }}</td>
-                                             </tr>
                                              <tr>
+                                                <td><b>Title</b></td>
+                                                <td>{{ rec.title }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td><b>Color</b></td>
                                                 <td>{{ rec.color }}</td>
                                             </tr>
+
                                             <tr>
                                                 <td><b>Condition</b></td>
                                                 <td>{{ rec.condition }}</td>
                                             </tr>
 
-                                             <tr>
-                                                <td><b>Flight Time</b></td>
-                                                <td>{{ rec.flight_time }}</td>
-                                            </tr>
                                             <tr>
                                                 <td><b>Category</b></td>
                                                 <td>{{ rec.category }}</td>

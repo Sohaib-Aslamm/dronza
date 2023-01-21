@@ -150,8 +150,7 @@ def customerProduct(request):
         title = request.POST.get('title')
         price = request.POST.get('price')
         category = request.POST.get('category')
-        flight_time = request.POST.get('flight_time')
-        camera = request.POST.get('camera')
+        brand = request.POST.get('brand')
         color = request.POST.get('color')
         condition = request.POST.get('condition')
         label1 = request.POST.get('label1')
@@ -166,7 +165,7 @@ def customerProduct(request):
         thumbnail = request.FILES['thumbnail']
 
         sv = sellYourDrone(name=name, email=email, sPhone=sPhone, pPhone=pPhone, location=location, title=title,
-                           price=price, category=category, flight_time=flight_time, camera=camera, color=color,
+                           price=price, category=category, brand=brand, color=color,
                            condition=condition, label1=label1, input1=input1, label2=label2, input2=input2,
                            label3=label3, input3=input3, label4=label4, input4=input4, description=description,
                            thumbnail=thumbnail, user_id=user_id)
@@ -482,6 +481,36 @@ def DetailRecord(request, id, type):
         return render(request, 'track_order_detail.html', context)
 
 # <------------------------------------------ Delete Record -------------------------------------->
+
+
+def UpdateHome(request, id, type):
+    if type == 'sellerProduct':
+        Record = sellYourDrone.objects.get(id=id)
+
+        if request.method == 'POST':
+            Record.name = request.POST.get('name')
+            Record.email = request.POST.get('email')
+            Record.pPhone = request.POST.get('pPhone')
+            Record.sPhone = request.POST.get('sPhone')
+            Record.location = request.POST.get('location')
+            Record.title = request.POST.get('title')
+            Record.category = request.POST.get('category')
+            Record.condition = request.POST.get('condition')
+            Record.price = request.POST.get('price')
+            Record.color = request.POST.get('color')
+            Record.brand = request.POST.get('brand')
+            Record.label1 = request.POST.get('label1')
+            Record.input1 = request.POST.get('input1')
+            Record.label2 = request.POST.get('label2')
+            Record.input2 = request.POST.get('input2')
+            Record.label3 = request.POST.get('label3')
+            Record.input3 = request.POST.get('input3')
+            Record.label4 = request.POST.get('label4')
+            Record.input4 = request.POST.get('input4')
+            Record.description = request.POST.get('description')
+            Record.save()
+            return redirect('/customerProduct')
+        return render(request, 'update/customerProduct.html', {'Record': Record})
 
 
 def Delete(request, id, type):

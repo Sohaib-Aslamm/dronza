@@ -12,6 +12,7 @@ droneCategory = (
     ('Wireless', 'Wireless'),
     ('Plastic', 'Plastic'),
     ('Titanium', 'Titanium'),
+    ('Parts', 'Parts'),
     ('Other', 'Other'),
 
 )
@@ -85,8 +86,7 @@ class sellYourDrone(models.Model):
     location = models.EmailField(max_length=255, default="")
     title = models.CharField(max_length=255, default="")
     price = models.CharField(max_length=100, default="")
-    camera = models.CharField(max_length=100, default="")
-    flight_time = models.CharField(max_length=100, default="")
+    brand = models.CharField(max_length=100, default="")
     color = models.CharField(max_length=100, default="")
     condition = models.CharField(max_length=100, default="")
     category = models.CharField(max_length=100, default="")
