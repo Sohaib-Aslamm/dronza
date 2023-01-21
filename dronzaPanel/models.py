@@ -22,6 +22,7 @@ droneCategory = (
     ('Titanium', 'Titanium'),
     ('Featured', 'Featured'),
     ('Aluminium', 'Aluminium'),
+    ('Parts', 'Parts'),
     ('Other', 'Other'),
 
 )
@@ -130,12 +131,10 @@ class HomeAbout(models.Model):
 
 
 class Products(models.Model):
-    name = models.CharField(max_length=100, default="")
+    name = models.CharField(max_length=255, default="")
     cPrice = models.CharField(max_length=100, default="")
-    dPrice = models.CharField(max_length=100, default="")
+    price = models.CharField(max_length=100, default="")
     currency = models.CharField(max_length=100, default="")
-    camera = models.CharField(max_length=100, default="")
-    flight_time = models.CharField(max_length=100, default="")
     availability = models.CharField(max_length=100, choices=inStock,  default="")
     color = models.CharField(max_length=100, default="")
     featured = models.CharField(max_length=100, choices=Featured, default="")
@@ -146,46 +145,24 @@ class Products(models.Model):
     label4 = models.CharField(max_length=100, default="")
     label5 = models.CharField(max_length=100, default="")
     label6 = models.CharField(max_length=100, default="")
+    label7 = models.CharField(max_length=100, default="")
+    label8 = models.CharField(max_length=100, default="")
     input1 = models.CharField(max_length=100, default="")
     input2 = models.CharField(max_length=100, default="")
     input3 = models.CharField(max_length=100, default="")
     input4 = models.CharField(max_length=100, default="")
     input5 = models.CharField(max_length=100, default="")
     input6 = models.CharField(max_length=100, default="")
+    input7 = models.CharField(max_length=100, default="")
+    input8 = models.CharField(max_length=100, default="")
     description = models.TextField(default="")
     image = models.FileField(upload_to='DronzaProducts/MainIcon', default="")
-
-
-class amazonProduct(models.Model):
-    sNo = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=255, default="")
-    cPrice = models.CharField(max_length=100, default="")
-    dPrice = models.CharField(max_length=100, default="")
-    category = models.CharField(max_length=100, choices=droneCategory, default="")
-    color = models.CharField(max_length=100, default="")
-    availability = models.CharField(max_length=100, choices=inStock, default="")
-    featured = models.CharField(max_length=100, choices=Featured, default="")
-    label1 = models.CharField(max_length=100, default="")
-    label2 = models.CharField(max_length=100, default="")
-    label3 = models.CharField(max_length=100, default="")
-    label4 = models.CharField(max_length=100, default="")
-    label5 = models.CharField(max_length=100, default="")
-    label6 = models.CharField(max_length=100, default="")
-    input1 = models.CharField(max_length=100, default="")
-    input2 = models.CharField(max_length=100, default="")
-    input3 = models.CharField(max_length=100, default="")
-    input4 = models.CharField(max_length=100, default="")
-    input5 = models.CharField(max_length=100, default="")
-    input6 = models.CharField(max_length=100, default="")
-    description = models.TextField(default="")
-    buyLink = models.CharField(max_length=255, default="")
-    mainIcon = models.FileField(upload_to='AmazonProducts/MainIcon', default="")
 
 
 class droneParts(models.Model):
     name = models.CharField(max_length=255, default="")
     cPrice = models.CharField(max_length=100, default="")
-    dPrice = models.CharField(max_length=100, default="")
+    price = models.CharField(max_length=100, default="")
     category = models.CharField(max_length=100, choices=partCategory, default="")
     color = models.CharField(max_length=100, default="")
     currency = models.CharField(max_length=100, default="")
@@ -204,7 +181,12 @@ class droneParts(models.Model):
     input5 = models.CharField(max_length=100, default="")
     input6 = models.CharField(max_length=100, default="")
     description = models.TextField(default="")
-    thumbnail = models.FileField(upload_to='DroneParts/Thumbnail', default="")
+    image = models.FileField(upload_to='DroneParts/Thumbnail', default="")
+
+
+class amazonProduct(models.Model):
+    sNo = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255, default="")
 
 
 class productImages(models.Model):

@@ -74,10 +74,10 @@
                                         <div class="wt-box wt-product-box   overflow-hide">
                                             <div class="wt-thum-bx wt-img-overlay1">
 
-                                                <img src="{{ PDCT.thumbnail.url }}" alt="">
+                                                <img src="{{ PDCT.image.url }}" alt="">
                                                 <div class="overlay-bx">
                                                     <div class="overlay-icon">
-                                                        <a href="cart" target="_blank">
+                                                        <a href="/cart/add/{{ PDCT.id }}/drone_parts">
                                                             <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                         </a>
 
@@ -95,11 +95,11 @@
 
                                                       <span class="price">
                                                         <ins>
-                                                               <span class="p-price">{{ PDCT.currency }}_{{ PDCT.dPrice }}
+                                                               <span class="p-price">{{ PDCT.currency }}_{{ PDCT.price }}
                                                                    <del>{{ PDCT.currency }}_{{ PDCT.cPrice }}</del></span>
                                                         </ins>
 
-                                                         <ins class="ml-4">
+                                                         <ins>
                                                              <a href="/shopDetail/{{ PDCT.id }}/droneParts" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
@@ -184,15 +184,13 @@
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
                                     <div class="wt-thum-bx wt-img-overlay1">
-                                        <img src="{{ FTP.thumbnail.url }}" alt="">
+                                        <img src="{{ FTP.image.url }}" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
+                                                <a href="/cart/add/{{ PDCT.id }}/drone_parts">
                                                     <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                 </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
+
                                           </div>
                                         </div>
                                     </div>
@@ -207,7 +205,7 @@
 
                                             <span class="price">
                                                 <ins>
-                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.dPrice }}
+                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.price }}
                                                         <del>{{ FTP.currency }}_{{ FTP.cPrice }}</del></span>
                                                 </ins>
                                             </span>

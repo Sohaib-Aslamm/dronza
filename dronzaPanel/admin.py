@@ -6,14 +6,15 @@ from dronzaPanel.models import *
 class Dronza(admin.ModelAdmin):
     pass
 
+
 admin.site.register(MainSlider, Dronza)
 admin.site.register(HomeHIW, Dronza)
 admin.site.register(HomeHTU, Dronza)
 admin.site.register(HomeAbout, Dronza)
 admin.site.register(Products, Dronza)
 admin.site.register(productImages, Dronza)
-admin.site.register(amazonProduct, Dronza)
-admin.site.register(amazonProductImages, Dronza)
+admin.site.register(droneParts, Dronza)
+admin.site.register(dronePartsImages, Dronza)
 admin.site.register(HomeSRFP, Dronza)
 admin.site.register(VideoGallery, Dronza)
 admin.site.register(WhatPeopleSay, Dronza)

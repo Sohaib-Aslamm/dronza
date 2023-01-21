@@ -96,8 +96,8 @@
 
                                                       <span class="price">
                                                         <ins>
-                                                               <span class="p-price">{{ PDCT.currency }}_{{ PDCT.dPrice }}
-                                                                   <del>{{ PDCT.currency }}_{{ PDCT.cPrice }}</del></span>
+                                                               <span class="p-price">{{ PDCT.price }} {{ PDCT.currency }}
+                                                                   <del>{{ PDCT.cPrice }} {{ PDCT.currency }}</del></span>
                                                         </ins>
 
                                                          <br><ins>
@@ -209,8 +209,8 @@
 
                                             <span class="price">
                                                 <ins>
-                                                    <span><span class="Price-currencySymbol">{{ FTP.currency }}_</span>{{ FTP.dPrice }}
-                                                        <del>{{ FTP.currency }}_{{ FTP.cPrice }}</del></span>
+                                                    <span>{{ FTP.price }} {{ FTP.currency }}
+                                                        <del>{{ FTP.cPrice }} {{ FTP.currency }}</del></span>
                                                 </ins>
                                                 <br><ins>
                                                              <a href="/shopDetail/{{ FTP.id }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>

@@ -76,14 +76,14 @@ def gallery(request):
     return render(request, 'Gallery.html', context)
 
 
+# def def dronzaShop(request):
+#     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+#     SMDT = SocialMedia.objects.all()
+#     context = {'RCPST': RCPST, 'SMDT': SMDT}
+#     return render(request, 'dronzaShop.html', context)
+
+
 def shop(request):
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    SMDT = SocialMedia.objects.all()
-    context = {'RCPST': RCPST, 'SMDT': SMDT}
-    return render(request, 'Shop.html', context)
-
-
-def dronzaShop(request):
     dronzaProducts = Products.objects.all().order_by('-id')
     dronzapaginator = Paginator(dronzaProducts, 50)
     dronzapageNo = request.GET.get('page')
@@ -303,7 +303,7 @@ def cart_add(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
     cart.add(product=product)
-    return redirect("/dronzaShop")
+    return redirect("/shop")
 
 
 @login_required(login_url='/user_login')

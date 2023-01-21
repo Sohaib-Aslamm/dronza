@@ -15,14 +15,14 @@
                     <div class="wt-bnr-inr-entry">
                     	<div class="banner-title-outer">
                         	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Amazon Product Detail</h2>
+                        		<h2 class="site-text-white">Dronza Product Detail</h2>
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
 
                             <div>
                                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/shop">Amazon Shop</a></li>
+                                    <li><a href="/drone_parts">Drone Parts</a></li>
                                     <li>Product Detail</li>
                                 </ul>
                             </div>
@@ -68,11 +68,11 @@
                         <div class="col-lg-6 col-md-12">
                         	<div class="product-detail-info p-a30">
                                 <div class="single-product-title ">
-                                    <h2 class="post-title"><a href="javascript:void(0);">{{ shpDetail.title }}</a></h2>
+                                    <h2 class="post-title"><a href="javascript:void(0);">{{ shpDetail.name }}</a></h2>
                                 </div>
                                 <div class="product-single-price">
                                 	<span class="p-single-old-price">${{ shpDetail.cPrice }}</span>
-                                    <span class="p-single-new-price">${{ shpDetail.dPrice }}</span>
+                                    <span class="p-single-new-price">${{ shpDetail.price }}</span>
                                 </div>
 
 							<div class="product-single-availability">
@@ -91,10 +91,8 @@
 
 
                                 <div class="cart clearfix ">
-                                    <div class="quantity btn-quantity m-b20">
-                                        <div class="input-group bootstrap-touchspin"><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="demo_vertical2" type="text" value="1" name="demo_vertical2" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn-vertical"><button class="btn btn-default bootstrap-touchspin-up" type="button"><i class="fa fa-plus"></i></button><button class="btn btn-default bootstrap-touchspin-down" type="button"><i class="fa fa-minus"></i></button></span></div>
-                                    </div>
-                                    <a href="{{ shpDetail.buyLink }}" target="_blank"> <button class="site-button site-btn-effect m-b20">Buy Product</button></a>
+
+                                    <a href="/cart/add/{{ shpDetail.id }}/drone_parts" target="_blank"> <button class="site-button site-btn-effect m-b20">Buy Product</button></a>
                                 </div>
                             </div>
                         </div>
@@ -121,10 +119,7 @@
                                     <div id="graphic-design-19" class="tab-pane">
                                         <table class="table m-b0 no-border">
                                             <tbody>
-                                                      <tr>
-                                                <td><b>Camera</b></td>
-                                                <td>{{ shpDetail.camera }}</td>
-                                             </tr>
+
                                              <tr>
                                                 <td><b>Color</b></td>
                                                 <td>{{ shpDetail.color }}</td>

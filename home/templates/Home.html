@@ -872,17 +872,18 @@
                                         </div>
                                         <div class="product-show-block">
                                             <div class="product-show-info shadow">
-                                                <div class="p-price">{{ PR.currency }}_{{ PR.dPrice }} <del>{{ PR.currency }}_{{ PR.cPrice }}</del></div>
+                                                <div class="p-price">{{ PR.price }} {{ PR.currency }}
+                                                    <del>{{ PR.cPrice }} {{ PR.currency }}</del></div>
                                                 <div class="p-title"><h3 class="wt-title">{{ PR.title }}</h3></div>
                                                 <div class="p-specification">
                                                     <ul>
-                                                        <li><span class="p-specification-title"> Camera</span>{{ PR.camera }}</li>
+                                                        <li><span class="p-specification-title"> {{ PR.name }}</span></li>
                                                     </ul>
                                                 </div>
                                                 <div class="p-control">
                                                     <ul>
-                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct" target="_blank"><i class="fa fa-cart-arrow-down"></i></a></li>
-                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct" target="_blank"><i class="fa fa-eye"></i></a></li>
+                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct"><i class="fa fa-cart-arrow-down"></i></a></li>
+                                                        <li><a href="/shopDetail/{{ PR.id }}/dronzaProduct"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -1,9 +1,9 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
     GalleryForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
-    ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, dronePartsForm
+    ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
-    productImages, amazonProduct, amazonProductImages, droneParts, dronePartsImages
+    productImages
 
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
@@ -60,6 +60,7 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/admin')
+
 
 @login_required(login_url='/user_login')
 @admin_only
@@ -173,10 +174,8 @@ def adminDroneProducts(request):
         if PRDTFM.is_valid():
             TIT = PRDTFM.cleaned_data['name']
             CPR = PRDTFM.cleaned_data['cPrice']
-            DPR = PRDTFM.cleaned_data['dPrice']
+            DPR = PRDTFM.cleaned_data['price']
             CRNCY = PRDTFM.cleaned_data['currency']
-            CMRA = PRDTFM.cleaned_data['camera']
-            FLT = PRDTFM.cleaned_data['flight_time']
             AVLBTY = PRDTFM.cleaned_data['availability']
             CTR = PRDTFM.cleaned_data['category']
             FTRD = PRDTFM.cleaned_data['featured']
@@ -193,13 +192,17 @@ def adminDroneProducts(request):
             input5 = PRDTFM.cleaned_data['input5']
             lbl6 = PRDTFM.cleaned_data['label6']
             input6 = PRDTFM.cleaned_data['input6']
+            lbl7 = PRDTFM.cleaned_data['label7']
+            input7 = PRDTFM.cleaned_data['input7']
+            lbl8 = PRDTFM.cleaned_data['label8']
+            input8 = PRDTFM.cleaned_data['input8']
             DESC = PRDTFM.cleaned_data['description']
             ICON = PRDTFM.cleaned_data['image']
-            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, camera=CMRA, flight_time=FLT,
-                           availability=AVLBTY, color=CLR, category=CTR,
-                           featured=FTRD, description=DESC, label1=lbl1, label2=lbl2, label3=lbl3, label4=lbl4,
-                           label5=lbl5, label6=lbl6, input1=input1, input2=input2, input3=input3, input4=input4,
-                           input5=input5, input6=input6, image=ICON)
+            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR,
+                           category=CTR, featured=FTRD, description=DESC, label1=lbl1, label2=lbl2,
+                           label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, label7=lbl7, label8=lbl8, input1=input1,
+                           input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, input7=input7,
+                           input8=input8, image=ICON)
             reg.save()
 
             latest_id = Products.objects.latest('id').id
@@ -220,60 +223,60 @@ def adminDroneProducts(request):
     context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
     return render(request, 'adminDroneProducts.html', context)
 
-
-@login_required(login_url='/user_login')
-@admin_only
-def admindroneParts(request):
-    if request.method == 'POST':
-        images = request.FILES.getlist('images')
-        PRDTFM = dronePartsForm(request.POST, request.FILES)
-        if PRDTFM.is_valid():
-            NAME = PRDTFM.cleaned_data['name']
-            CPR = PRDTFM.cleaned_data['cPrice']
-            DPR = PRDTFM.cleaned_data['dPrice']
-            AVLBTY = PRDTFM.cleaned_data['availability']
-            FTRD = PRDTFM.cleaned_data['featured']
-            CLR = PRDTFM.cleaned_data['color']
-            CRNCY = PRDTFM.cleaned_data['currency']
-            CTGRY = PRDTFM.cleaned_data['category']
-            label1 = PRDTFM.cleaned_data['label1']
-            input1 = PRDTFM.cleaned_data['input1']
-            label2 = PRDTFM.cleaned_data['label2']
-            input2 = PRDTFM.cleaned_data['input2']
-            label3 = PRDTFM.cleaned_data['label3']
-            input3 = PRDTFM.cleaned_data['input3']
-            label4 = PRDTFM.cleaned_data['label4']
-            input4 = PRDTFM.cleaned_data['input4']
-            label5 = PRDTFM.cleaned_data['label5']
-            input5 = PRDTFM.cleaned_data['input5']
-            label6 = PRDTFM.cleaned_data['label6']
-            input6 = PRDTFM.cleaned_data['input6']
-            DESC = PRDTFM.cleaned_data['description']
-            THMBN = PRDTFM.cleaned_data['thumbnail']
-            reg = droneParts(name=NAME, cPrice=CPR, dPrice=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
-                                category=CTGRY, label1=label1, input1=input1, label2=label2, currency=CRNCY,
-                                input2=input2, label3=label3, input3=input3, label4=label4, input4=input4,
-                                label5=label5, input5=input5, label6=label6, input6=input6,
-                                description=DESC, thumbnail=THMBN)
-            reg.save()
-
-            latest_id = droneParts.objects.latest('id').id
-
-            for f in images:
-                products = dronePartsImages(images=f, Product_ID_id=latest_id)
-                products.save()
-
-            PRDTFM = dronePartsForm()
-    else:
-        PRDTFM = dronePartsForm()
-
-    PRDTDT = droneParts.objects.all().order_by('-id')
-    paginator = Paginator(PRDTDT, 10)
-    pageNo = request.GET.get('page')
-    BLGdataFINAL = paginator.get_page(pageNo)
-    totalPages = BLGdataFINAL.paginator.num_pages
-    context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
-    return render(request, 'adminDroneParts.html', context)
+#
+# @login_required(login_url='/user_login')
+# @admin_only
+# def admindroneParts(request):
+#     if request.method == 'POST':
+#         images = request.FILES.getlist('images')
+#         PRDTFM = dronePartsForm(request.POST, request.FILES)
+#         if PRDTFM.is_valid():
+#             NAME = PRDTFM.cleaned_data['name']
+#             CPR = PRDTFM.cleaned_data['cPrice']
+#             DPR = PRDTFM.cleaned_data['price']
+#             AVLBTY = PRDTFM.cleaned_data['availability']
+#             FTRD = PRDTFM.cleaned_data['featured']
+#             CLR = PRDTFM.cleaned_data['color']
+#             CRNCY = PRDTFM.cleaned_data['currency']
+#             CTGRY = PRDTFM.cleaned_data['category']
+#             label1 = PRDTFM.cleaned_data['label1']
+#             input1 = PRDTFM.cleaned_data['input1']
+#             label2 = PRDTFM.cleaned_data['label2']
+#             input2 = PRDTFM.cleaned_data['input2']
+#             label3 = PRDTFM.cleaned_data['label3']
+#             input3 = PRDTFM.cleaned_data['input3']
+#             label4 = PRDTFM.cleaned_data['label4']
+#             input4 = PRDTFM.cleaned_data['input4']
+#             label5 = PRDTFM.cleaned_data['label5']
+#             input5 = PRDTFM.cleaned_data['input5']
+#             label6 = PRDTFM.cleaned_data['label6']
+#             input6 = PRDTFM.cleaned_data['input6']
+#             DESC = PRDTFM.cleaned_data['description']
+#             THMBN = PRDTFM.cleaned_data['image']
+#             reg = droneParts(name=NAME, cPrice=CPR, price=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
+#                                 category=CTGRY, label1=label1, input1=input1, label2=label2, currency=CRNCY,
+#                                 input2=input2, label3=label3, input3=input3, label4=label4, input4=input4,
+#                                 label5=label5, input5=input5, label6=label6, input6=input6,
+#                                 description=DESC, image=THMBN)
+#             reg.save()
+#
+#             latest_id = droneParts.objects.latest('id').id
+#
+#             for f in images:
+#                 products = dronePartsImages(images=f, Product_ID_id=latest_id)
+#                 products.save()
+#
+#             PRDTFM = dronePartsForm()
+#     else:
+#         PRDTFM = dronePartsForm()
+#
+#     PRDTDT = droneParts.objects.all().order_by('-id')
+#     paginator = Paginator(PRDTDT, 10)
+#     pageNo = request.GET.get('page')
+#     BLGdataFINAL = paginator.get_page(pageNo)
+#     totalPages = BLGdataFINAL.paginator.num_pages
+#     context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+#     return render(request, 'adminDroneParts.html', context)
 
 
 @login_required(login_url='/user_login')
@@ -637,10 +640,10 @@ def Delete(request, id, type):
         DeleteRecord.delete()
         return redirect('/adminDroneProducts')
 
-    if type == 'droneParts':
-        DeleteRecord = droneParts.objects.get(id=id)
-        DeleteRecord.delete()
-        return redirect('/adminDroneParts')
+    # if type == 'droneParts':
+    #     DeleteRecord = droneParts.objects.get(id=id)
+    #     DeleteRecord.delete()
+    #     return redirect('/adminDroneParts')
 
     if type == 'SRFP':
         DeleteRecord = HomeSRFP.objects.get(id=id)
@@ -833,17 +836,17 @@ def Update(request, id, type):
             UpdateForm = ProductsForm(instance=UpdateRecord)
         return render(request, 'Update/updateDroneProducts.html', {'form': UpdateForm})
 
-    if type == 'droneParts':
-        if request.method == 'POST':
-            UpdateRecord = droneParts.objects.get(id=id)
-            UpdateForm = dronePartsForm(request.POST, request.FILES, instance=UpdateRecord)
-            if UpdateForm.is_valid():
-                UpdateForm.save()
-                return redirect('/adminDroneParts')
-        else:
-            UpdateRecord = droneParts.objects.get(id=id)
-            UpdateForm = dronePartsForm(instance=UpdateRecord)
-        return render(request, 'Update/updateDroneParts.html', {'form': UpdateForm})
+    # if type == 'droneParts':
+    #     if request.method == 'POST':
+    #         UpdateRecord = droneParts.objects.get(id=id)
+    #         UpdateForm = dronePartsForm(request.POST, request.FILES, instance=UpdateRecord)
+    #         if UpdateForm.is_valid():
+    #             UpdateForm.save()
+    #             return redirect('/adminDroneParts')
+    #     else:
+    #         UpdateRecord = droneParts.objects.get(id=id)
+    #         UpdateForm = dronePartsForm(instance=UpdateRecord)
+    #     return render(request, 'Update/updateDroneParts.html', {'form': UpdateForm})
 
     if type == 'SRFP':
         if request.method == 'POST':

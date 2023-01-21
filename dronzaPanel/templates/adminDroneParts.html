@@ -44,8 +44,7 @@
             <thead class="bg-greeno white">
             <tr>
                 <th scope="col">name</th>
-                <th scope="col">CPrice</th>
-                <th scope="col">dPrice</th>
+                <th scope="col">Price</th>
                 <th scope="col">Color</th>
                 <th scope="col">Category</th>
                 <th scope="col">availability</th>
@@ -56,8 +55,7 @@
             {% for data in PRDTDT %}
                 <tr>
                     <td>{{ data.name }}</td>
-                    <td>{{ data.cPrice }}</td>
-                    <td>{{ data.dPrice }}</td>
+                    <td>{{ data.currency }} {{ data.price }}</td>
                     <td>{{ data.color }}</td>
                     <td>{{ data.category }}</td>
                     <td>{{ data.availability }}</td>
@@ -130,7 +128,7 @@
                 </div>
                 <div class="col-4">
                     <label>D Price</label>
-                        {{ form.dPrice }}
+                        {{ form.price }}
                 </div>
                <div class="col-4">
                     <label>Currency</label>
@@ -243,7 +241,7 @@
           <div class="row mb-3">
               <div class="col-4">
                   <label>Thumbnail</label>
-                  {{ form.thumbnail }}
+                  {{ form.image }}
               </div>
               <div class="col-6">
                   <label>Choose sub Images (Multiple)</label>

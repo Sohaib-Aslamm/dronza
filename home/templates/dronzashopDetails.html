@@ -71,8 +71,8 @@
                                     <h2 class="post-title"><a href="javascript:void(0);">{{ shpDetail.name }}</a></h2>
                                 </div>
                                 <div class="product-single-price">
-                                	<span class="p-single-old-price">{{ shpDetail.currency }}_{{ shpDetail.cPrice }}</span>
-                                    <span class="p-single-new-price">{{ shpDetail.currency }}_{{ shpDetail.dPrice }}</span>
+                                	<span class="p-single-old-price">{{ shpDetail.cPrice }} {{ shpDetail.currency }}</span>
+                                    <span class="p-single-new-price">{{ shpDetail.price }} {{ shpDetail.currency }}</span>
                                 </div>
 
 							<div class="product-single-availability">
@@ -92,9 +92,7 @@
 
                                 <div class="cart clearfix ">
 
-                                    <div class="quantity btn-quantity m-b20">
-                                        <div class="input-group bootstrap-touchspin"><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="demo_vertical2" type="text" value="1" name="demo_vertical2" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn-vertical"><button class="btn btn-default bootstrap-touchspin-up" type="button"><i class="fa fa-plus"></i></button><button class="btn btn-default bootstrap-touchspin-down" type="button"><i class="fa fa-minus"></i></button></span></div>
-                                    </div>
+
                                     <a href="/cart/add/{{ shpDetail.id }}"> <button class="site-button site-btn-effect m-b20">Add to Cart</button></a>
                                 </div>
                             </div>
@@ -128,20 +126,14 @@
                                             </tr>
                                             <tr>
                                                 <td><b>Price:</b></td>
-                                                <td>{{ shpDetail.currency }}_{{ shpDetail.dPrice }}</td>
+                                                <td> {{ shpDetail.price }} {{ shpDetail.currency }}</td>
                                             </tr>
-                                            <tr>
-                                                <td><b>Camera:</b></td>
-                                                <td>{{ shpDetail.camera }}</td>
-                                             </tr>
+
                                              <tr>
                                                 <td><b>Color:</b></td>
                                                 <td>{{ shpDetail.color }}</td>
                                             </tr>
-                                             <tr>
-                                                <td><b>Flight Time:</b></td>
-                                                <td>{{ shpDetail.flight_time }}</td>
-                                            </tr>
+
                                             <tr>
                                                 <td><b>Category:</b></td>
                                                 <td>{{ shpDetail.category }}</td>
@@ -169,6 +161,14 @@
                                              <tr>
                                                 <td><b>{{ shpDetail.label6 }}:</b></td>
                                                 <td>{{ shpDetail.input6 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label7 }}:</b></td>
+                                                <td>{{ shpDetail.input7 }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td><b>{{ shpDetail.label8 }}:</b></td>
+                                                <td>{{ shpDetail.input8 }}</td>
                                             </tr>
 
 
