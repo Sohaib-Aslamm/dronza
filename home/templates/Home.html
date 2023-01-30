@@ -1197,11 +1197,11 @@
                                     <div class="wt-post-info bg-white">
                                         <div class="wt-post-meta ">
                                             <ul>
-                                                <li class="post-date">M{{ BD.created_at }}</li>
+                                                <li class="post-date">{{ BD.created_at }}</li>
                                             </ul>
                                         </div>
                                         <div class="wt-post-title ">
-                                            <h3 class="post-title">{{ BD.title }}</h3>
+                                            <a href="/postDetail/{{ BD.sNo }}" class="post-title">{{ BD.title }}</a>
                                         </div>
                                         <div class="wt-post-text ">
                                             <p>{{ BD.heading }}</p>
