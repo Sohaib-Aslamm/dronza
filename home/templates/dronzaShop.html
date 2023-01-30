@@ -88,7 +88,7 @@
                                             <div class="wt-info">
                                                  <div class="p-a20 bg-white">
                                                     <h3 class="wt-title">
-                                                        <a href="/shopDetail/{{ PDCT.id }}/dronzaProduct">{{ PDCT.name }}</a>
+                                                        <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct">{{ PDCT.name }}</a>
                                                     </h3>
 
 													<div class="product-features-item"><span>Camera | </span>{{ PDCT.camera }}</div>
@@ -101,7 +101,7 @@
                                                         </ins>
 
                                                          <br><ins>
-                                                             <a href="/shopDetail/{{ PDCT.id }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
@@ -201,7 +201,7 @@
                                     <div class="wt-info">
                                          <div class="p-a20 bg-white">
                                             <h3 class="wt-title">
-                                                <a href="product-detail.html">{{ FTP.name }}</a>
+                                                <a href="/shopDetail/{{ FTP.id }}/{{ FTP.uuid }}/dronzaProduct">{{ FTP.name }}</a>
                                             </h3>
 
                                             <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
@@ -213,7 +213,7 @@
                                                         <del>{{ FTP.cPrice }} {{ FTP.currency }}</del></span>
                                                 </ins>
                                                 <br><ins>
-                                                             <a href="/shopDetail/{{ FTP.id }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shopDetail/{{ FTP.id }}/{{ FTP.uuid }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                             </span>
 

@@ -1,4 +1,4 @@
-# Create your models here.
+import uuid
 import django.utils.timezone
 from django.db import models
 from ckeditor.fields import RichTextField
@@ -131,6 +131,7 @@ class HomeAbout(models.Model):
 
 
 class Products(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, default="")
     cPrice = models.CharField(max_length=100, default="")
     price = models.CharField(max_length=100, default="")

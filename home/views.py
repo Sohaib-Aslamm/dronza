@@ -117,24 +117,24 @@ def drone_parts(request):
     return render(request, 'droneParts.html', context)
 
 
-def shopDetail(request, id, type):
+def shopDetail(request, id, uuid,  type):
     if type == 'droneParts':
         shpDetail = droneParts.objects.get(id=id)
-        PRDRVW = droneParts.objects.filter(id=id)
         prd_images = dronePartsImages.objects.filter(Product_ID_id=id)
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        return render(request, 'dronepartsDetails.html', {'shpDetail': shpDetail, 'prd_images': prd_images,
+                                                          'RCPST': RCPST, 'SMDT': SMDT})
+
+    if type == 'dronzaProduct':
+        shpDetail = Products.objects.get(id=id, uuid=uuid)
+        prd_images = productImages.objects.filter(Product_ID_id=id)
+        PRDRVW = Products.objects.filter(id=id)
         coments = productReview.objects.filter(product__in=PRDRVW)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        return render(request, 'dronepartsDetails.html', {'shpDetail': shpDetail, 'coments': coments,
-                                                          'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT})
 
-    if type == 'dronzaProduct':
-        shpDetail = Products.objects.get(id=id)
-        prd_images = productImages.objects.filter(Product_ID_id=id)
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-
-        context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT}
+        context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
         return render(request, 'dronzashopDetails.html', context)
 
 
@@ -209,14 +209,14 @@ def sellDrones(request):
 def prodReview(request):
     if request.method == 'POST':
         prdSno = request.POST.get('pdsNo')
+        pdUUID = request.POST.get('pdUUID')
         author = request.POST.get('author')
         email = request.POST.get('email')
         review = request.POST.get('review')
         prd_id = Products.objects.get(id=prdSno)
         sv = productReview(author=author, email=email, review=review, product=prd_id)
         sv.save()
-
-    return redirect('/shop')
+        return redirect(f'/shopDetail/{prdSno}/{pdUUID}/dronzaProduct')
 
 
 def contactus(request):
@@ -272,7 +272,7 @@ def blogReview(request):
         post_id = userBlog.objects.get(sNo=postSno)
         sv = blog_Review(author=author, email=email, comment=comment, post=post_id)
         sv.save()
-    return redirect('/blog')
+        return redirect(f'/postDetail/{postSno}')
 
 
 def thankyou(request):
@@ -396,6 +396,36 @@ def trackOrder(request):
 # <------------------------------------------ Detail Of Records ------------------------------------>
 
 
+def RecordbyUUID(request, id, uuid, type):
+    if type == 'sellerProduct':
+        Record = sellYourDrone.objects.get(uuid=uuid)
+        product_images = sellYourDroneImages.objects.filter(Product_ID_id=id)
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'sellDrone_Detail.html', context)
+
+    if type == 'track_order':
+        Record = Place_Order.objects.get(id=id, uuid=uuid)
+        p_id = Record.product_id.replace("[", "").replace("]", "").replace("'", "")
+        p_id = p_id.split(",")
+        product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
+
+        price_total = Record.p_total.replace("[", "").replace("]", "").replace("'", "")
+        p_quantity = Record.p_quantity.replace("[", "").replace("]", "").replace("'", "")
+        p_price = Record.p_price.replace("[", "").replace("]", "").replace("'", "")
+
+        price_total = price_total.split(",")
+        p_quantity = p_quantity.split(",")
+        p_price = p_price.split(",")
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        SMDT = SocialMedia.objects.all()
+
+        context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
+                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'track_order_detail.html', context)
+
+
 def DetailRecord(request, id, type):
 
     if type == 'User':
@@ -420,14 +450,6 @@ def DetailRecord(request, id, type):
         SMDT = SocialMedia.objects.all()
         context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'serviceDetail.html', context)
-
-    if type == 'sellerProduct':
-        Record = sellYourDrone.objects.get(id=id)
-        product_images = sellYourDroneImages.objects.filter(Product_ID_id=id)
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT}
-        return render(request, 'sellDrone_Detail.html', context)
 
     if type == 'teamDetail':
         Record = OurTeam.objects.get(id=id)
@@ -460,32 +482,13 @@ def DetailRecord(request, id, type):
 
         return render(request, 'order_detail.html', context)
 
-    if type == 'track_order':
-        Record = Place_Order.objects.get(id=id)
-        p_id = Record.product_id.replace("[", "").replace("]", "").replace("'", "")
-        p_id = p_id.split(",")
-        product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
-
-        price_total = Record.p_total.replace("[", "").replace("]", "").replace("'", "")
-        p_quantity = Record.p_quantity.replace("[", "").replace("]", "").replace("'", "")
-        p_price = Record.p_price.replace("[", "").replace("]", "").replace("'", "")
-
-        price_total = price_total.split(",")
-        p_quantity = p_quantity.split(",")
-        p_price = p_price.split(",")
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-
-        context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
-                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
-        return render(request, 'track_order_detail.html', context)
 
 # <------------------------------------------ Delete Record -------------------------------------->
 
 
-def UpdateHome(request, id, type):
+def UpdatebyUUID(request, uuid, type):
     if type == 'sellerProduct':
-        Record = sellYourDrone.objects.get(id=id)
+        Record = sellYourDrone.objects.get(uuid=uuid)
 
         if request.method == 'POST':
             Record.name = request.POST.get('name')
@@ -510,11 +513,11 @@ def UpdateHome(request, id, type):
             Record.description = request.POST.get('description')
             Record.save()
             return redirect('/customerProduct')
-        return render(request, 'update/customerProduct.html', {'Record': Record})
+        return render(request, 'update/customerProducts.html', {'Record': Record})
 
 
-def Delete(request, id, type):
+def DeletebyUUID(request, uuid, type):
     if type == 'sellerProduct':
-        DeleteRecord = sellYourDrone.objects.get(id=id)
+        DeleteRecord = sellYourDrone.objects.get(uuid=uuid)
         DeleteRecord.delete()
-        return render(request, 'customerProducts.html')
+        return redirect('/customerProduct')

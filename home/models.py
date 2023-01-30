@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 import django.utils.timezone
 from dronzaPanel.models import Products, droneParts, userBlog
@@ -54,7 +55,7 @@ class productReview(models.Model):
     author = models.CharField(max_length=200, default="")
     email = models.CharField(max_length=200, default="")
     review = models.TextField(default="")
-    product = models.ForeignKey(droneParts, on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
 
@@ -78,6 +79,7 @@ class contact_us(models.Model):
     
 
 class sellYourDrone(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100, default="")
     user_id = models.CharField(max_length=100, default="")
     email = models.EmailField(max_length=100, default="")
@@ -111,6 +113,7 @@ class sellYourDroneImages(models.Model):
 
 
 class Place_Order(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     product_id = models.CharField(max_length=100, default="")
     user_id = models.CharField(max_length=100, default="")
     p_price = models.CharField(max_length=100, default="")

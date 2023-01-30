@@ -77,8 +77,8 @@
       <td>{{ data.price }}</td>
       <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;" /></td>
      <td class="text-center">
-          <a class="text-center mx-2" href="/UpdateHome/{{ data.id }}/sellerProduct"><i class="fa fa-edit fa-lg text-success"></i></a>
-          <a class="text-center mx-2" href="/DeleteHome/{{ data.id }}/sellerProduct"><i class="fa fa-trash fa-lg text-danger"></i></a>
+          <a class="text-center mx-2" href="/Update_with_diuu/{{ data.uuid }}/sellerProduct"><i class="fa fa-edit fa-lg text-success"></i></a>
+          <a class="text-center mx-2" href="/Delete_with_diuu/{{ data.uuid }}/sellerProduct"><i class="fa fa-trash fa-lg text-danger"></i></a>
       </td>
         </tr>
   {% endfor %}
@@ -144,22 +144,22 @@
                <div class="col-3">
                     <label>Your Name</label>
                    <input type="text" class="form-control" name="name" required="required"
-                   placeholder="enter your name" style="border: dotted 2px #d72323;">
+                   placeholder="enter your name" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Email</label>
                        <input type="email" class="form-control" name="email" required="required"
-                       placeholder="enter your email" style="border: dotted 2px #d72323;">
+                       placeholder="enter your email" style="border: 1px solid #000000;">
                 </div>
               <div class="col-3">
                     <label>Primary Contact</label>
                          <input type="text" class="form-control" name="pPhone" required="required"
-                         placeholder="ex. +92 333 3333333" style="border: dotted 2px #d72323;">
+                         placeholder="ex. (631) 643-0459" style="border: 1px solid #000000;">
                 </div>
             <div class="col-3">
                     <label>Secondary Contact</label>
                          <input type="text" class="form-control" name="sPhone" required="required"
-                         placeholder="ex. +92 300 0000000" style="border: dotted 2px #d72323;">
+                         placeholder="ex. (434) 985-8943" style="border: 1px solid #000000;">
                 </div>
 
           </div>
@@ -169,7 +169,7 @@
                 <div class="col-12">
                     <label>Enter Your Location</label>
                         <input type="text" class="form-control" name="location" required="required"
-                        placeholder="ex. F-5, Blue area Islamabad, Pakistan" style="border: dotted 2px #d72323;">
+                        placeholder="ex. (845) 787-0703396 Washington St Newburgh, New York(NY), 12550" style="border: 1px solid #000000;">
                 </div>
 
             </div>
@@ -181,7 +181,7 @@
                 <div class="col-12">
                     <label>Product Title</label>
                         <input type="text" class="form-control" name="title" required="required"
-                        placeholder="ex. DJI Mavic 2" style="border: 1px dotted #d72323;">
+                        placeholder="ex. Dronza Mavic 2" style="border: 1px solid #000000;">
                 </div>
 
             </div>
@@ -189,10 +189,9 @@
           <div class="row mb-3">
                <div class="col-6">
                     <label>Category</label>
-                       <select class="form-control" name="category" required style="border: 1px dotted #d72323;">
+                       <select class="form-control" name="category" required style="border: 1px solid #000000;">
                            <option value="Metal">Metal</option>
                            <option value="Fabric">Fabric</option>
-                           <option value="Parts">Parts</option>
                            <option value="Plastic">Plastic</option>
                            <option value="Titanium">Titanium</option>
                            <option value="Parts">Parts</option>
@@ -201,7 +200,7 @@
                 </div>
                 <div class="col-6">
                     <label>Condition</label>
-                         <select class="form-control" name="condition" required style="border: 1px dotted #d72323;">
+                         <select class="form-control" name="condition" required style="border: 1px solid #000000;">
                            <option value="Mint">Mint</option>
                            <option value="Good">Good</option>
                            <option value="Excellent">Excellent</option>
@@ -217,19 +216,19 @@
                      <div class="col-4">
                     <label>Price</label>
                        <input type="text" class="form-control" name="price" required="required"
-                       placeholder="$100 / 3000 PKR" style="border: 1px dotted #d72323;">
+                       placeholder="$100 / 3000 PKR" style="border: 1px solid #000000;">
                 </div>
 
                     <div class="col-4">
                             <label>Color</label>
                                 <input type="text" class="form-control" name="color" required="required"
-                                placeholder="Red, Blue, White" style="border: 1px dotted #d72323;">
+                                placeholder="Red, Black, White" style="border: 1px solid #000000;">
                         </div>
 
                      <div class="col-4">
                             <label>Brand</label>
                                 <input type="text" class="form-control" name="brand" required="required"
-                                placeholder="drz" style="border: 1px dotted #d72323;">
+                                placeholder="DRONZA" style="border: 1px solid #000000;">
                         </div>
 
                 </div>
@@ -239,19 +238,19 @@
 
                 <div class="col-3">
                     <label>Label</label>
-                       <input type="text" class="form-control" name="label1" placeholder="Label" style="border: 1px dotted #d72323;">
+                       <input type="text" class="form-control" name="label1" placeholder="Label" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Input</label>
-                        <input type="text" class="form-control" name="input1" placeholder="description" style="border: 1px dotted #d72323;">
+                        <input type="text" class="form-control" name="input1" placeholder="description" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Label</label>
-                        <input type="text" class="form-control" name="label2" placeholder="Label" style="border: 1px dotted #d72323;">
+                        <input type="text" class="form-control" name="label2" placeholder="Label" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Input</label>
-                       <input type="text" class="form-control" name="input2" placeholder="description" style="border: 1px dotted #d72323;">
+                       <input type="text" class="form-control" name="input2" placeholder="description" style="border: 1px solid #000000;">
                 </div>
 
             </div>
@@ -261,19 +260,19 @@
 
                 <div class="col-3">
                     <label>Label</label>
-                       <input type="text" class="form-control" name="label3" placeholder="Label" style="border: 1px dotted #d72323;">
+                       <input type="text" class="form-control" name="label3" placeholder="Label" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Input</label>
-                       <input type="text" class="form-control" name="input3" placeholder="description" style="border: 1px dotted #d72323;">
+                       <input type="text" class="form-control" name="input3" placeholder="description" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Label</label>
-                        <input type="text" class="form-control" name="label4" placeholder="Label" style="border: 1px dotted #d72323;">
+                        <input type="text" class="form-control" name="label4" placeholder="Label" style="border: 1px solid #000000;">
                 </div>
                 <div class="col-3">
                     <label>Input</label>
-                        <input type="text" class="form-control" name="input4" placeholder="description" style="border: 1px dotted #d72323;">
+                        <input type="text" class="form-control" name="input4" placeholder="description" style="border: 1px solid #000000;">
                 </div>
 
             </div>
@@ -283,7 +282,7 @@
                 <div class="col-12">
                     <label>Description</label>
                     <textarea type="text" class="form-control" name="description" required="required"
-                              style="border: 1px dotted #d72323;">Write here ...</textarea>
+                             style="border: 1px solid #000000;">Write here ...</textarea>
                 </div>
 
             </div>

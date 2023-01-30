@@ -180,11 +180,12 @@
                                         <div class="bg-white p-a10">
                                             <div id="comments">
                                                 <ol class="commentlist">
+                                                    {% for cmnt in coments %}
                                                     <li class="comment">
 
-                                                        {% for cmnt in coments %}
+
                                                         <div class="comment_container">
-                                                            <img class="avatar avatar-60 photo" src="{% static 'Assets/Dronza_images/testimonials/pic1.jpg' %}" alt="">
+                                                            <img class="avatar avatar-60 photo" src="{% static 'Assets/dronza_images/testimonials/user.png' %}" alt="">
                                                             <div class="comment-text">
 
                                                                 <p class="meta">
@@ -196,9 +197,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        {% endfor %}
+
 
                                                     </li>
+                                                     {% endfor %}
                                                 </ol>
                                             </div>
                                             <div id="review_form_wrapper">
@@ -210,6 +212,7 @@
                                                                 {% csrf_token %}
 
                                                                 <input type="hidden" id="pdsNo" name="pdsNo" value="{{ shpDetail.id }}">
+                                                                <input type="hidden" id="pdUUID" name="pdUUID" value="{{ shpDetail.uuid }}">
 
                                                                 <div class="comment-form-author">
                                                                     <label>Name <span class="required">*</span></label>
