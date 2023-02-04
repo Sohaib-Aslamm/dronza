@@ -19,6 +19,7 @@ urlpatterns = [
         path('admingallery', views.adminGallery, name="admingallery"),
         path('adminsocialmedia', views.adminsocial_media, name="adminsocialmedia"),
         path('adminblog', views.adminuser_blog, name="adminblog"),
+        path('user_comments', views.user_comments, name="user_comments"),
         path('orders', views.orders, name="orders"),
         path('adminuser_logout', views.user_logout, name="adminuser_logout"),
         path('adminRegister', views.UserRegister, name="adminRegister"),

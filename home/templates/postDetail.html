@@ -6,45 +6,47 @@
 {% block content %}
 
 
-        <!-- CONTENT START -->
-        <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
-            	<div class="overlay-main site-bg-primary opacity-09"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Blog Detail</h2>
-                            </div>
+
+    <!-- CONTENT START -->
+    <div class="page-content" style="transform: none;">
+
+        <!-- INNER PAGE BANNER -->
+        <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            <div class="overlay-main site-bg-primary opacity-09"></div>
+            <div class="container">
+                <div class="wt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="site-text-white">Blog Detail</h2>
                         </div>
-                        <!-- BREADCRUMB ROW -->
-
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li>Post Detail</li>
-                                </ul>
-                            </div>
-
-                        <!-- BREADCRUMB ROW END -->
                     </div>
+                    <!-- BREADCRUMB ROW -->
+
+                    <div>
+                        <ul class="wt-breadcrumb breadcrumb-style-2">
+                            <li><a href="/blog">Blog</a></li>
+                            <li>Post Detail</li>
+                        </ul>
+                    </div>
+
+                    <!-- BREADCRUMB ROW END -->
                 </div>
             </div>
-            <!-- INNER PAGE BANNER END -->
+        </div>
+        <!-- INNER PAGE BANNER END -->
 
-            <!-- OUR BLOG START -->
-            <div class="section-full  p-t80 p-b50 bg-white">
-				<div class="container">
+        <!-- OUR BLOG START -->
+        <div class="section-full  p-t80 p-b50 bg-white" style="transform: none;">
+            <div class="container" style="transform: none;">
 
-                    <!-- BLOG SECTION START -->
-                    <div class="section-content">
-                        <div class="row d-flex justify-content-center">
+                <!-- BLOG SECTION START -->
+                <div class="section-content" style="transform: none;">
+                    <div class="row d-flex justify-content-center" style="transform: none;">
 
-                            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 m-b30">
-                               <!-- BLOG START -->
-                                      {% for data in rdPost %}
+                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 m-b30">
+                            <!-- BLOG START -->
+                            {% for data in rdPost %}
                                 <div class="blog-post blog-style-1">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
                                         <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.tags }}"></a>
@@ -56,55 +58,40 @@
                                                 <li class="post-date">{{ data.created_at }}</li>
                                             </ul>
                                         </div>
-										<div class="wt-post-title ">
+                                        <div class="wt-post-title ">
                                             <h3 class="post-title">{{ data.title }}</h3>
                                         </div>
 
                                         <div class="wt-post-text">
 
-                                               <h4>{{ data.heading }}</h4>
-                                           <p>{{ data.description | safe }}</p>
-                                             <blockquote>
+                                            <h4>{{ data.heading }}</h4>
+                                            <p>{{ data.description | safe }}</p>
+                                            <blockquote>
                                                 <i class="fa fa-quote-left font-20"></i>
                                                 <p>{{ data.quote }} </p>
                                                 <span class="quoter" style="color: #d72323;">- {{ data.quote_by }}</span>
-                                             </blockquote>
+                                            </blockquote>
 
                                         </div>
 
                                     </div>
                                 </div>
 
-                                {% endfor %}
+                            {% endfor %}
 
-                                <div class="widget bg-white  widget_tag_cloud">
-                                    <h4 class="tagcloud">Tags</h4>
-                                    <div class="tagcloud">
-                                        <a href="javascript:void(0);">Analytics</a>
-                                        <a href="javascript:void(0);">Business </a>
-                                        <a href="javascript:void(0);">Consulting</a>
-                                        <a href="javascript:void(0);">Solutions </a>
-                                        <a href="javascript:void(0);">Development</a>
-                                        <a href="javascript:void(0);">Stock</a>
-                                        <a href="javascript:void(0);">Finance</a>
-                                        <a href="javascript:void(0);">Innovation</a>
-                                        <a href="javascript:void(0);">Investing</a>
-                                        <a href="javascript:void(0);">Strategic</a>
-                                        <a href="javascript:void(0);">Management</a>
-                                    </div>
-                                </div>
 
-                        <div class="clear" id="comment-list">
-                                    <div class="comments-area" id="comments">
-                                        <div>
-                                            <!-- COMMENT LIST START -->
-                                            <ol class="comment-list">
-                                              
 
-                                                <li class="comment">
-                                                    <!-- COMMENT BLOCK -->
+                            <div class="clear" id="comment-list">
+                                <div class="comments-area" id="comments">
+                                    <div>
+                                        <!-- COMMENT LIST START -->
+                                        <ol class="comment-list">
 
-                                                    {% for coments in coments %}
+
+                                            <li class="comment">
+                                                <!-- COMMENT BLOCK -->
+
+                                                {% for coments in coments %}
 
                                                     <div class="comment-body">
                                                         <div class="comment-author vcard">
@@ -121,76 +108,150 @@
                                                         <!--</div>-->
                                                     </div>
 
-                                                    {% endfor %}
+                                                {% endfor %}
 
-                                                </li>
-                                            </ol>
-                                            <!-- COMMENT LIST END -->
+                                            </li>
+                                        </ol>
+                                        <!-- COMMENT LIST END -->
 
-                                            <!-- LEAVE A REPLY START -->
-                                            <div class="comment-respond m-t30" id="respond">
+                                        <!-- LEAVE A REPLY START -->
+                                        <div class="comment-respond m-t30" id="respond">
 
-                                                <h2 class="comment-reply-title" id="reply-title">Add a Review
-                                                    <small>
-                                                        <a style="display:none;" href="#" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a>
-                                                    </small>
-                                                </h2>
+                                            <h2 class="comment-reply-title" id="reply-title">Add a Review </h2>
 
 
-                                               <form class="comment-form" id="commentform" method="POST" action="/blogReview">
-                                                    {% csrf_token %}
+                                            <form class="comment-form" id="commentform" method="POST" action="/blogReview">
+                                                {% csrf_token %}
 
-                                                   {% for post in rdPost %}
-                                                       <input type="hidden" id="postSno" name="postSno" value="{{ post.sNo }}">
-                                                   {% endfor %}
-                                                    <p class="comment-form-author">
-                                                        <label for="author">Name <span class="required">*</span></label>
-                                                        <input class="form-control" type="text" value="" name="author"  placeholder="Your name" id="author" required>
-                                                    </p>
+                                                {% for post in rdPost %}
+                                                    <input type="hidden" id="postSno" name="postSno" value="{{ post.sNo }}">
+                                                {% endfor %}
+                                                <p class="comment-form-author">
+                                                    <label for="author">Name <span class="required">*</span></label>
+                                                    <input class="form-control" type="text" value="" name="author"  placeholder="Your name" id="author" required>
+                                                </p>
 
-                                                    <p class="comment-form-email">
-                                                        <label for="email">Email <span class="required">*</span></label>
-                                                        <input class="form-control" type="text" value="" name="email" id="email" placeholder="Email" required>
-                                                    </p>
+                                                <p class="comment-form-email">
+                                                    <label for="email">Email <span class="required">*</span></label>
+                                                    <input class="form-control" type="text" value="" name="email" id="email" placeholder="Email" required>
+                                                </p>
 
 
 
-                                                    <p class="comment-form-comment">
-                                                        <label for="comment">Comment</label>
-                                                        <textarea class="form-control" rows="8" name="comment" placeholder="comment" id="comment" required></textarea>
-                                                    </p>
+                                                <p class="comment-form-comment">
+                                                    <label for="comment">Comment</label>
+                                                    <textarea class="form-control" rows="8" name="comment" placeholder="comment" id="comment" required></textarea>
+                                                </p>
 
-                                                    <p class="form-submit">
-                                                        <button class="site-button site-btn-effect" type="submit">Submit</button>
-                                                    </p>
+                                                <p class="form-submit">
+                                                    <button class="site-button site-btn-effect" type="submit">Submit</button>
+                                                </p>
 
-                                                </form>
+                                            </form>
 
 
-                                            </div>
-                                            <!-- LEAVE A REPLY END -->
-                                       </div>
+                                        </div>
+                                        <!-- LEAVE A REPLY END -->
                                     </div>
                                 </div>
-                                <!-- BLOG END -->
-
                             </div>
-
-
+                            <!-- BLOG END -->
 
                         </div>
+
+                        <!-- SIDE BAR START -->
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 rightSidebar  m-b30" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1710px;">
+
+
+
+                            <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: fixed; transform: translateY(-1364px); width: 350px; left: 916.6px; top: 0px;"><aside class="side-bar">
+
+                                <!-- SEARCH -->
+                                <div class="widget p-a20">
+                                    <div class="search-bx">
+                                        <form role="search" method="POST" action="/search_blog">
+                                            {% csrf_token %}
+                                            <div class="input-group">
+                                                <input name="search_keyword" type="text" class="form-control" placeholder="search...">
+                                                <span class="input-group-btn">
+                                                            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                                        </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <!-- RECENT POSTS -->
+                                <div class="widget recent-posts-entry p-a20">
+                                    <div class="text-left m-b30">
+                                        <h3 class="widget-title">Recent Posts</h3>
+                                    </div>
+                                    <div class="section-content">
+                                        <div class="widget-post-bx">
+                                            {% for data in Blog_RCPST %}
+                                                <div class="widget-post clearfix">
+                                                    <div class="wt-post-media">
+                                                        <img src="{{ data.Icon.url }}" alt="">
+                                                    </div>
+                                                    <div class="wt-post-info">
+                                                        <div class="wt-post-meta">
+                                                            <ul>
+                                                                <li class="post-date">{{ data.created_at }}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="wt-post-header">
+                                                            <span class="post-title"> <a href="/ViewDetail/{{ data.sNo }}/blogDetail">{{ data.title }}</a></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- TAGS -->
+                                <div class="widget widget_tag_cloud p-a20">
+                                    <div class="text-left m-b30">
+                                        <h3 class="widget-title">Tags</h3>
+
+                                    </div>
+
+                                    <div class="tagcloud">
+                                        <a href="javascript:void(0);">Python</a>
+                                        <a href="javascript:void(0);">Django </a>
+                                        <a href="javascript:void(0);">Metaverse</a>
+                                        <a href="javascript:void(0);">Computer Vision</a>
+                                        <a href="javascript:void(0);">Flask</a>
+                                        <a href="javascript:void(0);">Fast API</a>
+                                        <a href="javascript:void(0);">Rest Framework</a>
+                                        <a href="javascript:void(0);">Celery</a>
+                                        <a href="javascript:void(0);">AI</a>
+                                        <a href="javascript:void(0);">Machine Learning</a>
+                                    </div>
+                                </div>
+
+
+                            </aside></div></div>
+                        <!-- SIDE BAR END -->
+
 
                     </div>
 
                 </div>
 
-             </div>
-            <!-- OUR BLOG END -->
-
-
+            </div>
 
         </div>
-        <!-- CONTENT END -->
+        <!-- OUR BLOG END -->
+
+
+
+    </div>
+    <!-- CONTENT END -->
 
 
 {% endblock content %}

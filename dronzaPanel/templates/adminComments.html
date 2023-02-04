@@ -1,0 +1,62 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Comments | Section</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Comments Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire">Comments</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+
+    <table class="table table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Author</th>
+      <th scope="col">Email</th>
+      <th scope="col">Comment</th>
+      <th scope="col" class="text-center">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in comment_data %}
+    <tr>
+      <td>{{ data.author }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.comment }}</td>
+     <td class="text-center">
+          <a class="text-center mx-2" href="/Delete/{{ data.sNo }}/user_comment"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+      </td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</div>
+
+
+{% endblock content %}

@@ -9,7 +9,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 
 from home.models import hello
-from home.models import contact_us, Place_Order
+from home.models import contact_us, Place_Order, blog_Review
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -550,6 +550,11 @@ def orders(request):
     return render(request, 'adminOrders.html', context)
 
 
+@admin_only
+def user_comments(request):
+    comment_data = blog_Review.objects.all()
+    return render(request, 'adminComments.html', {'comment_data': comment_data})
+
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
@@ -670,7 +675,10 @@ def Delete(request, id, type):
         DeleteRecord.delete()
         return redirect('/orders')
 
-
+    if type == 'user_comment':
+        DeleteRecord = blog_Review.objects.get(sNo=id)
+        DeleteRecord.delete()
+        return redirect('/user_comments')
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
