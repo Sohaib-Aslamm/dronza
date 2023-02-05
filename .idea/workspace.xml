@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateBlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +116,7 @@
       <workItem from="1675523834869" duration="170000" />
       <workItem from="1675538530158" duration="4943000" />
       <workItem from="1675593353450" duration="3055000" />
-      <workItem from="1675596673353" duration="7644000" />
+      <workItem from="1675596673353" duration="9506000" />
     </task>
     <servers />
   </component>

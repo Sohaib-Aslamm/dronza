@@ -225,7 +225,11 @@
                                                                     <textarea aria-required="true" rows="8" cols="45" name="review" id="review"></textarea>
                                                                 </div>
                                                                 <div class="form-submit">
+                                                                    {% if user.is_authenticated %}
                                                                     <button class="site-button site-btn-effect" type="submit">Submit</button>
+                                                                    {% else %}
+                                                                         <a href="/user_login" class="button site-button site-btn-effect" type="submit">Please login</a>
+                                                                    {% endif %}
                                                                 </div>
                                                             </form>
                                                         </div>
