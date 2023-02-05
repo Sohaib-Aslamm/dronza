@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, SocialMedia, \
-    userBlog, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner
+    userBlog, MainSlider, HomeHIW, HomeHTU, HomeAbout, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner
 
 
 class UserForm(UserCreationForm):
@@ -79,70 +79,6 @@ class HomeAboutForm(forms.ModelForm):
             'feature2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter feature 2'}),
             'feature3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter feature 3'}),
         }
-
-
-class ProductsForm(forms.ModelForm):
-    class Meta:
-        model = Products
-        fields = '__all__'
-
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter name'}),
-            'cPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'current price'}),
-            'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'discounted price'}),
-            'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '$USD, PKR'}),
-            'availability': forms.Select(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'featured': forms.Select(attrs={'class': 'form-control'}),
-            'color': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Blue, Red, Black'}),
-            'label1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label7': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'label8': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'label'}),
-            'input1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input7': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'input8': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'input'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
-        }
-
-#
-# class dronePartsForm(forms.ModelForm):
-#     class Meta:
-#         model = droneParts
-#         fields = '__all__'
-#
-#         widgets = {
-#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter part name'}),
-#             'cPrice': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter current price'}),
-#             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter discounter price'}),
-#             'color': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Blue, Red, Black'}),
-#             'currency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '$USD, PKR, $CAD'}),
-#             'availability': forms.Select(attrs={'class': 'form-control'}),
-#             'category': forms.Select(attrs={'class': 'form-control'}),
-#             'featured': forms.Select(attrs={'class': 'form-control'}),
-#             'label1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'label2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'label3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'label4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'label5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'label6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'heading'}),
-#             'input1': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'input2': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'input3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'input4': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'input5': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'input6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'description'}),
-#             'description': forms.Textarea(attrs={'class': 'form-control'}),
-#         }
 
 
 class QualityTrustForm(forms.ModelForm):

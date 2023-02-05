@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 import django.utils.timezone
+from ckeditor.fields import RichTextField
 from dronzaPanel.models import Products, droneParts, userBlog
 # Create your models here.
 
@@ -100,7 +101,7 @@ class sellYourDrone(models.Model):
     input2 = models.CharField(max_length=100, default="N/A", null=True)
     input3 = models.CharField(max_length=100, default="N/A", null=True)
     input4 = models.CharField(max_length=100, default="N/A", null=True)
-    description = models.TextField(default="")
+    description = RichTextField(default="")
     thumbnail = models.FileField(upload_to='sellYourDrone/thumbnail', default="")
 
 

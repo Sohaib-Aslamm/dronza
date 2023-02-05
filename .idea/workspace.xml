@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateBlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dronzaPanel/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sohaibaslam.com" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -59,7 +65,7 @@
       <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.Dronza">
+  <component name="RunManager">
     <configuration name="manage.py runserver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dronza" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -82,33 +88,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Dronza" type="Python.DjangoServer" factoryName="Django server">
-      <module name="dronza" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\hp\PycharmProjects\dronza\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="http://localhost:8000/" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Django Server.Dronza" />
-      <item itemvalue="Python.manage.py runserver" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.manage.py runserver" />
@@ -144,7 +123,8 @@
       <workItem from="1675149961993" duration="259000" />
       <workItem from="1675523834869" duration="170000" />
       <workItem from="1675538530158" duration="4943000" />
-      <workItem from="1675593353450" duration="2400000" />
+      <workItem from="1675593353450" duration="3055000" />
+      <workItem from="1675596673353" duration="7644000" />
     </task>
     <servers />
   </component>

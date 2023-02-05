@@ -3,25 +3,25 @@
 
 {% load static %}
 
-    {% block title %} <title>Dronza | Products</title> {% endblock title %}
+{% block title %} <title>Dronza | Products</title> {% endblock title %}
 
 {% block header %}
 
 
-     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-greeno">Dronza Products Section</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
-              <li class="breadcrumb-item text-aspire">Products</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-greeno">Dronza Products Section</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+                        <li class="breadcrumb-item text-aspire">Products</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
@@ -34,93 +34,114 @@
 
 {% block content %}
 
-<div class="container-fluid mt-5">
+    <div class="container-fluid mt-5">
 
-<div class="row container-fluid justify-content-end">
-        <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Product</button>
-</div>
+        <div class="row container-fluid justify-content-end">
+            <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Product</button>
+        </div>
 
-    <table class="table table-hover table-bordered mt-5">
-  <thead class="bg-greeno white">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Availability</th>
-      <th scope="col">Category</th>
-      <th scope="col" class="text-center">Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for data in PRDTDT %}
-    <tr>
-      <td>{{ data.name }}</td>
-      <td>{{ data.currency }} {{ data.price }}</td>
-      <td>{{ data.availability }}</td>
-      <td>{{ data.category }}</td>
-     <td class="text-center">
-          <a class="text-center mx-2" href="/Update/{{ data.id }}/Products"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
-          <a class="text-center mx-2" href="/Delete/{{ data.id }}/Products"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
-      </td>
-        </tr>
-  {% endfor %}
-  </tbody>
+        <table class="table table-hover table-bordered mt-5">
+            <thead class="bg-greeno white">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Category</th>
+                <th scope="col" class="text-center">Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in PRDTDT %}
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.currency }} {{ data.price }}</td>
+                    <td>{{ data.availability }}</td>
+                    <td>{{ data.category }}</td>
+                    <td class="text-center">
+                        <a class="text-center mx-2" href="/Update/{{ data.id }}/Products"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
+                        <a class="text-center mx-2" href="/Delete/{{ data.id }}/Products"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
 
-</table>
-</div>
-
-
+        </table>
+    </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-greeno">
-        <h5 class="modal-title white" id="exampleModalLongTitle">Dronza Products </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
 
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-              <div class="modal-body">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-greeno">
+                    <h5 class="modal-title white" id="exampleModalLongTitle">Dronza Products </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-body">
 
                         <div class="row mb-3">
                             <div class="col-6">
                                 <label>Title</label>
-                                {{ form.name }}
+                                <input type="text" name="name" class="form-control" placeholder="enter title">
                             </div>
                             <div class="col-2">
                                 <label>C Price</label>
-                                {{ form.cPrice }}
+                                <input type="text" name="cPrice" class="form-control" placeholder="Current price">
                             </div>
                             <div class="col-2">
                                 <label>D Price</label>
-                                {{ form.price }}
+                                <input type="text" name="price" class="form-control" placeholder="Discounted price">
                             </div>
                             <div class="col-2">
                                 <label>Currency</label>
-                                {{ form.currency }}
+                                <input type="text" name="currency" class="form-control" placeholder="$USD, PKR">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-3">
                                 <label>Color</label>
-                                {{ form.color }}
+                                <input type="text" name="color" class="form-control" placeholder="Blue, White, Grey, Red">
                             </div>
                             <div class="col-3">
                                 <label>Category</label>
-                                {{ form.category }}
+
+                                <select name="category" class="form-control">
+                                    <option value="Metal">Metal</option>
+                                    <option value="Fabric">Fabric</option>
+                                    <option value="Wireless">Wireless</option>
+                                    <option value="Plastic">Plastic</option>
+                                    <option value="Titanium">Titanium</option>
+                                    <option value="Featured">Featured</option>
+                                    <option value="Featured">Featured</option>
+                                    <option value="Aluminium">Aluminium</option>
+                                    <option value="Parts">Parts</option>
+                                    <option value="Other">Other</option>
+
+                                </select>
                             </div>
                             <div class="col-3">
                                 <label>Availability</label>
-                                {{ form.availability }}
+
+                                <select name="availability" class="form-control">
+                                    <option value="In Stock">In Stock</option>
+                                    <option value="Out of Stock">Out of Stock</option>
+                                </select>
+
                             </div>
                             <div class="col-3">
                                 <label>Featured</label>
-                                {{ form.featured }}
+                                <select name="featured" class="form-control">
+                                    <option value="Not_Featured">Not_Featured</option>
+                                    <option value="Featured">Featured</option>
+                                </select>
                             </div>
 
                         </div>
@@ -129,20 +150,20 @@
                         <div class="row mb-3">
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label1 }}
+                                <input type="text" name="label1" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input1 }}
+                                <input type="text" name="input1" class="form-control" placeholder="input">
                             </div>
 
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label2 }}
+                                <input type="text" name="label2" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input2 }}
+                                <input type="text" name="input2" class="form-control" placeholder="input">
                             </div>
 
 
@@ -152,20 +173,20 @@
                         <div class="row mb-4">
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label3 }}
+                                <input type="text" name="label3" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input3 }}
+                                <input type="text" name="input3" class="form-control" placeholder="input">
                             </div>
 
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label4 }}
+                                <input type="text" name="label4" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input4 }}
+                                <input type="text" name="input4" class="form-control" placeholder="input">
                             </div>
 
                         </div>
@@ -173,56 +194,56 @@
                         <div class="row mb-4">
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label5 }}
+                                <input type="text" name="label5" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input5 }}
+                                <input type="text" name="input5" class="form-control" placeholder="input">
                             </div>
 
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label6 }}
+                                <input type="text" name="label6" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input6 }}
+                                <input type="text" name="input6" class="form-control" placeholder="input">
                             </div>
 
                         </div>
 
-                   <div class="row mb-4">
+                        <div class="row mb-4">
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label7 }}
+                                <input type="text" name="label7" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input7 }}
+                                <input type="text" name="input7" class="form-control" placeholder="input">
                             </div>
 
                             <div class="col-3">
                                 <label>Label</label>
-                                {{ form.label8 }}
+                                <input type="text" name="label8" class="form-control" placeholder="label">
                             </div>
                             <div class="col-3">
                                 <label>Input</label>
-                                {{ form.input8 }}
+                                <input type="text" name="input8" class="form-control" placeholder="input">
                             </div>
 
                         </div>
 
                         <div class="row mb-4">
                             <div class="col-12">
-                                <label>Description</label>
-                                {{ form.description }}
+                                <label>Create Post</label><br>
+                                <textarea class="form-control" name="editor1"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-4">
                                 <label>Main Icon</label>
-                                {{ form.image }}
+                                <input type="file" name="image" class="form-control-file">
                             </div>
                             <div class="col-6">
                                 <label>Choose sub Images (Multiple)</label>
@@ -236,11 +257,11 @@
                         <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn bg-greeno white">Save Post</button>
 
-      </div>
-             </form>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 
 

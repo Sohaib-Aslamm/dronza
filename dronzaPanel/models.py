@@ -136,10 +136,10 @@ class Products(models.Model):
     cPrice = models.CharField(max_length=100, default="")
     price = models.CharField(max_length=100, default="")
     currency = models.CharField(max_length=100, default="")
-    availability = models.CharField(max_length=100, choices=inStock,  default="")
+    availability = models.CharField(max_length=100, default="")
     color = models.CharField(max_length=100, default="")
-    featured = models.CharField(max_length=100, choices=Featured, default="")
-    category = models.CharField(max_length=100, choices=droneCategory, default="")
+    featured = models.CharField(max_length=100, default="")
+    category = models.CharField(max_length=100, default="")
     label1 = models.CharField(max_length=100, default="")
     label2 = models.CharField(max_length=100, default="")
     label3 = models.CharField(max_length=100, default="")
@@ -156,7 +156,7 @@ class Products(models.Model):
     input6 = models.CharField(max_length=100, default="")
     input7 = models.CharField(max_length=100, default="")
     input8 = models.CharField(max_length=100, default="")
-    description = models.TextField(default="")
+    description = RichTextField(default="")
     image = models.FileField(upload_to='DronzaProducts/MainIcon', default="")
 
 

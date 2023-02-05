@@ -1,6 +1,6 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
     GalleryForm, SocialMediaForm, UserForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
-    ProductsForm, HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm
+    HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
     productImages
@@ -169,58 +169,52 @@ def adminHomeAbout(request):
 @admin_only
 def adminDroneProducts(request):
     if request.method == 'POST':
+        TIT = request.POST.get('name')
+        CPR = request.POST.get('cPrice')
+        DPR = request.POST.get('price')
+        CRNCY =request.POST.get('currency')
+        AVLBTY = request.POST.get('availability')
+        CTR = request.POST.get('category')
+        FTRD = request.POST.get('featured')
+        CLR = request.POST.get('color')
+        lbl1 = request.POST.get('label1')
+        input1 = request.POST.get('input1')
+        lbl2 = request.POST.get('label2')
+        input2 = request.POST.get('input2')
+        lbl3 = request.POST.get('label3')
+        input3 = request.POST.get('input3')
+        lbl4 = request.POST.get('label4')
+        input4 = request.POST.get('input4')
+        lbl5 = request.POST.get('label5')
+        input5 = request.POST.get('input5')
+        lbl6 = request.POST.get('label6')
+        input6 = request.POST.get('input6')
+        lbl7 = request.POST.get('label7')
+        input7 = request.POST.get('input7')
+        lbl8 = request.POST.get('label8')
+        input8 = request.POST.get('input8')
+        ICON = request.FILES.get('image')
         images = request.FILES.getlist('images')
-        PRDTFM = ProductsForm(request.POST, request.FILES)
-        if PRDTFM.is_valid():
-            TIT = PRDTFM.cleaned_data['name']
-            CPR = PRDTFM.cleaned_data['cPrice']
-            DPR = PRDTFM.cleaned_data['price']
-            CRNCY = PRDTFM.cleaned_data['currency']
-            AVLBTY = PRDTFM.cleaned_data['availability']
-            CTR = PRDTFM.cleaned_data['category']
-            FTRD = PRDTFM.cleaned_data['featured']
-            CLR = PRDTFM.cleaned_data['color']
-            lbl1 = PRDTFM.cleaned_data['label1']
-            input1 = PRDTFM.cleaned_data['input1']
-            lbl2 = PRDTFM.cleaned_data['label2']
-            input2 = PRDTFM.cleaned_data['input2']
-            lbl3 = PRDTFM.cleaned_data['label3']
-            input3 = PRDTFM.cleaned_data['input3']
-            lbl4 = PRDTFM.cleaned_data['label4']
-            input4 = PRDTFM.cleaned_data['input4']
-            lbl5 = PRDTFM.cleaned_data['label5']
-            input5 = PRDTFM.cleaned_data['input5']
-            lbl6 = PRDTFM.cleaned_data['label6']
-            input6 = PRDTFM.cleaned_data['input6']
-            lbl7 = PRDTFM.cleaned_data['label7']
-            input7 = PRDTFM.cleaned_data['input7']
-            lbl8 = PRDTFM.cleaned_data['label8']
-            input8 = PRDTFM.cleaned_data['input8']
-            DESC = PRDTFM.cleaned_data['description']
-            ICON = PRDTFM.cleaned_data['image']
-            reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR,
-                           category=CTR, featured=FTRD, description=DESC, label1=lbl1, label2=lbl2,
-                           label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, label7=lbl7, label8=lbl8, input1=input1,
-                           input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, input7=input7,
-                           input8=input8, image=ICON)
-            reg.save()
+        description = request.POST.get('editor1')
+        reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR,
+                       category=CTR, featured=FTRD, description=description, label1=lbl1, label2=lbl2,
+                       label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, label7=lbl7, label8=lbl8, input1=input1,
+                       input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, input7=input7,
+                       input8=input8, image=ICON)
+        reg.save()
 
-            latest_id = Products.objects.latest('id').id
+        latest_id = Products.objects.latest('id').id
 
-            for f in images:
-                products = productImages(images=f, Product_ID_id=latest_id)
-                products.save()
-
-            PRDTFM = ProductsForm()
-    else:
-        PRDTFM = ProductsForm()
+        for f in images:
+            products = productImages(images=f, Product_ID_id=latest_id)
+            products.save()
 
     PRDTDT = Products.objects.all().order_by('-id')
     paginator = Paginator(PRDTDT, 10)
     pageNo = request.GET.get('page')
     BLGdataFINAL = paginator.get_page(pageNo)
     totalPages = BLGdataFINAL.paginator.num_pages
-    context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+    context = {'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
     return render(request, 'adminDroneProducts.html', context)
 
 #
@@ -833,16 +827,44 @@ def Update(request, id, type):
         return render(request, 'Update/updateHomeAbout.html', {'form': UpdateForm})
 
     if type == 'Products':
+        UpdateRecord = Products.objects.get(id=id)
         if request.method == 'POST':
-            UpdateRecord = Products.objects.get(id=id)
-            UpdateForm = ProductsForm(request.POST, request.FILES, instance=UpdateRecord)
-            if UpdateForm.is_valid():
-                UpdateForm.save()
-                return redirect('/adminDroneProducts')
-        else:
-            UpdateRecord = Products.objects.get(id=id)
-            UpdateForm = ProductsForm(instance=UpdateRecord)
-        return render(request, 'Update/updateDroneProducts.html', {'form': UpdateForm})
+           UpdateRecord.name = request.POST.get('name')
+           UpdateRecord.cPrice = request.POST.get('cPrice')
+           UpdateRecord.price = request.POST.get('price')
+           UpdateRecord.currency = request.POST.get('currency')
+           UpdateRecord.availability = request.POST.get('availability')
+           UpdateRecord.color = request.POST.get('color')
+           UpdateRecord.featured = request.POST.get('featured')
+           UpdateRecord.category = request.POST.get('category')
+           UpdateRecord.label1 = request.POST.get('label1')
+           UpdateRecord.label2 = request.POST.get('label2')
+           UpdateRecord.label3 = request.POST.get('label3')
+           UpdateRecord.label4 = request.POST.get('label4')
+           UpdateRecord.label5 = request.POST.get('label5')
+           UpdateRecord.label6 = request.POST.get('label6')
+           UpdateRecord.label7 = request.POST.get('label7')
+           UpdateRecord.label8 = request.POST.get('label8')
+           UpdateRecord.input1 = request.POST.get('input1')
+           UpdateRecord.input2 = request.POST.get('input2')
+           UpdateRecord.input3 = request.POST.get('input3')
+           UpdateRecord.input4 = request.POST.get('input4')
+           UpdateRecord.input5 = request.POST.get('input5')
+           UpdateRecord.input6 = request.POST.get('input6')
+           UpdateRecord.input7 = request.POST.get('input7')
+           UpdateRecord.input8 = request.POST.get('input8')
+           UpdateRecord.description = request.POST.get('description')
+           UpdateRecord.description = request.POST.get('editor1')
+
+           file_data = request.POST.get('edit_file')
+           if not file_data == 'False':
+               UpdateRecord.image = request.FILES['image']
+
+           UpdateRecord.save()
+           return redirect('/adminDroneProducts')
+
+        context = {'Record': UpdateRecord}
+        return render(request, 'Update/updateDroneProducts.html', context)
 
     # if type == 'droneParts':
     #     if request.method == 'POST':

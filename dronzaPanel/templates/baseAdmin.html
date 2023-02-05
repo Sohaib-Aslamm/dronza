@@ -365,4 +365,20 @@
     CKEDITOR.replace( 'editor1' );
 </script>
 
+
+<script>
+    $(function () {
+        $('#editFiles').hide();
+        $('#editFiles1').change(function () {
+            if ($('#editFiles1').val() == 'True') {
+                $('#editFiles').show();
+                document.getElementById('icon').required = true;
+            } else {
+                $('#editFiles').hide();
+                document.getElementById('icon').required = false;
+            }
+        });
+    });
+ </script>
+
 </html>
