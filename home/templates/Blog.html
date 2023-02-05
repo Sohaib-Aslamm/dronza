@@ -150,18 +150,18 @@
                                     <div class="product-widget">
 
                                         {% if Top_Products %}
-                                        {% for data in Top_Products %}
+                                        {% for PDCT in Top_Products %}
                                             <div class="product-widget-box clearfix">
                                                 <div class="product-widget-media">
-                                                   <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct"> <img src="{{ data.image.url }}" alt="{{ data.tags }}"></a>
+                                                   <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
                                                 </div>
                                                 <div class="product-widget-info">
                                                     <div class="product-widget-header">
-                                                        <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="product-widget-title">{{ data.name }}</a>
+                                                        <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="product-widget-title">{{ PDCT.name }}</a>
                                                     </div>
                                                     <span class="price">
                                                         <ins>
-                                                            <span><span class="Price-currencySymbol">{{ data.currency }} </span>{{ data.price }}</span>
+                                                            <span><span class="Price-currencySymbol">{{ PDCT.currency }} </span>{{ PDCT.price }}</span>
                                                         </ins>
                                                     </span>
                                                 </div>

@@ -211,42 +211,42 @@
                                 </div>
 
 
-                                <!-- TOP PRODUCT -->
-                                <div class="widget p-a20">
-                                    <div class="text-left m-b30">
-                                        <h3 class="widget-title">Top Products</h3>
-                                    </div>
-                                    <div class="section-content">
+                                    <!-- TOP PRODUCT -->
+                            <div class="widget p-a20">
+                                <div class="text-left m-b30">
+                                    <h3 class="widget-title">Top Products</h3>
+                                </div>
+                                <div class="section-content">
 
-                                        <div class="product-widget">
+                                    <div class="product-widget">
 
-                                            {% if Top_Products %}
-                                                {% for data in Top_Products %}
-                                                    <div class="product-widget-box clearfix">
-                                                        <div class="product-widget-media">
-                                                            <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct"> <img src="{{ data.image.url }}" alt="{{ data.tags }}"></a>
-                                                        </div>
-                                                        <div class="product-widget-info">
-                                                            <div class="product-widget-header">
-                                                                <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="product-widget-title">{{ data.name }}</a>
-                                                            </div>
-                                                            <span class="price">
+                                        {% if Top_Products %}
+                                        {% for PDCT in Top_Products %}
+                                            <div class="product-widget-box clearfix">
+                                                <div class="product-widget-media">
+                                                   <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
+                                                </div>
+                                                <div class="product-widget-info">
+                                                    <div class="product-widget-header">
+                                                        <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="product-widget-title">{{ PDCT.name }}</a>
+                                                    </div>
+                                                    <span class="price">
                                                         <ins>
-                                                            <span><span class="Price-currencySymbol">{{ data.currency }} </span>{{ data.price }}</span>
+                                                            <span><span class="Price-currencySymbol">{{ PDCT.currency }} </span>{{ PDCT.price }}</span>
                                                         </ins>
                                                     </span>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
 
-                                            {% else %}
-                                                <h6 class="ml-3"><strong>No Products Available</strong></h6>
-                                            {% endif %}
+                                        {% else %}
+                                        <h6 class="ml-3"><strong>No Products Available</strong></h6>
+                                        {% endif %}
 
 
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
 
                                 <!-- TAGS -->
