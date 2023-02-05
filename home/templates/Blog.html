@@ -42,7 +42,7 @@
 
                             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
                                 <!--Block one-->
-
+                                    {% if BLOGDATA %}
                                       {% for post in BLOGDATA %}
                                 <div class="blog-post blog-style-1 blog-list-style">
 									<div class="wt-post-media wt-img-effect zoom-slow">
@@ -66,6 +66,21 @@
                                    </div>
                                 </div>
                                 {% endfor %}
+
+                            {% else %}
+
+                             <div class="row text-center mt-5">
+                                  <h1 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h1>
+                              </div>
+                                        <div>
+                             <ul>
+                                 <strong>Suggestions:</strong>
+                                 <li>Try another keyword</li>
+                                 <li>Check your spell</li>
+                             </ul>
+                                </div>
+
+                            {% endif %}
 
                             </div>
 
@@ -99,10 +114,11 @@
                                             </div>
                                             <div class="section-content">
                                                 <div class="widget-post-bx">
+                                                {% if Blog_RCPST %}
                                                      {% for data in Blog_RCPST %}
                                                     <div class="widget-post clearfix">
                                                         <div class="wt-post-media">
-                                                            <a href="/postDetail/{{ post.sNo }}"><img src="{{ data.Icon.url }}" alt=""></a>
+                                                            <a href="/postDetail/{{ data.sNo }}"><img src="{{ data.Icon.url }}" alt=""></a>
                                                         </div>
                                                         <div class="wt-post-info">
                                                             <div class="wt-post-meta">
@@ -111,11 +127,15 @@
                                                                 </ul>
                                                             </div>
                                                             <div class="wt-post-header">
-                                                                <span class="post-title"> <a href="/ViewDetail/{{ data.sNo }}/blogDetail">{{ data.title }}</a></span>
+                                                                <span class="post-title"> <a href="/postDetail/{{ data.sNo }}">{{ data.title }}</a></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     {% endfor %}
+
+                                                {% else %}
+                                                    <h6 class="ml-3"><strong>No Post Available</strong></h6>
+                                                {% endif %}
                                                 </div>
                                             </div>
                                         </div>
