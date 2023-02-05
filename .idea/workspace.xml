@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +144,7 @@
       <workItem from="1675149961993" duration="259000" />
       <workItem from="1675523834869" duration="170000" />
       <workItem from="1675538530158" duration="4943000" />
-      <workItem from="1675593353450" duration="1210000" />
+      <workItem from="1675593353450" duration="2400000" />
     </task>
     <servers />
   </component>
