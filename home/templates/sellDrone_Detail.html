@@ -8,184 +8,184 @@
 
     <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'images/banner/5.jpg' %});">
-            	<div class="overlay-main site-bg-primary opacity-09"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Dronza Product Detail</h2>
-                            </div>
+        <!-- INNER PAGE BANNER -->
+        <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'images/banner/5.jpg' %});">
+            <div class="overlay-main site-bg-primary opacity-09"></div>
+            <div class="container">
+                <div class="wt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="site-text-white">Seller Product Detail</h2>
                         </div>
-                        <!-- BREADCRUMB ROW -->
-
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/sellDrones">Dronza Sell Point</a></li>
-                                    <li>Product Detail</li>
-                                </ul>
-                            </div>
-
-                        <!-- BREADCRUMB ROW END -->
                     </div>
+                    <!-- BREADCRUMB ROW -->
+
+                    <div>
+                        <ul class="wt-breadcrumb breadcrumb-style-2">
+                            <li><a href="/sellDrones">Dronza Sell Point</a></li>
+                            <li>Product Detail</li>
+                        </ul>
+                    </div>
+
+                    <!-- BREADCRUMB ROW END -->
                 </div>
             </div>
-            <!-- INNER PAGE BANNER END -->
+        </div>
+        <!-- INNER PAGE BANNER END -->
 
-            <!-- SECTION CONTENT START -->
-            <div class="section-full p-t80 p-b80">
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t80 p-b80">
 
-                <!-- PRODUCT DETAILS -->
-                <div class="container woo-entry">
+            <!-- PRODUCT DETAILS -->
+            <div class="container woo-entry">
 
-         <div class="col-lg-6 col-md-12  m-b30">
-                     <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
-
-
- {% for img in product_images %}
-
-                        <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 ">
-                            <div class="galleryhvr-zoom-out-down">
- <div class="card shadow-lg rounded">
-                                <img src="{{ img.images.url }}" alt="">
-
-                                <div class="galleryhvr-content">
-                                    <div class="galleryhvr-mid">
-                                        <a href="{{ img.images.url }}" class="mfp-link"><i class="fa fa-search-plus"></i></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-     </div>
- {% endfor %}
-
-                     </div>
-
-                        </div>
-
-                        <div class="col-lg-6 col-md-12">
-                        	<div class="product-detail-info p-a30">
-                                <div class="single-product-title ">
-                                    <h2 class="post-title"><a href="javascript:void(0);">{{ rec.title }}</a></h2>
-                                </div>
-                                <div class="product-single-price">
-                                    <span class="p-single-new-price">Price: {{ rec.price }}</span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TABS CONTENT START -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wt-tabs border bg-tabs">
-                                <ul class="nav nav-tabs">
-                                    <li><a data-toggle="tab" href="#web-design-19" class="active">Description</a></li>
-                                    <li><a data-toggle="tab" href="#graphic-design-19"> Additional information</a></li>
-                                    <li><a data-toggle="tab" href="#developement-19">Seller Contact</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div id="web-design-19" class="tab-pane active">
-                                        <div class=" p-a10">
-                                            <p class="m-b10">{{ rec.description }}</p>
+                <div class="col-lg-6 col-md-12  m-b30">
+                    <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
 
 
+                        {% for img in product_images %}
 
+                            <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 ">
+                                <div class="galleryhvr-zoom-out-down">
+                                    <div class="card shadow-lg rounded">
+                                        <img src="{{ img.images.url }}" alt="">
+
+                                        <div class="galleryhvr-content">
+                                            <div class="galleryhvr-mid">
+                                                <a href="{{ img.images.url }}" class="mfp-link"><i class="fa fa-search-plus"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div id="graphic-design-19" class="tab-pane">
-                                        <table class="table m-b0 no-border">
-                                            <tbody>
-                                             <tr>
-                                                <td><b>Title</b></td>
-                                                <td>{{ rec.title }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Color</b></td>
-                                                <td>{{ rec.color }}</td>
-                                            </tr>
 
-                                            <tr>
-                                                <td><b>Condition</b></td>
-                                                <td>{{ rec.condition }}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><b>Category</b></td>
-                                                <td>{{ rec.category }}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><b>{{ rec.label1 }}</b></td>
-                                                <td>{{ rec.input1 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>{{ rec.label2 }}</b></td>
-                                                <td>{{ rec.input2 }}</td>
-                                            </tr>
-                                             <tr>
-                                                <td><b>{{ rec.label3 }}</b></td>
-                                                <td>{{ rec.input3 }}</td>
-                                            </tr>
-                                             <tr>
-                                                <td><b>{{ rec.label4 }}</b></td>
-                                                <td>{{ rec.input4 }}</td>
-                                            </tr>
-
-
-
-
-                                        </tbody></table>
-                                    </div>
-                                    <div id="developement-19" class="tab-pane">
-                                         <table class="table m-b0 no-border">
-                                            <tbody>
-                                            <tr>
-                                                <td><b>Name</b></td>
-                                                <td>{{ rec.name }}</td>
-                                             </tr>
-                                             <tr>
-                                                <td><b>Email</b></td>
-                                               <td>{{ rec.email }}</td>
-                                            </tr>
-                                             <tr>
-                                                <td><b>Primary Contact</b></td>
-                                                <td>{{ rec.pPhone }}</td>
-                                            </tr>
-                                             <tr>
-                                                <td><b>Secondary Contact</b></td>
-                                                <td>{{ rec.sPhone }}</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><b>Location</b></td>
-                                               <td>{{ rec.location }}</td>
-                                            </tr>
-
-
-
-
-
-                                        </tbody></table>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
-                    <!-- TABS CONTENT START -->
-
-
-
 
                 </div>
-                <!-- PRODUCT DETAILS -->
 
+                <div class="col-lg-6 col-md-12">
+                    <div class="product-detail-info p-a30">
+                        <div class="single-product-title ">
+                            <h4 class="post-title">{{ rec.title }}</h4>
+                        </div>
+                        <div class="product-single-price">
+                            <span class="p-single-new-price">Price: {{ rec.price }}</span>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <!-- CONTENT CONTENT END -->
+
+            <!-- TABS CONTENT START -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wt-tabs border bg-tabs">
+                        <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" href="#web-design-19" class="active">Description</a></li>
+                            <li><a data-toggle="tab" href="#graphic-design-19"> Additional information</a></li>
+                            <li><a data-toggle="tab" href="#developement-19">Seller Contact</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="web-design-19" class="tab-pane active">
+                                <div class=" p-a10">
+                                    <p class="m-b10">{{ rec.description }}</p>
+
+
+
+                                </div>
+                            </div>
+                            <div id="graphic-design-19" class="tab-pane">
+                                <table class="table m-b0 no-border">
+                                    <tbody>
+                                    <tr>
+                                        <td><b>Title</b></td>
+                                        <td>{{ rec.title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Color</b></td>
+                                        <td>{{ rec.color }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><b>Condition</b></td>
+                                        <td>{{ rec.condition }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><b>Category</b></td>
+                                        <td>{{ rec.category }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><b>{{ rec.label1 }}</b></td>
+                                        <td>{{ rec.input1 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{ rec.label2 }}</b></td>
+                                        <td>{{ rec.input2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{ rec.label3 }}</b></td>
+                                        <td>{{ rec.input3 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>{{ rec.label4 }}</b></td>
+                                        <td>{{ rec.input4 }}</td>
+                                    </tr>
+
+
+
+
+                                    </tbody></table>
+                            </div>
+                            <div id="developement-19" class="tab-pane">
+                                <table class="table m-b0 no-border">
+                                    <tbody>
+                                    <tr>
+                                        <td><b>Name</b></td>
+                                        <td>{{ rec.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Email</b></td>
+                                        <td>{{ rec.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Primary Contact</b></td>
+                                        <td>{{ rec.pPhone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Secondary Contact</b></td>
+                                        <td>{{ rec.sPhone }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><b>Location</b></td>
+                                        <td>{{ rec.location }}</td>
+                                    </tr>
+
+
+
+
+
+                                    </tbody></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- TABS CONTENT START -->
+
+
+
 
         </div>
+        <!-- PRODUCT DETAILS -->
+
+    </div>
+    <!-- CONTENT CONTENT END -->
+
+    </div>
 
 {% endblock content %}

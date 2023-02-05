@@ -155,6 +155,7 @@ def customerProduct(request):
         brand = request.POST.get('brand')
         color = request.POST.get('color')
         condition = request.POST.get('condition')
+        status = request.POST.get('status')
         label1 = request.POST.get('label1')
         input1 = request.POST.get('input1')
         label2 = request.POST.get('label2')
@@ -167,7 +168,7 @@ def customerProduct(request):
         thumbnail = request.FILES['thumbnail']
 
         sv = sellYourDrone(name=name, email=email, sPhone=sPhone, pPhone=pPhone, location=location, title=title,
-                           price=price, category=category, brand=brand, color=color,
+                           price=price, category=category, brand=brand, color=color, status=status,
                            condition=condition, label1=label1, input1=input1, label2=label2, input2=input2,
                            label3=label3, input3=input3, label4=label4, input4=input4, description=description,
                            thumbnail=thumbnail, user_id=user_id)
@@ -194,7 +195,7 @@ def customerProduct(request):
 
 
 def sellDrones(request):
-    sellerProducts = sellYourDrone.objects.all()
+    sellerProducts = sellYourDrone.objects.filter(status='Available')
     paginator = Paginator(sellerProducts, 8)
     pageNo = request.GET.get('page')
     sellerProductsFINAL = paginator.get_page(pageNo)
@@ -522,6 +523,7 @@ def UpdatebyUUID(request, uuid, type):
             Record.price = request.POST.get('price')
             Record.color = request.POST.get('color')
             Record.brand = request.POST.get('brand')
+            Record.status = request.POST.get('status')
             Record.label1 = request.POST.get('label1')
             Record.input1 = request.POST.get('input1')
             Record.label2 = request.POST.get('label2')

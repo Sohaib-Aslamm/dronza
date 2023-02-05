@@ -6,8 +6,6 @@ from dronzaPanel.models import Products, droneParts, userBlog
 # Create your models here.
 
 
-
-
 droneCategory = (
     ('Metal', 'Metal'),
     ('Fabric', 'Fabric'),
@@ -93,6 +91,7 @@ class sellYourDrone(models.Model):
     color = models.CharField(max_length=100, default="")
     condition = models.CharField(max_length=100, default="")
     category = models.CharField(max_length=100, default="")
+    status = models.CharField(max_length=100, default="")
     label1 = models.CharField(max_length=100, default="N/A", null=True)
     label2 = models.CharField(max_length=100, default="N/A", null=True)
     label3 = models.CharField(max_length=100, default="N/A", null=True)
