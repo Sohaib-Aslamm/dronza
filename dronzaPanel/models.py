@@ -140,6 +140,7 @@ class Products(models.Model):
     color = models.CharField(max_length=100, default="")
     featured = models.CharField(max_length=100, default="")
     category = models.CharField(max_length=100, default="")
+    tags = models.TextField(default="")
     label1 = models.CharField(max_length=100, default="")
     label2 = models.CharField(max_length=100, default="")
     label3 = models.CharField(max_length=100, default="")

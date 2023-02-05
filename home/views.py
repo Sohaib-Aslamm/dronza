@@ -252,9 +252,10 @@ def blog(request):
     totalPages = BLOGDATAFINAL.paginator.num_pages
     SMDT = SocialMedia.objects.all()
     Blog_RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
+    Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST}
+               'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST, 'Top_Products': Top_Products}
     return render(request, 'Blog.html', context)
 
 

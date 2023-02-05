@@ -177,6 +177,7 @@ def adminDroneProducts(request):
         CTR = request.POST.get('category')
         FTRD = request.POST.get('featured')
         CLR = request.POST.get('color')
+        TGS = request.POST.get('tags')
         lbl1 = request.POST.get('label1')
         input1 = request.POST.get('input1')
         lbl2 = request.POST.get('label2')
@@ -197,7 +198,7 @@ def adminDroneProducts(request):
         images = request.FILES.getlist('images')
         description = request.POST.get('editor1')
         reg = Products(name=TIT, cPrice=CPR, price=DPR, currency=CRNCY, availability=AVLBTY, color=CLR,
-                       category=CTR, featured=FTRD, description=description, label1=lbl1, label2=lbl2,
+                       category=CTR, featured=FTRD, description=description, label1=lbl1, label2=lbl2, tags=TGS,
                        label3=lbl3, label4=lbl4, label5=lbl5, label6=lbl6, label7=lbl7, label8=lbl8, input1=input1,
                        input2=input2, input3=input3, input4=input4, input5=input5, input6=input6, input7=input7,
                        input8=input8, image=ICON)
@@ -837,6 +838,7 @@ def Update(request, id, type):
            UpdateRecord.color = request.POST.get('color')
            UpdateRecord.featured = request.POST.get('featured')
            UpdateRecord.category = request.POST.get('category')
+           UpdateRecord.tags = request.POST.get('tags')
            UpdateRecord.label1 = request.POST.get('label1')
            UpdateRecord.label2 = request.POST.get('label2')
            UpdateRecord.label3 = request.POST.get('label3')
