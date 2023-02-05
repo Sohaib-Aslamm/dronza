@@ -2,7 +2,8 @@ import uuid
 from django.db import models
 import django.utils.timezone
 from ckeditor.fields import RichTextField
-from dronzaPanel.models import Products, droneParts, userBlog
+from dronzaPanel.models import Products, userBlog
+from django_resized import ResizedImageField
 # Create your models here.
 
 
@@ -101,7 +102,8 @@ class sellYourDrone(models.Model):
     input3 = models.CharField(max_length=100, default="N/A", null=True)
     input4 = models.CharField(max_length=100, default="N/A", null=True)
     description = RichTextField(default="")
-    thumbnail = models.FileField(upload_to='sellYourDrone/thumbnail', default="")
+    thumbnail = ResizedImageField(size=[320, 180], force_format='PNG',
+                                  quality=-1, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
 
 
 class sellYourDroneImages(models.Model):
@@ -109,7 +111,7 @@ class sellYourDroneImages(models.Model):
         return f'sellYourDrone/Product_ID/{self.Product_ID_id}/{filename}'
 
     Product_ID = models.ForeignKey(sellYourDrone, on_delete=models.CASCADE)
-    images = models.FileField(upload_to=upload_design_to)
+    images = ResizedImageField(size=[1080, 720], force_format='PNG', upload_to=upload_design_to)
 
 
 class Place_Order(models.Model):

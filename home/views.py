@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, productImages, HomeSRFP, VideoGallery, \
-    WhatPeopleSay, OurPartner, droneParts, dronePartsImages
+    WhatPeopleSay, OurPartner
 
 from home.models import contact_us, productReview, blog_Review, sellYourDrone, sellYourDroneImages, Place_Order
 
@@ -78,13 +78,6 @@ def gallery(request):
     return render(request, 'Gallery.html', context)
 
 
-# def def dronzaShop(request):
-#     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-#     SMDT = SocialMedia.objects.all()
-#     context = {'RCPST': RCPST, 'SMDT': SMDT}
-#     return render(request, 'dronzaShop.html', context)
-
-
 def shop(request):
     dronzaProducts = Products.objects.all().order_by('-id')
     dronzapaginator = Paginator(dronzaProducts, 50)
@@ -103,31 +96,7 @@ def shop(request):
     return render(request, 'dronzaShop.html', context)
 
 
-def drone_parts(request):
-    PRDCTS = droneParts.objects.all().order_by('-id')
-    paginator = Paginator(PRDCTS, 50)
-    pageNo = request.GET.get('page')
-    PRDCTSFINAL = paginator.get_page(pageNo)
-    totalPages = PRDCTSFINAL.paginator.num_pages
-    PRDCTGRY = droneParts.objects.values('category').distinct()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    SMDT = SocialMedia.objects.all()
-    FEATURED = droneParts.objects.filter(featured='Featured')
-
-    context = {'PRDCTS': PRDCTSFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'PRDCTGRY': PRDCTGRY, 'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT}
-    return render(request, 'droneParts.html', context)
-
-
 def shopDetail(request, id, uuid,  type):
-    if type == 'droneParts':
-        shpDetail = droneParts.objects.get(id=id)
-        prd_images = dronePartsImages.objects.filter(Product_ID_id=id)
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-        return render(request, 'dronepartsDetails.html', {'shpDetail': shpDetail, 'prd_images': prd_images,
-                                                          'RCPST': RCPST, 'SMDT': SMDT})
-
     if type == 'dronzaProduct':
         shpDetail = Products.objects.get(id=id, uuid=uuid)
         prd_images = productImages.objects.filter(Product_ID_id=id)

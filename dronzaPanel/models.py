@@ -2,7 +2,7 @@ import uuid
 import django.utils.timezone
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django_resized import ResizedImageField
 # Create your models here.
 
 category = (
@@ -83,8 +83,6 @@ DroneWarranty = (
 
 )
 
-
-
 ServiceType = (
     ('RegularService', 'RegularService'),
     ('MainService', 'MainService'),
@@ -158,7 +156,8 @@ class Products(models.Model):
     input7 = models.CharField(max_length=100, default="")
     input8 = models.CharField(max_length=100, default="")
     description = RichTextField(default="")
-    image = models.FileField(upload_to='DronzaProducts/MainIcon', default="")
+    image = ResizedImageField(size=[320, 180], force_format='PNG', crop=['middle', 'center'], quality=-1,
+                              upload_to='DronzaProducts/MainIcon', keep_meta=True, default="")
 
 
 class droneParts(models.Model):
@@ -196,7 +195,8 @@ class productImages(models.Model):
         return f'DronzaProducts/Product_ID/{self.Product_ID_id}/{filename}'
 
     Product_ID = models.ForeignKey(Products, on_delete=models.CASCADE)
-    images = models.FileField(upload_to=upload_design_to)
+    images = ResizedImageField(size=[1080, 720], force_format='PNG', quality=-1,
+                               keep_meta=True, upload_to=upload_design_to)
 
 
 class amazonProductImages(models.Model):

@@ -6,6 +6,7 @@ from home.models import *
 class DronzaHome(admin.ModelAdmin):
     pass
 
+
 admin.site.register(hello, DronzaHome)
 admin.site.register(contact_us, DronzaHome)
 admin.site.register(productReview, DronzaHome)

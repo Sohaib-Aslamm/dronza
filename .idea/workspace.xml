@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +53,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../sohaibaslam.com" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -117,7 +127,8 @@
       <workItem from="1675523834869" duration="170000" />
       <workItem from="1675538530158" duration="4943000" />
       <workItem from="1675593353450" duration="3055000" />
-      <workItem from="1675596673353" duration="14575000" />
+      <workItem from="1675596673353" duration="19441000" />
+      <workItem from="1675624882142" duration="6794000" />
     </task>
     <servers />
   </component>

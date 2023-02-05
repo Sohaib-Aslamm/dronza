@@ -5,74 +5,74 @@
 
 {% block content %}
 
-        <!-- CONTENT START -->
-        <div class="page-content">
+    <!-- CONTENT START -->
+    <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
-            	<div class="overlay-main site-bg-primary opacity-09"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Dronza Shop</h2>
-                            </div>
+        <!-- INNER PAGE BANNER -->
+        <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+            <div class="overlay-main site-bg-primary opacity-09"></div>
+            <div class="container">
+                <div class="wt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="site-text-white">Dronza Shop</h2>
                         </div>
-                        <!-- BREADCRUMB ROW -->
-
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/shop">Shop</a></li>
-                                    <li>Dronza Shop</li>
-                                </ul>
-                            </div>
-
-                        <!-- BREADCRUMB ROW END -->
                     </div>
-                </div>
-            </div>
-            <!-- INNER PAGE BANNER END -->
+                    <!-- BREADCRUMB ROW -->
 
-
-
-
-            <!-- CATEGORY SECTION START -->
-            <div class="section-full p-t80 p-b50 bg-white">
-                <div class="container-fluid">
-                    <!-- PAGINATION START -->
-                    <div class="filter-wrap work-grid p-b30 text-center">
-                        <ul class="masonry-filter">
-                                <li class="active"><a data-filter="*" href="#">All</a></li>
-
-                            {% for PD in DRONZATGRY %}
-                                <li><a data-filter=".{{ PD.category }}" href="#">{{ PD.category }}</a></li>
-                            {% endfor %}
-
+                    <div>
+                        <ul class="wt-breadcrumb breadcrumb-style-2">
+                            <li><a href="/shop">Shop</a></li>
+                            <li>Dronza Shop</li>
                         </ul>
                     </div>
-                    <!-- PAGINATION END -->
 
-
+                    <!-- BREADCRUMB ROW END -->
                 </div>
             </div>
-            <!-- CATEGORY SECTION END -->
-
-                <!-- SECTION CONTENT START -->
-            <div class="section-full p-t80 p-b50">
-                <div class="container">
-                    <div class="section-content">
-
-                        <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
-
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-b30">
-
-                                <div class="row">
+        </div>
+        <!-- INNER PAGE BANNER END -->
 
 
-                                    {% for PDCT in dronzaProductsFINAL %}
+
+
+        <!-- CATEGORY SECTION START -->
+        <div class="section-full p-t80 p-b50 bg-white">
+            <div class="container-fluid">
+                <!-- PAGINATION START -->
+                <div class="filter-wrap work-grid p-b30 text-center">
+                    <ul class="masonry-filter">
+                        <li class="active"><a data-filter="*" href="#">All</a></li>
+
+                        {% for PD in DRONZATGRY %}
+                            <li><a data-filter=".{{ PD.category }}" href="#">{{ PD.category }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <!-- PAGINATION END -->
+
+
+            </div>
+        </div>
+        <!-- CATEGORY SECTION END -->
+
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t80 p-b50">
+            <div class="container">
+                <div class="section-content">
+
+                    <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-b30">
+
+                            <div class="row">
+
+
+                                {% for PDCT in dronzaProductsFINAL %}
                                     <!-- COLUMNS 1 -->
                                     <div class="masonry-item col-lg-4 col-md-4 m-b30 {{ PDCT.category }}">
-                                        <div class="wt-box wt-product-box   overflow-hide">
+                                        <div class="wt-box wt-product-box overflow-hide">
                                             <div class="wt-thum-bx wt-img-overlay1">
 
                                                 <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}">
@@ -82,22 +82,30 @@
                                                             <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                         </a>
 
-                                                  </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="wt-info">
-                                                 <div class="p-a20 bg-white">
+                                                <div class="p-a20 bg-white">
                                                     <h3 class="wt-title">
                                                         <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct">{{ PDCT.name }}</a>
                                                     </h3>
-
-													<div class="product-features-item"><span>Color | </span>{{ PDCT.color }}</div>
-													<div class="product-features-item"><span>Availability | </span>{{ PDCT.availability }}</div>
-
-                                                      <span class="price">
+                                                    <div class="product-single-availability">
+                                                        Availability: <span>{{ PDCT.availability }}</span>
+                                                    </div>
+                                                    <div class="product-single-rating">
+                                                        <span class="rating-bx">
+                                                         <i class="fa fa-star text-danger"></i>
+                                                            <i class="fa fa-star text-danger"></i>
+                                                            <i class="fa fa-star text-danger"></i>
+                                                            <i class="fa fa-star text-danger"></i>
+                                                            <i class="fa fa-star-o text-danger"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="price">
                                                         <ins>
-                                                               <span class="p-price">{{ PDCT.currency }} {{ PDCT.price }}
-                                                                   <del>{{ PDCT.currency }} {{ PDCT.cPrice }}</del></span>
+                                                           <span>{{ PDCT.currency }} {{ PDCT.price }}
+                                                               <del>{{ PDCT.currency }} {{ PDCT.cPrice }}</del></span>
                                                         </ins>
 
                                                          <br><ins>
@@ -106,84 +114,84 @@
                                                     </span>
 
 
-                                                 </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {% endfor %}
+                                {% endfor %}
 
 
-
-                                </div>
 
                             </div>
 
-						</div>
+                        </div>
 
-						 <ul class="pagination m-b0 p-b0">
+                    </div>
 
-                            {% if dronzaProductsFINAL.has_previous %}
-                          <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.previous_page_number }}">Previous</a></li>
-                            {% endif %}
+                    <ul class="pagination m-b0 p-b0">
 
-                       <li class="page-item"><a class="page-link" href="/dronzaShop?page=1">First</a></li>
+                        {% if dronzaProductsFINAL.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.previous_page_number }}">Previous</a></li>
+                        {% endif %}
+
+                        <li class="page-item"><a class="page-link" href="/dronzaShop?page=1">First</a></li>
 
 
                         {% for tpl in dronzapageList %}
-                          <li class="page-item"><a class="page-link" href="/dronzaShop?page={{ tpl }}">{{ tpl }}</a></li>
+                            <li class="page-item"><a class="page-link" href="/dronzaShop?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if dronzaProductsFINAL.has_next  %}
-                          <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.next_page_number }}">Next</a></li>
-                          <li class="page-item"><a class="page-link" href="?page={{ dronzalastPage }}">Last</a></li>
-                            {% endif %}
+                            <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ dronzalastPage }}">Last</a></li>
+                        {% endif %}
 
-                        </ul>
+                    </ul>
 
 
 
-                    </div>
                 </div>
             </div>
-             <!-- SECTION CONTENT END -->
+        </div>
+        <!-- SECTION CONTENT END -->
 
 
 
 
 
 
-            <!-- SECTION CONTENT START -->
-            <div class="section-full p-t80 p-b50 bg-gray">
-                <div class="container">
-                    <div class="section-content">
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t80 p-b50 bg-gray">
+            <div class="container">
+                <div class="section-content">
 
-                        <!-- TITLE START -->
-                            <div class="wt-separator-two-part">
-                                <div class="row wt-separator-two-part-row">
-                                    <div class="col-lg-8 col-md-6 wt-separator-two-part-left">
-                                        <!-- TITLE START-->
-                                        <div class="section-head left wt-small-separator-outer">
-                                            <div class="wt-small-separator site-text-primary">
-                                                <div class="sep-leaf-left"></div>
-                                                <div>Our Best Products</div>
-                                                <div class="sep-leaf-right"></div>
-                                            </div>
-                                            <h2>Featured products</h2>
-                                        </div>
-                                        <!-- TITLE END-->
+                    <!-- TITLE START -->
+                    <div class="wt-separator-two-part">
+                        <div class="row wt-separator-two-part-row">
+                            <div class="col-lg-8 col-md-6 wt-separator-two-part-left">
+                                <!-- TITLE START-->
+                                <div class="section-head left wt-small-separator-outer">
+                                    <div class="wt-small-separator site-text-primary">
+                                        <div class="sep-leaf-left"></div>
+                                        <div>Our Best Products</div>
+                                        <div class="sep-leaf-right"></div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 wt-separator-two-part-right text-right">
-                                    </div>
+                                    <h2>Featured products</h2>
                                 </div>
+                                <!-- TITLE END-->
                             </div>
+                            <div class="col-lg-4 col-md-6 wt-separator-two-part-right text-right">
+                            </div>
+                        </div>
+                    </div>
 
-                        <!-- TITLE END -->
+                    <!-- TITLE END -->
 
-                        <div class="owl-carousel featured-products owl-btn-vertical-center">
+                    <div class="owl-carousel featured-products owl-btn-vertical-center">
 
 
-                            {% for FTP in FEATURED %}
+                        {% for FTP in FEATURED %}
                             <!-- COLUMNS 1 -->
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
@@ -194,12 +202,12 @@
                                                 <a href="/cart/add/{{ FTP.id }}">
                                                     <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                 </a>
-                                                
-                                          </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="wt-info">
-                                         <div class="p-a20 bg-white">
+                                        <div class="p-a20 bg-white">
                                             <h3 class="wt-title">
                                                 <a href="/shopDetail/{{ FTP.id }}/{{ FTP.uuid }}/dronzaProduct">{{ FTP.name }}</a>
                                             </h3>
@@ -219,18 +227,18 @@
 
 
 
-                                         </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
+                        {% endfor %}
 
-                        </div>
                     </div>
                 </div>
             </div>
-             <!-- SECTION CONTENT END -->
-
         </div>
-        <!-- CONTENT END -->
+        <!-- SECTION CONTENT END -->
+
+    </div>
+    <!-- CONTENT END -->
 {% endblock content %}
