@@ -756,12 +756,15 @@ def Update(request, id, type):
 
         UpdateForm = userBlog.objects.get(sNo=id)
         if request.method == 'POST':
+            file_data = request.POST.get('edit_file')
             UpdateForm.title = request.POST.get('title')
             UpdateForm.heading = request.POST.get('heading')
             UpdateForm.tags = request.POST.get('tags')
             UpdateForm.quote = request.POST.get('quote')
             UpdateForm.quote_by = request.POST.get('quote_by')
             UpdateForm.description = request.POST.get('editor1')
+            if not file_data == 'False':
+                UpdateForm.Icon = request.FILES['icon']
             UpdateForm.save()
             return HttpResponseRedirect('/adminblog')
 

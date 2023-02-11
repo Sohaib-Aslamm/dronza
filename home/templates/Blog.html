@@ -70,13 +70,16 @@
                         {% else %}
 
                             <div class="row text-center mt-5">
-                                <h1 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h1>
+                                <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
+                                <p class="h5">Your search did not match any documents.</p>
                             </div>
                             <div>
                                 <ul>
                                     <strong>Suggestions:</strong>
-                                    <li>Try another keyword</li>
-                                    <li>Check your spell</li>
+                                    <li>Make sure that all words are spelled correctly</li>
+                                    <li>Try different keywords</li>
+                                    <li>Try more general keywords</li>
+                                    <li>Try fewer keywords</li>
                                 </ul>
                             </div>
 
@@ -216,7 +219,7 @@
 
 
                     {% for tpl in pageList %}
-                        <li class="page-item"><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
+                        <li {% if tpl == tpl %} class="page-item active" {% else %} class="page-item" {% endif %}><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
                     {% endfor %}
 
                     {% if BLOGDATA.has_next  %}
