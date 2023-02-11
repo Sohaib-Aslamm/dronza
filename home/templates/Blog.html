@@ -219,7 +219,7 @@
 
 
                     {% for tpl in pageList %}
-                        <li {% if tpl == tpl %} class="page-item active" {% else %} class="page-item" {% endif %}><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
+                        <li class="page-item"><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
                     {% endfor %}
 
                     {% if BLOGDATA.has_next  %}
