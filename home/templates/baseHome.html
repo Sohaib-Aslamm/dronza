@@ -183,7 +183,9 @@
                                <ul class="widget_address">
                                     <li><i class="fa fa-map-marker"></i>Dronza Head Quarter, Islamabad 44000, Pakistan</li>
                                     <li><i class="fa fa-envelope"></i>info@dronza.org</li>
+                                    {% for SM in SMDT %}
                                     <li> <i class="fa fa-phone"></i>{{ SMDT.phone }}</li>
+                                   {% endfor %}
 
                                 </ul>
                             </div>
