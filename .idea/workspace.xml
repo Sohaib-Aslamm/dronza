@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/home/templates/contactUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/contactUs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/about_us.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/cart_system.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/common_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/contact_us.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/customer_product.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/delete_record.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/gallery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/product_and_blog_reviews.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/shop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronza/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronza/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -41,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -51,6 +70,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\templates" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\templates" />
     </key>
@@ -122,7 +142,13 @@
       <workItem from="1675659414508" duration="49000" />
       <workItem from="1676113116132" duration="3856000" />
       <workItem from="1676262975697" duration="55000" />
-      <workItem from="1680881548270" duration="1289000" />
+      <workItem from="1680881548270" duration="2001000" />
+      <workItem from="1680986010900" duration="4000" />
+      <workItem from="1681294913069" duration="453000" />
+      <workItem from="1681383266020" duration="51000" />
+      <workItem from="1681802870124" duration="590000" />
+      <workItem from="1681805308639" duration="2000" />
+      <workItem from="1681884442826" duration="3163000" />
     </task>
     <servers />
   </component>

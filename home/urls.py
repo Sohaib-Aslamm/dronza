@@ -38,6 +38,4 @@ urlpatterns = [
     path('Update_with_diuu/<str:uuid>/<str:type>', views.UpdatebyUUID, name="Update_with_diuu"),
     path('error404', views.error404, name="error404"),
 
-
-    path('testing', views.testing, name="testing"),
 ]
