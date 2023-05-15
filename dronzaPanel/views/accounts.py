@@ -18,29 +18,26 @@ def UserRegister(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
+            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+
+            # Check if the email already exists
+            if User.objects.filter(email=email).exists():
+                messages.error(request, 'Email already exists')
+                return render(request, 'User_Register.html', {'form': form})
+
             user = form.save()
             group = Group.objects.get(name='Customer')
             user.groups.add(group)
-            username = form.cleaned_data.get('username')
-            email = form.cleaned_data.get('email')
+
             notify_user_registration(username, email)
-            messages.success(request, f'Hey !  {username} your account created successfully')
+            messages.success(request, f'Hey! {username}, your account has been created successfully')
             return redirect('/user_login')
     else:
         form = UserForm()
+
     return render(request, 'User_Register.html', {'form': form})
-@unauthenticated_user
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            auth_login(request, user)
-            return redirect('/admin')
-        else:
-            messages.error(request, 'Username or password is incorrect')
-    return render(request, 'login.html')
+
 
 @unauthenticated_user
 def user_login(request):

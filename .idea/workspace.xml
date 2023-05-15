@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/blog.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/client_people_partner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/communication.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/panel_home.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/products.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/services_gallery_pricing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/social_media.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +137,7 @@
       <workItem from="1683484531696" duration="4084000" />
       <workItem from="1683488653734" duration="2200000" />
       <workItem from="1683524919204" duration="1238000" />
-      <workItem from="1684168080091" duration="277000" />
+      <workItem from="1684168080091" duration="1470000" />
     </task>
     <servers />
   </component>
