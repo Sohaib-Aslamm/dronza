@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from dronzaPanel import views
 urlpatterns = [
         path('admin', views.adminHome, name="admin"),
