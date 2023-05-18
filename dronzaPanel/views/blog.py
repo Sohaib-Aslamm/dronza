@@ -1,6 +1,6 @@
 from dronzaPanel.models import userBlog
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import admin_only
 from django.core.paginator import Paginator
@@ -15,6 +15,7 @@ def adminuser_blog(request):
                        description=request.POST['editor1'],
                        Icon=request.FILES['icon'], created_at=request.POST['created_at'])
         reg.save()
+        return redirect('/adminblog')
     else:
         BLGdata = userBlog.objects.all().order_by('-sNo')
         paginator = Paginator(BLGdata, 10)
