@@ -2,7 +2,9 @@ from django.core.mail import EmailMultiAlternatives
 
 
 def notify_user_registration(username, email):
-    subject, from_email, to = 'Registration Confirmed !', 'dronza@dronza.org', email
+    subject = 'Registration Confirmed!'
+    from_email = 'Dronza <no_reply@dronza.org>'
+    to = email
     text_content = ''
     html_content = '<div style="margin: 50px; width: 80%; padding: 10px;">' \
                    '<img src="https://i.ibb.co/McTGgc7/dronza-red.png" border="0" />' \
@@ -25,7 +27,9 @@ def notify_user_registration(username, email):
 
 
 def notify_contact_us(username, email, message):
-    subject, from_email, to = f'Hi, {username} Thank you for contact !', 'dronza@dronza.org', email
+    subject = f'Hi, {username} Thank you for contacting us!'
+    from_email = 'Dronza <no_reply@dronza.org>'
+    to = email
     text_content = ''
     html_content = '<div style="margin: 50px; width: 80%; padding: 10px;">' \
                    '<img src="https://i.ibb.co/McTGgc7/dronza-red.png" border="0" />' \
@@ -46,7 +50,9 @@ def notify_contact_us(username, email, message):
 
 
 def notify_order_confirmation(c_name, c_email, c_phone, c_city, c_zip, c_country, c_address1, c_address2, p_grand_total):
-    subject, from_email, to = 'Order confirmed !', 'dronza@dronza.org', c_email
+    subject = 'Order confirmed!'
+    from_email = 'Dronza <no_reply@dronza.org>'
+    to = c_email
     text_content = ''
     html_content = '<div style="margin: 50px; width: 80%; padding: 10px;">' \
                    '<img src="https://i.ibb.co/McTGgc7/dronza-red.png" border="0" />' \
