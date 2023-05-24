@@ -52,7 +52,8 @@ def customerProduct(request):
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
 
     context = {'SYDProducts': SYDProductsFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT}
+               'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
     return render(request, 'customerProducts.html', context)

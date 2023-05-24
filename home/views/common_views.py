@@ -14,5 +14,6 @@ def orderDone(request):
 def error404(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    context = {'RCPST': RCPST, 'SMDT': SMDT}
+    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
+    context = {'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
     return render(request, 'error404.html', context)

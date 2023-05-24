@@ -10,6 +10,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="dronza.org: The ultimate platform for buying, selling, and exploring drone services worldwide. List your drones and parts for free, connect with enthusiasts, and unlock the full potential of drones.">
+
+    <meta name="keywords" content="{% for keywords in latest_keywords %}{{ keywords }}{% endfor %}">
+
+    <meta name="author" content="dronza organization">
+    <meta name="robots" content="index, follow">
       {% block title %}<title></title>{% endblock title %}
 
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'Assets/dronza_images/dronza_red.png' %}" />
@@ -57,8 +63,6 @@
 
 
 <div class="page-wraper">
-
-
 
         <!-- HEADER START -->
         <header class="site-header header-style-4 mobile-full-width-menu nav-wide">
@@ -289,6 +293,8 @@
             <div class="footer-bottom">
               <div class="container">
                 <div class="wt-footer-bot-left d-flex justify-content-center">
+
+
                     <span class="copyrights-text">© 2022 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
                 </div>
               </div>

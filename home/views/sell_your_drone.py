@@ -14,6 +14,8 @@ def sellDrones(request):
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
+    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
     context = {'sellerProducts': sellerProductsFINAL, 'Product_Category': Product_Category, 'lastPage': totalPages,
-               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED}
+               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED,
+               'latest_keywords': latest_keywords}
     return render(request, 'sellDrone.html', context)

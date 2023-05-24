@@ -23,5 +23,6 @@ def contactus(request):
         CNTCTFM = contactForm()
         SMDT = SocialMedia.objects.all()
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        context = {'form': CNTCTFM, 'RCPST': RCPST, 'SMDT': SMDT}
+        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
+        context = {'form': CNTCTFM, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
     return render(request, 'contactUs.html', context)
