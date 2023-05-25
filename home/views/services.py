@@ -6,7 +6,7 @@ def services(request):
     RegularServices = ServicesTypes.objects.filter(type='RegularService')
     MAINSERVICES = ServicesTypes.objects.filter(type='MainService')
     PRCDT = Pricing.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     context = {'RegularServices': RegularServices, 'PRCDT': PRCDT, 'RCPST': RCPST, 'SMDT': SMDT,
                'MAINSERVICES': MAINSERVICES}

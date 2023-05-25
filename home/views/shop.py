@@ -11,7 +11,7 @@ def shop(request):
     dronzaProductsFINAL = dronzapaginator.get_page(dronzapageNo)
     dronzatotalPages = dronzaProductsFINAL.paginator.num_pages
     DRONZATGRY = Products.objects.values('category').distinct()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
 
@@ -28,7 +28,7 @@ def shopDetail(request, id, uuid,  type):
         prd_images = productImages.objects.filter(Product_ID_id=id)
         PRDRVW = Products.objects.filter(id=id)
         coments = productReview.objects.filter(product__in=PRDRVW)
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        RCPST = userBlog.objects.order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
 
         context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
