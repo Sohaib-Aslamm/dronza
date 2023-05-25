@@ -24,7 +24,7 @@ def index(request):
     OURTM = OurTeam.objects.all()
     WPSDT = WhatPeopleSay.objects.all()
     OPTDT = OurPartner.objects.all()
-    UBDT = userBlog.objects[:3]
+    UBDT = userBlog.objects.order_by('sNo')[:3]
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     context = {'MSLDR': MSLDR, 'HIWork': HIWork, 'HTUSE': HTUSE, 'HABT': HABT, 'PRDCT': PRDCT, 'SRFP': SRFP, 'HVG': HVG,
