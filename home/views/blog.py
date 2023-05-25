@@ -57,7 +57,6 @@ def search_blog(request):
         return render(request, 'Blog.html', context)
 
 
-
 def postDetail(request, sNo):
     rdPost = userBlog.objects.filter(sNo=sNo)
     comments = blog_Review.objects.filter(post__in=rdPost)
@@ -69,7 +68,7 @@ def postDetail(request, sNo):
     context = {
         'rdPost': rdPost,
         'RCPST': RCPST,
-        'comments': comments,
+        'coments': comments,
         'Blog_RCPST': Blog_RCPST,
         'Top_Products': Top_Products,
         'SMDT': SMDT,

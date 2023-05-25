@@ -10,19 +10,23 @@ from django.core.paginator import Paginator
 @admin_only
 def adminuser_blog(request):
     if request.method == 'POST':
-        reg = userBlog(title=request.POST['title'], heading=request.POST['heading'], tags=request.POST['tags'],
-                       quote=request.POST['quote'], quote_by=request.POST['quote_by'],
-                       description=request.POST['editor1'],
-                       Icon=request.FILES['icon'], created_at=request.POST['created_at'])
+        reg = userBlog(
+            title=request.POST['title'],
+            heading=request.POST['heading'],
+            tags=request.POST['tags'],
+            quote=request.POST['quote'],
+            quote_by=request.POST['quote_by'],
+            description=request.POST['editor1'],
+            Icon=request.FILES['icon'],
+            created_at=request.POST['created_at']
+        )
         reg.save()
         return redirect('/adminblog')
     else:
-        BLGdata = userBlog.objects.all().order_by('-sNo')
-        paginator = Paginator(BLGdata, 10)
+        paginator = Paginator(userBlog.objects.order_by('-sNo'), 10)
         pageNo = request.GET.get('page')
         BLGdataFINAL = paginator.get_page(pageNo)
         totalPages = paginator.num_pages
         pageList = range(1, totalPages + 1)
         context = {'BLGdata': BLGdataFINAL, 'lastPage': totalPages, 'pageList': pageList}
         return render(request, 'adminBlog.html', context)
-
