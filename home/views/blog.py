@@ -15,10 +15,8 @@ def blog(request):
     Blog_RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
     Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
     context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST, 'Top_Products': Top_Products,
-               'latest_keywords': latest_keywords}
+               'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST, 'Top_Products': Top_Products}
     return render(request, 'Blog.html', context)
 
 
@@ -34,10 +32,8 @@ def search_blog(request):
         Blog_RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
         Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
         context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-                   'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST, 'Top_Products': Top_Products,
-                   'latest_keywords': latest_keywords}
+                   'RCPST': RCPST, 'SMDT': SMDT, 'Blog_RCPST': Blog_RCPST, 'Top_Products': Top_Products}
         return render(request, 'Blog.html', context)
 
 
@@ -48,7 +44,6 @@ def postDetail(request, sNo):
     Blog_RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
     Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
     context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments, 'Blog_RCPST': Blog_RCPST,
-               'Top_Products': Top_Products, 'latest_keywords': latest_keywords}
+               'Top_Products': Top_Products}
     return render(request, 'postDetail.html', context)

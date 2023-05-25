@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/about_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/about_us.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/cart_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/cart_system.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/common_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/common_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/contact_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/contact_us.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/customer_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/customer_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/delete_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/delete_record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/gallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/gallery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
@@ -159,7 +162,9 @@
       <workItem from="1684689242322" duration="1959000" />
       <workItem from="1684696481009" duration="1000" />
       <workItem from="1684730201428" duration="39000" />
-      <workItem from="1684946264372" duration="3318000" />
+      <workItem from="1684946264372" duration="3605000" />
+      <workItem from="1684950180480" duration="72000" />
+      <workItem from="1685041451551" duration="6189000" />
     </task>
     <servers />
   </component>

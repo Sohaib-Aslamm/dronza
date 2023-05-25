@@ -9,8 +9,7 @@ from dronzaPanel.models import OurTeam, userBlog, SocialMedia, MainSlider, HomeH
 def baseTemplate(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-    context = {'SMDT': SMDT, 'RCPST': RCPST, 'latest_keywords': latest_keywords}
+    context = {'SMDT': SMDT, 'RCPST': RCPST}
     return render(request, 'baseHome.html', context)
 
 
@@ -28,8 +27,6 @@ def index(request):
     UBDT = userBlog.objects.all()[:3]
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
     context = {'MSLDR': MSLDR, 'HIWork': HIWork, 'HTUSE': HTUSE, 'HABT': HABT, 'PRDCT': PRDCT, 'SRFP': SRFP, 'HVG': HVG,
-               'OURTM': OURTM, 'WPSDT': WPSDT, 'OPTDT': OPTDT, 'UBDT': UBDT, 'RCPST': RCPST, 'SMDT': SMDT,
-               'latest_keywords': latest_keywords}
+               'OURTM': OURTM, 'WPSDT': WPSDT, 'OPTDT': OPTDT, 'UBDT': UBDT, 'RCPST': RCPST, 'SMDT': SMDT}
     return render(request, 'Home.html', context)

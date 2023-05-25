@@ -7,22 +7,24 @@ from home.definedEmails import notify_contact_us
 
 def contactus(request):
     if request.method == 'POST':
-        CNTCTFM = contactForm(request.POST, request.FILES)
-        if CNTCTFM.is_valid():
-            NM = CNTCTFM.cleaned_data['name']
-            SBJ = CNTCTFM.cleaned_data['subject']
-            EM = CNTCTFM.cleaned_data['email']
-            PH = CNTCTFM.cleaned_data['phone']
-            MSG = CNTCTFM.cleaned_data['message']
-            sv = contact_us(name=NM, subject=SBJ, email=EM, phone=PH, message=MSG)
-            sv.save()
-            notify_contact_us(NM, EM, MSG)  # send email to customer who contacted by web site
-            contactForm()
+        form = contactForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            subject = form.cleaned_data['subject']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            message = form.cleaned_data['message']
+            sv = contact_us.objects.create(name=name, subject=subject, email=email, phone=phone, message=message)
+            notify_contact_us(name, email, message)  # Send email to the customer who contacted through the website
             return HttpResponseRedirect('/thankyou')
     else:
-        CNTCTFM = contactForm()
-        SMDT = SocialMedia.objects.all()
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'form': CNTCTFM, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+        form = contactForm()
+
+    SMDT = SocialMedia.objects.all()
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
+    context = {
+        'form': form,
+        'RCPST': RCPST,
+        'SMDT': SMDT,
+    }
     return render(request, 'contactUs.html', context)

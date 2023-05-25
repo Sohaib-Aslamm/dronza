@@ -10,8 +10,7 @@ def DetailRecord(request, id, type):
         Record = User.objects.get(id=id)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'Record': Record, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+        context = {'Record': Record, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'user_detail.html', context)
 
     if type == 'MainService':
@@ -19,8 +18,7 @@ def DetailRecord(request, id, type):
         PriceDetail = Pricing.objects.all()
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'serviceDetail.html', context)
 
     if type == 'sellDrone':
@@ -28,16 +26,14 @@ def DetailRecord(request, id, type):
         PriceDetail = Pricing.objects.all()
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'serviceDetail.html', context)
 
     if type == 'teamDetail':
         Record = OurTeam.objects.get(id=id)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'rec': Record, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+        context = {'rec': Record, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'teamDetail.html', context)
 
     if type == 'order':
@@ -55,9 +51,8 @@ def DetailRecord(request, id, type):
         p_price = p_price.split(",")
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
-                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
         if request.method == 'POST':
             Record.status = request.POST.get('status')
             Record.save()
@@ -72,9 +67,7 @@ def RecordbyUUID(request, id, uuid, type):
         product_images = sellYourDroneImages.objects.filter(Product_ID_id=id)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
-        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT,
-                   'latest_keywords': latest_keywords}
+        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'sellDrone_Detail.html', context)
 
     if type == 'track_order':
@@ -92,8 +85,7 @@ def RecordbyUUID(request, id, uuid, type):
         p_price = p_price.split(",")
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
 
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,
-                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+                   'product_data': product_data, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'track_order_detail.html', context)

@@ -48,16 +48,25 @@ def cart_clear(request):
 @login_required(login_url='/user_login')
 def cart_detail(request):
     SMDT = SocialMedia.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    context = {'SMDT': SMDT, 'RCPST': RCPST, }
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
+
+    context = {
+        'SMDT': SMDT,
+        'RCPST': RCPST,
+    }
     return render(request, 'cart_detail.html', context)
 
 
 @login_required(login_url='/user_login')
 def checkout(request):
     SMDT = SocialMedia.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    context = {'SMDT': SMDT, 'RCPST': RCPST, }
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
+
+    context = {
+        'SMDT': SMDT,
+        'RCPST': RCPST,
+    }
+
     return render(request, 'checkout.html', context)
 
 
@@ -79,25 +88,45 @@ def place_order(request):
         c_country = request.POST.get('c_country')
         c_address1 = request.POST.get('c_address1')
         c_address2 = request.POST.get('c_address2')
-        reg = Place_Order(product_id=product_id, user_id=user_id, status=status, p_price=p_price, p_quantity=p_quantity,
-                          p_total=p_total, p_grand_total=p_grand_total, c_name=c_name, c_email=c_email, c_phone=c_phone,
-                          c_city=c_city, c_zip=c_zip, c_country=c_country, c_address1=c_address1, c_address2=c_address2)
-        reg.save()
 
-        # sending email to customer
+        reg = Place_Order.objects.create(
+            product_id=product_id,
+            user_id=user_id,
+            status=status,
+            p_price=p_price,
+            p_quantity=p_quantity,
+            p_total=p_total,
+            p_grand_total=p_grand_total,
+            c_name=c_name,
+            c_email=c_email,
+            c_phone=c_phone,
+            c_city=c_city,
+            c_zip=c_zip,
+            c_country=c_country,
+            c_address1=c_address1,
+            c_address2=c_address2
+        )
+
+        # Sending email to customer
         notify_order_confirmation(c_name, c_email, c_phone, c_city, c_zip, c_country, c_address1, c_address2,
                                   p_grand_total)
 
         cart = Cart(request)
         cart.clear()
+
         return redirect('/order_placed')
+
     return render(request, 'checkout.html')
 
 
 def trackOrder(request):
-    u_id = request.user.id
-    product_orders = Place_Order.objects.filter(user_id=u_id).order_by('-id')[:9]
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    user_id = request.user.id
+    product_orders = Place_Order.objects.filter(user_id=user_id).order_by('-id')[:9]
+    RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    context = {'product_orders': product_orders, 'RCPST': RCPST, 'SMDT': SMDT}
+    context = {
+        'product_orders': product_orders,
+        'RCPST': RCPST,
+        'SMDT': SMDT,
+    }
     return render(request, 'track_order.html', context)

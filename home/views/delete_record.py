@@ -4,6 +4,5 @@ from home.models import sellYourDrone
 
 def DeletebyUUID(request, uuid, type):
     if type == 'sellerProduct':
-        DeleteRecord = sellYourDrone.objects.get(uuid=uuid)
-        DeleteRecord.delete()
+        sellYourDrone.objects.filter(uuid=uuid).delete()
         return redirect('/customerProduct')

@@ -14,12 +14,11 @@ def shop(request):
     RCPST = userBlog.objects.all().order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
-    latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
 
     context = {'dronzaProductsFINAL': dronzaProductsFINAL,
                'dronzalastPage': dronzatotalPages, 'dronzatotalPages': dronzatotalPages,
                'dronzapageList': [n + 1 for n in range(dronzatotalPages)], 'DRONZATGRY': DRONZATGRY,
-               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT, 'latest_keywords': latest_keywords}
+               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT}
     return render(request, 'dronzaShop.html', context)
 
 
@@ -31,8 +30,6 @@ def shopDetail(request, id, uuid,  type):
         coments = productReview.objects.filter(product__in=PRDRVW)
         RCPST = userBlog.objects.all().order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        latest_keywords = userBlog.objects.order_by('-sNo').values_list('tags', flat=True)[:3]
 
-        context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments,
-                   'latest_keywords': latest_keywords}
+        context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
         return render(request, 'dronzashopDetails.html', context)
