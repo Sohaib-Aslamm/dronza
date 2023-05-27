@@ -319,35 +319,3 @@ class userBlog(models.Model):
     description = RichTextField(default="")
     Icon = models.ImageField(upload_to='Blog/Icons', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-
-        # Generate web icon URL
-        icon_path = 'static/Assets/logo_variations/dronza_white.png'
-        from PIL import Image
-        # Open the uploaded image using Pillow
-        image = Image.open(self.Icon.path)
-
-        # Open the web icon image and convert it to RGBA mode
-        web_icon = Image.open(icon_path).convert("RGBA")
-
-        # Create a black image with the same dimensions as the web icon
-        black_image = Image.new('RGBA', web_icon.size, (0, 0, 0, 255))
-
-        # Paste the web icon onto the black image
-        black_image.paste(web_icon, (0, 0), web_icon)
-
-        # Define the margin from top and left side
-        margin_top = 20  # Adjust the margin as needed
-        margin_left = 20  # Adjust the margin as needed
-
-        # Calculate the position to place the web icon
-        position = (margin_left, margin_top)
-
-        # Add the black image with the icon to the original image
-        image.paste(black_image, position, black_image)
-
-        # Save the modified image
-        image.save(self.Icon.path)

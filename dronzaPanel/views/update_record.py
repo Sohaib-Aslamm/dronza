@@ -100,7 +100,7 @@ def Update(request, id, type):
             if not file_data == 'False':
                 UpdateForm.Icon = request.FILES['icon']
             UpdateForm.save()
-            return HttpResponseRedirect('/adminblog')
+            return redirect('/adminblog')
 
         return render(request, 'Update/updateBlog.html', {'form': UpdateForm})
 
