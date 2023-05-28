@@ -6,14 +6,14 @@ from home.models import blog_Review
 
 
 def blog(request):
-    blog_data = userBlog.objects.all().order_by('-sNo')
+    blog_data = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
     paginator = Paginator(blog_data, 9)
     page_number = request.GET.get('page')
     blog_data_final = paginator.get_page(page_number)
     total_pages = blog_data_final.paginator.num_pages
 
     recent_posts = userBlog.objects.order_by('-sNo')[:2]
-    popular_posts = userBlog.objects.order_by('-sNo')[10:16]
+    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
     SMDT = SocialMedia.objects.all()
@@ -33,14 +33,14 @@ def blog(request):
 def search_blog(request):
     if request.method == 'POST':
         search_keyword = request.POST.get('search_keyword')
-        blog_data = userBlog.objects.filter(Q(title__icontains=search_keyword) | Q(heading__icontains=search_keyword) | Q(description__icontains=search_keyword)).order_by('-sNo')
+        blog_data = userBlog.objects.filter(Q(title__icontains=search_keyword) | Q(heading__icontains=search_keyword) | Q(description__icontains=search_keyword)).values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
         paginator = Paginator(blog_data, 9)
         page_number = request.GET.get('page')
         blog_data_final = paginator.get_page(page_number)
         total_pages = blog_data_final.paginator.num_pages
 
         recent_posts = userBlog.objects.order_by('-sNo')[:2]
-        popular_posts = userBlog.objects.order_by('-sNo')[10:16]
+        popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
         featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
         SMDT = SocialMedia.objects.all()
@@ -60,16 +60,16 @@ def search_blog(request):
 def postDetail(request, sNo):
     rdPost = userBlog.objects.filter(sNo=sNo)
     comments = blog_Review.objects.filter(post__in=rdPost)
-    Blog_RCPST = userBlog.objects.order_by('-sNo')[10:16]
     Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
     RCPST = userBlog.objects.order_by('-sNo')[:2]
+    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
     SMDT = SocialMedia.objects.all()
 
     context = {
         'rdPost': rdPost,
         'RCPST': RCPST,
         'coments': comments,
-        'Blog_RCPST': Blog_RCPST,
+        'Blog_RCPST': popular_posts,
         'Top_Products': Top_Products,
         'SMDT': SMDT,
     }

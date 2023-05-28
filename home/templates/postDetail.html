@@ -2,6 +2,7 @@
 
 {% block title %} <title>Post Detail</title> {% endblock title %}
 {% load static %}
+{% get_media_prefix as MEDIA_URL %}
 
 {% block content %}
 
@@ -192,7 +193,7 @@
                                             {% for data in Blog_RCPST %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/postDetail/{{ data.sNo }}"><img src="{{ data.Icon.url }}" alt=""></a>
+                                                        <a href="/postDetail/{{ data.sNo }}"><img src="/media/{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">

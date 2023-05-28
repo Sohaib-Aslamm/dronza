@@ -17,7 +17,7 @@ def adminuser_blog(request):
         reg.save()
         return redirect('/adminblog')
     else:
-        BLGdata = userBlog.objects.all().order_by('-sNo')
+        BLGdata = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
         paginator = Paginator(BLGdata, 10)
         pageNo = request.GET.get('page')
         BLGdataFINAL = paginator.get_page(pageNo)
