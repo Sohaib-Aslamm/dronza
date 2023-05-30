@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog, productImages
+from dronzaPanel.models import Products, SocialMedia, userBlog, productImages, seoTags
 from home.models import productReview
 
 
@@ -13,12 +13,13 @@ def shop(request):
     DRONZATGRY = Products.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
 
     context = {'dronzaProductsFINAL': dronzaProductsFINAL,
                'dronzalastPage': dronzatotalPages, 'dronzatotalPages': dronzatotalPages,
                'dronzapageList': [n + 1 for n in range(dronzatotalPages)], 'DRONZATGRY': DRONZATGRY,
-               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT}
+               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'dronzaShop.html', context)
 
 

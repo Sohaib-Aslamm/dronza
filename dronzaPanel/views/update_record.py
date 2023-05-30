@@ -1,9 +1,10 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
      GalleryForm, SocialMediaForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
-     HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm
+     HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, SEOTagsForm
 
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
-    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner
+    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
+    seoTags
 
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -264,3 +265,15 @@ def Update(request, id, type):
             UpdateRecord = OurPartner.objects.get(id=id)
             UpdateForm = OurPartnerForm(instance=UpdateRecord)
         return render(request, 'Update/updateOurPartner.html', {'form': UpdateForm})
+
+    if type == 'seoTags':
+        if request.method == 'POST':
+            UpdateRecord = seoTags.objects.get(id=id)
+            UpdateForm = SEOTagsForm(request.POST, request.FILES, instance=UpdateRecord)
+            if UpdateForm.is_valid():
+                UpdateForm.save()
+                return redirect('/seotags')
+        else:
+            UpdateRecord = seoTags.objects.get(id=id)
+            UpdateForm = SEOTagsForm(instance=UpdateRecord)
+        return render(request, 'Update/UpdateSEOTags.html', {'form': UpdateForm})

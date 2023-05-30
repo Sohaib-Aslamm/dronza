@@ -21,6 +21,7 @@ urlpatterns = [
         path('adminblog', views.adminuser_blog, name="adminblog"),
         path('user_comments', views.user_comments, name="user_comments"),
         path('orders', views.orders, name="orders"),
+        path('seotags', views.SEOTags, name="seotags"),
         path('adminuser_logout', views.user_logout, name="adminuser_logout"),
         path('adminRegister', views.UserRegister, name="adminRegister"),
         path('adminview_Message/<int:id>', views.viewMessage, name="adminview_Message"),

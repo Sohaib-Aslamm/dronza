@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
-from dronzaPanel.models import OurTeam, userBlog, SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, \
-    WhatPeopleSay, OurPartner
+from dronzaPanel.models import OurTeam, userBlog, SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, \
+    HomeSRFP, VideoGallery, \
+    WhatPeopleSay, OurPartner, seoTags
+
 
 # Create your views here.
 
@@ -27,6 +29,8 @@ def index(request):
     UBDT = userBlog.objects.order_by('sNo')[:3]
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
     context = {'MSLDR': MSLDR, 'HIWork': HIWork, 'HTUSE': HTUSE, 'HABT': HABT, 'PRDCT': PRDCT, 'SRFP': SRFP, 'HVG': HVG,
-               'OURTM': OURTM, 'WPSDT': WPSDT, 'OPTDT': OPTDT, 'UBDT': UBDT, 'RCPST': RCPST, 'SMDT': SMDT}
+               'OURTM': OURTM, 'WPSDT': WPSDT, 'OPTDT': OPTDT, 'UBDT': UBDT, 'RCPST': RCPST, 'SMDT': SMDT,
+               'SEOTAGS': SEOTAGS}
     return render(request, 'Home.html', context)

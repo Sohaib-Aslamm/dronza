@@ -319,3 +319,9 @@ class userBlog(models.Model):
     description = RichTextField(default="")
     Icon = models.ImageField(upload_to='Blog/Icons', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
+
+
+class seoTags(models.Model):
+    title = models.TextField(default="")
+    description = models.TextField(default="")
+    tags = models.TextField(default="")

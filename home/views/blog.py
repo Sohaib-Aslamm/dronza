@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 from home.models import blog_Review
 
 
@@ -17,6 +17,7 @@ def blog(request):
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
 
     context = {
         'BLOGDATA': blog_data_final,
@@ -26,6 +27,7 @@ def blog(request):
         'Blog_RCPST': popular_posts,
         'Top_Products': featured_products,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'Blog.html', context)
 
@@ -44,6 +46,7 @@ def search_blog(request):
         featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
         SMDT = SocialMedia.objects.all()
+        SEOTAGS = seoTags.objects.all()
 
         context = {
             'BLOGDATA': blog_data_final,
@@ -53,6 +56,7 @@ def search_blog(request):
             'Blog_RCPST': popular_posts,
             'Top_Products': featured_products,
             'SMDT': SMDT,
+            'SEOTAGS': SEOTAGS
         }
         return render(request, 'Blog.html', context)
 
@@ -64,6 +68,7 @@ def postDetail(request, sNo):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
 
     context = {
         'rdPost': rdPost,
@@ -72,5 +77,6 @@ def postDetail(request, sNo):
         'Blog_RCPST': popular_posts,
         'Top_Products': Top_Products,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'postDetail.html', context)

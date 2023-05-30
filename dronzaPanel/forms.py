@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, SocialMedia, \
-    userBlog, MainSlider, HomeHIW, HomeHTU, HomeAbout, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner
+    userBlog, MainSlider, HomeHIW, HomeHTU, HomeAbout, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, seoTags
 
 
 class UserForm(UserCreationForm):
@@ -238,4 +238,16 @@ class userBlogForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'who said this quote ex. (sohaib_langrial)'}),
 
 
+        }
+
+
+class SEOTagsForm(forms.ModelForm):
+    class Meta:
+        model = seoTags
+        fields = '__all__'
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter title'}),
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
+            'tags': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter #tags'}),
         }

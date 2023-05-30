@@ -8,3 +8,4 @@ from .services_gallery_pricing import *
 from .delete_record import *
 from .update_record import *
 from .blog import *
+from .seotags import *

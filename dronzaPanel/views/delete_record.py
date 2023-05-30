@@ -1,5 +1,6 @@
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
-    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner
+    SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
+    seoTags
 
 from django.contrib.auth.models import User
 
@@ -134,3 +135,8 @@ def Delete(request, id, type):
         DeleteRecord = blog_Review.objects.get(sNo=id)
         DeleteRecord.delete()
         return redirect('/user_comments')
+
+    if type == 'seoTags':
+        DeleteRecord = seoTags.objects.get(id=id)
+        DeleteRecord.delete()
+        return redirect('/seotags')

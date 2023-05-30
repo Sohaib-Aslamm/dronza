@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from home.models import sellYourDrone
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 
 
 def sellDrones(request):
@@ -13,7 +13,9 @@ def sellDrones(request):
     Product_Category = sellYourDrone.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
     context = {'sellerProducts': sellerProductsFINAL, 'Product_Category': Product_Category, 'lastPage': totalPages,
-               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED}
+               'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED,
+               'SEOTAGS': SEOTAGS}
     return render(request, 'sellDrone.html', context)

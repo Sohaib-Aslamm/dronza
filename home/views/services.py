@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from dronzaPanel.models import ServicesTypes, Pricing, SocialMedia, userBlog
+from dronzaPanel.models import ServicesTypes, Pricing, SocialMedia, userBlog, seoTags
 
 
 def services(request):
@@ -8,6 +8,7 @@ def services(request):
     PRCDT = Pricing.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
     context = {'RegularServices': RegularServices, 'PRCDT': PRCDT, 'RCPST': RCPST, 'SMDT': SMDT,
-               'MAINSERVICES': MAINSERVICES}
+               'MAINSERVICES': MAINSERVICES, 'SEOTAGS': SEOTAGS}
     return render(request, 'Services.html', context)

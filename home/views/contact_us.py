@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from home.models import contact_us
 from home.forms import contactForm
-from dronzaPanel.models import SocialMedia, userBlog
+from dronzaPanel.models import SocialMedia, userBlog, seoTags
 from home.definedEmails import notify_contact_us
 
 
@@ -21,10 +21,12 @@ def contactus(request):
         form = contactForm()
 
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     context = {
         'form': form,
         'RCPST': RCPST,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'contactUs.html', context)

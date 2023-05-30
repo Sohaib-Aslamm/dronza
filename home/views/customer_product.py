@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from dronzaPanel.models import SocialMedia, userBlog
+from dronzaPanel.models import SocialMedia, userBlog, seoTags
 from home.models import sellYourDrone, sellYourDroneImages
 
 
@@ -46,6 +46,7 @@ def customerProduct(request):
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.all()
 
     context = {
         'SYDProducts': SYDProductsFINAL,
@@ -53,5 +54,6 @@ def customerProduct(request):
         'pageList': [n + 1 for n in range(totalPages)],
         'RCPST': RCPST,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'customerProducts.html', context)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from dronzaPanel.models import Gallery, SocialMedia, userBlog
+from dronzaPanel.models import Gallery, SocialMedia, userBlog, seoTags
 
 
 def gallery(request):
@@ -7,5 +7,6 @@ def gallery(request):
     GLLRY2 = Gallery.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    context = {'GLLRY': GLLRY, 'GLLRY2': GLLRY2, 'RCPST': RCPST, 'SMDT': SMDT}
+    SEOTAGS = seoTags.objects.all()
+    context = {'GLLRY': GLLRY, 'GLLRY2': GLLRY2, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'Gallery.html', context)
