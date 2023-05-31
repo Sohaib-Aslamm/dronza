@@ -17,7 +17,7 @@ def blog(request):
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='blog_page')
 
     context = {
         'BLOGDATA': blog_data_final,

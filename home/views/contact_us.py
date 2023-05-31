@@ -21,7 +21,7 @@ def contactus(request):
         form = contactForm()
 
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='contact_us_page')
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     context = {
         'form': form,

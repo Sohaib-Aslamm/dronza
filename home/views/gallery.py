@@ -7,6 +7,6 @@ def gallery(request):
     GLLRY2 = Gallery.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='gallery_page')
     context = {'GLLRY': GLLRY, 'GLLRY2': GLLRY2, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'Gallery.html', context)

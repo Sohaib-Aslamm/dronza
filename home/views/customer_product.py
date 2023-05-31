@@ -46,7 +46,7 @@ def customerProduct(request):
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='customer_product_panel_page')
 
     context = {
         'SYDProducts': SYDProductsFINAL,

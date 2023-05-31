@@ -13,7 +13,7 @@ def shop(request):
     DRONZATGRY = Products.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='shop_page')
     FEATURED = Products.objects.filter(featured='Featured')
 
     context = {'dronzaProductsFINAL': dronzaProductsFINAL,
