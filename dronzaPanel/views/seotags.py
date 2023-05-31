@@ -18,7 +18,7 @@ def SEOTags(request):
             tags = SEOFM.cleaned_data['tags']
             reg = seoTags(title=title, page=page, description=description, tags=tags)
             reg.save()
-            SEOTagsForm()
+            SEOFM = SEOTagsForm()
     else:
         SEOFM = SEOTagsForm()
     SEODATA = seoTags.objects.all()
