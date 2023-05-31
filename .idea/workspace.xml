@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/About.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Services.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/contactUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/contactUs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/ourTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/ourTeam.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/update/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/update/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/services.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +190,7 @@
       <workItem from="1685217213575" duration="2283000" />
       <workItem from="1685272611690" duration="6952000" />
       <workItem from="1685475637731" duration="5024000" />
-      <workItem from="1685537324383" duration="4033000" />
+      <workItem from="1685537324383" duration="5292000" />
     </task>
     <servers />
   </component>
