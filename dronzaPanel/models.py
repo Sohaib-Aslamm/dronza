@@ -323,5 +323,6 @@ class userBlog(models.Model):
 
 class seoTags(models.Model):
     title = models.TextField(default="")
+    page = models.TextField(default="")
     description = models.TextField(default="")
     tags = models.TextField(default="")

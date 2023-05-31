@@ -38,13 +38,19 @@
 
     <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-      <div class="modal-body">
+   <div class="modal-body">
             <div class="row mb-3">
                 <div class="col-6">
                     <label class="white">Title</label>
                     {{ form.title }}
                 </div>
-                  <div class="col-6">
+                 <div class="col-6">
+                    <label class="white">Page name</label>
+                    {{ form.page }}
+                </div>
+            </div>
+           <div class="row mb-3">
+               <div class="col-12">
                       <label class="white">Description</label><br>
                     {{ form.description }}
                 </div>

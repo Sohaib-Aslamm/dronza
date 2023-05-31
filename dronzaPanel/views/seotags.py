@@ -13,9 +13,10 @@ def SEOTags(request):
         SEOFM = SEOTagsForm(request.POST, request.FILES)
         if SEOFM.is_valid():
             title = SEOFM.cleaned_data['title']
+            page = SEOFM.cleaned_data['page']
             description = SEOFM.cleaned_data['description']
             tags = SEOFM.cleaned_data['tags']
-            reg = seoTags(title=title, description=description, tags=tags)
+            reg = seoTags(title=title, page=page, description=description, tags=tags)
             reg.save()
     else:
         SEOFM = SEOTagsForm()

@@ -248,6 +248,7 @@ class SEOTagsForm(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter title'}),
+            'page': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter page name'}),
             'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
             'tags': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter #tags'}),
         }
