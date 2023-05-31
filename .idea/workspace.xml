@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/UpdateSEOTags.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/UpdateSEOTags.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/seoTags.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/seoTags.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dronzaPanel/views/seotags.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/seotags.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +188,7 @@
       <workItem from="1685217213575" duration="2283000" />
       <workItem from="1685272611690" duration="6952000" />
       <workItem from="1685475637731" duration="5024000" />
-      <workItem from="1685537324383" duration="422000" />
+      <workItem from="1685537324383" duration="1043000" />
     </task>
     <servers />
   </component>
