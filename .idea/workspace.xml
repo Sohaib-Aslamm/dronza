@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/redirect_middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dronza/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronza/urls.py" afterDir="false" />
     </list>
@@ -16,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -193,7 +194,7 @@
       <workItem from="1685600569145" duration="21000" />
       <workItem from="1685601085819" duration="1960000" />
       <workItem from="1685609846029" duration="58000" />
-      <workItem from="1685612973447" duration="2050000" />
+      <workItem from="1685612973447" duration="2523000" />
     </task>
     <servers />
   </component>
