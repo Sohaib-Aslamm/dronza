@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronza/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronza/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +191,11 @@
       <workItem from="1685217213575" duration="2283000" />
       <workItem from="1685272611690" duration="6952000" />
       <workItem from="1685475637731" duration="5024000" />
-      <workItem from="1685537324383" duration="5778000" />
+      <workItem from="1685537324383" duration="6506000" />
+      <workItem from="1685600569145" duration="21000" />
+      <workItem from="1685601085819" duration="1960000" />
+      <workItem from="1685609846029" duration="58000" />
+      <workItem from="1685612973447" duration="1399000" />
     </task>
     <servers />
   </component>
