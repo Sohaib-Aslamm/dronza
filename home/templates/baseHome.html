@@ -15,6 +15,7 @@
     {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
     <meta name="description" content="{{ seo.description }}">
     <meta name="keywords" content="{{ seo.tags }}">
+    <link rel="canonical" href="{{ seo.canonical_link }}">
     {% endfor %}
     <meta name="robots" content="index, follow">
 
