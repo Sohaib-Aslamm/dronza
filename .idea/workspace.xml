@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,8 @@
       <workItem from="1685612973447" duration="2937000" />
       <workItem from="1685638424812" duration="6030000" />
       <workItem from="1685644757665" duration="499000" />
-      <workItem from="1685645888781" duration="358000" />
+      <workItem from="1685645888781" duration="1009000" />
+      <workItem from="1685684688507" duration="223000" />
     </task>
     <servers />
   </component>
