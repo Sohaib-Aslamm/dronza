@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from home.models import sellYourDrone
 
 
-def UpdatebyUUID(request, uuid, type):
-    if type == 'sellerProduct':
-        Record = sellYourDrone.objects.get(uuid=uuid)
+def UpdatebyUUID(request, type, slug):
+    if type == 'customerProduct':
 
+        Record = sellYourDrone.objects.get(slug=slug)
         if request.method == 'POST':
             Record.name = request.POST.get('name')
             Record.email = request.POST.get('email')

@@ -6,14 +6,14 @@ from home.models import blog_Review
 
 
 def blog(request):
-    blog_data = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
+    blog_data = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')
     paginator = Paginator(blog_data, 9)
     page_number = request.GET.get('page')
     blog_data_final = paginator.get_page(page_number)
     total_pages = blog_data_final.paginator.num_pages
 
     recent_posts = userBlog.objects.order_by('-sNo')[:2]
-    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
+    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
     SMDT = SocialMedia.objects.all()
@@ -42,7 +42,7 @@ def search_blog(request):
         total_pages = blog_data_final.paginator.num_pages
 
         recent_posts = userBlog.objects.order_by('-sNo')[:2]
-        popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
+        popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
         featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
         SMDT = SocialMedia.objects.all()
@@ -61,12 +61,12 @@ def search_blog(request):
         return render(request, 'Blog.html', context)
 
 
-def postDetail(request, sNo):
-    rdPost = userBlog.objects.filter(sNo=sNo)
+def postDetail(request, slug):
+    rdPost = userBlog.objects.filter(slug=slug)
     comments = blog_Review.objects.filter(post__in=rdPost)
     Top_Products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
     RCPST = userBlog.objects.order_by('-sNo')[:2]
-    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
+    popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
     SMDT = SocialMedia.objects.all()
     SEOTAGS = seoTags.objects.all()
 

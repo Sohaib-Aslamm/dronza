@@ -3,7 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/our_team.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms/our_team.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/products.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/products.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/sell_your_drone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/About.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Services.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/serviceDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/serviceDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/track_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/track_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/track_order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/track_order_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/cart_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/cart_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/delete_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/delete_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/product_and_blog_reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/product_and_blog_reviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/shop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +225,12 @@
       <workItem from="1685638424812" duration="6030000" />
       <workItem from="1685644757665" duration="499000" />
       <workItem from="1685645888781" duration="1009000" />
-      <workItem from="1685684688507" duration="223000" />
+      <workItem from="1685684688507" duration="787000" />
+      <workItem from="1685986681608" duration="6254000" />
+      <workItem from="1686031163612" duration="3525000" />
+      <workItem from="1686034977223" duration="238000" />
+      <workItem from="1686035231374" duration="49000" />
+      <workItem from="1686073916247" duration="16321000" />
     </task>
     <servers />
   </component>
@@ -215,6 +248,17 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dronzaPanel/views/client_people_partner.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

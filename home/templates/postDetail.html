@@ -125,7 +125,7 @@
                                                 {% csrf_token %}
 
                                                 {% for post in rdPost %}
-                                                    <input type="hidden" id="postSno" name="postSno" value="{{ post.sNo }}">
+                                                    <input type="hidden" id="slug" name="slug" value="{{ post.slug }}">
                                                 {% endfor %}
                                                 <p class="comment-form-author">
                                                     <label for="author">Name <span class="required">*</span></label>
@@ -193,7 +193,7 @@
                                             {% for data in Blog_RCPST %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/postDetail/{{ data.sNo }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
+                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">
@@ -202,7 +202,7 @@
                                                             </ul>
                                                         </div>
                                                         <div class="wt-post-header">
-                                                            <span class="post-title"> <a href="/postDetail/{{ data.sNo }}">{{ data.title }}</a></span>
+                                                            <span class="post-title"> <a href="/{{ data.slug }}">{{ data.title }}</a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,11 +225,11 @@
                                         {% for PDCT in Top_Products %}
                                             <div class="product-widget-box clearfix">
                                                 <div class="product-widget-media">
-                                                   <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
+                                                   <a href="/shop/{{ PDCT.slug }}"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
                                                 </div>
                                                 <div class="product-widget-info">
                                                     <div class="product-widget-header">
-                                                        <a href="/shopDetail/{{ PDCT.id }}/{{ PDCT.uuid }}/dronzaProduct" class="product-widget-title">{{ PDCT.name }}</a>
+                                                        <a href="/shop/{{ PDCT.slug }}" class="product-widget-title">{{ PDCT.name }}</a>
                                                     </div>
                                                     <span class="price">
                                                         <ins>

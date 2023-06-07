@@ -30,12 +30,10 @@ urlpatterns = [
     path('checkout', views.checkout, name='checkout'),
     path('placeOrder', views.place_order, name='placeOrder'),
 
-    path('shopDetail/<int:id>/<str:uuid>/<str:type>', views.shopDetail, name="shopDetail"),
-    path('postDetail/<int:sNo>', views.postDetail, name="postDetail"),
-    path('DetailRecord/<int:id>/<str:type>', views.DetailRecord, name="DetailRecord"),
-    path('Detail_with_diuu/<int:id>/<str:uuid>/<str:type>', views.RecordbyUUID, name="Detail_with_diuu"),
-    path('Delete_with_diuu/<str:uuid>/<str:type>', views.DeletebyUUID, name="Delete_with_diuu"),
-    path('Update_with_diuu/<str:uuid>/<str:type>', views.UpdatebyUUID, name="Update_with_diuu"),
+    path('<str:slug>', views.postDetail, name="postDetail"),
+    path('<str:type>/<str:slug>', views.DetailRecord, name="DetailRecord"),
+    path('<str:type>/<str:slug>/delete', views.DeletebyUUID, name="Delete_with_diuu"),
+    path('<str:type>/<str:slug>/update', views.UpdatebyUUID, name="Update_with_diuu"),
     path('error404', views.error404, name="error404"),
 
 ]

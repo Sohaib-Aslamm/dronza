@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from ckeditor.fields import RichTextField
 from django_resized import ResizedImageField
+from django.utils.text import slugify
 
 
 class sellYourDrone(models.Model):
@@ -13,6 +14,7 @@ class sellYourDrone(models.Model):
     sPhone = models.EmailField(max_length=100, default="")
     location = models.EmailField(max_length=255, default="")
     title = models.CharField(max_length=255, default="")
+    slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
     price = models.CharField(max_length=100, default="")
     brand = models.CharField(max_length=100, default="")
     color = models.CharField(max_length=100, default="")
@@ -30,6 +32,10 @@ class sellYourDrone(models.Model):
     description = RichTextField(default="")
     thumbnail = ResizedImageField(size=[320, 180], force_format='PNG',
                                   quality=-1, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class sellYourDroneImages(models.Model):

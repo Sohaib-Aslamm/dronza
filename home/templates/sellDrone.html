@@ -80,7 +80,7 @@
                                                 <img src="{{ PDCT.thumbnail.url }}" alt="">
                                                 <div class="overlay-bx">
                                                     <div class="overlay-icon">
-                                                        <a href="/Detail_with_diuu/{{ PDCT.id }}/{{ PDCT.uuid }}/sellerProduct">
+                                                        <a href="/sellDrones/{{ PDCT.slug }}">
                                                             <i class="fa fa-eye wt-icon-box-xs"></i>
                                                         </a>
 
@@ -90,7 +90,7 @@
                                             <div class="wt-info">
                                                  <div class="p-a20 bg-white">
                                                     <h3 class="wt-title">
-                                                        <a href="/Detail_with_diuu/{{ PDCT.id }}/{{ PDCT.uuid }}/sellerProduct">{{ PDCT.title }}</a>
+                                                        <a href="/sellDrones/{{ PDCT.slug }}">{{ PDCT.title }}</a>
                                                     </h3>
 
 													<div class="product-features-item"><span>Brand | </span>{{ PDCT.brand }}</div>
@@ -102,7 +102,7 @@
                                                         </ins>
 
                                                          <br><ins>
-                                                             <a href="/Detail_with_diuu/{{ PDCT.id }}/{{ PDCT.uuid }}/sellerProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/sellDrones/{{ PDCT.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
@@ -187,8 +187,7 @@
 
                         <div class="owl-carousel featured-products owl-btn-vertical-center">
 
-
-                           {% for FTP in FEATURED %}
+       {% for FTP in FEATURED %}
                             <!-- COLUMNS 1 -->
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
@@ -200,13 +199,13 @@
                                                     <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                 </a>
 
-                                          </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="wt-info">
-                                         <div class="p-a20 bg-white">
+                                        <div class="p-a20 bg-white">
                                             <h3 class="wt-title">
-                                                <a href="/shopDetail/{{ FTP.id }}/{{ FTP.uuid }}/dronzaProduct">{{ FTP.name }}</a>
+                                                <a href="/shop/{{ FTP.slug }}">{{ FTP.name }}</a>
                                             </h3>
 
                                             <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
@@ -218,17 +217,17 @@
                                                         <del>{{ FTP.currency }} {{ FTP.cPrice }}</del></span>
                                                 </ins>
                                                 <br><ins>
-                                                             <a href="/shopDetail/{{ FTP.id }}/{{ FTP.uuid }}/dronzaProduct" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shop/{{ FTP.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                             </span>
 
 
 
-                                         </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
+                        {% endfor %}
 
                         </div>
                     </div>

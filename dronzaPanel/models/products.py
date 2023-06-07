@@ -2,11 +2,13 @@ from django.db import models
 import uuid
 from django_resized import ResizedImageField
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 class Products(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, default="")
+    slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
     cPrice = models.CharField(max_length=100, default="")
     price = models.CharField(max_length=100, default="")
     currency = models.CharField(max_length=100, default="")
@@ -34,6 +36,10 @@ class Products(models.Model):
     description = RichTextField(default="")
     image = ResizedImageField(size=[320, 180], force_format='PNG', crop=['middle', 'center'], quality=-1,
                               upload_to='DronzaProducts/MainIcon', keep_meta=True, default="")
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class productImages(models.Model):

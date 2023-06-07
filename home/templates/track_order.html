@@ -73,7 +73,7 @@
                                                         <a>{{ orders.c_name }}</a>
                                                     </h3>
 
-                                                    <div class="product-features-item"><span>Order no | </span>{{ orders.id }}</div>
+                                                    <div class="product-features-item"><span>Order No: </span>{{ orders.uuid }}</div>
                                                     <div class="product-features-item"><span>Grand Total | </span><u>{{ orders.p_grand_total }} PKR</u>    </div>
 
                                                     <span class="price">
@@ -82,7 +82,7 @@
                                                         </ins>
 
                                                          <ins class="ml-4">
-                                                             <a href="/Detail_with_diuu/{{ orders.id }}/{{ orders.uuid }}/track_order" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/track_order/{{ orders.uuid }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 

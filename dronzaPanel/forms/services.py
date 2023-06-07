@@ -20,3 +20,7 @@ class ServicesTypeForm(forms.ModelForm):
             'highlight6': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'high light 6'}),
             'Description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'enter description'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.pop('slug')

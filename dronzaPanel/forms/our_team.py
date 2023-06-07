@@ -18,3 +18,7 @@ class OurTeamForm(forms.ModelForm):
             'socialmedia3': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Twitter'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'write member detail...'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.pop('slug')

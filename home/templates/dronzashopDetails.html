@@ -211,8 +211,7 @@
 
                                                     {% csrf_token %}
 
-                                                    <input type="hidden" id="pdsNo" name="pdsNo" value="{{ shpDetail.id }}">
-                                                    <input type="hidden" id="pdUUID" name="pdUUID" value="{{ shpDetail.uuid }}">
+                                                    <input type="hidden" id="slug" name="slug" value="{{ shpDetail.slug }}">
 
                                                     <div class="comment-form-author">
                                                         <label>Name <span class="required">*</span></label>

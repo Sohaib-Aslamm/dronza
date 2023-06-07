@@ -44,7 +44,7 @@
                                 <div>The Best Drone Services</div>
                                 <div class="sep-leaf-right"></div>
                             </div>
-                            <h2>Explore Our Main Services</h2>
+                            <h2>Explore Our Regular Services</h2>
                         </div>
                     <!-- TITLE END-->
 
@@ -67,7 +67,7 @@
 
                                         <div class="d-icon-box-content">
                                             <p>{{ MS.Description }}</p>
-                                            <a href="javascript:;" class="site-button-link site-text-primary">Read More</a>
+                                            <a href="/services/{{ MS.slug }}" class="site-button-link site-text-primary">Read More</a>
                                         </div>
 
                                     </div>
@@ -125,15 +125,14 @@
                             {% for EMS in MAINSERVICES %}
                             <div class="col-lg-4 col-md-6 m-b30">
                                 <div class="imghvr-zoom-out-down grayscale-img">
-                                    <img src="{{ EMS.icons.url }}" alt="">
+                                   <img src="{{ EMS.icons.url }}" alt="">
                                     <div class="imghvr-content">
                                     	<div class="imghvr-mid">
                                             <h3 class="wt-title">{{ EMS.title }}</h3>
                                             <p>{{ EMS.Description }}</p>
-                                            <a href="/DetailRecord/{{ EMS.id }}/MainService" class="site-button-link site-text-primary">Read More</a>
+                                            <a href="/services/{{ EMS.slug }}" class="site-button-link site-text-primary">Read More</a>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             {% endfor %}

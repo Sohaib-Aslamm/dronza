@@ -880,8 +880,8 @@
                                                 </div>
                                                 <div class="p-control">
                                                     <ul>
-                                                        <li><a href="/shopDetail/{{ PR.id }}/{{ PR.uuid }}/dronzaProduct"><i class="fa fa-cart-arrow-down"></i></a></li>
-                                                        <li><a href="/shopDetail/{{ PR.id }}/{{ PR.uuid }}/dronzaProduct"><i class="fa fa-eye"></i></a></li>
+                                                        <li><a href="/shop/{{ PR.slug }}"><i class="fa fa-cart-arrow-down"></i></a></li>
+                                                        <li><a href="/shop/{{ PR.slug }}"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1039,13 +1039,13 @@
                                 <div class="wt-team-2">
 
                                     <div class="wt-media">
-                                        <img src="{{ OT.profile.url }}" alt="">
+                                        <a href="/experts/{{ OT.slug }}"><img src="{{ OT.profile.url }}" alt=""></a>
                                     </div>
 
                                     <div class="wt-info">
                                         <div class="team-detail">
                                             <span class="title-style-2 team-position site-text-primary">{{ OT.designation }}</span>
-                                            <h3 class="m-t0 team-name"><a href="/DetailRecord/{{ OT.id }}/teamDetail">{{ OT.name }}</a></h3>
+                                            <h3 class="m-t0 team-name"><a href="/experts/{{ OT.slug }}">{{ OT.name }}</a></h3>
                                         </div>
                                         <div class="team-social-center">
                                             <ul class="team-social-bar">
@@ -1199,13 +1199,13 @@
                                             </ul>
                                         </div>
                                         <div class="wt-post-title ">
-                                            <a href="/postDetail/{{ BD.sNo }}" class="post-title h5">{{ BD.title }}</a>
+                                            <a href="{{ BD.slug }}" class="post-title h5">{{ BD.title }}</a>
                                         </div>
                                         <div class="wt-post-text ">
                                             <p>{{ BD.heading }}</p>
                                         </div>
                                         <div class="wt-post-readmore ">
-                                            <a href="/postDetail/{{ BD.sNo }}" class="site-button-link black">Read More</a>
+                                            <a href="{{ BD.slug }}" class="site-button-link black">Read More</a>
                                         </div>
                                    </div>
                                 </div>
