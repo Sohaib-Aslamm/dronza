@@ -123,9 +123,9 @@ def place_order(request):
             c_address2=c_address2
         )
 
-        # # Sending email to customer
-        # notify_order_confirmation(c_name, c_email, c_phone, c_city, c_zip, c_country, c_address1, c_address2,
-        #                           p_grand_total)
+        # Sending email to customer
+        notify_order_confirmation(c_name, c_email, c_phone, c_city, c_zip, c_country, c_address1, c_address2,
+                                  p_grand_total)
 
         cart = Cart(request)
         cart.clear()
@@ -139,14 +139,6 @@ def place_order(request):
 def trackOrder(request):
     user_id = request.user.id
     order_list = Place_Order.objects.filter(user_id=user_id).order_by('-id')[:9]
-    #
-    # product_ids = [order.product_id for order in order_list]
-    # product_ids = [int(id) for id in ','.join(product_ids).split(',')]  # Split the comma-separated string into a list of integers
-    #
-    # products = Products.objects.filter(id__in=product_ids)  # Retrieve the products based on the IDs
-    #
-    # product_slugs = [product.slug for product in products]  # Extract the slugs from the products
-
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     context = {

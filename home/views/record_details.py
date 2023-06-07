@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 
 def DetailRecord(request, type, slug):
-    if type == 'User':
-        Record = User.objects.get(id=id)
+    if type == 'UserList':
+        Record = User.objects.get(username=slug)
         context = {'Record': Record}
         return render(request, 'user_detail.html', context)
 
@@ -53,19 +53,14 @@ def DetailRecord(request, type, slug):
         context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'sellDrone_Detail.html', context)
 
-    if type == 'order':
-        Record = Place_Order.objects.get(id=id)
-        p_id = Record.product_id.replace("[", "").replace("]", "").replace("'", "")
-        p_id = p_id.split(",")
+    if type == 'orders':
+        Record = Place_Order.objects.get(uuid=slug)
+        p_id = Record.product_id.split(",")
         product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
 
-        price_total = Record.p_total.replace("[", "").replace("]", "").replace("'", "")
-        p_quantity = Record.p_quantity.replace("[", "").replace("]", "").replace("'", "")
-        p_price = Record.p_price.replace("[", "").replace("]", "").replace("'", "")
-
-        price_total = price_total.split(",")
-        p_quantity = p_quantity.split(",")
-        p_price = p_price.split(",")
+        price_total = Record.p_total.split(",")
+        p_quantity = Record.p_quantity.split(",")
+        p_price = Record.p_price.split(",")
         RCPST = userBlog.objects.order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,

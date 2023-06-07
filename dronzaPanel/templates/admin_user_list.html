@@ -52,11 +52,11 @@
       <td>{{ data.date_joined }}</td>
      <td class="text-center">
          {% if data.username == 'Admin' %}
-         <a class="text-center mx-2" href="/DetailRecord/{{ data.id }}/User"><i class="fa fa-info-circle fa-lg" style="color: green;"></i> </a>
+         <a class="text-center mx-2" href="/UserList/{{ data.username }}"><i class="fa fa-info-circle fa-lg" style="color: green;"></i> </a>
          <a class="text-center mx-2" ><i class="fa fa-lock fa-lg" style="color: red;" disabled></i> </a>
       {% else %}
 
-          <a class="text-center mx-2" href="/DetailRecord/{{ data.id }}/User"><i class="fa fa-info-circle fa-lg" style="color: green;"></i> </a>
+          <a class="text-center mx-2" href="/UserList/{{ data.username }}"><i class="fa fa-info-circle fa-lg" style="color: green;"></i> </a>
           <a class="text-center mx-2"><i class="fa fa-unlock fa-lg" style="color: green;"></i> </a>
              <a class="text-center mx-2" href="/Delete/{{ data.id }}/User"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
 
