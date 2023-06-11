@@ -5,7 +5,7 @@ from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 
 
 def sellDrones(request):
-    sellerProducts = sellYourDrone.objects.filter(status='Available')
+    sellerProducts = sellYourDrone.objects.filter(status='Available').order_by('-id')
     paginator = Paginator(sellerProducts, 8)
     pageNo = request.GET.get('page')
     sellerProductsFINAL = paginator.get_page(pageNo)
