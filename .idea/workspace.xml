@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/home/templates/dronepartsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronepartsDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/error404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/ourTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/ourTeam.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
@@ -24,7 +23,7 @@
       <change beforePath="$PROJECT_DIR$/home/templates/serviceDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/serviceDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/teamDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/teamDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/track_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/track_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/track_order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/track_order_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/update/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/update/customerProducts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +233,7 @@
       <workItem from="1686414836490" duration="923000" />
       <workItem from="1686417704505" duration="5220000" />
       <workItem from="1686503626328" duration="2025000" />
-      <workItem from="1686551595500" duration="703000" />
+      <workItem from="1686551595500" duration="1589000" />
     </task>
     <servers />
   </component>
