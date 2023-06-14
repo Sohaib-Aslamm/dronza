@@ -34,6 +34,6 @@ urlpatterns = [
     path('<str:type>/<str:slug>', views.DetailRecord, name="DetailRecord"),
     path('<str:type>/<str:slug>/delete', views.DeletebyUUID, name="Delete_with_diuu"),
     path('<str:type>/<str:slug>/update', views.UpdatebyUUID, name="Update_with_diuu"),
-    path('error404', views.error404, name="error404"),
+    path('coming-soon', views.error404, name="coming-soon"),
 
 ]
