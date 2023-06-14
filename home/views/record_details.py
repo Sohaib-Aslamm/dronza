@@ -59,7 +59,7 @@ def DetailRecord(request, type, slug):
     if type == 'orders':
         Record = Place_Order.objects.get(uuid=slug)
         p_id = Record.product_id.split(",")
-        product_data = Products.objects.filter(id__in=p_id).values('name', 'image')
+        product_data = Products.objects.filter(id__in=p_id)
 
         price_total = Record.p_total.split(",")
         p_quantity = Record.p_quantity.split(",")

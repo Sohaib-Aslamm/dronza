@@ -49,10 +49,12 @@ def cart_clear(request):
 def cart_detail(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
+    SEOTAGS = seoTags.objects.filter(page='cart_detail')
 
     context = {
         'SMDT': SMDT,
         'RCPST': RCPST,
+        'SEOTAGS': SEOTAGS,
     }
     return render(request, 'cart_detail.html', context)
 
