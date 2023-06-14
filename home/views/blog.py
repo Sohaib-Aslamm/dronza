@@ -46,7 +46,7 @@ def search_blog(request):
         featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
         SMDT = SocialMedia.objects.all()
-        SEOTAGS = seoTags.objects.all()
+        SEOTAGS = seoTags.objects.filter(page='search_blog')
 
         context = {
             'BLOGDATA': blog_data_final,
@@ -68,7 +68,10 @@ def postDetail(request, slug):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.all()
+    SEOTAGS = [{'title': rdPost.first().title,
+                'description': rdPost.first().title,
+                'tags': rdPost.first().tags,
+                'canonical_link': f'https://dronza.org/{rdPost.first().title}'}]
 
     context = {
         'rdPost': rdPost,

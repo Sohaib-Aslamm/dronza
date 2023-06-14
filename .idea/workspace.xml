@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/order_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/cart_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/cart_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/cart_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cart_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +222,7 @@
       <workItem from="1686579194043" duration="8000" />
       <workItem from="1686643921975" duration="1731000" />
       <workItem from="1686664019186" duration="8248000" />
-      <workItem from="1686724680807" duration="1264000" />
+      <workItem from="1686724680807" duration="2807000" />
     </task>
     <servers />
   </component>
