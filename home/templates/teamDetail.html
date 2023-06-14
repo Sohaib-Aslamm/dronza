@@ -1,7 +1,5 @@
 {% extends 'baseHome.html' %}
 
-{% block title %}<title>Person Name</title> {% endblock title %}
-
 {% load static %}
 
 
@@ -48,7 +46,7 @@
                                             <div class="wt-team-1">
 
                                                 <div class="wt-media">
-                                                    <img src="{{ rec.profile.url }}" alt="">
+                                                    <img src="{{ rec.profile.url }}" alt="{{ rec.name }}">
                                                 </div>
 
                                                 <div class="wt-info">

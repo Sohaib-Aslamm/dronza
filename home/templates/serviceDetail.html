@@ -1,6 +1,5 @@
 {% extends 'baseHome.html' %}
 
-{% block title %}<title>Explore a Service</title> {% endblock title %}
 
 {% load static %}
 
@@ -47,7 +46,7 @@
                                        <!--block 1-->
 
                                         <div class="services-large">
-                                            <div class="services-large-media"><img src="{{ rec.icons.url }}" alt=""></div>
+                                            <div class="services-large-media"><img src="{{ rec.icons.url }}" alt="{{ rec.title }}"></div>
                                             <div class="services-large-info">
                                                 <h3 class="services-title site-text-white">{{ rec.title }}</h3>
                                             </div>

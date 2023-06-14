@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from dronzaPanel.models import Products, SocialMedia, userBlog
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 from home.models import Place_Order
 from cart.cart import Cart
 from django.contrib.auth.decorators import login_required
@@ -135,15 +135,16 @@ def place_order(request):
     return render(request, 'checkout.html')
 
 
-
 def trackOrder(request):
     user_id = request.user.id
     order_list = Place_Order.objects.filter(user_id=user_id).order_by('-id')[:9]
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='track_order')
     context = {
         'product_orders': order_list,
         'RCPST': RCPST,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'track_order.html', context)

@@ -1,6 +1,5 @@
 {% extends 'baseHome.html' %}
 {% load cart_tag %}
-{% block title %} <title>Order Detail</title> {% endblock title %}
 {% load static %}
 
 {% block content %}
@@ -95,7 +94,7 @@
                         <div class="col-md-2">
                          <label>Product</label>
                          {% for data in product_data %}
-                                <p><img src="/media/{{ data.image }} " style="width: 50px; height: 30px;"></p>
+                                <p><img src="{{ data.image.url }} " style="width: 50px; height: 30px;"></p>
                             {% endfor %}
 
                         </div>
