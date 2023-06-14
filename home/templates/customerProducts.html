@@ -74,7 +74,7 @@
       <td>{{ data.status }}</td>
       <td>{{ data.category }}</td>
       <td>{{ data.price }}</td>
-      <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;" /></td>
+      <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;" alt="{{ data.title }}" /></td>
      <td class="text-center">
           <a class="text-center mx-2" href="/customerProduct/{{ data.slug }}/update"><i class="fa fa-edit fa-lg text-success"></i></a>
           <a class="text-center mx-2" href="/customerProduct/{{ data.slug }}/delete"><i class="fa fa-trash fa-lg text-danger"></i></a>
