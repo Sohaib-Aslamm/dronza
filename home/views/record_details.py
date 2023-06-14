@@ -17,7 +17,7 @@ def DetailRecord(request, type, slug):
         coments = productReview.objects.filter(product__in=PRDRVW)
         RCPST = userBlog.objects.order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        SEOTAGS = [{'title': shpDetail.name, 'description': shpDetail.description, 'tags': shpDetail.tags,
+        SEOTAGS = [{'title': shpDetail.name, 'description': shpDetail.name, 'tags': shpDetail.tags,
                     'canonical_link': f'https://dronza.org/shop/{shpDetail.slug}'}]
 
         context = {'shpDetail': shpDetail, 'prd_images': prd_images, 'RCPST': RCPST, 'SMDT': SMDT,
@@ -29,7 +29,7 @@ def DetailRecord(request, type, slug):
         PriceDetail = Pricing.objects.all()
         RCPST = userBlog.objects.order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        SEOTAGS = [{'title': Record.title, 'description': Record.Description, 'tags': Record.title,
+        SEOTAGS = [{'title': Record.title, 'description': Record.title, 'tags': Record.title,
                     'canonical_link': f'https://dronza.org/services/{Record.slug}'}]
 
         context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
