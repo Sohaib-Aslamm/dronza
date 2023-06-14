@@ -14,8 +14,10 @@ def orderDone(request):
 def error404(request):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='error404_page')
     context = {
         'RCPST': RCPST,
-        'SMDT': SMDT
+        'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
     return render(request, 'error404.html', context)

@@ -3,7 +3,7 @@ from home.models import sellYourDrone
 
 
 def UpdatebyUUID(request, type, slug):
-    if type == 'customerProduct':
+    if type == 'customer-product':
 
         Record = sellYourDrone.objects.get(slug=slug)
         if request.method == 'POST':
@@ -29,5 +29,5 @@ def UpdatebyUUID(request, type, slug):
             Record.input4 = request.POST.get('input4')
             Record.description = request.POST.get('description')
             Record.save()
-            return redirect('/customerProduct')
+            return redirect('/customer-product')
         return render(request, 'update/customerProducts.html', {'Record': Record})

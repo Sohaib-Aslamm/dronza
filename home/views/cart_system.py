@@ -6,46 +6,47 @@ from django.contrib.auth.decorators import login_required
 from home.definedEmails import notify_order_confirmation
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def cart_add(request, id):
     cart = Cart(request)
+
     product = Products.objects.get(id=id)
     cart.add(product=product)
     return redirect("/shop")
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def item_clear(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
     cart.remove(product)
-    return redirect('/cartDetail')
+    return redirect('/cart-detail')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def item_increment(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
     cart.add(product=product)
-    return redirect('/cartDetail')
+    return redirect('/cart-detail')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def item_decrement(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
     cart.decrement(product=product)
-    return redirect('/cartDetail')
+    return redirect('/cart-detail')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()
-    return redirect('/cartDetail')
+    return redirect('/cart-detail')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def cart_detail(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -59,7 +60,7 @@ def cart_detail(request):
     return render(request, 'cart_detail.html', context)
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def checkout(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -72,7 +73,7 @@ def checkout(request):
     return render(request, 'checkout.html', context)
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def place_order(request):
     if request.method == 'POST':
         user_id = request.POST.get('user_id')
@@ -132,7 +133,7 @@ def place_order(request):
         cart = Cart(request)
         cart.clear()
 
-        return redirect('/order_placed')
+        return redirect('/order-placed')
 
     return render(request, 'checkout.html')
 

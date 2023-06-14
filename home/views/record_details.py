@@ -45,7 +45,7 @@ def DetailRecord(request, type, slug):
         context = {'rec': Record, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
         return render(request, 'teamDetail.html', context)
 
-    if type == 'sellDrones':
+    if type == 'sell-drones':
         Record = sellYourDrone.objects.get(slug=slug)
         product_images = sellYourDroneImages.objects.filter(Product_ID_id=Record.id)
         RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -75,7 +75,7 @@ def DetailRecord(request, type, slug):
 
         return render(request, 'order_detail.html', context)
 
-    if type == 'track_order':
+    if type == 'track-order':
         Record = Place_Order.objects.get(uuid=slug)
         p_id = Record.product_id.split(",")
         product_data = Products.objects.filter(id__in=p_id)

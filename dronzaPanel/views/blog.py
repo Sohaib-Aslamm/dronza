@@ -6,7 +6,7 @@ from dronzaPanel.decorators import admin_only
 from django.core.paginator import Paginator
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminuser_blog(request):
     if request.method == 'POST':

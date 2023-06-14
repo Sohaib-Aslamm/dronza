@@ -32,7 +32,7 @@ def UserRegister(request):
 
             notify_user_registration(username, email)
             messages.success(request, f'Hey! {username}, your account has been created successfully')
-            return redirect('/user_login')
+            return redirect('/user-login')
     else:
         form = UserForm()
 
@@ -58,7 +58,7 @@ def user_logout(request):
     return redirect('/admin')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def user_list(request):
     users = User.objects.all()

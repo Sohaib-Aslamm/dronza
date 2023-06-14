@@ -6,7 +6,7 @@ from dronzaPanel.decorators import admin_only
 # Create your views here
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def viewMessage(request, id):
     messages_detail = contact_us.objects.get(id=id)

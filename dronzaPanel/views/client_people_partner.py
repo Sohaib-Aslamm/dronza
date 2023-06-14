@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import admin_only
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminHomeSRFP(request):
     if request.method == 'POST':
@@ -26,7 +26,7 @@ def adminHomeSRFP(request):
     return render(request, 'adminHomeSRFP.html', {'form': SRFPFM, 'SRFPDT': SRFPDT})
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminPeopleSay(request):
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def adminPeopleSay(request):
     return render(request, 'adminPeopleSay.html', {'form': WPSFM, 'WPSDT': WPSDT})
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminOurPartner(request):
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def adminOurPartner(request):
     return render(request, 'adminOurPartner.html', {'form': OPTFM, 'OPTDT': OPTDT})
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminOurTeam(request):
     if request.method == 'POST':

@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 def Update(request, id, type):
     if type == 'adminabout':
         if request.method == 'POST':

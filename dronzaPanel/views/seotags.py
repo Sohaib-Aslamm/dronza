@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from dronzaPanel.decorators import admin_only
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def SEOTags(request):
     if request.method == 'POST':

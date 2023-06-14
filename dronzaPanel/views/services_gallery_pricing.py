@@ -9,7 +9,7 @@ from dronzaPanel.decorators import admin_only
 # Create your views here
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminPricing(request):
     if request.method == 'POST':
@@ -31,7 +31,7 @@ def adminPricing(request):
     return render(request, 'adminPricing.html', {'form': PRCFM, 'PRCdata': PRCdata})
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminGallery(request):
     if request.method == 'POST':
@@ -50,7 +50,7 @@ def adminGallery(request):
     return render(request, 'adminGallery.html', {'form': GLRFM, 'GLRdata': GLRdata})
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminServicesType(request):
     if request.method == 'POST':

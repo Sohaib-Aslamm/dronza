@@ -21,7 +21,7 @@
 
                             <div>
                                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/home">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li class="text-white">Your Cart</li>
                                 </ul>
                             </div>
@@ -33,7 +33,7 @@
             <!-- INNER PAGE BANNER END -->
             
              <div class="container mt-5 mb-3 d-flex justify-content-end">
-            <a href="track_order" class="site-button mr-2"><b>Track your order</b></a>
+            <a href="track-order" class="site-button mr-2"><b>Track your order</b></a>
         </div>
 
         <div class="container mt-5 mb-5">
@@ -78,9 +78,10 @@
 
                   </tbody>
                 <div class="row d-flex justify-content-end">
-
+                {% if request.session.cart.items|length > 0 %}
                 <a href="/checkout" class="site-button mr-2"><b>Checkout</b></a>
-                <a href="cart/cart_clear" class="site-button mr-2"><b>Clear Cart</b></a>
+                    {% endif %}
+                <a href="/cart/cart_clear/" class="site-button mr-2"><b>Clear Cart</b></a>
                 <button class="site-button mr-2"><b>Grand total: {{ cart_total_amount }}</b></button>
 
                 </div>

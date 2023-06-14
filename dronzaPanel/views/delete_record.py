@@ -14,7 +14,7 @@ from dronzaPanel.decorators import admin_only
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def MasterDelete(request, type):
     if type == 'Message':
@@ -23,7 +23,7 @@ def MasterDelete(request, type):
         return redirect('/admin')
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def Delete(request, id, type):
     if type == 'User':

@@ -34,8 +34,8 @@
             <!-- INNER PAGE BANNER END -->
 
 <div class="row mt-3 justify-content-end mr-4">
- <a href="/contactUs" class="site-button"><i class="fa fa-drone"></i>Complaint Us</a><span>|</span>
- <a href="/customerProduct" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
+ <a href="/contact-us" class="site-button"><i class="fa fa-drone"></i>Complaint Us</a><span>|</span>
+ <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
 </div>
 
             <!-- CATEGORY SECTION START -->
@@ -102,7 +102,7 @@
                                                         </ins>
 
                                                          <br><ins>
-                                                             <a href="/sellDrones/{{ PDCT.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/sell-drones/{{ PDCT.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
@@ -128,11 +128,11 @@
                           <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/sellDrone?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/sell-drone?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/sellDrone?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/sell-drone?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if sellerProducts.has_next  %}

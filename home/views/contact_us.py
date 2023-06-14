@@ -16,7 +16,7 @@ def contactus(request):
             message = form.cleaned_data['message']
             sv = contact_us.objects.create(name=name, subject=subject, email=email, phone=phone, message=message)
             notify_contact_us(name, email, message)  # Send email to the customer who contacted through the website
-            return HttpResponseRedirect('/thankyou')
+            return HttpResponseRedirect('/thank-you')
     else:
         form = contactForm()
 

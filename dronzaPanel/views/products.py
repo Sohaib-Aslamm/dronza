@@ -7,7 +7,7 @@ from dronzaPanel.decorators import admin_only
 from django.core.paginator import Paginator
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminDroneProducts(request):
     if request.method == 'POST':
@@ -61,7 +61,7 @@ def adminDroneProducts(request):
     return render(request, 'adminDroneProducts.html', context)
 
 #
-# @login_required(login_url='/user_login')
+# @login_required(login_url='/user-login')
 # @admin_only
 # def admindroneParts(request):
 #     if request.method == 'POST':
@@ -116,7 +116,7 @@ def adminDroneProducts(request):
 #     return render(request, 'adminDroneParts.html', context)
 
 
-@login_required(login_url='/user_login')
+@login_required(login_url='/user-login')
 @admin_only
 def adminVideoGallery(request):
     if request.method == 'POST':
