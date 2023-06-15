@@ -58,6 +58,10 @@
 
         color: #db253b;
     }
+
+
+
+
 </style>
 </head>
 <body>
@@ -90,6 +94,20 @@
                             </button>
 
                             <div class="extra-nav header-2-nav">
+
+                             <div class="extra-cell">
+                                 <div class="header-nav-request ml-1">
+                                     <a href="/cart-detail"><i class="fa fa-shopping-cart" aria-hidden="true">
+                                         <sup>{{request.session.cart|length}}</sup>
+                                     </i></a>
+                                </div>
+
+                              </div>
+                                 <div class="extra-cell">
+                                      <a href="/sell-drones" class="site-button mt-1">Sell Your Drone</a>
+                                    </div>
+
+
                                 <div class="extra-cell">
 
                                     {% if user.is_authenticated  %}
@@ -110,11 +128,13 @@
 
                                 </div>
 
+
+
                              </div>
 
 
                             <!-- MAIN Vav -->
-                            <div class="nav-animation header-nav navbar-collapse collapse  justify-content-center">
+                            <div class="nav-animation header-nav navbar-collapse collapse justify-content-center">
 
                                 <ul class=" nav navbar-nav">
                                     <li ><a href="/">Home</a> </li>
@@ -134,29 +154,12 @@
 
                                 </ul>
 
-                                  <div class="header-nav-request">
-                                      <a href="/sell-drones" class="site-button">Sell Your Drone</a>
-                                    </div>
-                                 <div class="header-nav-request ml-5">
-                                     <a href="/cart-detail"><i class="fa fa-shopping-cart" aria-hidden="true">
-                                         <sup>{{request.session.cart|length}}</sup>
-                                     </i></a>
-                                </div>
+
 
 
                             </div>
 
-                            <!-- SITE Search -->
-                            <div id="search-toggle-block">
-                                <div id="search">
-                                    <form role="search" id="searchform" action="#" method="get" class="radius-xl">
-                                        <div class="input-group">
-                                            <input class="form-control" value="" name="q" type="search" placeholder="Type to search"/>
-                                            <span class="input-group-append"><button type="button" class="search-btn"><i class="fa fa-search"></i></button></span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>

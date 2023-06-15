@@ -92,11 +92,11 @@
                           <li class="page-item"><a class="page-link" href="?page={{ SYDProducts.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/customerProduct?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/customer-product?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/customerProduct?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/customer-product?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if SYDProducts.has_next  %}
@@ -157,8 +157,8 @@
                 </div>
             <div class="col-3">
                     <label>Secondary Contact</label>
-                         <input type="text" class="form-control" name="sPhone" required="required"
-                         placeholder="ex. (434) 985-8943" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                         <input type="text" class="form-control" name="sPhone"
+                         placeholder="ex. (434) 985-8943 (optional)" style="border: 1px solid #D4D4D4; border-radius: 3px;">
                 </div>
 
           </div>

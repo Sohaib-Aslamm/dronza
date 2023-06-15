@@ -6,6 +6,7 @@ from home.models import sellYourDrone, sellYourDroneImages
 
 def customerProduct(request):
     if request.method == 'POST':
+
         form_data = {
             'user_id': request.POST.get('user_id'),
             'name': request.POST.get('name'),

@@ -4,94 +4,123 @@
 
 {% block content %}
 
-       <!-- CONTENT START -->
-        <div class="page-content">
+    <!-- CONTENT START -->
+    <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'images/banner/5.jpg' %});">
-            	<div class="overlay-main site-bg-secondry opacity-09"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Cart Detail</h2>
-                            </div>
+        <!-- INNER PAGE BANNER -->
+        <div class="wt-bnr-inr overlay-wraper bg-center"
+             style="background-image:url({% static 'Assets/dronza_images/banner/6.jpg' %});">
+            <div class="overlay-main site-bg-secondry opacity-09"></div>
+            <div class="container">
+                <div class="wt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="site-text-white">Cart Detail</h2>
                         </div>
-                        <!-- BREADCRUMB ROW -->
-
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/">Home</a></li>
-                                    <li class="text-white">Your Cart</li>
-                                </ul>
-                            </div>
-
-                        <!-- BREADCRUMB ROW END -->
                     </div>
+                    <!-- BREADCRUMB ROW -->
+
+                    <div>
+                        <ul class="wt-breadcrumb breadcrumb-style-2">
+                            <li><a href="/">Home</a></li>
+                            <li class="text-white">Your Cart</li>
+                        </ul>
+                    </div>
+
+                    <!-- BREADCRUMB ROW END -->
                 </div>
             </div>
-            <!-- INNER PAGE BANNER END -->
-            
-             <div class="container mt-5 mb-3 d-flex justify-content-end">
+        </div>
+        <!-- INNER PAGE BANNER END -->
+
+
+        <div class="container mt-5 mb-3 d-flex justify-content-end">
             <a href="track-order" class="site-button mr-2"><b>Track your order</b></a>
         </div>
 
-        <div class="container mt-5 mb-5">
-             <table class="table table-striped white">
-                  <thead class="bg-black">
-                    <tr class="text-center">
-                       <th scope="col">Product</th>
-                       <th scope="col">Name</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Total</th>
-                      <th scope="col">Operations</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+        <div class="section-full p-t80 p-b80">
+            <div class="container">
+                <div class="section-content">
 
-                  {% for key,value in request.session.cart.items %}
-                    <tr class="text-center">
+                    <div id="no-more-tables">
+                        <table class="table-bordered  table-condensed cf wt-responsive-table shopping-table">
+                            <thead class="cf">
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Operations</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for key,value in request.session.cart.items %}
+                                <tr class="text-center">
 
-                      <td><img src="{{value.image}}" style="width: 50px; height: 50px;"/></td>
+                                    <td data-title="Image"><img src="{{ value.image }}" style="width: 50px; height: 50px;"/></td>
 
-                        <td>{{ value.name }}</td>
+                                    <td data-title="Product">{{ value.name }}</td>
 
-                      <td>{{value.price}}</td>
+                                    <td data-title="Unit Price">{{ value.price }}</td>
 
-                     <td>
-                          <a href="cart/item_decrement/{{ value.product_id }}"><i class="fa fa-minus"></i></a>
-                         {{ value.quantity }}
-                         <a href="cart/item_increment/{{ value.product_id }}"><i class="fa fa-plus"></i></a>
-                     </td>
-                         <td>{{ value.price|multiply:value.quantity }}</td>
-                        <td>
-                          <a href="cart/item_clear/{{ value.product_id }}"><i class="fa fa-trash text-danger"></i></a>
-                      </td>
-
-
-                    </tr>
-                  {% endfor %}
-
-                </table>
+                                    <td data-title="Quantity">
+                                        <a href="cart/item_decrement/{{ value.product_id }}"><i class="fa fa-minus"></i></a>
+                                        {{ value.quantity }}
+                                        <a href="cart/item_increment/{{ value.product_id }}"><i class="fa fa-plus"></i></a>
+                                    </td>
+                                    <td data-title="Total">{{ value.price|multiply:value.quantity }}</td>
+                                    <td data-title="Remove">
+                                        <a href="cart/item_clear/{{ value.product_id }}"><i
+                                                class="fa fa-trash text-danger"></i></a>
+                                    </td>
 
 
-                  </tbody>
-                <div class="row d-flex justify-content-end">
-                {% if request.session.cart.items|length > 0 %}
-                <a href="/checkout" class="site-button mr-2"><b>Checkout</b></a>
-                    {% endif %}
-                <a href="/cart/cart_clear/" class="site-button mr-2"><b>Clear Cart</b></a>
-                <button class="site-button mr-2"><b>Grand total: {{ cart_total_amount }}</b></button>
+                                </tr>
+                            {% endfor %}
 
+                            </tbody>
+                        </table>
+
+                        <div class="cart-buttons text-left">
+                            <a href="/cart/cart_clear/" class="m-b15 site-button-secondry m-r15">Clear Cart</a>
+                            <a href="/shop" class="m-b15 site-button">Continue Shopping</a>
+                        </div>
+
+                        <div class="cart-total-table shopping-cart-total">
+                            <div class="sub_total">
+                                <ul class="top">
+                                    <li>Subtotal</li>
+                                    <li><span>${{ cart_total_amount }}</span></li>
+                                </ul>
+                                <div class="shipping">
+                                    <ul>
+                                        <li> Free Shiping <span>+ $00.00</span></li>
+                                    </ul>
+                                </div>
+                                <div class="total">
+                                    <ul>
+                                        <li>Total</li>
+                                        <li><span>${{ cart_total_amount }}</span></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            {% if request.session.cart.items|length > 0 %}
+                                <div class="proceed-to-checkout text-right">
+                                    <a href="/checkout" class="m-t15 site-button">Proceed to checkout</a>
+
+                                </div>
+                            {% endif %}
+
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
-
-
-
-
         </div>
-
-
+    </div>
 {% endblock content %}

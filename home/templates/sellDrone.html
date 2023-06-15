@@ -1,77 +1,100 @@
 {% extends 'baseHome.html' %}
 
-{% load  static %}
+{% load static %}
 
 {% block content %}
 
 
-        <!-- CONTENT START -->
-        <div class="page-content">
+    <!-- CONTENT START -->
+    <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
-            	<div class="overlay-main site-bg-secondry opacity-09"></div>
-                <div class="container">
-                    <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Dronza Sell Point</h2>
-                            </div>
+        <!-- INNER PAGE BANNER -->
+        <div class="wt-bnr-inr overlay-wraper bg-center"
+             style="background-image:url({% static 'Assets/dronza_images/banner/8.jpg' %});">
+            <div class="overlay-main site-bg-secondry opacity-09"></div>
+            <div class="container">
+                <div class="wt-bnr-inr-entry">
+                    <div class="banner-title-outer">
+                        <div class="banner-title-name">
+                            <h2 class="site-text-white">Dronza Sell Point</h2>
                         </div>
-                        <!-- BREADCRUMB ROW -->
-
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/"></a>Home</li>
-                                    <li class="text-white">Dronza Sell Point</li>
-                                </ul>
-                            </div>
-
-                        <!-- BREADCRUMB ROW END -->
                     </div>
-                </div>
-            </div>
-            <!-- INNER PAGE BANNER END -->
+                    <!-- BREADCRUMB ROW -->
 
-<div class="row mt-3 justify-content-end mr-4">
- <a href="/contact-us" class="site-button"><i class="fa fa-drone"></i>Complaint Us</a><span>|</span>
- <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
-</div>
-
-            <!-- CATEGORY SECTION START -->
-            <div class="section-full p-t80 p-b50 bg-white">
-                <div class="container-fluid">
-                    <!-- PAGINATION START -->
-                    <div class="filter-wrap work-grid p-b30 text-center">
-                        <ul class="masonry-filter">
-                                <li class="active"><a data-filter="*" href="#">All</a></li>
-
-                            {% for PD in Product_Category %}
-                                <li><a data-filter=".{{ PD.category }}" href="#">{{ PD.category }}</a></li>
-                            {% endfor %}
-
+                    <div>
+                        <ul class="wt-breadcrumb breadcrumb-style-2">
+                            <li><a href="/"></a>Home</li>
+                            <li class="text-white">Dronza Sell Point</li>
                         </ul>
                     </div>
-                    <!-- PAGINATION END -->
 
-
+                    <!-- BREADCRUMB ROW END -->
                 </div>
             </div>
-            <!-- CATEGORY SECTION END -->
-
-                <!-- SECTION CONTENT START -->
-            <div class="section-full p-t80 p-b50">
-                <div class="container">
-                    <div class="section-content">
-
-                        <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
-
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-b30">
-
-                                <div class="row">
+        </div>
+        <!-- INNER PAGE BANNER END -->
 
 
-                                    {% for PDCT in sellerProducts %}
+        <div class="row mt-3 justify-content-end mr-4">
+            <a href="/contact-us" class="site-button"><i class="fa fa-drone"></i>Complaint Us</a><span>|</span>
+            <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
+        </div>
+
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-6">
+                <!-- SEARCH -->
+                <div class="widget p-a20">
+                    <div class="search-bx">
+                        <form role="search" method="POST" action="/search-by-location">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input name="location" type="text" class="form-control border"
+                                       placeholder="search by location...">
+                                <span class="input-group-btn">
+                                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CATEGORY SECTION START -->
+        <div class="section-full p-t10 p-b50 bg-white">
+            <div class="container-fluid">
+                <!-- PAGINATION START -->
+                <div class="filter-wrap work-grid p-b30 text-center">
+                    <ul class="masonry-filter">
+                        <li class="active"><a data-filter="*" href="#">All</a></li>
+
+                        {% for PD in Product_Category %}
+                            <li><a data-filter=".{{ PD.category }}" href="#">{{ PD.category }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <!-- PAGINATION END -->
+
+
+            </div>
+        </div>
+        <!-- CATEGORY SECTION END -->
+
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t10 p-b50">
+            <div class="container">
+                <div class="section-content">
+
+                    <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-b30">
+
+                            <div class="row">
+
+                                {% if sellerProducts %}
+                                {% for PDCT in sellerProducts %}
                                     <!-- COLUMNS 1 -->
                                     <div class="masonry-item col-lg-4 col-md-4 m-b30 {{ PDCT.category }}">
                                         <div class="wt-box wt-product-box   overflow-hide">
@@ -84,110 +107,127 @@
                                                             <i class="fa fa-eye wt-icon-box-xs"></i>
                                                         </a>
 
-                                                  </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="wt-info">
-                                                 <div class="p-a20 bg-white">
+                                                <div class="p-a20 bg-white">
                                                     <h3 class="wt-title">
                                                         <a href="/sell-drones/{{ PDCT.slug }}">{{ PDCT.title }}</a>
                                                     </h3>
 
-													<div class="product-features-item"><span>Brand | </span>{{ PDCT.brand }}</div>
-													<div class="product-features-item"><span>Color | </span>{{ PDCT.color }}</div>
+                                                    <div class="product-features-item">
+                                                        <span>Brand | </span>{{ PDCT.brand }}</div>
+                                                    <div class="product-features-item">
+                                                        <span>Color | </span>{{ PDCT.color }}</div>
 
-                                                      <span class="price">
+                                                    <span class="price">
                                                         <ins>
                                                                <span class="p-price">Price: {{ PDCT.price }}</span>
                                                         </ins>
 
                                                          <br><ins>
-                                                             <a href="/sell-drones/{{ PDCT.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/sell-drones/{{ PDCT.slug }}"
+                                                                class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
 
-                                                 </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {% endfor %}
+                                {% endfor %}
+                            {% else %}
+                              <!-- COLUMNS 2 -->
+                                    <div class="masonry-item col-lg-6 col-md-12 m-b30">
+                                              <div class="row mt-5">
+                                <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
 
+                            </div>
+                            <div>
+                                <ul>
+                                    <strong>Suggestions:</strong>
+                                    <li>Make sure that all words are spelled correctly</li>
+                                    <li>Try different keywords</li>
+                                    <li>Try more general keywords</li>
+                                    <li>Try fewer keywords</li>
+                                </ul>
+                            </div>
+                                        </div>
+                            {% endif %}
 
-
-                                </div>
 
                             </div>
 
-						</div>
+                        </div>
 
-						 <ul class="pagination m-b0 p-b0">
+                    </div>
 
-                            {% if sellerProducts.has_previous %}
-                          <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}">Previous</a></li>
-                            {% endif %}
+                    <ul class="pagination m-b0 p-b0">
 
-                       <li class="page-item"><a class="page-link" href="/sell-drone?page=1">First</a></li>
+                        {% if sellerProducts.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ sellerProducts.previous_page_number }}">Previous</a>
+                            </li>
+                        {% endif %}
+
+                        <li class="page-item"><a class="page-link" href="/sell-drones?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/sell-drone?page={{ tpl }}">{{ tpl }}</a></li>
+                            <li class="page-item"><a class="page-link" href="/sell-drones?page={{ tpl }}">{{ tpl }}</a>
+                            </li>
                         {% endfor %}
 
-                        {% if sellerProducts.has_next  %}
-                          <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}">Next</a></li>
-                          <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
+                        {% if sellerProducts.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ sellerProducts.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
 
 
-                            {% endif %}
+                        {% endif %}
 
-                        </ul>
+                    </ul>
 
 
-
-                    </div>
                 </div>
             </div>
-             <!-- SECTION CONTENT END -->
+        </div>
+        <!-- SECTION CONTENT END -->
 
 
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t80 p-b50 bg-gray">
+            <div class="container">
+                <div class="section-content">
 
-
-
-
-
-
-            <!-- SECTION CONTENT START -->
-            <div class="section-full p-t80 p-b50 bg-gray">
-                <div class="container">
-                    <div class="section-content">
-
-                        <!-- TITLE START -->
-                            <div class="wt-separator-two-part">
-                                <div class="row wt-separator-two-part-row">
-                                    <div class="col-lg-8 col-md-6 wt-separator-two-part-left">
-                                        <!-- TITLE START-->
-                                        <div class="section-head left wt-small-separator-outer">
-                                            <div class="wt-small-separator site-text-primary">
-                                                <div class="sep-leaf-left"></div>
-                                                <div>Our Best Products</div>
-                                                <div class="sep-leaf-right"></div>
-                                            </div>
-                                            <h2>Featured products</h2>
-                                        </div>
-                                        <!-- TITLE END-->
+                    <!-- TITLE START -->
+                    <div class="wt-separator-two-part">
+                        <div class="row wt-separator-two-part-row">
+                            <div class="col-lg-8 col-md-6 wt-separator-two-part-left">
+                                <!-- TITLE START-->
+                                <div class="section-head left wt-small-separator-outer">
+                                    <div class="wt-small-separator site-text-primary">
+                                        <div class="sep-leaf-left"></div>
+                                        <div>Our Best Products</div>
+                                        <div class="sep-leaf-right"></div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 wt-separator-two-part-right text-right">
-                                    </div>
+                                    <h2>Featured products</h2>
                                 </div>
+                                <!-- TITLE END-->
                             </div>
+                            <div class="col-lg-4 col-md-6 wt-separator-two-part-right text-right">
+                            </div>
+                        </div>
+                    </div>
 
-                        <!-- TITLE END -->
+                    <!-- TITLE END -->
 
-                        <div class="owl-carousel featured-products owl-btn-vertical-center">
+                    <div class="owl-carousel featured-products owl-btn-vertical-center">
 
-       {% for FTP in FEATURED %}
+                        {% for FTP in FEATURED %}
                             <!-- COLUMNS 1 -->
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
@@ -208,8 +248,10 @@
                                                 <a href="/shop/{{ FTP.slug }}">{{ FTP.name }}</a>
                                             </h3>
 
-                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
-                                            <div class="product-features-item"><span>Flight Time | </span>{{ FTP.flight_time }}</div>
+                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}
+                                            </div>
+                                            <div class="product-features-item">
+                                                <span>Flight Time | </span>{{ FTP.flight_time }}</div>
 
                                             <span class="price">
                                                 <ins>
@@ -217,10 +259,10 @@
                                                         <del>{{ FTP.currency }} {{ FTP.cPrice }}</del></span>
                                                 </ins>
                                                 <br><ins>
-                                                             <a href="/shop/{{ FTP.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shop/{{ FTP.slug }}"
+                                                                class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                             </span>
-
 
 
                                         </div>
@@ -229,12 +271,12 @@
                             </div>
                         {% endfor %}
 
-                        </div>
                     </div>
                 </div>
             </div>
-             <!-- SECTION CONTENT END -->
-
         </div>
-        <!-- CONTENT END -->
+        <!-- SECTION CONTENT END -->
+
+    </div>
+    <!-- CONTENT END -->
 {% endblock content %}

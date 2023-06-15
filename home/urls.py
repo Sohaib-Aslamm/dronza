@@ -29,8 +29,8 @@ urlpatterns = [
     path('cart-detail', views.cart_detail, name='cart-detail'),
     path('checkout', views.checkout, name='checkout'),
     path('place-order', views.place_order, name='place-order'),
+    path('search-by-location', views.search_by_location, name='search-by-location'),
     path('coming-soon', views.error404, name="coming-soon"),
-
     path('<str:slug>', views.postDetail, name="postDetail"),
     path('<str:type>/<str:slug>', views.DetailRecord, name="DetailRecord"),
     path('<str:type>/<str:slug>/delete', views.DeletebyUUID, name="Delete_with_diuu"),

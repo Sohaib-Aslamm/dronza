@@ -11,7 +11,7 @@ class sellYourDrone(models.Model):
     user_id = models.CharField(max_length=100, default="")
     email = models.EmailField(max_length=100, default="")
     pPhone = models.EmailField(max_length=100, default="")
-    sPhone = models.EmailField(max_length=100, default="")
+    sPhone = models.EmailField(max_length=100, null=True, default="")
     location = models.EmailField(max_length=255, default="")
     title = models.CharField(max_length=255, default="")
     slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
