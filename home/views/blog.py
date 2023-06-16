@@ -33,7 +33,7 @@ def blog(request):
 
 
 def search_blog(request):
-    search_keyword = request.GET.get('search-keyword') or request.POST.get('search_keyword')
+    search_keyword = request.GET.get('search_keyword') or request.POST.get('search_keyword')
     blog_data = userBlog.objects.all()  # Get all blog data initially
 
     if search_keyword:
@@ -67,7 +67,6 @@ def search_blog(request):
         'search_keyword': search_keyword,  # Include search_keyword in the context
     }
     return render(request, 'search_blog.html', context)
-
 
 
 def postDetail(request, slug):

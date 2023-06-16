@@ -146,7 +146,15 @@
                                 <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
 
                             </div>
-
+                            <div>
+                                <ul>
+                                    <strong>Suggestions:</strong>
+                                    <li>Make sure that all words are spelled correctly</li>
+                                    <li>Try different keywords</li>
+                                    <li>Try more general keywords</li>
+                                    <li>Try fewer keywords</li>
+                                </ul>
+                            </div>
                                         </div>
                             {% endif %}
 
@@ -157,29 +165,23 @@
 
                     </div>
 
-                    <ul class="pagination m-b0 p-b0">
+                   <ul class="pagination m-b0 p-b0">
+    {% if sellerProducts.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}{% if location %}&location={{ location }}{% endif %}">Previous</a></li>
+    {% endif %}
 
-                        {% if sellerProducts.has_previous %}
-                            <li class="page-item"><a class="page-link"
-                                                     href="?page={{ sellerProducts.previous_page_number }}">Previous</a>
-                            </li>
-                        {% endif %}
+    <li class="page-item"><a class="page-link" href="/search-by-location?page=1{% if location %}&location={{ location }}{% endif %}">First</a></li>
 
-                        <li class="page-item"><a class="page-link" href="/sell-drones?page=1">First</a></li>
+    {% for tpl in pageList %}
+        <li class="page-item"><a class="page-link" href="/search-by-location?page={{ tpl }}{% if location %}&location={{ location }}{% endif %}">{{ tpl }}</a></li>
+    {% endfor %}
 
+    {% if sellerProducts.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}{% if location %}&location={{ location }}{% endif %}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if location %}&location={{ location }}{% endif %}">Last</a></li>
+    {% endif %}
+</ul>
 
-                        {% for tpl in pageList %}
-                            <li class="page-item"><a class="page-link" href="/sell-drones?page={{ tpl }}">{{ tpl }}</a>
-                            </li>
-                        {% endfor %}
-
-                        {% if sellerProducts.has_next %}
-                            <li class="page-item"><a class="page-link"
-                                                     href="?page={{ sellerProducts.next_page_number }}">Next</a></li>
-                            <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
-
-
-                        {% endif %}
 
                     </ul>
 
