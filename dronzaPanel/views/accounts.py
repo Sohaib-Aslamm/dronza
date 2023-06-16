@@ -1,6 +1,7 @@
 from dronzaPanel.forms import UserForm
 
 from django.contrib.auth.models import User, Group
+from dronzaPanel.models import seoTags
 
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.shortcuts import render, redirect
@@ -36,7 +37,9 @@ def UserRegister(request):
     else:
         form = UserForm()
 
-    return render(request, 'User_Register.html', {'form': form})
+    SEOTAGS = seoTags.objects.filter(page='user_register')
+    context = {'form': form, 'SEOTAGS': SEOTAGS}
+    return render(request, 'User_Register.html', context)
 
 
 @unauthenticated_user
@@ -50,7 +53,9 @@ def user_login(request):
             return redirect('/admin')
         else:
             messages.error(request, 'Username or password is incorrect')
-    return render(request, 'login.html')
+
+    SEOTAGS = seoTags.objects.filter(page='user_login')
+    return render(request, 'login.html', {'SEOTAGS': SEOTAGS})
 
 
 def user_logout(request):

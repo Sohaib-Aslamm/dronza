@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/User_Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/User_Register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +227,7 @@
       <workItem from="1686804472865" duration="18485000" />
       <workItem from="1686827671364" duration="1211000" />
       <workItem from="1686853673095" duration="25000" />
-      <workItem from="1686894260920" duration="12863000" />
+      <workItem from="1686894260920" duration="13831000" />
     </task>
     <servers />
   </component>

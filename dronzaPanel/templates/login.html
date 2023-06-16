@@ -4,11 +4,12 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Login | DronZa</title>
-    <meta name="description" content="DronZa login page: Authenticate and access your account. Login with your credentials to securely sign in and manage your DronZa profile.">
-    <meta name="keywords" content="user login, login page, account login">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://dronza.org/user-login">
+       {% for seo in SEOTAGS %}
+        <title>{{ seo.title }}</title>
+        <meta name="description" content="{{ seo.description }}">
+        <meta name="keywords" content="{{ seo.tags }}">
+        <link rel="canonical" href="{{ seo.canonical_link }}">
+    {% endfor %}
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
