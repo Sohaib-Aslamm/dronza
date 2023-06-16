@@ -7,16 +7,15 @@ from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTy
     seoTags
 
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from dronzaPanel.decorators import custom_login_required
 
-from django.core.paginator import Paginator
 from math import ceil
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def Update(request, id, type):
     if type == 'adminabout':
         if request.method == 'POST':

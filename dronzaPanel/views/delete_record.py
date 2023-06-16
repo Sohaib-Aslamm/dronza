@@ -8,13 +8,13 @@ from django.contrib.auth.models import User
 from home.models import contact_us, Place_Order, blog_Review
 
 from django.shortcuts import redirect
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+
+from dronzaPanel.decorators import admin_only, custom_login_required
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def MasterDelete(request, type):
     if type == 'Message':
@@ -23,7 +23,7 @@ def MasterDelete(request, type):
         return redirect('/admin')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def Delete(request, id, type):
     if type == 'User':

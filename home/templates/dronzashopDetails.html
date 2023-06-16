@@ -94,8 +94,12 @@
 
                         <div class="cart clearfix ">
 
+                              {% if user.is_authenticated %}
+                            <a href="/cart/add/{{ shpDetail.id }}"> <button class="site-button site-btn-effect m-b20">+ Add to Cart</button></a>
+                            {% else %}
+                                  <a href="/user-login"> <button class="site-button site-btn-effect m-b20">+ Add to Cart</button></a>
 
-                            <a href="/cart/add/{{ shpDetail.id }}"> <button class="site-button site-btn-effect m-b20">Add to Cart</button></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

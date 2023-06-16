@@ -5,20 +5,20 @@ from dronzaPanel.models import MainSlider, HomeHIW, HomeHTU, HomeAbout, AboutTit
 from home.models import contact_us, Place_Order, blog_Review
 
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+
+from dronzaPanel.decorators import admin_only, custom_login_required
 
 # Create your views here
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHome(request):
     my_messages = contact_us.objects.all()
     return render(request, 'HomeAdmin.html', {'my_messages': my_messages})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHomeSlider(request):
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def adminHomeSlider(request):
     return render(request, 'adminHomeSlider.html', {'SLDT': SLDT, 'form': MSFM})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHowItWork(request):
     if request.method == 'POST':
@@ -57,7 +57,7 @@ def adminHowItWork(request):
     return render(request, 'adminHomeHowitWork.html', {'HIWDT': HIWDT, 'form': HIWFM})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHowItWork(request):
     if request.method == 'POST':
@@ -75,7 +75,7 @@ def adminHowItWork(request):
     return render(request, 'adminHomeHowitWork.html', {'HIWDT': HIWDT, 'form': HIWFM})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHowToUse(request):
     if request.method == 'POST':
@@ -93,7 +93,7 @@ def adminHowToUse(request):
     return render(request, 'adminHomeHowToUse.html', {'HTUDT': HTUDT, 'form': HTUFM})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminHomeAbout(request):
     if request.method == 'POST':
@@ -114,7 +114,7 @@ def adminHomeAbout(request):
     return render(request, 'adminHomeAbout.html', {'form': HABTFM, 'HABDT': HABDT})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminaboutTitlePost(request):
     if request.method == 'POST':
@@ -135,7 +135,7 @@ def adminaboutTitlePost(request):
     return render(request, 'adminaboutTitlePost.html', {'form': ABFM, 'ABTMD': ABTMD})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminQualityTrust(request):
     if request.method == 'POST':

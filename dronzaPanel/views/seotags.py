@@ -2,11 +2,11 @@ from dronzaPanel.forms import SEOTagsForm
 from dronzaPanel.models import seoTags
 
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+
+from dronzaPanel.decorators import admin_only, custom_login_required
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def SEOTags(request):
     if request.method == 'POST':

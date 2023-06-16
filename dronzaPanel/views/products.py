@@ -2,12 +2,12 @@ from dronzaPanel.models import Products, productImages, VideoGallery
 from dronzaPanel.forms import VideoGalleryForm
 
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+
+from dronzaPanel.decorators import admin_only, custom_login_required
 from django.core.paginator import Paginator
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminDroneProducts(request):
     if request.method == 'POST':
@@ -60,63 +60,8 @@ def adminDroneProducts(request):
     context = {'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
     return render(request, 'adminDroneProducts.html', context)
 
-#
-# @login_required(login_url='/user-login')
-# @admin_only
-# def admindroneParts(request):
-#     if request.method == 'POST':
-#         images = request.FILES.getlist('images')
-#         PRDTFM = dronePartsForm(request.POST, request.FILES)
-#         if PRDTFM.is_valid():
-#             NAME = PRDTFM.cleaned_data['name']
-#             CPR = PRDTFM.cleaned_data['cPrice']
-#             DPR = PRDTFM.cleaned_data['price']
-#             AVLBTY = PRDTFM.cleaned_data['availability']
-#             FTRD = PRDTFM.cleaned_data['featured']
-#             CLR = PRDTFM.cleaned_data['color']
-#             CRNCY = PRDTFM.cleaned_data['currency']
-#             CTGRY = PRDTFM.cleaned_data['category']
-#             label1 = PRDTFM.cleaned_data['label1']
-#             input1 = PRDTFM.cleaned_data['input1']
-#             label2 = PRDTFM.cleaned_data['label2']
-#             input2 = PRDTFM.cleaned_data['input2']
-#             label3 = PRDTFM.cleaned_data['label3']
-#             input3 = PRDTFM.cleaned_data['input3']
-#             label4 = PRDTFM.cleaned_data['label4']
-#             input4 = PRDTFM.cleaned_data['input4']
-#             label5 = PRDTFM.cleaned_data['label5']
-#             input5 = PRDTFM.cleaned_data['input5']
-#             label6 = PRDTFM.cleaned_data['label6']
-#             input6 = PRDTFM.cleaned_data['input6']
-#             DESC = PRDTFM.cleaned_data['description']
-#             THMBN = PRDTFM.cleaned_data['image']
-#             reg = droneParts(name=NAME, cPrice=CPR, price=DPR, availability=AVLBTY, featured=FTRD, color=CLR,
-#                                 category=CTGRY, label1=label1, input1=input1, label2=label2, currency=CRNCY,
-#                                 input2=input2, label3=label3, input3=input3, label4=label4, input4=input4,
-#                                 label5=label5, input5=input5, label6=label6, input6=input6,
-#                                 description=DESC, image=THMBN)
-#             reg.save()
-#
-#             latest_id = droneParts.objects.latest('id').id
-#
-#             for f in images:
-#                 products = dronePartsImages(images=f, Product_ID_id=latest_id)
-#                 products.save()
-#
-#             PRDTFM = dronePartsForm()
-#     else:
-#         PRDTFM = dronePartsForm()
-#
-#     PRDTDT = droneParts.objects.all().order_by('-id')
-#     paginator = Paginator(PRDTDT, 10)
-#     pageNo = request.GET.get('page')
-#     BLGdataFINAL = paginator.get_page(pageNo)
-#     totalPages = BLGdataFINAL.paginator.num_pages
-#     context = {'form': PRDTFM, 'PRDTDT': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
-#     return render(request, 'adminDroneParts.html', context)
 
-
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminVideoGallery(request):
     if request.method == 'POST':

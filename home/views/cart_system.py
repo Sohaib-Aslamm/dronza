@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 from home.models import Place_Order
 from cart.cart import Cart
-from django.contrib.auth.decorators import login_required
 from home.definedEmails import notify_order_confirmation
+from dronzaPanel.decorators import custom_login_required
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def cart_add(request, id):
     cart = Cart(request)
 
@@ -15,7 +15,7 @@ def cart_add(request, id):
     return redirect("/shop")
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def item_clear(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
@@ -23,7 +23,7 @@ def item_clear(request, id):
     return redirect('/cart-detail')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def item_increment(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
@@ -31,7 +31,7 @@ def item_increment(request, id):
     return redirect('/cart-detail')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def item_decrement(request, id):
     cart = Cart(request)
     product = Products.objects.get(id=id)
@@ -39,14 +39,14 @@ def item_decrement(request, id):
     return redirect('/cart-detail')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()
     return redirect('/cart-detail')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def cart_detail(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -60,7 +60,7 @@ def cart_detail(request):
     return render(request, 'cart_detail.html', context)
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def checkout(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -73,7 +73,7 @@ def checkout(request):
     return render(request, 'checkout.html', context)
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 def place_order(request):
     if request.method == 'POST':
         user_id = request.POST.get('user_id')
@@ -138,6 +138,7 @@ def place_order(request):
     return render(request, 'checkout.html')
 
 
+@custom_login_required
 def trackOrder(request):
     user_id = request.user.id
     order_list = Place_Order.objects.filter(user_id=user_id).order_by('-id')[:9]

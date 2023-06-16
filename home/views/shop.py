@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog, productImages, seoTags
-from home.models import productReview
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 
 
 def shop(request):

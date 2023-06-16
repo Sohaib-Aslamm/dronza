@@ -1,12 +1,11 @@
 from dronzaPanel.models import userBlog
 
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+from dronzaPanel.decorators import admin_only, custom_login_required
 from django.core.paginator import Paginator
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminuser_blog(request):
     if request.method == 'POST':

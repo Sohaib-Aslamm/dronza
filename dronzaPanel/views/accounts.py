@@ -5,10 +5,11 @@ from dronzaPanel.models import seoTags
 
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import unauthenticated_user, admin_only
+
+from dronzaPanel.decorators import unauthenticated_user, admin_only, custom_login_required
 from django.contrib import messages
 from home.definedEmails import *
+
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -60,10 +61,10 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('/admin')
+    return redirect('/user-login')
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def user_list(request):
     users = User.objects.all()

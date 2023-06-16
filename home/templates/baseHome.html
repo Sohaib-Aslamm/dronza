@@ -12,18 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="dronza organization">
     {% for seo in SEOTAGS %}
-    {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
-    <meta name="description" content="{{ seo.description }}">
-    <meta name="keywords" content="{{ seo.tags }}">
-    <link rel="canonical" href="{{ seo.canonical_link }}">
+        {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
+        <meta name="description" content="{{ seo.description }}">
+        <meta name="keywords" content="{{ seo.tags }}">
+        <link rel="canonical" href="{{ seo.canonical_link }}">
     {% endfor %}
     <meta name="robots" content="index, follow">
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Assets/dronza_images/dronza_red.png' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Assets/dronza_images/dronza_red.png' %}"/>
 
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/fontawesome/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'Assets/dronza_css/fontawesome/css/font-awesome.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/slick.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/slick-theme.css' %}">
@@ -31,287 +32,290 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/magnific-popup.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/loader.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_plugins/revolution/revolution/css/settings.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Assets/dronza_plugins/revolution/revolution/css/navigation.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'Assets/dronza_plugins/revolution/revolution/css/settings.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'Assets/dronza_plugins/revolution/revolution/css/navigation.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
 
-<style>
-    .text-red{
-        color: #db253b
-          }
-          
-            .white{
+    <style>
+        .text-red {
+            color: #db253b
+        }
 
-        color: #db253b;
-          border-color: #db253b;
-        border-radius: 1px;
-    }
+        .white {
 
-    .bg-greeno{
-        background-color: white;
-        border-color: #db253b;
-        border-radius: 1px;
-    }
+            color: #db253b;
+            border-color: #db253b;
+            border-radius: 1px;
+        }
 
-    .text-greeno{
+        .bg-greeno {
+            background-color: white;
+            border-color: #db253b;
+            border-radius: 1px;
+        }
 
-        color: #db253b;
-    }
+        .text-greeno {
 
-
+            color: #db253b;
+        }
 
 
-</style>
+    </style>
 </head>
 <body>
 
 
 <div class="page-wraper">
 
-        <!-- HEADER START -->
-        <header class="site-header header-style-4 mobile-full-width-menu nav-wide">
+    <!-- HEADER START -->
+    <header class="site-header header-style-4 mobile-full-width-menu nav-wide">
 
-           <div class="sticky-header main-bar-wraper  navbar-expand-lg">
-                <div class="main-bar">
-                       <div class="container-fluid clearfix">
+        <div class="sticky-header main-bar-wraper  navbar-expand-lg">
+            <div class="main-bar">
+                <div class="container-fluid clearfix">
 
-                            <div class="logo-header">
-                                <div class="logo-header-inner logo-header-one">
-                                    <a href="/">
-                                    <img src="{% static 'Assets/dronza_images/logo_bg_dark.png' %}" alt="dronza" />
-                                    </a>
-                                </div>
-                            </div>
-
-
-                            <!-- NAV Toggle Button -->
-                            <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar icon-bar-first"></span>
-                                <span class="icon-bar icon-bar-two"></span>
-                                <span class="icon-bar icon-bar-three"></span>
-                            </button>
-
-                            <div class="extra-nav header-2-nav">
-
-                             <div class="extra-cell">
-                                 <div class="header-nav-request ml-1">
-                                     <a href="/cart-detail"><i class="fa fa-shopping-cart" aria-hidden="true">
-                                         <sup>{{request.session.cart|length}}</sup>
-                                     </i></a>
-                                </div>
-
-                              </div>
-                                 <div class="extra-cell">
-                                      <a href="/sell-drones" class="site-button mt-1">Sell Your Drone</a>
-                                    </div>
-
-
-                                <div class="extra-cell">
-
-                                    {% if user.is_authenticated  %}
-                                     <div class="btn-group">
-                                          <button type="button" class="site-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-user"></i> User
-                                          </button>
-                                          <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">{{ user.username }}</a>
-                                            <a class="dropdown-item" href="/user-logout">Logout</a>
-
-                                          </div>
-                                        </div>
-
-                                    {% else %}
-                                      <a href="/user-login" class="site-button"><i class="fa fa-user"></i> Login</a>
-                                    {% endif %}
-
-                                </div>
-
-
-
-                             </div>
-
-
-                            <!-- MAIN Vav -->
-                            <div class="nav-animation header-nav navbar-collapse collapse justify-content-center">
-
-                                <ul class=" nav navbar-nav">
-                                    <li ><a href="/">Home</a> </li>
-
-
-                                    <li><a href="/about">About</a> </li>
-
-                                     <li><a href="/gallery">Gallery</a>  </li>
-
-                                    <li><a href="/services">Services</a></li>
-
-                                    <li><a href="/shop">Shop</a> </li>
-
-                                    <li><a href="/blog">Blog</a></li>
-
-                                    <li><a href="/contact-us">Contact Us</a></li>
-
-                                </ul>
-
-
-
-
-                            </div>
-
-
-
+                    <div class="logo-header">
+                        <div class="logo-header-inner logo-header-one">
+                            <a href="/">
+                                <img src="{% static 'Assets/dronza_images/logo_bg_dark.png' %}" alt="dronza"/>
+                            </a>
                         </div>
                     </div>
 
+
+                    <!-- NAV Toggle Button -->
+                    <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button"
+                            class="navbar-toggler collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar icon-bar-first"></span>
+                        <span class="icon-bar icon-bar-two"></span>
+                        <span class="icon-bar icon-bar-three"></span>
+                    </button>
+
+                    <div class="extra-nav header-2-nav">
+
+                        <div class="extra-cell">
+                            <div class="header-nav-request ml-1">
+                                <a href="/cart-detail"><i class="fa fa-shopping-cart" aria-hidden="true">
+                                    <sup>{{ request.session.cart|length }}</sup>
+                                </i></a>
+                            </div>
+
+                        </div>
+                        <div class="extra-cell">
+                            <a href="/sell-drones" class="site-button mt-1">Sell Your Drone</a>
+                        </div>
+
+
+                        <div class="extra-cell">
+
+                            {% if user.is_authenticated %}
+                                <div class="btn-group">
+                                    <button type="button" class="site-button dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user"></i> User
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">{{ user.username }}</a>
+                                        <a class="dropdown-item" href="/user-logout">Logout</a>
+
+                                    </div>
+                                </div>
+
+                            {% else %}
+                                <a href="/user-login" class="site-button"><i class="fa fa-user"></i> Login</a>
+                            {% endif %}
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- MAIN Vav -->
+                    <div class="nav-animation header-nav navbar-collapse collapse justify-content-center">
+
+                        <ul class=" nav navbar-nav">
+                            <li><a href="/">Home</a></li>
+
+
+                            <li><a href="/about">About</a></li>
+
+                            <li><a href="/gallery">Gallery</a></li>
+
+                            <li><a href="/services">Services</a></li>
+
+                            <li><a href="/shop">Shop</a></li>
+
+                            <li><a href="/blog">Blog</a></li>
+
+                            <li><a href="/contact-us">Contact Us</a></li>
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
             </div>
 
-        </header>
-        <!-- HEADER END -->
+        </div>
+
+    </header>
+    <!-- HEADER END -->
 
 
-{% block content %} {% endblock content %}
+    {% block content %} {% endblock content %}
 
 </div>
 
 
- <!-- FOOTER START -->
-        <footer class="site-footer footer-large footer-dark text-white footer-style1" >
+<!-- FOOTER START -->
+<footer class="site-footer footer-large footer-dark text-white footer-style1">
 
 
-            <!-- FOOTER BLOCKES START -->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
+    <!-- FOOTER BLOCKES START -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-                        <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
 
-                            <div class="widget recent-posts-entry">
-                                <h3 class="widget-title">Get in Touch</h3>
-                               <ul class="widget_address">
-                                    <li><i class="fa fa-map-marker"></i>Dronza Head Quarter, Islamabad 44000, Pakistan</li>
-                                    <li><i class="fa fa-envelope"></i>info@dronza.org</li>
-                                    {% for SM in SMDT %}
-                                    <li> <i class="fa fa-phone"></i>{{ SM.phone }}</li>
-                                   {% endfor %}
+                    <div class="widget recent-posts-entry">
+                        <h3 class="widget-title">Get in Touch</h3>
+                        <ul class="widget_address">
+                            <li><i class="fa fa-map-marker"></i>Dronza Head Quarter, Islamabad 44000, Pakistan</li>
+                            <li><i class="fa fa-envelope"></i>info@dronza.org</li>
+                            {% for SM in SMDT %}
+                                <li><i class="fa fa-phone"></i>{{ SM.phone }}</li>
+                            {% endfor %}
 
-                                </ul>
-                            </div>
-
-
-                        </div>
+                        </ul>
+                    </div>
 
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="widget widget_services">
-                                <h3 class="widget-title">Useful links</h3>
-                                <ul>
-                                    <li><a href="/home">Home</a></li>
-                                    <li><a href="/about">About</a></li>
-                                     <li><a href="/services">Services </a></li>
-                                     <li><a href="/contact-us">Contact Us </a></li>
-                                    <li><a href="/coming-soon">FAQ</a></li>
+                </div>
 
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-6">
-							<div class="widget recent-posts-entry">
-                                <h3 class="widget-title">Recent Post</h3>
-                                <div class="section-content">
-                                    <div class="widget-post-bx">
+                <div class="col-lg-3 col-md-6">
+                    <div class="widget widget_services">
+                        <h3 class="widget-title">Useful links</h3>
+                        <ul>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/services">Services </a></li>
+                            <li><a href="/contact-us">Contact Us </a></li>
+                            <li><a href="/coming-soon">FAQ</a></li>
 
-                                        {% for RP in RCPST %}
-                                        <div class="widget-post clearfix">
-                                            <div class="wt-post-media">
-                                                <img src="{{ RP.Icon.url }}" alt="">
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="widget recent-posts-entry">
+                        <h3 class="widget-title">Recent Post</h3>
+                        <div class="section-content">
+                            <div class="widget-post-bx">
+
+                                {% for RP in RCPST %}
+                                    <div class="widget-post clearfix">
+                                        <div class="wt-post-media">
+                                            <img src="{{ RP.Icon.url }}" alt="">
+                                        </div>
+                                        <div class="wt-post-info">
+                                            <div class="wt-post-meta">
+                                                <ul>
+                                                    <li class="post-author">{{ RP.created_at }}</li>
+                                                </ul>
                                             </div>
-                                            <div class="wt-post-info">
-                                                <div class="wt-post-meta">
-                                                    <ul>
-                                                        <li class="post-author">{{ RP.created_at }}</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="wt-post-header">
-                                                    <a href="/{{ RP.slug }}" class="post-title">{{ RP.title }}</a>
-                                                </div>
+                                            <div class="wt-post-header">
+                                                <a href="/{{ RP.slug }}" class="post-title">{{ RP.title }}</a>
                                             </div>
                                         </div>
-                                  {% endfor %}
-
                                     </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="widget widget_newsletter">
+                        <h3 class="widget-title">Newsletter</h3>
+                        <p>Join our subscribers list to get the latest news, updates and special offers delivered
+                            directly in your inbox.</p>
+                        <div class="newsletter-input">
+                            <div class="input-group">
+                                <input id="email" type="text" class="form-control" name="email"
+                                       placeholder="Enter your email">
+                                <div class="input-group-append">
+                                    <button class="input-group-text nl-search-btn text-black site-bg-primary title-style-2">
+                                        Subscribe
+                                    </button>
                                 </div>
                             </div>
                         </div>
-
-                       <div class="col-lg-3 col-md-6">
-                        <div class="widget widget_newsletter">
-                            <h3 class="widget-title">Newsletter</h3>
-                                <p>Join our subscribers list to get the latest news, updates and special offers delivered directly in your inbox.</p>
-                                <div class="newsletter-input">
-                                  <div class="input-group">
-                                    <input id="email" type="text" class="form-control" name="email" placeholder="Enter your email">
-                                    <div class="input-group-append">
-                                      <button class="input-group-text nl-search-btn text-black site-bg-primary title-style-2">Subscribe</button>
-                                    </div>
-                                  </div>
-                                </div>
-                        </div>
-
-                       </div>
-
                     </div>
-                </div>
-            </div>
-            <!-- FOOTER COPYRIGHT -->
 
-            <div class="footer-middle">
-
-           	 	<div class="container">
-                    <div class="footer-middle-content">
-                        <div class="logo-footer">
-                            <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt="" ></a>
-                        </div>
-
-                        <ul class="copyrights-nav">
-                            <li><a href="/coming-soon" target="_blank">Terms  &amp; Condition</a></li>
-                            <li><a href="/coming-soon"  target="_blank">Privacy Policy</a></li>
-                            <li><a href="/contact-us"  target="_blank">Contact Us</a></li>
-                        </ul>
-
-
-
-                        <ul class="social-icons  wt-social-links footer-social-icon">
-                             {% for SM in SMDT %}
-                            <li><a href="{{ SM.linkedin }}" target="_blank" class="fa fa-linkedin"></a></li>
-                            <li><a href="{{ SM.twitter }}" target="_blank" class="fa fa-twitter"></a></li>
-                            <li><a href="{{ SM.facebook }}" target="_blank" class="fa fa-facebook"></a></li>
-                            {% endfor %}
-                        </ul>
-
-                    </div>
                 </div>
 
             </div>
-            <div class="footer-bottom">
-              <div class="container">
-                <div class="wt-footer-bot-left d-flex justify-content-center">
+        </div>
+    </div>
+    <!-- FOOTER COPYRIGHT -->
 
+    <div class="footer-middle">
 
-                    <span class="copyrights-text">© 2023 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
+        <div class="container">
+            <div class="footer-middle-content">
+                <div class="logo-footer">
+                    <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt=""></a>
                 </div>
-              </div>
+
+                <ul class="copyrights-nav">
+                    <li><a href="/coming-soon" target="_blank">Terms &amp; Condition</a></li>
+                    <li><a href="/coming-soon" target="_blank">Privacy Policy</a></li>
+                    <li><a href="/contact-us" target="_blank">Contact Us</a></li>
+                </ul>
+
+
+                <ul class="social-icons  wt-social-links footer-social-icon">
+                    {% for SM in SMDT %}
+                        <li><a href="{{ SM.linkedin }}" target="_blank" class="fa fa-linkedin"></a></li>
+                        <li><a href="{{ SM.twitter }}" target="_blank" class="fa fa-twitter"></a></li>
+                        <li><a href="{{ SM.facebook }}" target="_blank" class="fa fa-facebook"></a></li>
+                    {% endfor %}
+                </ul>
+
             </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="wt-footer-bot-left d-flex justify-content-center">
 
 
-        </footer>
-        <!-- FOOTER END -->
+                <span class="copyrights-text">© 2023 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
+            </div>
+        </div>
+    </div>
 
-        <!-- BUTTON TOP START -->
-		<button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
 
- 	</div>
+</footer>
+<!-- FOOTER END -->
+
+<!-- BUTTON TOP START -->
+<button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+
+</div>
 
 <!-- LOADING AREA START ===== -->
 <div class="loading-area">
@@ -326,29 +330,28 @@
 </body>
 
 
-
 <!-- JAVASCRIPT  FILES ========================================= -->
-<script  src="{% static 'Assets/dronza_js/jquery-2.2.0.min.js' %}"></script><!-- JQUERY.MIN JS -->
-<script  src="{% static 'Assets/dronza_js/popper.min.js' %}"></script><!-- POPPER.MIN JS -->
-<script  src="{% static 'Assets/dronza_js/bootstrap.min.js' %}"></script><!-- BOOTSTRAP.MIN JS -->
-<script  src="{% static 'Assets/dronza_js/bootstrap-select.min.js' %}"></script><!-- Form js -->
-<script  src="{% static 'Assets/dronza_js/magnific-popup.min.js' %}"></script><!-- MAGNIFIC-POPUP JS -->
-<script  src="{% static 'Assets/dronza_js/waypoints.min.js' %}"></script><!-- WAYPOINTS JS -->
-<script  src="{% static 'Assets/dronza_js/counterup.min.js' %}"></script><!-- COUNTERUP JS -->
-<script  src="{% static 'Assets/dronza_js/waypoints-sticky.min.js' %}"></script><!-- STICKY HEADER -->
-<script  src="{% static 'Assets/dronza_js/isotope.pkgd.min.js' %}"></script><!-- MASONRY  -->
-<script  src="{% static 'Assets/dronza_js/owl.carousel.min.js' %}"></script><!-- OWL  SLIDER  -->
-<script  src="{% static 'Assets/dronza_js/stellar.min.js' %}"></script><!-- PARALLAX BG IMAGE   -->
-<script  src="{% static 'Assets/dronza_js/theia-sticky-sidebar.js' %}"></script><!-- STICKY SIDEBAR  -->
-<script  src="{% static 'Assets/dronza_js/jquery.bootstrap-touchspin.js' %}"></script><!-- FORM JS -->
-<script  src="{% static 'Assets/dronza_js/custom.js' %}"></script><!-- CUSTOM FUCTIONS  -->
-<script  src="{% static 'Assets/dronza_js/jquery.bgscroll.js' %}"></script><!-- BACKGROUND SCROLL -->
+<script src="{% static 'Assets/dronza_js/jquery-2.2.0.min.js' %}"></script><!-- JQUERY.MIN JS -->
+<script src="{% static 'Assets/dronza_js/popper.min.js' %}"></script><!-- POPPER.MIN JS -->
+<script src="{% static 'Assets/dronza_js/bootstrap.min.js' %}"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="{% static 'Assets/dronza_js/bootstrap-select.min.js' %}"></script><!-- Form js -->
+<script src="{% static 'Assets/dronza_js/magnific-popup.min.js' %}"></script><!-- MAGNIFIC-POPUP JS -->
+<script src="{% static 'Assets/dronza_js/waypoints.min.js' %}"></script><!-- WAYPOINTS JS -->
+<script src="{% static 'Assets/dronza_js/counterup.min.js' %}"></script><!-- COUNTERUP JS -->
+<script src="{% static 'Assets/dronza_js/waypoints-sticky.min.js' %}"></script><!-- STICKY HEADER -->
+<script src="{% static 'Assets/dronza_js/isotope.pkgd.min.js' %}"></script><!-- MASONRY  -->
+<script src="{% static 'Assets/dronza_js/owl.carousel.min.js' %}"></script><!-- OWL  SLIDER  -->
+<script src="{% static 'Assets/dronza_js/stellar.min.js' %}"></script><!-- PARALLAX BG IMAGE   -->
+<script src="{% static 'Assets/dronza_js/theia-sticky-sidebar.js' %}"></script><!-- STICKY SIDEBAR  -->
+<script src="{% static 'Assets/dronza_js/jquery.bootstrap-touchspin.js' %}"></script><!-- FORM JS -->
+<script src="{% static 'Assets/dronza_js/custom.js' %}"></script><!-- CUSTOM FUCTIONS  -->
+<script src="{% static 'Assets/dronza_js/jquery.bgscroll.js' %}"></script><!-- BACKGROUND SCROLL -->
 <script src="{% static 'Assets/dronza_js/slick.js' %}"></script>
 <script src="{% static 'Assets/dronza_js/jquery-ui.js' %}"></script>
-<script  src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
-<script  src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
-<script  src="{% static 'Assets/dronza_plugins/revolution/revolution/js/extensions/revolution-plugin.js' %}"></script>
-<script  src="{% static 'Assets/dronza_js/rev-script-3.js' %}"></script>
+<script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/extensions/revolution-plugin.js' %}"></script>
+<script src="{% static 'Assets/dronza_js/rev-script-3.js' %}"></script>
 
 </html>
 </html>

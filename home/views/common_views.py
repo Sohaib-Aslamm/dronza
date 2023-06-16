@@ -11,7 +11,7 @@ def orderDone(request):
     return render(request, 'Order_Done.html')
 
 
-def error404(request):
+def coming_soon(request):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     SEOTAGS = seoTags.objects.filter(page='error404_page')

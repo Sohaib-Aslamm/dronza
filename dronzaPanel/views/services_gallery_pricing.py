@@ -2,14 +2,14 @@ from dronzaPanel.forms import ServicesTypeForm, PricingForm, GalleryForm
 from dronzaPanel.models import ServicesTypes, Pricing, Gallery
 
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from dronzaPanel.decorators import admin_only
+
+from dronzaPanel.decorators import admin_only, custom_login_required
 
 
 # Create your views here
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminPricing(request):
     if request.method == 'POST':
@@ -31,7 +31,7 @@ def adminPricing(request):
     return render(request, 'adminPricing.html', {'form': PRCFM, 'PRCdata': PRCdata})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminGallery(request):
     if request.method == 'POST':
@@ -50,7 +50,7 @@ def adminGallery(request):
     return render(request, 'adminGallery.html', {'form': GLRFM, 'GLRdata': GLRdata})
 
 
-@login_required(login_url='/user-login')
+@custom_login_required
 @admin_only
 def adminServicesType(request):
     if request.method == 'POST':

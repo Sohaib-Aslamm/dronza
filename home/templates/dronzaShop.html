@@ -1,6 +1,6 @@
 {% extends 'baseHome.html' %}
 
-{% load  static %}
+{% load static %}
 
 {% block content %}
 
@@ -8,7 +8,8 @@
     <div class="page-content">
 
         <!-- INNER PAGE BANNER -->
-        <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+        <div class="wt-bnr-inr overlay-wraper bg-center"
+             style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
             <div class="overlay-main site-bg-secondry opacity-09"></div>
             <div class="container">
                 <div class="wt-bnr-inr-entry">
@@ -31,8 +32,6 @@
             </div>
         </div>
         <!-- INNER PAGE BANNER END -->
-
-
 
 
         <!-- CATEGORY SECTION START -->
@@ -76,12 +75,21 @@
 
                                                 <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}">
                                                 <div class="overlay-bx">
-                                                    <div class="overlay-icon">
-                                                        <a href="/cart/add/{{ PDCT.id }}">
-                                                            <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                        </a>
+                                                    {% if user.is_authenticated %}
+                                                        <div class="overlay-icon">
+                                                            <a href="/cart/add/{{ PDCT.id }}">
+                                                                <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                            </a>
 
-                                                    </div>
+                                                        </div>
+                                                        {% else %}
+                                                         <div class="overlay-icon">
+                                                            <a href="/user-login">
+                                                                <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                            </a>
+
+                                                        </div>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                             <div class="wt-info">
@@ -108,7 +116,8 @@
                                                         </ins>
 
                                                          <br><ins>
-                                                             <a href="/shop/{{ PDCT.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shop/{{ PDCT.slug }}"
+                                                                class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                                     </span>
 
@@ -121,7 +130,6 @@
                                 {% endfor %}
 
 
-
                             </div>
 
                         </div>
@@ -131,33 +139,33 @@
                     <ul class="pagination m-b0 p-b0">
 
                         {% if dronzaProductsFINAL.has_previous %}
-                            <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.previous_page_number }}">Previous</a></li>
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ dronzaProductsFINAL.previous_page_number }}">Previous</a>
+                            </li>
                         {% endif %}
 
                         <li class="page-item"><a class="page-link" href="/dronzaShop?page=1">First</a></li>
 
 
                         {% for tpl in dronzapageList %}
-                            <li class="page-item"><a class="page-link" href="/dronzaShop?page={{ tpl }}">{{ tpl }}</a></li>
+                            <li class="page-item"><a class="page-link" href="/dronzaShop?page={{ tpl }}">{{ tpl }}</a>
+                            </li>
                         {% endfor %}
 
-                        {% if dronzaProductsFINAL.has_next  %}
-                            <li class="page-item"><a class="page-link" href="?page={{ dronzaProductsFINAL.next_page_number }}">Next</a></li>
+                        {% if dronzaProductsFINAL.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ dronzaProductsFINAL.next_page_number }}">Next</a>
+                            </li>
                             <li class="page-item"><a class="page-link" href="?page={{ dronzalastPage }}">Last</a></li>
                         {% endif %}
 
                     </ul>
 
 
-
                 </div>
             </div>
         </div>
         <!-- SECTION CONTENT END -->
-
-
-
-
 
 
         <!-- SECTION CONTENT START -->
@@ -197,12 +205,21 @@
                                     <div class="wt-thum-bx wt-img-overlay1">
                                         <img src="{{ FTP.image.url }}" alt="{{ FTP.tags }}">
                                         <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="/cart/add/{{ FTP.id }}">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
+                                            {% if user.is_authenticated %}
+                                                <div class="overlay-icon">
+                                                    <a href="/cart/add/{{ FTP.id }}">
+                                                        <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                    </a>
 
-                                            </div>
+                                                </div>
+                                            {% else %}
+                                        <div class="overlay-icon">
+                                                    <a href="/user-login">
+                                                        <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                    </a>
+
+                                                </div>
+                                             {% endif %}
                                         </div>
                                     </div>
                                     <div class="wt-info">
@@ -211,8 +228,10 @@
                                                 <a href="/shop/{{ FTP.slug }}">{{ FTP.name }}</a>
                                             </h3>
 
-                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}</div>
-                                            <div class="product-features-item"><span>Flight Time | </span>{{ FTP.flight_time }}</div>
+                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}
+                                            </div>
+                                            <div class="product-features-item">
+                                                <span>Flight Time | </span>{{ FTP.flight_time }}</div>
 
                                             <span class="price">
                                                 <ins>
@@ -220,10 +239,10 @@
                                                         <del>{{ FTP.currency }} {{ FTP.cPrice }}</del></span>
                                                 </ins>
                                                 <br><ins>
-                                                             <a href="/shop/{{ FTP.slug }}" class="btn btn-secondary text-white"><strong>View Detail</strong></a>
+                                                             <a href="/shop/{{ FTP.slug }}"
+                                                                class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
                                             </span>
-
 
 
                                         </div>
