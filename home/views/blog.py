@@ -77,7 +77,7 @@ def postDetail(request, slug):
     popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
     SMDT = SocialMedia.objects.all()
     SEOTAGS = [{'title': rdPost.first().title,
-                'description': rdPost.first().title,
+                'description': rdPost.first().description[:160],
                 'tags': rdPost.first().title,
                 'canonical_link': f'https://dronza.org/{rdPost.first().slug}'}]
 

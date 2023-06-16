@@ -85,7 +85,7 @@ def DetailRecord(request, type, slug):
         p_price = Record.p_price.split(",")
         RCPST = userBlog.objects.order_by('-sNo')[:2]
         SMDT = SocialMedia.objects.all()
-        SEOTAGS = [{'title': 'DronZa: Customer order detail', 'description': 'DronZa track order system allows a user to track his package by all means',
+        SEOTAGS = [{'title': 'DronZa: Customer order detail', 'description': 'Track your order on DronZa to stay updated on the status of your drone purchase. Enter your order details and get real-time tracking information and estimated delivery time.',
                     'tags': 'DronZa: Customer order detail', 'canonical_link': f'https://dronza.org/track_order/{Record.uuid}'}]
 
         context = {'Record': Record, 'price_total': price_total, 'p_quantity': p_quantity, 'p_price': p_price,

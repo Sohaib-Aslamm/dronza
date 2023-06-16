@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <title>Login | DronZa</title>
-    <meta name="description" content="Login to access your account and enjoy personalized features.">
+    <meta name="description" content="DronZa login page: Authenticate and access your account. Login with your credentials to securely sign in and manage your DronZa profile.">
     <meta name="keywords" content="user login, login page, account login">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dronza.org/user-login">
@@ -140,7 +140,7 @@
 
         <img src="{% static 'Assets/dronza_images/icons/drone.png' %}" style="width:150px; height: 150px;" alt="DronZa Register Page">
 
-        <h6 class="linear font-italic">The future of drones</h6>
+         <h1 class="linear font-italic small">The future of drones</h1>
         {{ form.errors }}
         <form action="/user-login" method="POST" class="form" enctype="multipart/form-data">
             {% csrf_token %}

@@ -6,8 +6,11 @@ from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTy
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
     seoTags
 
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
+from django.core.paginator import Paginator
+from math import ceil
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -88,6 +91,21 @@ def Update(request, id, type):
         return render(request, 'Update/updateGallery.html', {'form': UpdateForm})
 
     if type == 'blog':
+        items_per_page = 10  # Number of items per page in pagination
+        blog_data = userBlog.objects.values('sNo').order_by('-sNo')
+
+        # Get the index of the item with the given primary key
+        item_index = None
+        for index, item in enumerate(blog_data):
+            if item['sNo'] == id:
+                item_index = index
+                break
+
+        # Calculate the page number based on the item index and number of items per page
+        if item_index is not None:
+            page_number = ceil((item_index + 1) / items_per_page)
+        else:
+            page_number = 1  # Default page number if the primary key is not found
 
         UpdateForm = userBlog.objects.get(sNo=id)
         if request.method == 'POST':
@@ -101,7 +119,7 @@ def Update(request, id, type):
             if not file_data == 'False':
                 UpdateForm.Icon = request.FILES['icon']
             UpdateForm.save()
-            return redirect('/adminblog')
+            return redirect(f'/adminblog?page={page_number}')
 
         return render(request, 'Update/updateBlog.html', {'form': UpdateForm})
 
