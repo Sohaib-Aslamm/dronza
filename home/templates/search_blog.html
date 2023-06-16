@@ -42,8 +42,8 @@
 
                     <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
                         <!--Block one-->
-                        {% if BLOGDATA %}
-                            {% for post in BLOGDATA %}
+                        {% if SEARCHDATA %}
+                            {% for post in SEARCHDATA %}
                                 <div class="blog-post blog-style-1 blog-list-style">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
                                         <a href="/{{ post.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ post.Icon }}" alt="{{ post.tags }}"></a>
@@ -71,8 +71,17 @@
 
                             <div class="row text-center mt-5">
                                 <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
+                                <p class="h5">Your search did not match any documents.</p>
                             </div>
-
+                            <div>
+                                <ul>
+                                    <strong>Suggestions:</strong>
+                                    <li>Make sure that all words are spelled correctly</li>
+                                    <li>Try different keywords</li>
+                                    <li>Try more general keywords</li>
+                                    <li>Try fewer keywords</li>
+                                </ul>
+                            </div>
 
                         {% endif %}
 
@@ -200,25 +209,24 @@
 
 
 
-                <ul class="pagination m-b0 p-b0 mt-5 bg-light">
+               <ul class="pagination m-b0 p-b0 mt-5 bg-light">
+    {% if SEARCHDATA.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ SEARCHDATA.previous_page_number }}{% if search_keyword %}&search_keyword={{ search_keyword }}{% endif %}">Previous</a></li>
+    {% endif %}
 
-                    {% if BLOGDATA.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.previous_page_number }}">Previous</a></li>
-                    {% endif %}
+    <li class="page-item"><a class="page-link" href="/search-blog?page=1{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">First</a></li>
 
-                    <li class="page-item"><a class="page-link" href="/blog?page=1">First</a></li>
+    {% for tpl in pageList %}
+        <li class="page-item{% if SEARCHDATA.number == tpl %} active{% endif %}">
+            <a class="page-link" href="/search-blog?page={{ tpl }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">{{ tpl }}</a>
+        </li>
+    {% endfor %}
 
-
-                    {% for tpl in pageList %}
-                        <li class="page-item"><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
-                    {% endfor %}
-
-                    {% if BLOGDATA.has_next  %}
-                        <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.next_page_number }}">Next</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
-                    {% endif %}
-
-                </ul>
+    {% if SEARCHDATA.has_next  %}
+        <li class="page-item"><a class="page-link" href="?page={{ SEARCHDATA.next_page_number }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">Last</a></li>
+    {% endif %}
+</ul>
 
 
 
