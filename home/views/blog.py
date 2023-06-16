@@ -71,7 +71,7 @@ def postDetail(request, slug):
     SEOTAGS = [{'title': rdPost.first().title,
                 'description': rdPost.first().title,
                 'tags': rdPost.first().title,
-                'canonical_link': f'https://dronza.org/{rdPost.first().title}'}]
+                'canonical_link': f'https://dronza.org/{rdPost.first().slug}'}]
 
     context = {
         'rdPost': rdPost,
