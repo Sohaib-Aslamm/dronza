@@ -3,25 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/client_people_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/client_people_partner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/communication.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/communication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/panel_home.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/panel_home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/products.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/products.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/seotags.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/seotags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/services_gallery_pricing.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/services_gallery_pricing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/social_media.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/social_media.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/cart_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/cart_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/common_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/common_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/shop.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +229,8 @@
       <workItem from="1686827671364" duration="1211000" />
       <workItem from="1686853673095" duration="25000" />
       <workItem from="1686894260920" duration="14741000" />
-      <workItem from="1686937136976" duration="4868000" />
+      <workItem from="1686937136976" duration="5139000" />
+      <workItem from="1687075410050" duration="3128000" />
     </task>
     <servers />
   </component>
