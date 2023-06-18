@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 from home.models import blog_Review
+from django.urls import reverse
 
 
 def blog(request):
@@ -17,7 +18,18 @@ def blog(request):
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
 
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.filter(page='blog_page')
+    current_page = request.GET.get('page')
+    canonical_link = reverse('blog')  # Assuming 'blog' is the name of your URL pattern
+
+    if current_page:
+        canonical_link += f'?page={current_page}'
+
+    SEOTAGS = [{
+        'title': "Latest Drone News, Tips, and Insights",
+        'description': "Discover the latest tech drone information, news, and valuable insights Our blog covers everything related to drones, including industry updates, tips for drone enthusiasts",
+        'tags': "Dronza Blog Drone News Drone Tips Drone Insights Drone Technology Drone Enthusiast Website Usage Top Products",
+        'canonical_link': request.build_absolute_uri(canonical_link)
+    }]
 
     context = {
         'BLOGDATA': blog_data_final,
