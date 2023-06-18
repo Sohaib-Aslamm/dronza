@@ -41,7 +41,7 @@
                 <div class="section-content" style="transform: none;">
                     <div class="row d-flex justify-content-center" style="transform: none;">
 
-                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
+                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer" id="blogContent">
                             <!--Block one-->
                             {% if BLOGDATA %}
                                 {% for post in BLOGDATA %}
@@ -214,30 +214,28 @@
                     <!-- SIDE BAR END -->
 
 
-                    <ul class="pagination m-b0 p-b0 mt-5 bg-light" id="pagination">
+                  <div id="blogContent">
+    <!-- Render the initial page content here -->
+    {% include 'blog_content.html' %}
+</div>
 
-                        {% if BLOGDATA.has_previous %}
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);"
-                                                     onclick="changePage({{ BLOGDATA.previous_page_number }})">Previous</a>
-                            </li>
-                        {% endif %}
+<ul class="pagination m-b0 p-b0 mt-5 bg-light" id="pagination">
+    {% if BLOGDATA.has_previous %}
+        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage({{ BLOGDATA.previous_page_number }})">Previous</a></li>
+    {% endif %}
 
-                        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage(1)">First</a>
-                        </li>
+    <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage(1)">First</a></li>
 
-                        {% for tpl in pageList %}
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);"
-                                                     onclick="changePage({{ tpl }})">{{ tpl }}</a></li>
-                        {% endfor %}
+    {% for tpl in pageList %}
+        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage({{ tpl }})">{{ tpl }}</a></li>
+    {% endfor %}
 
-                        {% if BLOGDATA.has_next %}
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);"
-                                                     onclick="changePage({{ BLOGDATA.next_page_number }})">Next</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);"
-                                                     onclick="changePage({{ lastPage }})">Last</a></li>
-                        {% endif %}
+    {% if BLOGDATA.has_next  %}
+        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage({{ BLOGDATA.next_page_number }})">Next</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="changePage({{ lastPage }})">Last</a></li>
+    {% endif %}
+</ul>
 
-                    </ul>
 
 
                 </div>
@@ -249,27 +247,20 @@
     </div>
 
     <script>
-        function changePage(pageNumber) {
-            // Perform the necessary actions here to update the content based on the page number
-            // For example, you can use AJAX to fetch the updated content and display it without reloading the page
-            // You can also update the active state of the pagination links if needed
-
-            // Here's an example of fetching data using AJAX
-            $.ajax({
-                url: '/blog',
-                type: 'GET',
-                data: {page: pageNumber},
-                success: function (response) {
-                    // Update the content on the page based on the response
-                    // For example, you can replace the content of a specific element with the response data
-                    $('#contentContainer').html(response);
-                },
-                error: function (error) {
-                    // Handle the error
-                }
-            });
+       function changePage(pageNumber) {
+    $.ajax({
+        url: '/blog',
+        type: 'GET',
+        data: { page: pageNumber },
+        success: function(response) {
+            // Update the content on the page based on the response
+            $('#blogContent').html(response);
+        },
+        error: function(error) {
+            // Handle the error
         }
-
+    });
+}
     </script>
 
 {% endblock content %}
