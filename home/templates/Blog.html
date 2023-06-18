@@ -256,10 +256,13 @@
 
             // Here's an example of fetching data using AJAX
             $.ajax({
-                url: '/blog?page=' + pageNumber,
+                url: '/blog',
                 type: 'GET',
+                data: {page: pageNumber},
                 success: function (response) {
                     // Update the content on the page based on the response
+                    // For example, you can replace the content of a specific element with the response data
+                    $('#contentContainer').html(response);
                 },
                 error: function (error) {
                     // Handle the error
