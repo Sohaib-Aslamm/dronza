@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from dronzaPanel.models import SocialMedia, userBlog, seoTags
 from home.models import sellYourDrone, sellYourDroneImages
+from django.urls import reverse
 
 
 def customerProduct(request):
@@ -47,7 +48,19 @@ def customerProduct(request):
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.filter(page='customer_product_panel_page')
+
+    current_page = request.GET.get('page')
+    canonical_link = reverse('customer-product')  # Assuming 'blog' is the name of your URL pattern
+
+    if current_page:
+        canonical_link += f'?page={current_page}'
+
+    SEOTAGS = [{
+        'title': "Customer Product Management Panel | Dronza",
+        'description': "Manage your listed drone products with ease through the Customer Product Management Panel at Dronza. Update, add, or delete products. Take control of your listed products and ensure a seamless selling experience.",
+        'tags': "Product Management Sell Your Drone Drone Listing Customer Panel Complaint Center customer-product-management-panel drone-product-management-panel drone-listing-platform drone-classifieds drone-marketplace drone-complaints",
+        'canonical_link': request.build_absolute_uri(canonical_link)
+    }]
 
     context = {
         'SYDProducts': SYDProductsFINAL,
