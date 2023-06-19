@@ -8,13 +8,14 @@
         <div class="page-content">
 
             <!-- Error SECTION START -->
-            <div class="error-full-page bg-cover overlay-wraper bg-image-moving" style="background-image:url({% static 'Assets/dronza_images/background/bg-2.jpg' %})">
+            {% for slider in SLIDER %}
+            <div class="error-full-page bg-cover overlay-wraper bg-image-moving" style="background-image:url({{ slider.background_image.url }})">
 					<div class="overlay-main bg-black opacity-07"></div>
 
                     <div class="error-full-page-inner">
                     	<div class="error-full-page-inner-info">
                             	<div class="error-media">
-                                	<img src="{% static 'Assets/dronza_images/d-testimonial.png' %}" class="slide-top" alt="">
+                                	<img src="{{ slider.image.url }}" class="slide-top" alt="">
                                 </div>
 
                                 <h4 class="title-style-2">
@@ -27,6 +28,7 @@
 
 
             </div>
+            {% endfor %}
             <!-- Error  SECTION END -->
 
         </div>
