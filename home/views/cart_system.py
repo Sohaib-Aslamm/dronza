@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags, MainSlider
 from home.models import Place_Order
 from cart.cart import Cart
 from home.definedEmails import notify_order_confirmation
@@ -51,11 +51,13 @@ def cart_detail(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SEOTAGS = seoTags.objects.filter(page='cart_detail')
+    SLIDER = MainSlider.objects.filter(page='cart_detail_page')
 
     context = {
         'SMDT': SMDT,
         'RCPST': RCPST,
         'SEOTAGS': SEOTAGS,
+        'SLIDER': SLIDER
     }
     return render(request, 'cart_detail.html', context)
 
@@ -64,10 +66,14 @@ def cart_detail(request):
 def checkout(request):
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
+    SEOTAGS = seoTags.objects.filter(page='checkout_page')
+    SLIDER = MainSlider.objects.filter(page='checkout_page')
 
     context = {
         'SMDT': SMDT,
         'RCPST': RCPST,
+        'SEOTAGS': SEOTAGS,
+        'SLIDER': SLIDER,
     }
 
     return render(request, 'checkout.html', context)
@@ -145,10 +151,12 @@ def trackOrder(request):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     SEOTAGS = seoTags.objects.filter(page='track_order')
+    SLIDER = MainSlider.objects.filter(page='track_order_page')
     context = {
         'product_orders': order_list,
         'RCPST': RCPST,
         'SMDT': SMDT,
-        'SEOTAGS': SEOTAGS
+        'SEOTAGS': SEOTAGS,
+        'SLIDER': SLIDER
     }
     return render(request, 'track_order.html', context)

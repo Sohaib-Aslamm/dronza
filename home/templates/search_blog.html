@@ -8,13 +8,14 @@
 <div class="page-content">
 
     <!-- INNER PAGE BANNER -->
-    <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/8.jpg' %});">
+{% for slider in SLIDER %}
+    <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
         <div class="overlay-main site-bg-secondry opacity-09"></div>
         <div class="container">
             <div class="wt-bnr-inr-entry">
                 <div class="banner-title-outer">
                     <div class="banner-title-name">
-                        <h2 class="site-text-white">Dronza Blog</h2>
+                        <h2 class="site-text-white">{{ slider.title }}</h2>
                     </div>
                 </div>
                 <!-- BREADCRUMB ROW -->
@@ -30,6 +31,7 @@
             </div>
         </div>
     </div>
+{% endfor %}
     <!-- INNER PAGE BANNER END -->
 
     <!-- OUR BLOG START -->

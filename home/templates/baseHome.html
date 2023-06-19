@@ -353,4 +353,19 @@
 <script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/extensions/revolution-plugin.js' %}"></script>
 <script src="{% static 'Assets/dronza_js/rev-script-3.js' %}"></script>
 
+<script>
+    $(function () {
+        $('#editFiles').hide();
+        $('#editFiles1').change(function () {
+            if ($('#editFiles1').val() == 'True') {
+                $('#editFiles').show();
+                document.getElementById('icon').required = true;
+            } else {
+                $('#editFiles').hide();
+                document.getElementById('icon').required = false;
+            }
+        });
+    });
+</script>
+
 </html>

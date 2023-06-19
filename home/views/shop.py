@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog
+from dronzaPanel.models import Products, SocialMedia, userBlog, MainSlider
 from django.urls import reverse
 
 
@@ -14,6 +14,7 @@ def shop(request):
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     FEATURED = Products.objects.filter(featured='Featured')
+    SLIDER = MainSlider.objects.filter(page='shop_page')
 
     current_page = request.GET.get('page')
     canonical_link = reverse('shop')  # Assuming 'blog' is the name of your URL pattern
@@ -31,7 +32,7 @@ def shop(request):
     context = {'dronzaProductsFINAL': dronzaProductsFINAL,
                'dronzalastPage': dronzatotalPages, 'dronzatotalPages': dronzatotalPages,
                'dronzapageList': [n + 1 for n in range(dronzatotalPages)], 'DRONZATGRY': DRONZATGRY,
-               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
+               'FEATURED': FEATURED, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS, 'SLIDER': SLIDER}
     return render(request, 'dronzaShop.html', context)
 
 

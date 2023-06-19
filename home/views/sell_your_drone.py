@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from home.models import sellYourDrone
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
+from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags, MainSlider
 from django.urls import reverse
 
 
@@ -18,6 +18,7 @@ def sellDrones(request):
     Product_Category = sellYourDrone.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SLIDER = MainSlider.objects.filter(page='sell_drones_page')
 
     current_page = request.GET.get('page')
     canonical_link = reverse('sell-drones')  # Assuming 'blog' is the name of your URL pattern
@@ -25,7 +26,7 @@ def sellDrones(request):
         canonical_link += f'?page={current_page}'
     SEOTAGS = [{
         'title': "Sell Your Drone or Accessories on DronZa - List for Free!",
-        'description': "Sell your drone or drone accessories easily on DronZa. List your drone for sale free of cost on our platform. Take advantage of this unique feature provided by DronZa to sell your drone hassle-free.",
+        'description': "List your drone for sale free of cost on our platform. Take advantage of this unique feature provided by DronZa to sell your drone hassle-free.",
         'tags': "Sell Your Drone Drone For Sale Drone Accessories Sell My Drone Drone Marketplace drone-accessories-for-sale drone-parts-for-sale drone-listing-platform drone-classifieds drone-marketplace",
         'canonical_link': request.build_absolute_uri(canonical_link)
     }]
@@ -33,7 +34,7 @@ def sellDrones(request):
     FEATURED = Products.objects.filter(featured='Featured')
     context = {'sellerProducts': sellerProductsFINAL, 'Product_Category': Product_Category, 'lastPage': totalPages,
                'pageList': [n + 1 for n in range(totalPages)], 'RCPST': RCPST, 'SMDT': SMDT, 'FEATURED': FEATURED,
-               'SEOTAGS': SEOTAGS}
+               'SEOTAGS': SEOTAGS, 'SLIDER': SLIDER}
     return render(request, 'sellDrone.html', context)
 
 
@@ -58,6 +59,7 @@ def search_by_location(request):
     SMDT = SocialMedia.objects.all()
     SEOTAGS = seoTags.objects.filter(page='sell_your_drone_search_by_location')
     FEATURED = Products.objects.filter(featured='Featured')
+    SLIDER = MainSlider.objects.filter(page='sell_drones_search_page')
 
     context = {
         'sellerProducts': sellerProductsFINAL,
@@ -68,7 +70,8 @@ def search_by_location(request):
         'SMDT': SMDT,
         'FEATURED': FEATURED,
         'SEOTAGS': SEOTAGS,
-        'location': location,  # Include location in the context
+        'location': location,
+        'SLIDER': SLIDER,
     }
 
     return render(request, 'search_seller_product.html', context)

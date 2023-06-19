@@ -63,7 +63,7 @@ def customerProduct(request):
 
     SEOTAGS = [{
         'title': "Customer Product Management Panel | Dronza",
-        'description': "Manage your listed drone products with ease through the Customer Product Management Panel at Dronza. Update, add, or delete products. Take control of your listed products and ensure a seamless selling experience.",
+        'description': "Manage your listed drone products with ease through the Customer Product Management Panel at Dronza. Update, add, or delete products.",
         'tags': "Product Management Sell Your Drone Drone Listing Customer Panel Complaint Center customer-product-management-panel drone-product-management-panel drone-listing-platform drone-classifieds drone-marketplace drone-complaints",
         'canonical_link': request.build_absolute_uri(canonical_link)
     }]

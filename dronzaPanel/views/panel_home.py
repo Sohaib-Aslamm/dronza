@@ -25,12 +25,10 @@ def adminHomeSlider(request):
         MSFM = MainSliderForm(request.POST, request.FILES)
         if MSFM.is_valid():
             TIT = MSFM.cleaned_data['title']
-            HDR = MSFM.cleaned_data['header']
-            DESC = MSFM.cleaned_data['description']
-            PRC = MSFM.cleaned_data['price']
+            PAGE = MSFM.cleaned_data['page']
             IMG = MSFM.cleaned_data['image']
-            BKIMG = MSFM.cleaned_data['backImage']
-            reg = MainSlider(title=TIT, header=HDR, description=DESC, price=PRC, image=IMG, backImage=BKIMG)
+            BKIMG = MSFM.cleaned_data['background_image']
+            reg = MainSlider(title=TIT, page=PAGE, image=IMG, background_image=BKIMG)
             reg.save()
             MSFM = MainSliderForm()
     else:

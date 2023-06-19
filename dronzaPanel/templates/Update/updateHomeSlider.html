@@ -40,37 +40,27 @@
             {% csrf_token %}
       <div class="modal-body">
             <div class="row mb-3">
-                <div class="col-5">
+                <div class="col-6">
                     <label class="white">Title</label>
                     {{ form.title }}
                 </div>
-                <div class="col-5">
-                    <label class="white">Header</label>
-                    {{ form.header }}
+                <div class="col-6">
+                    <label class="white">Page</label>
+                    {{ form.page }}
                 </div>
-                  <div class="col-2">
-                    <label class="white">Price</label>
-                      {{ form.price }}
-                </div>
-            </div>
-             <div class="row mb-3">
-                 <div class="col-12">
-                    <label class="white">Description</label>
-                    {{ form.description }}
-                </div>
+
             </div>
               <div class="row mb-3">
-                 <div class="col-6">
+                 <div class="col-4">
                     <label class="white">Choose Image</label>
                     {{ form.image }}
                 </div>
-                   <div class="col-6">
+                  <div class="col-6">
                     <label class="white">Choose Back Image</label>
-                    {{ form.backImage }}
+                    {{ form.background_image }}
                 </div>
             </div>
       </div>
-
       <div class="modal-footer">
         <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
         <button type="submit" class="btn bg-greeno white">Save Information</button>

@@ -2,7 +2,7 @@
 
 {% load static %}
 
-    {% block title %} <title>Main Slider | Section</title> {% endblock title %}
+    {% block title %} <title>All Pages Slider | Section</title> {% endblock title %}
 
 {% block header %}
 
@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-greeno">Main Slider Section</h1>
+            <h1 class="m-0 text-greeno">All Pages Slider Section</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
-              <li class="breadcrumb-item text-aspire">Main Slider</li>
+              <li class="breadcrumb-item text-aspire">Main Sliders</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -42,10 +42,9 @@
   <thead class="bg-greeno white">
     <tr>
       <th scope="col">Title</th>
-      <th scope="col">Header</th>
-         <th scope="col">Description</th>
-         <th scope="col">Icon</th>
-         <th scope="col">Price</th>
+         <th scope="col">Page</th>
+         <th scope="col">Image</th>
+         <th scope="col">Background Image</th>
         <th scope="col" class="text-center">Operations</th>
 
 
@@ -56,10 +55,9 @@
   {% for data in SLDT %}
     <tr>
       <td>{{ data.title }}</td>
-      <td>{{ data.header }}</td>
-      <td>{{ data.price }}</td>
-      <td>{{ data.description }}</td>
+      <td>{{ data.page }}</td>
       <td><img src="{{ data.image.url }}" style="width:50px; height:50px;"></td>
+      <td><img src="{{ data.background_image.url }}" style="width:50px; height:50px;"></td>
        <td class="text-center">
           <a class="text-center mx-2" href="/Update/{{ data.id }}/HomeSlider"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
           <a class="text-center mx-2" href="/Delete/{{ data.id }}/HomeSlider"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
@@ -88,33 +86,24 @@
             {% csrf_token %}
       <div class="modal-body">
             <div class="row mb-3">
-                <div class="col-5">
+                <div class="col-6">
                     <label class="white">Title</label>
                     {{ form.title }}
                 </div>
-                <div class="col-5">
-                    <label class="white">Header</label>
-                    {{ form.header }}
+                <div class="col-6">
+                    <label class="white">Page</label>
+                    {{ form.page }}
                 </div>
-                  <div class="col-2">
-                    <label class="white">Price</label>
-                      {{ form.price }}
-                </div>
-            </div>
-             <div class="row mb-3">
-                 <div class="col-12">
-                    <label class="white">Description</label>
-                    {{ form.description }}
-                </div>
+
             </div>
               <div class="row mb-3">
-                 <div class="col-6">
+                 <div class="col-4">
                     <label class="white">Choose Image</label>
                     {{ form.image }}
                 </div>
                   <div class="col-6">
                     <label class="white">Choose Back Image</label>
-                    {{ form.backImage }}
+                    {{ form.background_image }}
                 </div>
             </div>
       </div>
