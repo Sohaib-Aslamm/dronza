@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from django.db.models import Q
 from home.models import sellYourDrone
 from django.core.paginator import Paginator
 from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags
 from django.urls import reverse
 
+
 def sellDrones(request):
-    sellerProducts = sellYourDrone.objects.filter(status='Available').order_by('-id')
+    sellerProducts = sellYourDrone.objects.filter(
+                                                    Q(status='Available') |
+                                                    Q(status='Featured')
+                                                ).order_by('-id')
     paginator = Paginator(sellerProducts, 8)
     pageNo = request.GET.get('page')
     sellerProductsFINAL = paginator.get_page(pageNo)
@@ -37,7 +42,11 @@ def search_by_location(request):
     sellerProducts = sellYourDrone.objects.all()  # Initialize as an empty queryset
 
     if location:
-        sellerProducts = sellYourDrone.objects.filter(location__icontains=location).order_by('-id')
+        sellerProducts = sellYourDrone.objects.filter(
+                                                        Q(location__icontains=location) &
+                                                        Q(status='Available') |
+                                                        Q(status='Featured')
+                                                       ).order_by('-id')
 
     paginator = Paginator(sellerProducts, 8)
     pageNo = request.GET.get('page')

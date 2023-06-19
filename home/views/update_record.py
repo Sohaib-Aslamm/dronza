@@ -28,6 +28,11 @@ def UpdatebyUUID(request, type, slug):
             Record.label4 = request.POST.get('label4')
             Record.input4 = request.POST.get('input4')
             Record.description = request.POST.get('description')
+
+            file_data = request.POST.get('edit_file')
+            if not file_data == 'False':
+                Record.thumbnail = request.FILES['thumbnail']
+
             Record.save()
             return redirect('/customer-product')
         return render(request, 'update/customerProducts.html', {'Record': Record})

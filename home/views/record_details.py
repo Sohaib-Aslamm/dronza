@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from dronzaPanel.models import Products, ServicesTypes, Pricing, OurTeam, SocialMedia, userBlog, productImages
 from home.models import Place_Order, sellYourDrone, sellYourDroneImages, productReview
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 
 
 def DetailRecord(request, type, slug):
@@ -9,6 +10,17 @@ def DetailRecord(request, type, slug):
         Record = User.objects.get(username=slug)
         context = {'Record': Record}
         return render(request, 'user_detail.html', context)
+
+    if type == 'sellerProductsList':
+        Record = sellYourDrone.objects.filter(user_id=slug).order_by('-id')
+        User_Record = User.objects.get(id=slug)
+        paginator = Paginator(Record, 10)
+        pageNo = request.GET.get('page')
+        all_Records = paginator.get_page(pageNo)
+        totalPages = paginator.num_pages
+        pageList = range(1, totalPages + 1)
+        context = {'Record': all_Records, 'User_Record': User_Record, 'lastPage': totalPages, 'pageList': pageList}
+        return render(request, 'admin_view_seller_product_list.html', context)
 
     if type == 'shop':
         shpDetail = Products.objects.get(slug=slug)

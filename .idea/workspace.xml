@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/update_seller_product_from_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/admin_seller_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/admin_view_seller_product_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/seller_products_list.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/update/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/update/customerProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/customer_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/customer_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +69,7 @@
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\templates" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\views" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
     </key>
@@ -229,7 +242,8 @@
       <workItem from="1686937136976" duration="5139000" />
       <workItem from="1687075410050" duration="8387000" />
       <workItem from="1687154977979" duration="9000" />
-      <workItem from="1687155144228" duration="805000" />
+      <workItem from="1687155144228" duration="1342000" />
+      <workItem from="1687166259488" duration="13565000" />
     </task>
     <servers />
   </component>

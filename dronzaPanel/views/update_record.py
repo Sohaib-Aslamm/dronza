@@ -6,6 +6,8 @@ from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTy
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
     seoTags
 
+from home.models import sellYourDrone
+
 from django.shortcuts import render, redirect
 from dronzaPanel.decorators import custom_login_required
 
@@ -223,17 +225,39 @@ def Update(request, id, type):
         context = {'Record': UpdateRecord}
         return render(request, 'Update/updateDroneProducts.html', context)
 
-    # if type == 'droneParts':
-    #     if request.method == 'POST':
-    #         UpdateRecord = droneParts.objects.get(id=id)
-    #         UpdateForm = dronePartsForm(request.POST, request.FILES, instance=UpdateRecord)
-    #         if UpdateForm.is_valid():
-    #             UpdateForm.save()
-    #             return redirect('/adminDroneParts')
-    #     else:
-    #         UpdateRecord = droneParts.objects.get(id=id)
-    #         UpdateForm = dronePartsForm(instance=UpdateRecord)
-    #     return render(request, 'Update/updateDroneParts.html', {'form': UpdateForm})
+    if type == 'Seller_Products':
+
+        UpdateRecord = sellYourDrone.objects.get(id=id)
+        if request.method == 'POST':
+            UpdateRecord.name = request.POST.get('name')
+            UpdateRecord.email = request.POST.get('email')
+            UpdateRecord.pPhone = request.POST.get('pPhone')
+            UpdateRecord.sPhone = request.POST.get('sPhone')
+            UpdateRecord.location = request.POST.get('location')
+            UpdateRecord.title = request.POST.get('title')
+            UpdateRecord.category = request.POST.get('category')
+            UpdateRecord.condition = request.POST.get('condition')
+            UpdateRecord.price = request.POST.get('price')
+            UpdateRecord.color = request.POST.get('color')
+            UpdateRecord.brand = request.POST.get('brand')
+            UpdateRecord.status = request.POST.get('status')
+            UpdateRecord.label1 = request.POST.get('label1')
+            UpdateRecord.input1 = request.POST.get('input1')
+            UpdateRecord.label2 = request.POST.get('label2')
+            UpdateRecord.input2 = request.POST.get('input2')
+            UpdateRecord.label3 = request.POST.get('label3')
+            UpdateRecord.input3 = request.POST.get('input3')
+            UpdateRecord.label4 = request.POST.get('label4')
+            UpdateRecord.input4 = request.POST.get('input4')
+            UpdateRecord.description = request.POST.get('description')
+
+            file_data = request.POST.get('edit_file')
+            if not file_data == 'False':
+                UpdateRecord.thumbnail = request.FILES['thumbnail']
+
+            UpdateRecord.save()
+            return redirect(f'/sellerProductsList/{UpdateRecord.user_id}')
+        return render(request, 'update/update_seller_product_from_list.html', {'Record': UpdateRecord})
 
     if type == 'SRFP':
         if request.method == 'POST':

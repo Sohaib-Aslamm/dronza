@@ -6,44 +6,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block title %}<title></title> {% endblock title %}
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Assets/dronza_images/dronza_red.png' %}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Assets/dronza_images/dronza_red.png' %}"/>
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'Assets/adminLTE/plugins/fontawesome-free/css/all.min.css' %}">
     <!-- Ionicons -->
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="{% static 'Assets/adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'Assets/adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{% static 'Assets/adminLTE/distrib/css/adminlte.min.css' %}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{% static 'Assets/adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'Assets/adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
 
 
 </head>
 <style>
 
-    .bg-aspire{
+    .bg-aspire {
         background-color: #7F8E4B;
 
     }
 
-    .white{
+    .white {
 
         color: #db253b;
         border-color: #db253b;
         border-radius: 1px;
     }
 
-    .bg-greeno{
+    .bg-greeno {
         background-color: white;
         border-color: #db253b;
         border-radius: 1px;
     }
 
-    .text-greeno{
+    .text-greeno {
 
         color: #db253b;
     }
@@ -69,7 +73,8 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{% static 'Assets/dronza_images/dronza_red.png' %}" alt="Dronza_logo" height="60" width="60">
+        <img class="animation__shake" src="{% static 'Assets/dronza_images/dronza_red.png' %}" alt="Dronza_logo"
+             height="60" width="60">
     </div>
 
     <!-- Navbar -->
@@ -87,7 +92,8 @@
 
 
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/user-logout" class="nav-link text-greeno font-weight-bolder"><i class="fas fa-power-off"> Logout</i></a>
+                <a href="/user-logout" class="nav-link text-greeno font-weight-bolder"><i class="fas fa-power-off">
+                    Logout</i></a>
             </li>
 
         </ul>
@@ -97,7 +103,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar elevation-4 " >
+    <aside class="main-sidebar elevation-4 ">
 
 
         <!-- Sidebar -->
@@ -105,13 +111,13 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{% static 'Assets/dronza_images/dronza_logo.jpg' %}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{% static 'Assets/dronza_images/dronza_logo.jpg' %}" class="img-circle elevation-2"
+                         alt="User Image">
                 </div>
                 <div class="info">
                     <a class="d-block text-greeno font-weight-bold">{{ user.username }}</a>
                 </div>
             </div>
-
 
 
             <!-- Sidebar Menu -->
@@ -123,7 +129,8 @@
                     <li class="nav-item">
                         <a href="/" class="nav-link bg-greeno" target="_blank">
                             <i class="fas fa-box white"></i>
-                            <p class="text-greeno px-2"> Your Website</p><hr>
+                            <p class="text-greeno px-2"> Your Website</p>
+                            <hr>
                         </a>
                     </li>
 
@@ -177,7 +184,8 @@
                     <li class="nav-item ">
                         <a href="/adminVideoGallery" class="nav-link bg-greeno">
                             <i class="far fa-address-card white"></i>
-                            <p class="text-greeno px-2">Home Video Gallery</p><hr>
+                            <p class="text-greeno px-2">Home Video Gallery</p>
+                            <hr>
                         </a>
                     </li>
 
@@ -190,9 +198,20 @@
 
 
                     <li class="nav-item ">
+                        <a href="/adminSellerProducts" class="nav-link bg-greeno">
+                            <i class="far fa-address-card white"></i>
+                            <p class="text-greeno px-2">Seller Products</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item ">
                         <a href="#" class="nav-link bg-greeno">
                             <i class="far fa-address-card white"></i>
-                            <p class="text-greeno px-2"><del>Drone Parts</del></p><hr>
+                            <p class="text-greeno px-2">
+                                <del>Drone Parts</del>
+                            </p>
+                            <hr>
                         </a>
                     </li>
 
@@ -254,7 +273,8 @@
                     <li class="nav-item">
                         <a href="/adminpricing" class="nav-link bg-greeno">
                             <i class="far fa-hand-point-right white"></i>
-                            <p class="text-greeno px-2">Pricing</p><hr>
+                            <p class="text-greeno px-2">Pricing</p>
+                            <hr>
                         </a>
                     </li>
 
@@ -265,7 +285,7 @@
                         </a>
                     </li>
 
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a href="/user_comments" class="nav-link bg-greeno">
                             <i class="fas fa-blog white"></i>
                             <p class="text-greeno px-2">Blog Comments</p>
@@ -284,7 +304,8 @@
                     <li class="nav-item">
                         <a href="/orders" class="nav-link bg-greeno">
                             <i class="fas fa-share-alt white"></i>
-                            <p class="text-greeno px-2">Orders</p><hr>
+                            <p class="text-greeno px-2">Orders</p>
+                            <hr>
                         </a>
                     </li>
 
@@ -294,7 +315,6 @@
                             <p class="text-greeno px-2">User's List</p>
                         </a>
                     </li>
-
 
 
                     </li>
@@ -307,11 +327,7 @@
     </aside>
 
 
-
-
-
     <div class="content-wrapper bg-white">
-
 
 
         {% block header %} {% endblock header %}
@@ -321,11 +337,7 @@
         {% block content %}  {% endblock content %}
 
 
-
     </div>
-
-
-
 
 
     <footer class="main-footer">
@@ -368,7 +380,7 @@
 <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 
 <script>
-    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace('editor1');
 </script>
 
 
@@ -385,6 +397,6 @@
             }
         });
     });
- </script>
+</script>
 
 </html>

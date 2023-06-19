@@ -1,0 +1,152 @@
+{% extends 'baseAdmin.html' %}
+
+
+{% load static %}
+
+{% block title %} <title>Seller Products List</title> {% endblock title %}
+
+{% block header %}
+
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-greeno">Seller Products Section</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/adminSellerProducts" class="text-greeno">Seller's List</a></li>
+                        <li class="breadcrumb-item text-aspire">Seller Products</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="card shadow-lg rounded">
+                <div class="card-header text-center bg-greeno">
+                    <b class="text-danger">User Detail</b>
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <b>Username:</b> {{ User_Record.username }}
+                        </div>
+                        <div class="col-md-4">
+                            <b>First Name:</b> {{ User_Record.first_name }}
+                        </div>
+                        <div class="col-md-4">
+                            <b>Last Name:</b> {{ User_Record.last_name }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <b>Email:</b> {{ User_Record.email }}
+                        </div>
+                        <div class="col-md-4">
+                            {% if User_Record.is_active == True %}
+                            <b>Active:</b> <i class="fa fa-check text-success"></i>
+                            {% else %}
+                             <b>Active:</b> <i class="fa fa-times-circle text-danger"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            {% if User_Record.is_staff == True %}
+                            <b>Staff:</b> <i class="fa fa-check text-success"></i>
+                            {% else %}
+                             <b>Staff:</b> <i class="fa fa-times-circle text-danger"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <b>Date Joined:</b> {{ User_Record.date_joined }}
+                        </div>
+                        <div class="col-md-6">
+                            <b>Last Login:</b> {{ User_Record.last_login }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <label><b>User Hashes:</b></label>
+                            <p>{{ User_Record.password }}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+
+        <table class="table table-hover table-bordered mt-5">
+            <thead class="bg-greeno white">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Location</th>
+                <th scope="col">Product</th>
+                <th scope="col">Thumbnail</th>
+                <th scope="col" class="text-center">Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in Record %}
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.status }}</td>
+                    <td>{{ data.location }}</td>
+                    <td>{{ data.title }}</td>
+                    <td><img src="{{ data.thumbnail.url }}" style="width: 50px; height: 50px;"></td>
+                    <td class="text-center">
+                        <a class="text-center mx-2" href="/Update/{{ data.id }}/Seller_Products"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
+                        <a class="text-center mx-2" href="/Delete/{{ data.id }}/Seller_Products"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+     <ul class="pagination m-b0 p-b0 white">
+
+    {% if Record.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page={{ Record.previous_page_number }}"><span style="color:#db253b;">Previous</span></a></li>
+    {% endif %}
+
+       <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="/sellerProductsList/{{ User_Record.id }}?page=1"><span style="color:#db253b;">First</span></a></li>
+
+
+    {% for tpl in pageList %}
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="/sellerProductsList/{{ User_Record.id }}?page={{ tpl }}"><span style="color:#db253b;">{{ tpl }}</span></a></li>
+    {% endfor %}
+
+    {% if Record.has_next  %}
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="?page={{ Record.next_page_number }}"><span style="color:#db253b;">Next</span></a></li>
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="?page={{ lastPage }}"><span style="color:#db253b;">Last</span></a></li>
+    {% endif %}
+
+ </ul>
+
+    </div>
+
+{% endblock content %}

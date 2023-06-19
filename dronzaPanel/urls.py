@@ -7,6 +7,7 @@ urlpatterns = [
         path('adminHowToUse', views.adminHowToUse, name="adminHowToUse"),
         path('adminHomeAbout', views.adminHomeAbout, name="adminHomeAbout"),
         path('adminDroneProducts', views.adminDroneProducts, name="adminDroneProducts"),
+        path('adminSellerProducts', views.admin_seller_products, name="adminSellerProducts"),
         path('adminHomeSRFP', views.adminHomeSRFP, name="adminHomeSRFP"),
         path('adminVideoGallery', views.adminVideoGallery, name="adminVideoGallery"),
         path('adminPeopleSay', views.adminPeopleSay, name="adminPeopleSay"),

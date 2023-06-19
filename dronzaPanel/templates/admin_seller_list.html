@@ -1,0 +1,89 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Seller List</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Seller Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire">Seller List</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+
+    <table class="table table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Last Login</th>
+      <th scope="col">Joined Date</th>
+      <th scope="col" class="text-center">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in all_user_list %}
+    <tr>
+      <td>{{ data.username }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.last_login }}</td>
+      <td>{{ data.date_joined }}</td>
+     <td class="text-center">
+         <a class="text-center mx-2" href="/sellerProductsList/{{ data.id }}"><i class="fa fa-eye fa-lg" style="color: green;"> View Products</i> </a>
+     </td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+
+     <ul class="pagination m-b0 p-b0 white">
+
+    {% if all_user_list.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page={{ all_user_list.previous_page_number }}"><span style="color:#db253b;">Previous</span></a></li>
+    {% endif %}
+
+       <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="/adminSellerProducts?page=1"><span style="color:#db253b;">First</span></a></li>
+
+
+    {% for tpl in pageList %}
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="/adminSellerProducts?page={{ tpl }}"><span style="color:#db253b;">{{ tpl }}</span></a></li>
+    {% endfor %}
+
+    {% if all_user_list.has_next  %}
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="?page={{ all_user_list.next_page_number }}"><span style="color:#db253b;">Next</span></a></li>
+          <li class="page-item" style="color:#db253b; border: 1px #db253b;"><a class="page-link" href="?page={{ lastPage }}"><span style="color:#db253b;">Last</span></a></li>
+    {% endif %}
+
+ </ul>
+
+
+</div>
+
+
+
+
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 {% extends 'baseHome.html' %}
 
 {% block title %} <title>Update your drone product</title> {% endblock title %}
-{% load  static %}
+{% load static %}
 
 {% block content %}
 
@@ -10,7 +10,8 @@
     <div class="page-content">
 
         <!-- INNER PAGE BANNER -->
-        <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
+        <div class="wt-bnr-inr overlay-wraper bg-center"
+             style="background-image:url({% static 'Assets/dronza_images/banner/5.jpg' %});">
             <div class="overlay-main site-bg-secondry opacity-09"></div>
             <div class="container">
                 <div class="wt-bnr-inr-entry">
@@ -93,7 +94,8 @@
                                         <div class="col-12">
                                             <label>Product Title</label>
                                             <input type="text" class="form-control" name="title" required="required"
-                                                   value="{{ Record.title }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                   value="{{ Record.title }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                     </div>
@@ -101,7 +103,8 @@
                                     <div class="row mb-3">
                                         <div class="col-4">
                                             <label>Category</label>
-                                            <select class="form-control" name="category" required style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <select class="form-control" name="category" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                                 <option value="{{ Record.category }}">{{ Record.category }}</option>
                                                 <option value="Metal">Metal</option>
                                                 <option value="Fabric">Fabric</option>
@@ -114,7 +117,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>Condition</label>
-                                            <select class="form-control" name="condition" required style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <select class="form-control" name="condition" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                                 <option value="{{ Record.condition }}">{{ Record.condition }}</option>
                                                 <option value="Mint">Mint</option>
                                                 <option value="Good">Good</option>
@@ -123,7 +127,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>Status</label>
-                                            <select class="form-control" name="status" required style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                            <select class="form-control" name="status" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
                                                 <option value="{{ Record.status }}">{{ Record.status }}</option>
                                                 <option value="Available">Available</option>
                                                 <option value="Sold">Sold</option>
@@ -139,19 +144,22 @@
                                         <div class="col-4">
                                             <label>Price</label>
                                             <input type="text" class="form-control" name="price" required="required"
-                                                   value="{{ Record.price }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                   value="{{ Record.price }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                         <div class="col-4">
                                             <label>Color</label>
                                             <input type="text" class="form-control" name="color" required="required"
-                                                   value="{{ Record.color }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                   value="{{ Record.color }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                         <div class="col-4">
                                             <label>Brand</label>
                                             <input type="text" class="form-control" name="brand" required="required"
-                                                   value="{{ Record.brand }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                   value="{{ Record.brand }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                     </div>
@@ -161,19 +169,27 @@
 
                                         <div class="col-3">
                                             <label>Label</label>
-                                            <input type="text" class="form-control" name="label1" value="{{ Record.label1 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="label1"
+                                                   value="{{ Record.label1 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Input</label>
-                                            <input type="text" class="form-control" name="input1" value="{{ Record.input1 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="input1"
+                                                   value="{{ Record.input1 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Label</label>
-                                            <input type="text" class="form-control" name="label2" value="{{ Record.label2 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="label2"
+                                                   value="{{ Record.label2 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Input</label>
-                                            <input type="text" class="form-control" name="input2" value="{{ Record.input2 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="input2"
+                                                   value="{{ Record.input2 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                     </div>
@@ -183,19 +199,27 @@
 
                                         <div class="col-3">
                                             <label>Label</label>
-                                            <input type="text" class="form-control" name="label3" value="{{ Record.label3 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="label3"
+                                                   value="{{ Record.label3 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Input</label>
-                                            <input type="text" class="form-control" name="input3" value="{{ Record.input3 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="input3"
+                                                   value="{{ Record.input3 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Label</label>
-                                            <input type="text" class="form-control" name="label4" value="{{ Record.label4 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="label4"
+                                                   value="{{ Record.label4 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
                                         <div class="col-3">
                                             <label>Input</label>
-                                            <input type="text" class="form-control" name="input4" value="{{ Record.input4 }}" style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <input type="text" class="form-control" name="input4"
+                                                   value="{{ Record.input4 }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                         </div>
 
                                     </div>
@@ -204,7 +228,25 @@
                                     <div class="row mb-4">
                                         <div class="col-12">
                                             <label>Description</label>
-                                            <textarea type="text" class="form-control" name="description" required style="border: 1px solid #D4D4D4; border-radius: 3px;">{{ Record.description }}</textarea>
+                                            <textarea type="text" class="form-control" name="description" required
+                                                      style="border: 1px solid #D4D4D4; border-radius: 3px;">{{ Record.description }}</textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label>Edit Files <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="edit_file" id="editFiles1">
+                                            <option value="False">NO</option>
+                                            <option value="True">YES</option>
+
+                                        </select>
+
+                                        <div id="editFiles">
+                                            <div class="row mt-4 container">
+                                                <label>Edit Files:</label>
+                                                <input type="file" class="form-control" name="thumbnail">
+                                            </div>
                                         </div>
 
                                     </div>
@@ -222,7 +264,6 @@
 
                                 </div>
                             </form>
-
 
 
                         </div>

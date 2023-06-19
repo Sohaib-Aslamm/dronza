@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.db.models import Q
 from django.core.paginator import Paginator
-from dronzaPanel.models import SocialMedia, userBlog, seoTags
+from dronzaPanel.models import SocialMedia, userBlog
 from home.models import sellYourDrone, sellYourDroneImages
 from django.urls import reverse
 
@@ -41,7 +42,12 @@ def customerProduct(request):
             sellYourDroneImages.objects.create(images=f, Product_ID_id=latest_id)
 
     user_id = request.user.id
-    SYDProducts = sellYourDrone.objects.filter(user_id=user_id)
+    SYDProducts = sellYourDrone.objects.filter(
+                                                Q(user_id=user_id) &
+                                                Q(status='Available') |
+                                                Q(status='Featured')
+                                            ).order_by('-id')
+
     paginator = Paginator(SYDProducts, 8)
     pageNo = request.GET.get('page')
     SYDProductsFINAL = paginator.get_page(pageNo)
