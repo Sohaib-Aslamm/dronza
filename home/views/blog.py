@@ -16,8 +16,8 @@ def blog(request):
     recent_posts = userBlog.objects.order_by('-sNo')[:2]
     popular_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
     featured_products = Products.objects.filter(featured='Featured').order_by('-id')[:4]
-
     SMDT = SocialMedia.objects.all()
+
     current_page = request.GET.get('page')
     canonical_link = reverse('blog')  # Assuming 'blog' is the name of your URL pattern
 
