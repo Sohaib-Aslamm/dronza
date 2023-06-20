@@ -3,17 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/customerProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/dronzaShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/update/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/update/customerProducts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views/customer_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/customer_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/shop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +238,7 @@
       <workItem from="1687188898899" duration="9202000" />
       <workItem from="1687237091188" duration="598000" />
       <workItem from="1687255125761" duration="489000" />
-      <workItem from="1687255806918" duration="4229000" />
+      <workItem from="1687255806918" duration="5147000" />
     </task>
     <servers />
   </component>

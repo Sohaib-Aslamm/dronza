@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from dronzaPanel.models import MainSlider
 from home.models import sellYourDrone
 
 
@@ -35,4 +37,5 @@ def UpdatebyUUID(request, type, slug):
 
             Record.save()
             return redirect('/customer-product')
-        return render(request, 'update/customerProducts.html', {'Record': Record})
+        SLIDER = MainSlider.objects.filter(page='edit_customer_product_page')
+        return render(request, 'update/customerProducts.html', {'Record': Record, 'SLIDER': SLIDER})

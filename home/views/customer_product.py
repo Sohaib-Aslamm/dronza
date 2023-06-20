@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.core.paginator import Paginator
-from dronzaPanel.models import SocialMedia, userBlog
+from dronzaPanel.models import SocialMedia, userBlog, MainSlider
 from home.models import sellYourDrone, sellYourDroneImages
 from django.urls import reverse
 
@@ -53,6 +53,7 @@ def customerProduct(request, page_number=None):
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
+    SLIDER = MainSlider.objects.filter(page='customer_product_page')
 
     canonical_link = reverse('customer-product')  # Assuming 'blog' is the name of your URL pattern
 
@@ -72,6 +73,7 @@ def customerProduct(request, page_number=None):
         'pageList': [n + 1 for n in range(totalPages)],
         'RCPST': RCPST,
         'SMDT': SMDT,
-        'SEOTAGS': SEOTAGS
+        'SEOTAGS': SEOTAGS,
+        'SLIDER': SLIDER
     }
     return render(request, 'customerProducts.html', context)
