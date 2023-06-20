@@ -163,22 +163,22 @@
 
                         {% if sellerProducts.has_previous %}
                             <li class="page-item"><a class="page-link"
-                                                     href="?page={{ sellerProducts.previous_page_number }}">Previous</a>
+                                                     href="/sell-drones/page/{{ sellerProducts.previous_page_number }}">Previous</a>
                             </li>
                         {% endif %}
 
-                        <li class="page-item"><a class="page-link" href="/sell-drones?page=1">First</a></li>
+                        <li class="page-item"><a class="page-link" href="/sell-drones/page/1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                            <li class="page-item"><a class="page-link" href="/sell-drones?page={{ tpl }}">{{ tpl }}</a>
+                            <li class="page-item"><a class="page-link" href="/sell-drones/page/{{ tpl }}">{{ tpl }}</a>
                             </li>
                         {% endfor %}
 
                         {% if sellerProducts.has_next %}
                             <li class="page-item"><a class="page-link"
-                                                     href="?page={{ sellerProducts.next_page_number }}">Next</a></li>
-                            <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
+                                                     href="/sell-drones/page/{{ sellerProducts.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="/sell-drones/page/{{ lastPage }}">Last</a></li>
 
 
                         {% endif %}

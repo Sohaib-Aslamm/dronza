@@ -6,10 +6,9 @@ from home.models import blog_Review
 from django.urls import reverse
 
 
-def blog(request):
+def blog(request, page_number=None):
     blog_data = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')
     paginator = Paginator(blog_data, 9)
-    page_number = request.GET.get('page')
     blog_data_final = paginator.get_page(page_number)
     total_pages = blog_data_final.paginator.num_pages
 
@@ -19,11 +18,10 @@ def blog(request):
     SMDT = SocialMedia.objects.all()
     SLIDER = MainSlider.objects.filter(page='blog_page')
 
-    current_page = request.GET.get('page')
     canonical_link = reverse('blog')  # Assuming 'blog' is the name of your URL pattern
 
-    if current_page:
-        canonical_link += f'?page={current_page}'
+    if page_number:
+        canonical_link += f'/page/{page_number}'
 
     SEOTAGS = [{
         'title': "Latest Drone News, Tips, and Insights",

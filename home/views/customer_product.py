@@ -6,7 +6,7 @@ from home.models import sellYourDrone, sellYourDroneImages
 from django.urls import reverse
 
 
-def customerProduct(request):
+def customerProduct(request, page_number=None):
     if request.method == 'POST':
 
         form_data = {
@@ -49,17 +49,15 @@ def customerProduct(request):
                                             ).order_by('-id')
 
     paginator = Paginator(SYDProducts, 8)
-    pageNo = request.GET.get('page')
-    SYDProductsFINAL = paginator.get_page(pageNo)
+    SYDProductsFINAL = paginator.get_page(page_number)
     totalPages = SYDProductsFINAL.paginator.num_pages
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
 
-    current_page = request.GET.get('page')
     canonical_link = reverse('customer-product')  # Assuming 'blog' is the name of your URL pattern
 
-    if current_page:
-        canonical_link += f'?page={current_page}'
+    if page_number:
+        canonical_link += f'/page/{page_number}'
 
     SEOTAGS = [{
         'title': "Customer Product Management Panel | Dronza",

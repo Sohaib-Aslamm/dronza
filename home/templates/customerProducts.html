@@ -89,19 +89,19 @@
 						 <ul class="pagination m-b0 p-b0">
 
                             {% if SYDProducts.has_previous %}
-                          <li class="page-item"><a class="page-link" href="?page={{ SYDProducts.previous_page_number }}">Previous</a></li>
+                          <li class="page-item"><a class="page-link" href="/customer-product/page/{{ SYDProducts.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/customer-product?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/customer-product/page/1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/customer-product?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/customer-product/page/{{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if SYDProducts.has_next  %}
-                          <li class="page-item"><a class="page-link" href="?page={{ SYDProducts.next_page_number }}">Next</a></li>
-                          <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
+                          <li class="page-item"><a class="page-link" href="/customer-product/page/{{ SYDProducts.next_page_number }}">Next</a></li>
+                          <li class="page-item"><a class="page-link" href="/customer-product/page/{{ lastPage }}">Last</a></li>
                             {% endif %}
 
                         </ul>

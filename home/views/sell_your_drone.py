@@ -6,24 +6,22 @@ from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags, MainSli
 from django.urls import reverse
 
 
-def sellDrones(request):
+def sellDrones(request, page_number=None):
     sellerProducts = sellYourDrone.objects.filter(
                                                     Q(status='Available') |
                                                     Q(status='Featured')
                                                 ).order_by('-id')
     paginator = Paginator(sellerProducts, 8)
-    pageNo = request.GET.get('page')
-    sellerProductsFINAL = paginator.get_page(pageNo)
+    sellerProductsFINAL = paginator.get_page(page_number)
     totalPages = sellerProductsFINAL.paginator.num_pages
     Product_Category = sellYourDrone.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
     SMDT = SocialMedia.objects.all()
     SLIDER = MainSlider.objects.filter(page='sell_drones_page')
 
-    current_page = request.GET.get('page')
     canonical_link = reverse('sell-drones')  # Assuming 'blog' is the name of your URL pattern
-    if current_page:
-        canonical_link += f'?page={current_page}'
+    if page_number:
+        canonical_link += f'/page/{page_number}'
     SEOTAGS = [{
         'title': "Sell Your Drone or Accessories on DronZa - List for Free!",
         'description': "List your drone for sale free of cost on our platform. Take advantage of this unique feature provided by DronZa to sell your drone hassle-free.",

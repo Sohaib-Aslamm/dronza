@@ -142,23 +142,23 @@
 
                         {% if dronzaProductsFINAL.has_previous %}
                             <li class="page-item"><a class="page-link"
-                                                     href="?page={{ dronzaProductsFINAL.previous_page_number }}">Previous</a>
+                                                     href="/shop/page/={{ dronzaProductsFINAL.previous_page_number }}">Previous</a>
                             </li>
                         {% endif %}
 
-                        <li class="page-item"><a class="page-link" href="/shop?page=1">First</a></li>
+                        <li class="page-item"><a class="page-link" href="/shop/page/1">First</a></li>
 
 
                         {% for tpl in dronzapageList %}
-                            <li class="page-item"><a class="page-link" href="/shop?page={{ tpl }}">{{ tpl }}</a>
+                            <li class="page-item"><a class="page-link" href="/shop/page/{{ tpl }}">{{ tpl }}</a>
                             </li>
                         {% endfor %}
 
                         {% if dronzaProductsFINAL.has_next %}
                             <li class="page-item"><a class="page-link"
-                                                     href="?page={{ dronzaProductsFINAL.next_page_number }}">Next</a>
+                                                     href="/shop/page/{{ dronzaProductsFINAL.next_page_number }}">Next</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="?page={{ dronzalastPage }}">Last</a></li>
+                            <li class="page-item"><a class="page-link" href="/shop/page/{{ dronzalastPage }}">Last</a></li>
                         {% endif %}
 
                     </ul>

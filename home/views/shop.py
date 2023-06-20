@@ -4,11 +4,10 @@ from dronzaPanel.models import Products, SocialMedia, userBlog, MainSlider
 from django.urls import reverse
 
 
-def shop(request):
+def shop(request, page_number=None):
     dronzaProducts = Products.objects.all().order_by('-id')
     dronzapaginator = Paginator(dronzaProducts, 50)
-    dronzapageNo = request.GET.get('page')
-    dronzaProductsFINAL = dronzapaginator.get_page(dronzapageNo)
+    dronzaProductsFINAL = dronzapaginator.get_page(page_number)
     dronzatotalPages = dronzaProductsFINAL.paginator.num_pages
     DRONZATGRY = Products.objects.values('category').distinct()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
@@ -16,11 +15,10 @@ def shop(request):
     FEATURED = Products.objects.filter(featured='Featured')
     SLIDER = MainSlider.objects.filter(page='shop_page')
 
-    current_page = request.GET.get('page')
     canonical_link = reverse('shop')  # Assuming 'blog' is the name of your URL pattern
 
-    if current_page:
-        canonical_link += f'?page={current_page}'
+    if page_number:
+        canonical_link += f'/page/{page_number}'
 
     SEOTAGS = [{
         'title': "Dronza - Shop Drones and Drone Accessories",
