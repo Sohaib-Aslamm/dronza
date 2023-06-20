@@ -1,10 +1,10 @@
 from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm, ServicesTypeForm, PricingForm, \
      GalleryForm, SocialMediaForm, MainSliderForm, HomeHIWForm, HomeHTUForm, HomeAboutForm, \
-     HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, SEOTagsForm
+     HomeSRFPForm, VideoGalleryForm, WhatPeopleSForm, OurPartnerForm, SEOTagsForm, EmailContentForm
 
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
-    seoTags
+    seoTags, EmailContent
 
 from home.models import sellYourDrone
 
@@ -318,3 +318,15 @@ def Update(request, id, type):
             UpdateRecord = seoTags.objects.get(id=id)
             UpdateForm = SEOTagsForm(instance=UpdateRecord)
         return render(request, 'Update/UpdateSEOTags.html', {'form': UpdateForm})
+
+    if type == 'email_content':
+        if request.method == 'POST':
+            UpdateRecord = EmailContent.objects.get(id=id)
+            UpdateForm = EmailContentForm(request.POST, request.FILES, instance=UpdateRecord)
+            if UpdateForm.is_valid():
+                UpdateForm.save()
+                return redirect('/admin-email-content')
+        else:
+            UpdateRecord = EmailContent.objects.get(id=id)
+            UpdateForm = EmailContentForm(instance=UpdateRecord)
+        return render(request, 'Update/updateEmailContent.html', {'form': UpdateForm})

@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 
 from dronzaPanel.decorators import unauthenticated_user, admin_only, custom_login_required
 from django.contrib import messages
-from home.definedEmails import *
+from home.email_and_slack_messages import Communication_Utils, Email_Content
 
 # Create your views here
 
@@ -32,7 +32,12 @@ def UserRegister(request):
             group = Group.objects.get(name='Customer')
             user.groups.add(group)
 
-            notify_user_registration(username, email)
+            user = User.objects.get(username=username)
+
+            # send email
+            subject, message, html_message = Email_Content.welcome_email(user)
+            Communication_Utils.email_sender(user, subject, message, html_message)
+
             messages.success(request, f'Hey! {username}, your account has been created successfully')
             return redirect('/user-login')
     else:

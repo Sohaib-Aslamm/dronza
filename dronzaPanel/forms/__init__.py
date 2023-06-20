@@ -16,3 +16,4 @@ from .gallery import *
 from .social_media import *
 from .blog import *
 from .seo_tags import *
+from .email_content import *

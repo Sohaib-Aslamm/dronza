@@ -1,6 +1,6 @@
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
-    seoTags
+    seoTags, EmailContent
 
 from django.contrib.auth.models import User
 
@@ -140,3 +140,8 @@ def Delete(request, id, type):
         DeleteRecord = seoTags.objects.get(id=id)
         DeleteRecord.delete()
         return redirect('/seotags')
+
+    if type == 'email_content':
+        DeleteRecord = EmailContent.objects.get(id=id)
+        DeleteRecord.delete()
+        return redirect('/admin-email-content')

@@ -1,6 +1,7 @@
 from .accounts import *
 from .panel_home import *
 from .communication import *
+from .email_content import *
 from .products import *
 from .seller_products_list import *
 from .client_people_partner import *
