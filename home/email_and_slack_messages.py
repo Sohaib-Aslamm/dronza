@@ -20,7 +20,7 @@ class Communication_Utils():
 class Email_Content():
     @classmethod
     def welcome_email(cls, user):
-        obj = EmailContent.objects.filter(name="welcome_email")
+        obj = EmailContent.objects.filter(name="welcome_email").first()
         if obj:
             subject = obj.subject
             message = obj.message
