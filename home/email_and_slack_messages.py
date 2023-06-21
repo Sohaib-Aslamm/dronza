@@ -8,7 +8,7 @@ class Communication_Utils():
     def email_sender(cls, user, subject, message, html_message=None) -> object:
         try:
             from_email = 'Dronza <no_reply@dronza.org>'
-            msg = EmailMultiAlternatives(subject, message, from_email, user.email)
+            msg = EmailMultiAlternatives(subject, message, from_email, [user.email])
             html_message = html_message
             msg.attach_alternative(html_message, "text/html")
             msg.send()

@@ -28,12 +28,11 @@ def UserRegister(request):
                 messages.error(request, 'Email already exists')
                 return render(request, 'User_Register.html', {'form': form})
 
-            user = form.save()
+            save_user = form.save()
             group = Group.objects.get(name='Customer')
-            user.groups.add(group)
+            save_user.groups.add(group)
 
             user = User.objects.get(username=username)
-
             # send email
             from home.email_and_slack_messages import Communication_Utils, Email_Content
             subject, message, html_message = Email_Content.welcome_email(user)
