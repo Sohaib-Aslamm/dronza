@@ -10,8 +10,8 @@ class Communication_Utils():
     @classmethod
     def email_sender(cls, user, subject, message, html_message=None) -> object:
         try:
-
-            msg = EmailMultiAlternatives(subject, message, settings.EMAIL_HOST_USER, [user.email])
+            from_email = 'Dronza <no_reply@dronza.org>'
+            msg = EmailMultiAlternatives(subject, message, from_email, [user.email])
             img_content = Email_Content.get_image_contents('static/Assets/dronza_images/dronza_red.png')
             img_tag = '<img src= "cid:logo" width="200px"/>'
             html_message = img_tag + html_message

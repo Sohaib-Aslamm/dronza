@@ -8,7 +8,6 @@ from django.shortcuts import render, redirect
 
 from dronzaPanel.decorators import unauthenticated_user, admin_only, custom_login_required
 from django.contrib import messages
-from home.email_and_slack_messages import Communication_Utils, Email_Content
 
 # Create your views here
 
@@ -35,6 +34,7 @@ def UserRegister(request):
             user = User.objects.get(username=username)
 
             # send email
+            from home.email_and_slack_messages import Communication_Utils, Email_Content
             subject, message, html_message = Email_Content.welcome_email(user)
             Communication_Utils.email_sender(user, subject, message, html_message)
 
