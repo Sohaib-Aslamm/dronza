@@ -69,7 +69,7 @@ def DetailRecord(request, type, slug):
         SMDT = SocialMedia.objects.all()
         SLIDER = MainSlider.objects.filter(page='sell_drones_detail_page')
         SEOTAGS = [{'title': Record.title, 'description': Record.description[:160], 'tags': Record.title,
-                    'canonical_link': f'https://dronza.org/sellDrones/{Record.slug}'}]
+                    'canonical_link': f'https://dronza.org/sell-drones/{Record.slug}'}]
 
         context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS,
                    'SLIDER': SLIDER}
