@@ -12,6 +12,7 @@ from django.contrib import messages
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+from home.definedEmails import notify_user_registration
 
 
 @unauthenticated_user
@@ -34,9 +35,10 @@ def UserRegister(request):
             user = User.objects.get(username=username)
 
             # send email
-            from home.email_and_slack_messages import Communication_Utils, Email_Content
-            subject, message, html_message = Email_Content.welcome_email(user)
-            Communication_Utils.email_sender(user, subject, message, html_message)
+            # from home.email_and_slack_messages import Communication_Utils, Email_Content
+            # subject, message, html_message = Email_Content.welcome_email(user)
+            # Communication_Utils.email_sender(user, subject, message, html_message)
+            notify_user_registration(username, email)
 
             messages.success(request, f'Hey! {username}, your account has been created successfully')
             return redirect('/user-login')
