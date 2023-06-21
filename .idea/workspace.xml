@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/forms/email_content.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/models/email_content.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateEmailContent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/admin_email_content.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/email_content.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/email_and_slack_messages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/forms/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/checkout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +234,7 @@
       <workItem from="1687188898899" duration="9202000" />
       <workItem from="1687237091188" duration="598000" />
       <workItem from="1687255125761" duration="489000" />
-      <workItem from="1687255806918" duration="17194000" />
+      <workItem from="1687255806918" duration="19029000" />
     </task>
     <servers />
   </component>
