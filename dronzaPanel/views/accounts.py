@@ -12,7 +12,6 @@ from django.contrib import messages
 # Create your views here
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-from home.definedEmails import notify_user_registration
 
 
 @unauthenticated_user
@@ -66,7 +65,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('/user-login')
+    return redirect('/')
 
 
 @custom_login_required
