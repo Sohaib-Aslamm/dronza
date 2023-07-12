@@ -4,7 +4,7 @@ from dronzaPanel.forms import AboutTitlePostForm, QualityTrustForm, OurTeamForm,
 
 from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, ServicesTypes, Pricing, Gallery, userBlog, \
     SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, HomeSRFP, VideoGallery, WhatPeopleSay, OurPartner, \
-    seoTags, EmailContent
+    seoTags, EmailContent, PrivacyPolicy
 
 from home.models import sellYourDrone
 
@@ -330,3 +330,15 @@ def Update(request, id, type):
             UpdateRecord = EmailContent.objects.get(id=id)
             UpdateForm = EmailContentForm(instance=UpdateRecord)
         return render(request, 'Update/updateEmailContent.html', {'form': UpdateForm})
+
+    if type == 'privacy_policy':
+        UpdateForm = PrivacyPolicy.objects.get(id=id)
+        if request.method == 'POST':
+            UpdateForm.title = request.POST.get('title')
+            UpdateForm.heading = request.POST.get('heading')
+            UpdateForm.description = request.POST.get('editor1')
+            UpdateForm.save()
+            return redirect('/adminprivacypolicy')
+
+        return render(request, 'Update/updatePrivacyPolicy.html', {'form': UpdateForm})
+

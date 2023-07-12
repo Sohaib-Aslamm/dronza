@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/models/privacy_policy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/Update/updatePrivacyPolicy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/templates/adminPrivacyPolicy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/views/privacy_policy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/privacy_policy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/privacy_policy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -239,7 +252,8 @@
       <workItem from="1687341181392" duration="1303000" />
       <workItem from="1687365647264" duration="1586000" />
       <workItem from="1687414776435" duration="4000" />
-      <workItem from="1687848470853" duration="2735000" />
+      <workItem from="1687848470853" duration="3046000" />
+      <workItem from="1689141572943" duration="4543000" />
     </task>
     <servers />
   </component>
@@ -257,6 +271,17 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dronzaPanel/views/privacy_policy.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

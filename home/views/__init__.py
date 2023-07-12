@@ -13,3 +13,4 @@ from .delete_record import *
 from .update_record import *
 from .sell_your_drone import *
 from .product_and_blog_reviews import *
+from .privacy_policy import *

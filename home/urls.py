@@ -14,6 +14,7 @@ urlpatterns = [
     path('search-blog', views.search_blog, name="search-blog"),
     path('contact-us', views.contactus, name="contact-us"),
     path('sell-drones', views.sellDrones, name="sell-drones"),
+    path('privacy-policy', views.privacy_policy, name="privacy-policy"),
     path('prodReview', views.prodReview, name="prodReview"),
     path('blogReview', views.blogReview, name="blogReview"),
     path('thank-you', views.thankyou, name="thank-you"),

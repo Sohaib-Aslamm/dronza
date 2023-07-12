@@ -19,4 +19,5 @@ from .social_media import *
 from .blog import *
 from .seo_tags import *
 from .email_content import *
+from .privacy_policy import *
 

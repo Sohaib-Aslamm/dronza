@@ -20,6 +20,7 @@ urlpatterns = [
         path('admingallery', views.adminGallery, name="admingallery"),
         path('adminsocialmedia', views.adminsocial_media, name="adminsocialmedia"),
         path('adminblog', views.adminuser_blog, name="adminblog"),
+        path('adminprivacypolicy', views.privacy_policy, name="adminprivacypolicy"),
         path('user_comments', views.user_comments, name="user_comments"),
         path('orders', views.orders, name="orders"),
         path('seotags', views.SEOTags, name="seotags"),

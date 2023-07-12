@@ -11,3 +11,4 @@ from .delete_record import *
 from .update_record import *
 from .blog import *
 from .seotags import *
+from .privacy_policy import *

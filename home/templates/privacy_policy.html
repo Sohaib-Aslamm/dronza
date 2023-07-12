@@ -1,0 +1,69 @@
+{% extends 'baseHome.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- INNER PAGE BANNER -->
+            {% for slider in SLIDER %}
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
+            	<div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                    	<div class="banner-title-outer">
+                        	<div class="banner-title-name">
+                        		<h2 class="site-text-white">{{ slider.title }}</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                            <div>
+                                <ul class="wt-breadcrumb breadcrumb-style-2">
+                                    <li><a>Privacy Policy</a></li>
+                                    <li class="text-white">Policy Detail</li>
+                                </ul>
+                            </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- OUR TEAM SINGLE SECTION START -->
+                <div class="section-full p-t80 p-b50 bg-gray">
+                    <div class="container">
+                        <div class="section-content">
+
+                                <div class="section-content">
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 col-md-8 m-b30">
+                                            {% for data in policy %}
+
+                                               <p>{{ data.description | safe }}</p>
+
+                                            {% endfor %}
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- OUR TEAM SINGLE SECTION END -->
+
+
+
+        </div>
+        <!-- CONTENT END -->
+
+{% endblock content %}
