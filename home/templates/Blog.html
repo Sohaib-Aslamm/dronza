@@ -48,7 +48,7 @@
                             {% for post in BLOGDATA %}
                                 <div class="blog-post blog-style-1 blog-list-style">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="/{{ post.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ post.Icon }}" alt="{{ post.tags }}"></a>
+                                        <a href="/{{ post.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ post.Icon }}" alt="{{ post.title }}"></a>
                                     </div>
                                     <div class="wt-post-info">
                                         <div class="wt-post-meta">
@@ -114,7 +114,7 @@
                                             {% for data in Blog_RCPST %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt="{{ data.tags }}"></a>
+                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt="{{ data.title }}"></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">
