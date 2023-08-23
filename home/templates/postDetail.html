@@ -51,12 +51,11 @@
                             {% for data in rdPost %}
                                 <div class="blog-post blog-style-1">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.tags }}"></a>
+                                        <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.title }}"></a>
                                     </div>
                                     <div class="wt-post-info  bg-white p-t30">
                                         <div class="wt-post-meta ">
                                             <ul>
-                                                <li class="post-category">Steel Drone</li>
                                                 <li class="post-date">{{ data.created_at }}</li>
                                             </ul>
                                         </div>
