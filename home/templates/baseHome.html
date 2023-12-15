@@ -42,30 +42,60 @@
           rel="stylesheet">
 
     <style>
-        .text-red {
-            color: #db253b
-        }
 
-        .white {
-
-            color: #db253b;
-            border-color: #db253b;
-            border-radius: 1px;
-        }
-
-        .bg-greeno {
-            background-color: white;
-            border-color: #db253b;
-            border-radius: 1px;
-        }
-
-        .text-greeno {
-
-            color: #db253b;
+        .sell-button {
+            color: #fff;
+            padding: 10px 15px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #d72323;
+            font-size: 15px;
+            font-weight: 700;
         }
 
 
+        /* Add your custom styles here */
+        .user-profile {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 18px 12px;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid whitesmoke;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .user-profile:hover .dropdown-content {
+            display: block;
+        }
     </style>
+
 </head>
 <body>
 
@@ -97,45 +127,6 @@
                         <span class="icon-bar icon-bar-three"></span>
                     </button>
 
-                    <div class="extra-nav header-2-nav">
-
-                        <div class="extra-cell">
-                            <div class="header-nav-request ml-1">
-                                <a href="/cart-detail"><i class="fa fa-shopping-cart" aria-hidden="true">
-                                    <sup>{{ request.session.cart|length }}</sup>
-                                </i></a>
-                            </div>
-
-                        </div>
-                        <div class="extra-cell">
-                            <a href="/sell-drones" class="site-button mt-1">Sell Your Drone</a>
-                        </div>
-
-
-                        <div class="extra-cell">
-
-                            {% if user.is_authenticated %}
-                                <div class="btn-group">
-                                    <button type="button" class="site-button dropdown-toggle" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-user"></i> User
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">{{ user.username }}</a>
-                                        <a class="dropdown-item" href="/user-logout">Logout</a>
-
-                                    </div>
-                                </div>
-
-                            {% else %}
-                                <a href="/user-login" class="site-button"><i class="fa fa-user"></i> Login</a>
-                            {% endif %}
-
-                        </div>
-
-
-                    </div>
-
 
                     <!-- MAIN Vav -->
                     <div class="nav-animation header-nav navbar-collapse collapse justify-content-center">
@@ -146,15 +137,27 @@
 
                             <li><a href="/about">About</a></li>
 
-                            <li><a href="/gallery">Gallery</a></li>
 
                             <li><a href="/services">Services</a></li>
 
-                            <li><a href="/shop">Shop</a></li>
-
-                            <li><a href="/blog">Blog</a></li>
 
                             <li><a href="/contact-us">Contact Us</a></li>
+
+                            <li><a href="/"><span class="sell-button">Sell Your Drones</span></a></li>
+
+                            <li>
+                                 {% if user.is_authenticated %}
+                                <div class="user-profile">
+                                    <img src="{% static 'Assets/dronza_images/team/pic1.jpg' %}" alt="User Profile">
+                                    <div class="dropdown-content">
+                                        <a href="#">{{ user.username }}</a>
+                                        <a href="/user-logout">Logout</a>
+                                    </div>
+                                </div>
+                                     {% else %}
+                                      <li><a href="/user-login"><span class="sell-button">sign up</span></a></li>
+                                {% endif %}
+                            </li>
 
                         </ul>
 
@@ -209,8 +212,10 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/about">About</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
                             <li><a href="/services">Services </a></li>
                             <li><a href="/contact-us">Contact Us </a></li>
+                            <li><a href="/blog">Blog </a></li>
                             <li><a href="/coming-soon">FAQ</a></li>
 
                         </ul>
@@ -315,7 +320,6 @@
 <!-- BUTTON TOP START -->
 <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
 
-</div>
 
 <!-- LOADING AREA START ===== -->
 <div class="loading-area">

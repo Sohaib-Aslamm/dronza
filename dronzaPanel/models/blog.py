@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-import django.utils.timezone
+from django.utils import timezone
 from django.utils.text import slugify
 
 
@@ -14,7 +14,7 @@ class userBlog(models.Model):
     quote_by = models.TextField(default="")
     description = RichTextField(default="")
     Icon = models.ImageField(upload_to='Blog/Icons', default="")
-    created_at = models.DateTimeField(default=django.utils.timezone.now())
+    created_at = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

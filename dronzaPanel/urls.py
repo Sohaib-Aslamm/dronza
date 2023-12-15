@@ -22,7 +22,9 @@ urlpatterns = [
         path('adminblog', views.adminuser_blog, name="adminblog"),
         path('adminprivacypolicy', views.privacy_policy, name="adminprivacypolicy"),
         path('user_comments', views.user_comments, name="user_comments"),
-        path('orders', views.orders, name="orders"),
+
+        # path('orders', views.orders, name="orders"),
+        
         path('seotags', views.SEOTags, name="seotags"),
         path('admin-email-content', views.admin_email_content, name="admin-email-content"),
         path('adminRegister', views.UserRegister, name="adminRegister"),

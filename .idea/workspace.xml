@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +44,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dronza/settings.py" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.stylelint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.stylelint" value="" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
@@ -243,7 +250,14 @@
       <workItem from="1689141572943" duration="6392000" />
       <workItem from="1689229666503" duration="83000" />
       <workItem from="1689229764103" duration="3000" />
-      <workItem from="1692779797591" duration="651000" />
+      <workItem from="1692779797591" duration="1460000" />
+      <workItem from="1692787861999" duration="201000" />
+      <workItem from="1692793035414" duration="489000" />
+      <workItem from="1700328007677" duration="3438000" />
+      <workItem from="1700382275157" duration="876000" />
+      <workItem from="1701285759966" duration="652000" />
+      <workItem from="1701370686044" duration="4717000" />
+      <workItem from="1702667936207" duration="3823000" />
     </task>
     <servers />
   </component>
@@ -260,7 +274,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
