@@ -10,30 +10,30 @@
     <div class="page-content">
 
         <!-- INNER PAGE BANNER -->
-        {% for slider in SLIDER %}
-        <div class="wt-bnr-inr overlay-wraper bg-center"
-             style="background-image:url({{ slider.image.url }});">
-            <div class="overlay-main site-bg-secondry opacity-09"></div>
-            <div class="container">
-                <div class="wt-bnr-inr-entry">
-                    <div class="banner-title-outer">
-                        <div class="banner-title-name">
-                            <h2 class="site-text-white">{{ slider.title }}</h2>
+        {% for slider in main_slider %}
+            <div class="wt-bnr-inr overlay-wraper bg-center"
+                 style="background-image:url({{ slider.image.url }});">
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
+                            </div>
                         </div>
-                    </div>
-                    <!-- BREADCRUMB ROW -->
+                        <!-- BREADCRUMB ROW -->
 
-                    <div>
-                        <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="/customer-product">Your Product List</a></li>
-                            <li class="text-white">Your Products</li>
-                        </ul>
-                    </div>
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/customer-product">Your Product List</a></li>
+                                <li class="text-white">Your Products</li>
+                            </ul>
+                        </div>
 
-                    <!-- BREADCRUMB ROW END -->
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
         <!-- INNER PAGE BANNER END -->
 
@@ -68,12 +68,12 @@
                                         </div>
                                         <div class="col-3">
                                             <label>Primary Contact</label>
-                                            <input type="text" class="form-control" name="pPhone" required="required"
+                                            <input type="tel" class="form-control" name="pPhone" required="required"
                                                    value="{{ Record.pPhone }}" style="border: solid 1px #000000;">
                                         </div>
                                         <div class="col-3">
                                             <label>Secondary Contact</label>
-                                            <input type="text" class="form-control" name="sPhone" required="required"
+                                            <input type="tel" class="form-control" name="sPhone" required="required"
                                                    value="{{ Record.sPhone }}" style="border: solid 1px #000000;">
                                         </div>
 
@@ -82,9 +82,9 @@
                                     <div class="row mb-3">
 
                                         <div class="col-12">
-                                            <label>Enter Your Location</label>
-                                            <input type="text" class="form-control" name="location" required
-                                                   value="{{ Record.location }}" style="border: solid 1px #000000;">
+                                            <label>Enter Your Address</label>
+                                            <input type="text" class="form-control" name="address" required
+                                                   value="{{ Record.address }}" style="border: solid 1px #000000;">
                                         </div>
 
                                     </div>
@@ -107,33 +107,30 @@
                                             <label>Category</label>
                                             <select class="form-control" name="category" required
                                                     style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                                <option value="{{ Record.category }}">{{ Record.category }}</option>
-                                                <option value="Metal">Metal</option>
-                                                <option value="Fabric">Fabric</option>
-                                                <option value="Parts">Parts</option>
-                                                <option value="Plastic">Plastic</option>
-                                                <option value="Titanium">Titanium</option>
-                                                <option value="Parts">Parts</option>
-                                                <option value="Other">Other</option>
+                                                {% for value, label in categories %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.category %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label>Condition</label>
                                             <select class="form-control" name="condition" required
                                                     style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                                <option value="{{ Record.condition }}">{{ Record.condition }}</option>
-                                                <option value="Mint">Mint</option>
-                                                <option value="Good">Good</option>
-                                                <option value="Excellent">Excellent</option>
+                                                {% for value, label in condition %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.condition %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="col-4">
                                             <label>Status</label>
                                             <select class="form-control" name="status" required
                                                     style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                                <option value="{{ Record.status }}">{{ Record.status }}</option>
-                                                <option value="Available">Available</option>
-                                                <option value="Sold">Sold</option>
+                                              {% for value, label in status %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.status %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
 
@@ -152,16 +149,24 @@
 
                                         <div class="col-4">
                                             <label>Color</label>
-                                            <input type="text" class="form-control" name="color" required="required"
-                                                   value="{{ Record.color }}"
-                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <select class="form-control" name="color" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                              {% for value, label in color %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.color %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
 
                                         <div class="col-4">
                                             <label>Brand</label>
-                                            <input type="text" class="form-control" name="brand" required="required"
-                                                   value="{{ Record.brand }}"
-                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                             <select class="form-control" name="brand" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                              {% for value, label in brand %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.brand %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
 
                                     </div>
@@ -238,7 +243,8 @@
 
                                     <div class="row mb-3">
                                         <label>Edit Thumbnail (Optional)</label>
-                                        <select class="form-control" name="edit_file" id="editFiles1"  style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                        <select class="form-control" name="edit_file" id="editFiles1"
+                                                style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                             <option value="False">NO</option>
                                             <option value="True">YES</option>
 
@@ -247,7 +253,8 @@
                                         <div id="editFiles">
                                             <div class="row mt-4 container">
                                                 <label>Edit Files:</label>
-                                                <input type="file" class="form-control" name="thumbnail"  style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                <input type="file" class="form-control" name="thumbnail"
+                                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                             </div>
                                         </div>
 

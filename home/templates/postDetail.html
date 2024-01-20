@@ -1,7 +1,6 @@
 {% extends 'baseHome.html' %}
 
 {% load static %}
-{% get_media_prefix as MEDIA_URL %}
 
 {% block content %}
 
@@ -12,7 +11,7 @@
     <div class="page-content" style="transform: none;">
 
         <!-- INNER PAGE BANNER -->
-    {% for slider in SLIDER %}
+    {% for slider in main_slider %}
         <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
             <div class="overlay-main site-bg-secondry opacity-09"></div>
             <div class="container">
@@ -48,7 +47,7 @@
 
                         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 m-b30">
                             <!-- BLOG START -->
-                            {% for data in rdPost %}
+                            {% for data in blog_post %}
                                 <div class="blog-post blog-style-1">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
                                         <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.title }}"></a>
@@ -92,7 +91,7 @@
                                             <li class="comment">
                                                 <!-- COMMENT BLOCK -->
 
-                                                {% for coments in coments %}
+                                                {% for coments in post_comments %}
 
                                                     <div class="comment-body">
                                                         <div class="comment-author vcard">
@@ -188,10 +187,10 @@
                                     </div>
                                     <div class="section-content">
                                         <div class="widget-post-bx">
-                                            {% for data in Blog_RCPST %}
+                                            {% for data in popular_posts %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt="{{ data.title }}"></a>
+                                                        <a href="/{{ data.slug }}"><img src="{{ data.Icon.url }}" alt="{{ data.title }}"></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">
@@ -219,8 +218,8 @@
 
                                     <div class="product-widget">
 
-                                        {% if Top_Products %}
-                                        {% for PDCT in Top_Products %}
+                                        {% if featured_products %}
+                                        {% for PDCT in featured_products %}
                                             <div class="product-widget-box clearfix">
                                                 <div class="product-widget-media">
                                                    <a href="/shop/{{ PDCT.slug }}"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>

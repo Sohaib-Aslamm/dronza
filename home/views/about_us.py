@@ -3,13 +3,13 @@ from dronzaPanel.models import AboutTitlePost, QualityTrust, OurTeam, SocialMedi
 
 
 def about(request):
-    TTDATA = AboutTitlePost.objects.all()
-    QTDATA = QualityTrust.objects.all()
-    TMDATA = OurTeam.objects.all()
-    SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.filter(page='about_page')
-    SLIDER = MainSlider.objects.filter(page='about_page')
-    RCPST = userBlog.objects.order_by('-sNo')[:2]
-    context = {'TTDATA': TTDATA, 'QTDATA': QTDATA, 'TMDATA': TMDATA, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS,
-               'SLIDER': SLIDER}
+    context = {
+        'about_title_post': AboutTitlePost.objects.all(),
+        'quality_trust': QualityTrust.objects.all(),
+        'our_team': OurTeam.objects.all(),
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'seo_tags': seoTags.objects.filter(page='about_page'),
+        'main_slider': MainSlider.objects.filter(page='about_page')
+    }
     return render(request, 'About.html', context)

@@ -8,9 +8,9 @@ from django.urls import reverse
 
 def sellDrones(request, page_number=None):
     sellerProducts = sellYourDrone.objects.filter(
-                                                    Q(status='Available') |
-                                                    Q(status='Featured')
-                                                ).order_by('-id')
+        Q(status='Available') |
+        Q(status='Featured')
+    ).order_by('-id')
     paginator = Paginator(sellerProducts, 8)
     sellerProductsFINAL = paginator.get_page(page_number)
     totalPages = sellerProductsFINAL.paginator.num_pages
@@ -24,8 +24,10 @@ def sellDrones(request, page_number=None):
         canonical_link += f'/page/{page_number}'
     SEOTAGS = [{
         'title': "Sell Your Drone or Accessories on DronZa - List for Free!",
-        'description': "List your drone for sale free of cost on our platform. Take advantage of this unique feature provided by DronZa to sell your drone hassle-free.",
-        'tags': "Sell Your Drone Drone For Sale Drone Accessories Sell My Drone Drone Marketplace drone-accessories-for-sale drone-parts-for-sale drone-listing-platform drone-classifieds drone-marketplace",
+        'description': "List your drone for sale free of cost on our platform. Take advantage of this unique feature "
+                       "provided by DronZa to sell your drone hassle-free.",
+        'tags': "Sell Your Drone Drone For Sale Drone Accessories Sell My Drone Drone Marketplace drone accessories for"
+                " sale drone-parts-for-sale drone-listing-platform drone-classifieds drone-marketplace",
         'canonical_link': request.build_absolute_uri(canonical_link)
     }]
 
@@ -42,10 +44,10 @@ def search_by_location(request):
 
     if location:
         sellerProducts = sellYourDrone.objects.filter(
-                                                        Q(location__icontains=location) &
-                                                        Q(status='Available') |
-                                                        Q(status='Featured')
-                                                       ).order_by('-id')
+            Q(location__icontains=location) &
+            Q(status='Available') |
+            Q(status='Featured')
+        ).order_by('-id')
 
     paginator = Paginator(sellerProducts, 8)
     pageNo = request.GET.get('page')

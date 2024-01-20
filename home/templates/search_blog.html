@@ -1,14 +1,13 @@
 {% extends 'baseHome.html' %}
 
 {% load static %}
-{% get_media_prefix as MEDIA_URL %}
 
 {% block content %}
 
 <div class="page-content">
 
     <!-- INNER PAGE BANNER -->
-{% for slider in SLIDER %}
+{% for slider in main_slider %}
     <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
         <div class="overlay-main site-bg-secondry opacity-09"></div>
         <div class="container">
@@ -44,11 +43,11 @@
 
                     <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
                         <!--Block one-->
-                        {% if SEARCHDATA %}
-                            {% for post in SEARCHDATA %}
+                        {% if search_data %}
+                            {% for post in search_data %}
                                 <div class="blog-post blog-style-1 blog-list-style">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="/{{ post.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ post.Icon }}" alt="{{ post.tags }}"></a>
+                                        <a href="/{{ post.slug }}"><img src="{{ post.Icon.url }}" alt="{{ post.tags }}"></a>
                                     </div>
                                     <div class="wt-post-info">
                                         <div class="wt-post-meta">
@@ -119,11 +118,11 @@
                                 </div>
                                 <div class="section-content">
                                     <div class="widget-post-bx">
-                                        {% if Blog_RCPST %}
-                                            {% for data in Blog_RCPST %}
+                                        {% if popular_posts %}
+                                            {% for data in popular_posts %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
+                                                        <a href="/{{ data.slug }}"><img src="{{ data.Icon.url }}" alt=""></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">
@@ -154,8 +153,8 @@
 
                                     <div class="product-widget">
 
-                                        {% if Top_Products %}
-                                        {% for PDCT in Top_Products %}
+                                        {% if featured_products %}
+                                        {% for PDCT in featured_products %}
                                             <div class="product-widget-box clearfix">
                                                 <div class="product-widget-media">
                                                    <a href="/shop/{{ PDCT.slug }}"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
@@ -212,20 +211,20 @@
 
 
                <ul class="pagination m-b0 p-b0 mt-5 bg-light">
-    {% if SEARCHDATA.has_previous %}
-        <li class="page-item"><a class="page-link" href="?page={{ SEARCHDATA.previous_page_number }}{% if search_keyword %}&search_keyword={{ search_keyword }}{% endif %}">Previous</a></li>
+    {% if search_data.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ search_data.previous_page_number }}{% if search_keyword %}&search_keyword={{ search_keyword }}{% endif %}">Previous</a></li>
     {% endif %}
 
     <li class="page-item"><a class="page-link" href="/search-blog?page=1{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">First</a></li>
 
-    {% for tpl in pageList %}
-        <li class="page-item{% if SEARCHDATA.number == tpl %} active{% endif %}">
+    {% for tpl in page_list %}
+        <li class="page-item{% if search_data.number == tpl %} active{% endif %}">
             <a class="page-link" href="/search-blog?page={{ tpl }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">{{ tpl }}</a>
         </li>
     {% endfor %}
 
-    {% if SEARCHDATA.has_next  %}
-        <li class="page-item"><a class="page-link" href="?page={{ SEARCHDATA.next_page_number }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">Next</a></li>
+    {% if search_data.has_next  %}
+        <li class="page-item"><a class="page-link" href="?page={{ search_data.next_page_number }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">Next</a></li>
         <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if search_keyword %}&search-keyword={{ search_keyword }}{% endif %}">Last</a></li>
     {% endif %}
 </ul>

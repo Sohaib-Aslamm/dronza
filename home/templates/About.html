@@ -8,7 +8,7 @@
 
             <!-- INNER PAGE BANNER -->
 
-        {% for slider in SLIDER %}
+        {% for slider in main_slider %}
             <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
             	<div class="overlay-main site-bg-secondry opacity-09"></div>
                 <div class="container">
@@ -35,7 +35,7 @@
             <!-- INNER PAGE BANNER END -->
 
 
-            {% for TD in TTDATA %}
+            {% for TD in about_title_post %}
             <!-- ABOUT ONE SECTION START -->
             <div class="section-full p-t80 p-b50 bg-gray">
             	<div class="about-section-one">
@@ -107,7 +107,7 @@
                             <div class="row justify-content-center">
 
 
-                                {% for QTD in QTDATA %}
+                                {% for QTD in quality_trust %}
                                 <div class="col-lg-4 col-md-12 m-b30">
                                     <div class="corner-line">
                                         <div class="wt-box d-icon-box-one bg-white shadow ">
@@ -171,7 +171,7 @@
                     <div class="section-content">
                         <div class="row justify-content-center">
 
-                            {% for TMD in TMDATA %}
+                            {% for TMD in our_team %}
 							<div class="col-lg-4 col-md-6 col-sm-12 m-b30">
                                 <div class="wt-team-1">
 

@@ -2,11 +2,9 @@ from .home_page import *
 from .about_us import *
 from .services import *
 from .gallery import *
-from .shop import *
 from .blog import *
 from .customer_product import *
 from .common_views import *
-from .cart_system import *
 from .record_details import *
 from .contact_us import *
 from .delete_record import *
@@ -14,3 +12,4 @@ from .update_record import *
 from .sell_your_drone import *
 from .product_and_blog_reviews import *
 from .privacy_policy import *
+from .accounts import *

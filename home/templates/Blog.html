@@ -1,233 +1,246 @@
 {% extends 'baseHome.html' %}
 
 {% load static %}
-{% get_media_prefix as MEDIA_URL %}
 
 {% block content %}
 
-<div class="page-content">
+    <div class="page-content">
 
-    <!-- INNER PAGE BANNER -->
-{% for slider in SLIDER %}
-    <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
-        <div class="overlay-main site-bg-secondry opacity-09"></div>
-        <div class="container">
-            <div class="wt-bnr-inr-entry">
-                <div class="banner-title-outer">
-                    <div class="banner-title-name">
-                        <h2 class="site-text-white">{{ slider.title }}</h2>
+        <!-- INNER PAGE BANNER -->
+        {% for slider in main_slider %}
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/">Home</a></li>
+                                <li class="text-white">Blog</li>
+                            </ul>
+                        </div>
+
+                        <!-- BREADCRUMB ROW END -->
                     </div>
                 </div>
-                <!-- BREADCRUMB ROW -->
-
-                <div>
-                    <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="/">Home</a></li>
-                        <li class="text-white">Blog</li>
-                    </ul>
-                </div>
-
-                <!-- BREADCRUMB ROW END -->
             </div>
-        </div>
-    </div>
-{% endfor %}
-    <!-- INNER PAGE BANNER END -->
+        {% endfor %}
+        <!-- INNER PAGE BANNER END -->
 
-    <!-- OUR BLOG START -->
-    <div class="section-full  p-t80 p-b50 bg-white" style="transform: none;">
-        <div class="container" style="transform: none;">
+        <!-- OUR BLOG START -->
+        <div class="section-full  p-t80 p-b50 bg-white" style="transform: none;">
+            <div class="container" style="transform: none;">
 
-            <!-- BLOG SECTION START -->
-            <div class="section-content" style="transform: none;">
-                <div class="row d-flex justify-content-center" style="transform: none;">
+                <!-- BLOG SECTION START -->
+                <div class="section-content" style="transform: none;">
+                    <div class="row d-flex justify-content-center" style="transform: none;">
 
-                    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
-                        <!--Block one-->
-                        {% if BLOGDATA %}
-                            {% for post in BLOGDATA %}
-                                <div class="blog-post blog-style-1 blog-list-style">
-                                    <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="/{{ post.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ post.Icon }}" alt="{{ post.title }}"></a>
+                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
+                            <!--Block one-->
+                            {% if blog_posts %}
+                                {% for post in blog_posts %}
+                                    <div class="blog-post blog-style-1 blog-list-style">
+                                        <div class="wt-post-media wt-img-effect zoom-slow">
+                                            <a href="/{{ post.slug }}"><img src="{{ post.Icon.url }}"
+                                                                            alt="{{ post.title }}"></a>
+                                        </div>
+                                        <div class="wt-post-info">
+                                            <div class="wt-post-meta">
+                                                <ul>
+                                                    <li class="post-date">{{ post.created_at }}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="wt-post-title">
+                                                <h1 class="post-title h3"><a
+                                                        href="/{{ post.slug }}">{{ post.title }}</a></h1>
+                                            </div>
+                                            <div class="wt-post-text">
+                                                <p class="small"><a href="/{{ post.slug }}">{{ post.heading }}</a></p>
+                                            </div>
+                                            <div class="wt-post-readmore">
+                                                <a href="/{{ post.slug }}" class="site-button-link black">Read More</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="wt-post-info">
-                                        <div class="wt-post-meta">
-                                            <ul>
-                                                <li class="post-date">{{ post.created_at }}</li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-post-title">
-                                            <h1 class="post-title h3"><a href="/{{ post.slug }}">{{ post.title }}</a></h1>
-                                        </div>
-                                        <div class="wt-post-text">
-                                            <p class="small"><a href="/{{ post.slug }}">{{ post.heading }}</a> </p>
-                                        </div>
-                                        <div class="wt-post-readmore">
-                                            <a href="/{{ post.slug }}" class="site-button-link black">Read More</a>
-                                        </div>
-                                    </div>
+                                {% endfor %}
+
+                            {% else %}
+
+                                <div class="row text-center mt-5">
+                                    <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
                                 </div>
-                            {% endfor %}
-
-                        {% else %}
-
-                            <div class="row text-center mt-5">
-                                <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
-                            </div>
 
 
-                        {% endif %}
+                            {% endif %}
 
-                    </div>
-
-
-                    <!-- SIDE BAR START -->
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 rightSidebar  m-b30" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+                        </div>
 
 
+                        <!-- SIDE BAR START -->
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 rightSidebar  m-b30"
+                             style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
-                        <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;"><aside class="side-bar">
 
-                            <!-- SEARCH -->
-                            <div class="widget p-a20">
-                                <div class="search-bx">
-                                    <form role="search" method="POST" action="/search-blog">
-                                        {% csrf_token %}
-                                        <div class="input-group">
-                                            <input name="search_keyword" type="text" class="form-control" placeholder="search...">
-                                            <span class="input-group-btn">
-                                                            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                            <div class="theiaStickySidebar"
+                                 style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+                                <aside class="side-bar">
+
+                                    <!-- SEARCH -->
+                                    <div class="widget p-a20">
+                                        <div class="search-bx">
+                                            <form role="search" method="POST" action="/search-blog">
+                                                {% csrf_token %}
+                                                <div class="input-group">
+                                                    <input name="search_keyword" type="text" class="form-control"
+                                                           placeholder="search...">
+                                                    <span class="input-group-btn">
+                                                            <button type="submit" class="btn"><i
+                                                                    class="fa fa-search"></i></button>
                                                         </span>
+                                                </div>
+                                            </form>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <!-- RECENT POSTS -->
-                            <div class="widget recent-posts-entry p-a20">
-                                <div class="text-left m-b30">
-                                    <h3 class="widget-title">Recent Posts</h3>
-                                </div>
-                                <div class="section-content">
-                                    <div class="widget-post-bx">
-                                        {% if Blog_RCPST %}
-                                            {% for data in Blog_RCPST %}
-                                                <div class="widget-post clearfix">
-                                                    <div class="wt-post-media">
-                                                        <a href="/{{ data.slug }}"><img src="/dronza/media/{{ MEDIA_URL }}{{ data.Icon }}" alt="{{ data.title }}"></a>
-                                                    </div>
-                                                    <div class="wt-post-info">
-                                                        <div class="wt-post-meta">
-                                                            <ul>
-                                                                <li class="post-date">{{ data.created_at }}</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="wt-post-header">
-                                                            <span class="post-title"> <a href="/{{ data.slug }}">{{ data.title }}</a></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endfor %}
-
-                                        {% else %}
-                                            <h6 class="ml-3"><strong>No Post Available</strong></h6>
-                                        {% endif %}
                                     </div>
-                                </div>
-                            </div>
 
-                            <!-- TOP PRODUCT -->
-                            <div class="widget p-a20">
-                                <div class="text-left m-b30">
-                                    <h3 class="widget-title">Top Products</h3>
-                                </div>
-                                <div class="section-content">
+                                    <!-- RECENT POSTS -->
+                                    <div class="widget recent-posts-entry p-a20">
+                                        <div class="text-left m-b30">
+                                            <h3 class="widget-title">Recent Posts</h3>
+                                        </div>
+                                        <div class="section-content">
+                                            <div class="widget-post-bx">
+                                                {% if popular_posts %}
+                                                    {% for data in popular_posts %}
+                                                        <div class="widget-post clearfix">
+                                                            <div class="wt-post-media">
+                                                                <a href="/{{ data.slug }}"><img
+                                                                        src="{{ data.Icon.url }}"
+                                                                        alt="{{ data.title }}"></a>
+                                                            </div>
+                                                            <div class="wt-post-info">
+                                                                <div class="wt-post-meta">
+                                                                    <ul>
+                                                                        <li class="post-date">{{ data.created_at }}</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="wt-post-header">
+                                                                    <span class="post-title"> <a
+                                                                            href="/{{ data.slug }}">{{ data.title }}</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
 
-                                    <div class="product-widget">
+                                                {% else %}
+                                                    <h6 class="ml-3"><strong>No Post Available</strong></h6>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                        {% if Top_Products %}
-                                        {% for PDCT in Top_Products %}
-                                            <div class="product-widget-box clearfix">
-                                                <div class="product-widget-media">
-                                                   <a href="/shop/{{ PDCT.slug }}"> <img src="{{ PDCT.image.url }}" alt="{{ PDCT.tags }}"></a>
-                                                </div>
-                                                <div class="product-widget-info">
-                                                    <div class="product-widget-header">
-                                                        <a href="/shop/{{ PDCT.slug }}" class="product-widget-title">{{ PDCT.name }}</a>
-                                                    </div>
-                                                    <span class="price">
+                                    <!-- TOP PRODUCT -->
+                                    <div class="widget p-a20">
+                                        <div class="text-left m-b30">
+                                            <h3 class="widget-title">Top Products</h3>
+                                        </div>
+                                        <div class="section-content">
+
+                                            <div class="product-widget">
+
+                                                {% if featured_products %}
+                                                    {% for PDCT in featured_products %}
+                                                        <div class="product-widget-box clearfix">
+                                                            <div class="product-widget-media">
+                                                                <a href="/shop/{{ PDCT.slug }}"> <img
+                                                                        src="{{ PDCT.image.url }}"
+                                                                        alt="{{ PDCT.tags }}"></a>
+                                                            </div>
+                                                            <div class="product-widget-info">
+                                                                <div class="product-widget-header">
+                                                                    <a href="/shop/{{ PDCT.slug }}"
+                                                                       class="product-widget-title">{{ PDCT.name }}</a>
+                                                                </div>
+                                                                <span class="price">
                                                         <ins>
-                                                            <span><span class="Price-currencySymbol">{{ PDCT.currency }} </span>{{ PDCT.price }}</span>
+                                                            <span><span
+                                                                    class="Price-currencySymbol">{{ PDCT.currency }} </span>{{ PDCT.price }}</span>
                                                         </ins>
                                                     </span>
-                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+
+                                                {% else %}
+                                                    <h6 class="ml-3"><strong>No Products Available</strong></h6>
+                                                {% endif %}
+
+
                                             </div>
-                                        {% endfor %}
-
-                                        {% else %}
-                                        <h6 class="ml-3"><strong>No Products Available</strong></h6>
-                                        {% endif %}
-
-
+                                        </div>
                                     </div>
-                                </div>
+
+
+                                    <!-- TAGS -->
+                                    <div class="widget widget_tag_cloud p-a20">
+                                        <div class="text-left m-b30">
+                                            <h3 class="widget-title">Tags</h3>
+
+                                        </div>
+
+                                        <div class="tagcloud">
+                                            <a href="javascript:void(0);">Drone</a>
+                                            <a href="javascript:void(0);">Videography </a>
+                                            <a href="javascript:void(0);">UAV</a>
+                                            <a href="javascript:void(0);">Best Camera</a>
+                                            <a href="javascript:void(0);">Cheap Drone</a>
+                                            <a href="javascript:void(0);">4K Camera</a>
+                                            <a href="javascript:void(0);">Long Range</a>
+                                            <a href="javascript:void(0);">Support Shooting</a>
+                                            <a href="javascript:void(0);">Shooting Drone</a>
+                                        </div>
+                                    </div>
+
+
+                                </aside>
                             </div>
+                        </div>
+                    </div>
+                    <!-- SIDE BAR END -->
 
 
+                    <ul class="pagination m-b0 p-b0 mt-5 bg-light">
+                        {% if blog_posts.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/blog/page/{{ blog_posts.previous_page_number }}">Previous</a>
+                            </li>
+                        {% endif %}
+
+                        <li class="page-item"><a class="page-link" href="/blog/page/1">First</a></li>
+
+                        {% for tpl in page_list %}
+                            <li class="page-item"><a class="page-link" href="/blog/page/{{ tpl }}">{{ tpl }}</a></li>
+                        {% endfor %}
+
+                        {% if blog_posts.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/blog/page/{{ blog_posts.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="/blog/page/{{ lastPage }}">Last</a></li>
+                        {% endif %}
+                    </ul>
 
 
-                            <!-- TAGS -->
-                            <div class="widget widget_tag_cloud p-a20">
-                                <div class="text-left m-b30">
-                                    <h3 class="widget-title">Tags</h3>
-
-                                </div>
-
-                                <div class="tagcloud">
-                                    <a href="javascript:void(0);">Drone</a>
-                                    <a href="javascript:void(0);">Videography </a>
-                                    <a href="javascript:void(0);">UAV</a>
-                                    <a href="javascript:void(0);">Best Camera</a>
-                                    <a href="javascript:void(0);">Cheap Drone</a>
-                                    <a href="javascript:void(0);">4K Camera</a>
-                                    <a href="javascript:void(0);">Long Range</a>
-                                    <a href="javascript:void(0);">Support Shooting</a>
-                                    <a href="javascript:void(0);">Shooting Drone</a>
-                                </div>
-                            </div>
-
-
-                        </aside></div></div></div>
-                <!-- SIDE BAR END -->
-
-
-
-              <ul class="pagination m-b0 p-b0 mt-5 bg-light">
-    {% if BLOGDATA.has_previous %}
-        <li class="page-item"><a class="page-link" href="/blog/page/{{ BLOGDATA.previous_page_number }}">Previous</a></li>
-    {% endif %}
-
-    <li class="page-item"><a class="page-link" href="/blog/page/1">First</a></li>
-
-    {% for tpl in pageList %}
-        <li class="page-item"><a class="page-link" href="/blog/page/{{ tpl }}">{{ tpl }}</a></li>
-    {% endfor %}
-
-    {% if BLOGDATA.has_next  %}
-        <li class="page-item"><a class="page-link" href="/blog/page/{{ BLOGDATA.next_page_number }}">Next</a></li>
-        <li class="page-item"><a class="page-link" href="/blog/page/{{ lastPage }}">Last</a></li>
-    {% endif %}
-</ul>
-
-
-
+                </div>
 
             </div>
 
         </div>
 
     </div>
-
-</div>
 
 {% endblock content %}

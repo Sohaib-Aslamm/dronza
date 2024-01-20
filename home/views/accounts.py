@@ -1,4 +1,4 @@
-from dronzaPanel.forms import UserForm
+from home.forms import UserForm
 
 from django.contrib.auth.models import User, Group
 from dronzaPanel.models import seoTags
@@ -6,7 +6,6 @@ from dronzaPanel.models import seoTags
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.shortcuts import render, redirect
 
-from dronzaPanel.decorators import unauthenticated_user, admin_only, custom_login_required
 from django.contrib import messages
 
 # Create your views here
@@ -14,8 +13,7 @@ from django.contrib import messages
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Auth Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-@unauthenticated_user
-def UserRegister(request):
+def user_registration(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
@@ -39,15 +37,13 @@ def UserRegister(request):
 
             messages.success(request, f'Hey! {username}, your account has been created successfully')
             return redirect('/user-login')
-    else:
-        form = UserForm()
 
-    SEOTAGS = seoTags.objects.filter(page='user_register')
-    context = {'form': form, 'SEOTAGS': SEOTAGS}
+    form = UserForm()
+    seo_tags = seoTags.objects.filter(page='user_register')
+    context = {'form': form, 'SEOTAGS': seo_tags}
     return render(request, 'User_Register.html', context)
 
 
-@unauthenticated_user
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -55,22 +51,15 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect('/admin')
+            return redirect('/')
         else:
             messages.error(request, 'Username or password is incorrect')
 
-    SEOTAGS = seoTags.objects.filter(page='user_login')
-    return render(request, 'login.html', {'SEOTAGS': SEOTAGS})
+    seo_tags = seoTags.objects.filter(page='user_login')
+    return render(request, 'login.html', {'SEOTAGS': seo_tags})
 
 
 def user_logout(request):
     logout(request)
     return redirect('/')
 
-
-@custom_login_required
-@admin_only
-def user_list(request):
-    users = User.objects.all()
-    context = {'users': users}
-    return render(request, 'admin_user_list.html', context)

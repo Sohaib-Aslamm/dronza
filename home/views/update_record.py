@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from dronzaPanel.models import MainSlider
+from home.enumerators import DRONE_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND
 from home.models import sellYourDrone
 
 
@@ -13,7 +14,7 @@ def UpdatebyUUID(request, type, slug):
             Record.email = request.POST.get('email')
             Record.pPhone = request.POST.get('pPhone')
             Record.sPhone = request.POST.get('sPhone')
-            Record.location = request.POST.get('location')
+            Record.address = request.POST.get('address')
             Record.title = request.POST.get('title')
             Record.category = request.POST.get('category')
             Record.condition = request.POST.get('condition')
@@ -37,5 +38,14 @@ def UpdatebyUUID(request, type, slug):
 
             Record.save()
             return redirect('/customer-product')
-        SLIDER = MainSlider.objects.filter(page='edit_customer_product_page')
-        return render(request, 'update/customerProducts.html', {'Record': Record, 'SLIDER': SLIDER})
+        main_slider = MainSlider.objects.filter(page='edit_customer_product_page')
+        context = {
+            'categories': DRONE_CATEGORY.choices,
+            'brand': DRONE_BRAND.choices,
+            'condition': DRONE_CONDITION.choices,
+            'color': DRONE_COLOR.choices,
+            'status': SOLD_STATUS.choices,
+            'main_slider': main_slider,
+            'Record': Record,
+        }
+        return render(request, 'update/customerProducts.html', context)
