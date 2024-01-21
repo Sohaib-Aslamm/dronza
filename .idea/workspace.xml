@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="dronza migrations from start, and removed non-used stuff from project">
-      <change afterPath="$PROJECT_DIR$/dronzaPanel/redirect_middleware.py" afterDir="false" />
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="redirect middleware added for live production">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +46,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/dronzaPanel",
+    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/static/Assets/dronza_images/team",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,11 +57,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\dronza\static\Assets\dronza_images\team" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
       <recent name="C:\Users\hp\PycharmProjects\dronza" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
-      <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
@@ -266,7 +268,7 @@
       <workItem from="1705470489032" duration="4000" />
       <workItem from="1705742415232" duration="23890000" />
       <workItem from="1705782495100" duration="5958000" />
-      <workItem from="1705830014841" duration="10207000" />
+      <workItem from="1705830014841" duration="11393000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -310,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705858352658</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="redirect middleware added for live production">
+      <created>1705859568555</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705859568555</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +355,8 @@
     <MESSAGE value="dronza mager changes in structure" />
     <MESSAGE value="requirement changes, env decouple lib installed, etc" />
     <MESSAGE value="dronza migrations from start, and removed non-used stuff from project" />
-    <option name="LAST_COMMIT_MESSAGE" value="dronza migrations from start, and removed non-used stuff from project" />
+    <MESSAGE value="redirect middleware added for live production" />
+    <option name="LAST_COMMIT_MESSAGE" value="redirect middleware added for live production" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

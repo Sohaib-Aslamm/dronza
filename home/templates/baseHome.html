@@ -151,10 +151,10 @@
                                         {% with social_account=request.user.socialaccount_set.all.0 %}
                                             {% if social_account %}
                                                 <img src="{{ social_account.get_avatar_url }}"
-                                                     alt="User Profile">
+                                                     alt="User Profile"> <span class="px-2" style="color:white;">{{ user.username }}</span>
                                             {% else %}
                                                 <img src="{% static 'Assets/dronza_images/team/pic1.jpg' %}"
-                                                     alt="User Profile">
+                                                     alt="User Profile"><span class="px-2" style="color:white;">{{ user.username }}</span>
                                             {% endif %}
                                         {% endwith %}
                                         <div class="dropdown-content">
