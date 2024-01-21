@@ -3,9 +3,6 @@ from .sliders import *
 from .how_it_work import *
 from .how_to_use import *
 from .about_title_post import *
-from .products import *
-from .amazon_products import *
-from .drone_parts import *
 from .quality_trust import *
 from .satisfied_clients import *
 from .video_gallery import *

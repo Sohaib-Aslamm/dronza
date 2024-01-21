@@ -1,18 +1,5 @@
 from django.shortcuts import redirect
-from home.models import productReview, userBlog, blog_Review
-from dronzaPanel.models import Products
-
-
-def prodReview(request):
-    if request.method == 'POST':
-        slug = request.POST.get('slug')
-        author = request.POST.get('author')
-        email = request.POST.get('email')
-        review = request.POST.get('review')
-        prd_id = Products.objects.get(slug=slug)
-        sv = productReview(author=author, email=email, review=review, product=prd_id)
-        sv.save()
-        return redirect(f'/shop/{slug}')
+from home.models import userBlog, blog_Review
 
 
 def blogReview(request):

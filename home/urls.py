@@ -13,7 +13,6 @@ urlpatterns = [
     path('contact-us', views.contactus, name="contact-us"),
     path('sell-drones', views.sellDrones, name="sell-drones"),
     path('privacy-policy', views.privacy_policy, name="privacy-policy"),
-    path('prodReview', views.prodReview, name="prodReview"),
     path('blogReview', views.blogReview, name="blogReview"),
     path('thank-you', views.thankyou, name="thank-you"),
     path('search-by-location', views.search_by_location, name='search-by-location'),

@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
-from dronzaPanel.models import OurTeam, userBlog, SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, Products, \
-    HomeSRFP, VideoGallery, \
-    WhatPeopleSay, OurPartner, seoTags
+from dronzaPanel.models import OurTeam, userBlog, SocialMedia, MainSlider, HomeHIW, HomeHTU, HomeAbout, HomeSRFP, \
+    VideoGallery, WhatPeopleSay, OurPartner, seoTags
 
 
 # Create your views here.
@@ -20,7 +19,7 @@ def index(request):
     HIWork = HomeHIW.objects.all()
     HTUSE = HomeHTU.objects.all()
     HABT = HomeAbout.objects.all()
-    PRDCT = Products.objects.filter(featured='Featured')
+    PRDCT = None
     SRFP = HomeSRFP.objects.all()
     HVG = VideoGallery.objects.all()
     OURTM = OurTeam.objects.all()

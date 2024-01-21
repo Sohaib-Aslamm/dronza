@@ -207,10 +207,10 @@
                                 <div class="section-head left wt-small-separator-outer">
                                     <div class="wt-small-separator site-text-primary">
                                         <div class="sep-leaf-left"></div>
-                                        <div>Our Best Products</div>
+                                        <div>Verified Products</div>
                                         <div class="sep-leaf-right"></div>
                                     </div>
-                                    <h2>Featured products</h2>
+                                    <h2>Featured Listings</h2>
                                 </div>
                                 <!-- TITLE END-->
                             </div>
@@ -228,11 +228,11 @@
                             <div class="item">
                                 <div class="wt-box wt-product-box   overflow-hide">
                                     <div class="wt-thum-bx wt-img-overlay1">
-                                        <img src="{{ FTP.image.url }}" alt="{{ FTP.tags }}">
+                                        <img src="{{ FTP.thumbnail.url }}" alt="{{ FTP.title }}">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
-                                                <a href="/cart/add/{{ FTP.id }}">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                <a href="/sell-drones/{{ FTP.slug }}">
+                                                     <i class="fa fa-eye wt-icon-box-xs"></i>
                                                 </a>
 
                                             </div>
@@ -241,24 +241,24 @@
                                     <div class="wt-info">
                                         <div class="p-a20 bg-white">
                                             <h3 class="wt-title">
-                                                <a href="/shop/{{ FTP.slug }}">{{ FTP.name }}</a>
+                                                <a href="/sell-drones/{{ FTP.slug }}">{{ FTP.title }}</a>
                                             </h3>
 
-                                            <div class="product-features-item"><span>Camera | </span>{{ FTP.camera }}
-                                            </div>
-                                            <div class="product-features-item">
-                                                <span>Flight Time | </span>{{ FTP.flight_time }}</div>
+                                             <div class="product-features-item">
+                                                        <span>Brand | </span>{{ FTP.brand }}</div>
+                                                    <div class="product-features-item">
+                                                        <span>Color | </span>{{ FTP.color }}</div>
 
-                                            <span class="price">
-                                                <ins>
-                                                    <span>{{ FTP.currency }} {{ FTP.price }}
-                                                        <del>{{ FTP.currency }} {{ FTP.cPrice }}</del></span>
-                                                </ins>
-                                                <br><ins>
-                                                             <a href="/shop/{{ FTP.slug }}"
+                                                    <span class="price">
+                                                        <ins>
+                                                               <span class="p-price">Price: {{ FTP.price }}</span>
+                                                        </ins>
+
+                                                         <br><ins>
+                                                             <a href="/sell-drones/{{ FTP.slug }}"
                                                                 class="btn btn-secondary text-white"><strong>View Detail</strong></a>
                                                         </ins>
-                                            </span>
+                                                    </span>
 
 
                                         </div>

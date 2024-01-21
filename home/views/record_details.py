@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from dronzaPanel.models import Products, ServicesTypes, Pricing, OurTeam, SocialMedia, userBlog, productImages, \
-    MainSlider
-from home.models import Place_Order, sellYourDrone, sellYourDroneImages, productReview
+from dronzaPanel.models import ServicesTypes, Pricing, OurTeam, SocialMedia, userBlog, MainSlider
+from home.models import sellYourDrone, sellYourDroneImages
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 

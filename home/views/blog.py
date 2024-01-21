@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.core.paginator import Paginator
-from dronzaPanel.models import Products, SocialMedia, userBlog, seoTags, MainSlider
-from home.models import blog_Review
+from dronzaPanel.models import SocialMedia, userBlog, seoTags, MainSlider
+from home.enumerators import SOLD_STATUS
+from home.models import blog_Review, sellYourDrone
 from django.urls import reverse
 
 
@@ -28,7 +29,7 @@ def blog(request, page_number=None):
         'lastPage': blog_posts.paginator.num_pages,
         'page_list': range(1, blog_posts.paginator.num_pages + 1),
         'popular_posts': userBlog.objects.all().order_by('-sNo')[10:16],
-        'featured_products': Products.objects.filter(featured='Featured').order_by('-id')[:4],
+        'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'social_media': SocialMedia.objects.all(),
         'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'seo_tags': seo_tags,
@@ -56,7 +57,7 @@ def search_blog(request):
         'lastPage': page_number.paginator.num_pages,
         'page_list': range(1, page_number.paginator.num_pages + 1),
         'popular_posts': blog_posts.order_by('-sNo')[10:16],
-        'featured_products': Products.objects.filter(featured='Featured').order_by('-id')[:4],
+        'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'social_media': SocialMedia.objects.all(),
         'recent_blog_post': blog_posts.order_by('-sNo')[:2],
         'seo_tags': seoTags.objects.filter(page='search_blog'),
@@ -77,7 +78,7 @@ def read_blog_post(request, slug):
         'blog_post': blog_post,
         'post_comments': blog_Review.objects.filter(post__in=blog_post),
         'popular_posts': userBlog.objects.all().order_by('-sNo')[10:16],
-        'featured_products': Products.objects.filter(featured='Featured').order_by('-id')[:4],
+        'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'main_slider': MainSlider.objects.filter(page='blog_detail_page'),
         'recent_blog_post': userBlog.objects.all().order_by('-sNo')[:2],
         'seo_tags': seo_tags,

@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="requirement changes, env decouple lib installed, etc" />
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="requirement changes, env decouple lib installed, etc">
+      <change afterPath="$PROJECT_DIR$/templates/admin/base_site.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/amazon_products.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/drone_parts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/products.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/place_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/product_review.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/say_hello.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/sell_your_drone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/search_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/search_seller_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_seller_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/product_and_blog_reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/product_and_blog_reviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,26 +62,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/PycharmProjects/dronza/dronzaPanel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/home",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel" />
       <recent name="C:\Users\hp\PycharmProjects\dronza" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\templates" />
-      <recent name="C:\Users\hp\PycharmProjects\dronza\home\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
@@ -263,6 +288,7 @@
       <workItem from="1705470489032" duration="4000" />
       <workItem from="1705742415232" duration="23890000" />
       <workItem from="1705782495100" duration="5958000" />
+      <workItem from="1705830014841" duration="8463000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -285,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705828732643</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="requirement changes, env decouple lib installed, etc">
+      <created>1705830100485</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705830100485</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

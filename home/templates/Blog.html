@@ -147,7 +147,7 @@
                                     <!-- TOP PRODUCT -->
                                     <div class="widget p-a20">
                                         <div class="text-left m-b30">
-                                            <h3 class="widget-title">Top Products</h3>
+                                            <h3 class="widget-title">Featured Listings</h3>
                                         </div>
                                         <div class="section-content">
 
@@ -157,19 +157,18 @@
                                                     {% for PDCT in featured_products %}
                                                         <div class="product-widget-box clearfix">
                                                             <div class="product-widget-media">
-                                                                <a href="/shop/{{ PDCT.slug }}"> <img
-                                                                        src="{{ PDCT.image.url }}"
-                                                                        alt="{{ PDCT.tags }}"></a>
+                                                                <a href="/sell-drones/{{ PDCT.slug }}"> <img
+                                                                        src="{{ PDCT.thumbnail.url }}"
+                                                                        alt="{{ PDCT.title }}"></a>
                                                             </div>
                                                             <div class="product-widget-info">
                                                                 <div class="product-widget-header">
-                                                                    <a href="/shop/{{ PDCT.slug }}"
-                                                                       class="product-widget-title">{{ PDCT.name }}</a>
+                                                                    <a href="/sell-drones/{{ PDCT.slug }}"
+                                                                       class="product-widget-title">{{ PDCT.title }}</a>
                                                                 </div>
                                                                 <span class="price">
                                                         <ins>
-                                                            <span><span
-                                                                    class="Price-currencySymbol">{{ PDCT.currency }} </span>{{ PDCT.price }}</span>
+                                                            <span>{{ PDCT.price }}</span>
                                                         </ins>
                                                     </span>
                                                             </div>

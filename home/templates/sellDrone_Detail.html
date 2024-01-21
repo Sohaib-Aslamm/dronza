@@ -93,7 +93,7 @@
                         <div class="tab-content">
                             <div id="web-design-19" class="tab-pane active">
                                 <div class=" p-a10">
-                                    <p class="m-b10">{{ rec.description }}</p>
+                                    <p class="m-b10">{{ rec.description | safe }}</p>
 
 
                                 </div>
@@ -162,6 +162,11 @@
                                     </tr>
 
                                     <tr>
+                                        <td><b>Address</b></td>
+                                        <td>{{ rec.address }}</td>
+                                    </tr>
+
+                                     <tr>
                                         <td><b>Location</b></td>
                                         <td>{{ rec.location }}</td>
                                     </tr>

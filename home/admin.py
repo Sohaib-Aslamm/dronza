@@ -10,14 +10,6 @@ class contact_usAdmin(admin.ModelAdmin):
     search_fields = ['name', 'phone', 'email', 'subject', 'message']
 
 
-@admin.register(productReview)
-class productReviewAdmin(admin.ModelAdmin):
-    list_display = ('product', 'author', 'email', 'review', 'timestamp')
-    list_filter = ('product', 'email')
-    search_fields = ['product', 'author', 'email', 'message', 'timestamp']
-    date_hierarchy = 'timestamp'
-
-
 class ProductImageInline(admin.TabularInline):
     model = sellYourDroneImages
     formset = ProductImageFormSet

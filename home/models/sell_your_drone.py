@@ -52,5 +52,4 @@ class sellYourDroneImages(models.Model):
     Product = models.ForeignKey(sellYourDrone, on_delete=models.CASCADE)
     image = ResizedImageField(size=[1080, 720], force_format='PNG', upload_to=resource_location)
 
-    class Meta:
-        verbose_name_plural = 'User Products Images'
+    class Meta:        verbose_name_plural = 'User Products Images'
