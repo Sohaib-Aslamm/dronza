@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="dronza migrations from start, and removed non-used stuff from project" />
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="dronza migrations from start, and removed non-used stuff from project">
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/redirect_middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +44,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/home",
+    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/dronzaPanel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,8 +55,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel" />
+      <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
       <recent name="C:\Users\hp\PycharmProjects\dronza" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel\templates" />
@@ -263,7 +266,7 @@
       <workItem from="1705470489032" duration="4000" />
       <workItem from="1705742415232" duration="23890000" />
       <workItem from="1705782495100" duration="5958000" />
-      <workItem from="1705830014841" duration="8813000" />
+      <workItem from="1705830014841" duration="10207000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -300,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705857812288</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dronza migrations from start, and removed non-used stuff from project">
+      <created>1705858352658</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705858352658</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
