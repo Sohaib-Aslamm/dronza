@@ -25,10 +25,6 @@ def user_registration(request):
                 messages.error(request, 'Email already exists')
                 return render(request, 'User_Register.html', {'form': form})
 
-            save_user = form.save()
-            group = Group.objects.get(name='Customer')
-            save_user.groups.add(group)
-
             user = User.objects.get(username=username)
             # send email
             from home.email_and_slack_messages import Communication_Utils, Email_Content

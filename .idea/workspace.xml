@@ -4,143 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="home page changes for navbar">
-      <change afterPath="$PROJECT_DIR$/home/enumerators/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/enumerators/sell_your_drones.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/forms/customer_product.py" afterDir="false" />
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="dronza mager changes in structure">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronza/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronza/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/about.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/about_title_post.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/blog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/email_content.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/gallery.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/how_it_work.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/how_to_use.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/our_partner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/our_team.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/pricing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/quality_trust.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/satisfied_clients.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/seo_tags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/services.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/slider.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/social_media.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/video_gallery.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/forms/what_people_say.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/gallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/gallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/redirect_middleware.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/HomeAdmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/UpdateSEOTags.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateAboutTitlePost.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateBlog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneParts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateDroneProducts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateEmailContent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateGallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHomeAbout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHomeSRFP.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHomeSlider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHomeVideoGallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHowItWork.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateHowToUse.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateMainServices.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateOurPartner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateOurTeam.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updatePeopleSay.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updatePricing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updatePrivacyPolicy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateQualityTrust.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateServicesType.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/updateSocialMedia.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/Update/update_seller_product_from_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/User_Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/User_Register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminBlog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminComments.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneParts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminDroneProducts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminGallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeAbout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeHowToUse.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeHowitWork.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeSRFP.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeSlider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminHomeVideoGallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminMainServices.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminOrders.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminOurPartner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminOurTeam.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminPeopleSay.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminPricing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminPrivacyPolicy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminQualityTrust.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminServicesType.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminSocialmedia.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/admin_email_content.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/admin_seller_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/admin_user_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/admin_view_seller_product_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/adminaboutTitlePost.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/baseAdmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/order_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/seoTags.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/user_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/templates/viewMessages.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/blog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/client_people_partner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/communication.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/delete_record.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/email_content.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/panel_home.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/privacy_policy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/products.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/seller_products_list.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/seotags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/services_gallery_pricing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/social_media.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/views/update_record.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/sell_your_drone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/About.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Order_Done.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Shop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/cart_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/customerProducts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/droneParts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronepartsDetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzaShop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/dronzashopDetails.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/postDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/postDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/search_blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/search_seller_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_seller_product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone_Detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/testingTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/track_order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/track_order_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/update/customerProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/update/customerProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/about_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/about_us.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/cart_system.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/customer_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/customer_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/record_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/shop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/accounts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +267,7 @@
       <workItem from="1705409578195" duration="744000" />
       <workItem from="1705470489032" duration="4000" />
       <workItem from="1705742415232" duration="23890000" />
-      <workItem from="1705782495100" duration="3737000" />
+      <workItem from="1705782495100" duration="5333000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -408,11 +276,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702671894750</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dronza mager changes in structure">
+      <created>1705786384268</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705786384268</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
@@ -438,7 +316,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="home page changes for navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="home page changes for navbar" />
+    <MESSAGE value="dronza mager changes in structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="dronza mager changes in structure" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />
