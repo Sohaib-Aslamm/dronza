@@ -9,31 +9,31 @@
     <div class="page-content">
 
         <!-- INNER PAGE BANNER -->
-    {% for slider in SLIDER %}
-        <div class="wt-bnr-inr overlay-wraper bg-center"
-             style="background-image:url({{ slider.image.url }});">
-            <div class="overlay-main site-bg-secondry opacity-09"></div>
-            <div class="container">
-                <div class="wt-bnr-inr-entry">
-                    <div class="banner-title-outer">
-                        <div class="banner-title-name">
-                            <h2 class="site-text-white">{{ slider.title }}</h2>
+        {% for slider in SLIDER %}
+            <div class="wt-bnr-inr overlay-wraper bg-center"
+                 style="background-image:url({{ slider.image.url }});">
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
+                            </div>
                         </div>
-                    </div>
-                    <!-- BREADCRUMB ROW -->
+                        <!-- BREADCRUMB ROW -->
 
-                    <div>
-                        <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="/"></a>Home</li>
-                            <li class="text-white">Dronza Sell Point</li>
-                        </ul>
-                    </div>
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/"></a>Home</li>
+                                <li class="text-white">Dronza Sell Point</li>
+                            </ul>
+                        </div>
 
-                    <!-- BREADCRUMB ROW END -->
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
         <!-- INNER PAGE BANNER END -->
 
 
@@ -50,8 +50,37 @@
                         <form role="search" method="POST" action="/search-by-location">
                             {% csrf_token %}
                             <div class="input-group">
+
+                                <select class="form-control border" name="category">
+                                    <option disabled selected>select category</option>
+                                    {% for value, label in categories_list %}
+                                        <option value="{{ value }}"
+                                              {% if value == category %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <select class="form-control border" name="brand">
+                                    <option disabled selected>select brand</option>
+                                    {% for value, label in brands_list %}
+                                        <option value="{{ value }}"
+                                        {% if value == brand %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                <select class="form-control border" name="condition">
+                                    <option disabled selected>select condition</option>
+                                    {% for value, label in conditions_list %}
+                                        <option value="{{ value }}"
+                                        {% if value == condition %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+
                                 <input name="location" type="text" class="form-control border"
-                                       placeholder="search by location...">
+                                       placeholder="location..." value="{% if location %}{{ location }}{% endif %}"
+
+                                >
+
                                 <span class="input-group-btn">
                                  <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                 </span>
@@ -62,27 +91,6 @@
             </div>
         </div>
 
-
-        <!-- CATEGORY SECTION START -->
-        <div class="section-full p-t10 p-b50 bg-white">
-            <div class="container-fluid">
-                <!-- PAGINATION START -->
-                <div class="filter-wrap work-grid p-b30 text-center">
-                    <ul class="masonry-filter">
-                        <li class="active"><a data-filter="*" href="#">All</a></li>
-
-                        {% for PD in Product_Category %}
-                            <li><a data-filter=".{{ PD.category }}" href="#">{{ PD.category }}</a></li>
-                        {% endfor %}
-
-                    </ul>
-                </div>
-                <!-- PAGINATION END -->
-
-
-            </div>
-        </div>
-        <!-- CATEGORY SECTION END -->
 
         <!-- SECTION CONTENT START -->
         <div class="section-full p-t10 p-b50">
@@ -96,34 +104,34 @@
                             <div class="row">
 
                                 {% if sellerProducts %}
-                                {% for PDCT in sellerProducts %}
-                                    <!-- COLUMNS 1 -->
-                                    <div class="masonry-item col-lg-4 col-md-4 m-b30 {{ PDCT.category }}">
-                                        <div class="wt-box wt-product-box   overflow-hide">
-                                            <div class="wt-thum-bx wt-img-overlay1">
+                                    {% for PDCT in sellerProducts %}
+                                        <!-- COLUMNS 1 -->
+                                        <div class="masonry-item col-lg-4 col-md-4 m-b30">
+                                            <div class="wt-box wt-product-box   overflow-hide">
+                                                <div class="wt-thum-bx wt-img-overlay1">
 
-                                                <img src="{{ PDCT.thumbnail.url }}" alt="{{ PDCT.title }}">
-                                                <div class="overlay-bx">
-                                                    <div class="overlay-icon">
-                                                        <a href="/sell-drones/{{ PDCT.slug }}">
-                                                            <i class="fa fa-eye wt-icon-box-xs"></i>
-                                                        </a>
+                                                    <img src="{{ PDCT.thumbnail.url }}" alt="{{ PDCT.title }}">
+                                                    <div class="overlay-bx">
+                                                        <div class="overlay-icon">
+                                                            <a href="/sell-drones/{{ PDCT.slug }}">
+                                                                <i class="fa fa-eye wt-icon-box-xs"></i>
+                                                            </a>
 
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="wt-info">
-                                                <div class="p-a20 bg-white">
-                                                    <h3 class="wt-title">
-                                                        <a href="/sell-drones/{{ PDCT.slug }}">{{ PDCT.title }}</a>
-                                                    </h3>
+                                                <div class="wt-info">
+                                                    <div class="p-a20 bg-white">
+                                                        <h3 class="wt-title">
+                                                            <a href="/sell-drones/{{ PDCT.slug }}">{{ PDCT.title }}</a>
+                                                        </h3>
 
-                                                    <div class="product-features-item">
-                                                        <span>Brand | </span>{{ PDCT.brand }}</div>
-                                                    <div class="product-features-item">
-                                                        <span>Color | </span>{{ PDCT.color }}</div>
+                                                        <div class="product-features-item">
+                                                            <span>Brand | </span>{{ PDCT.brand }}</div>
+                                                        <div class="product-features-item">
+                                                            <span>Color | </span>{{ PDCT.color }}</div>
 
-                                                    <span class="price">
+                                                        <span class="price">
                                                         <ins>
                                                                <span class="p-price">Price: {{ PDCT.price }}</span>
                                                         </ins>
@@ -135,30 +143,31 @@
                                                     </span>
 
 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                {% endfor %}
-                            {% else %}
-                              <!-- COLUMNS 2 -->
+                                    {% endfor %}
+                                {% else %}
+                                    <!-- COLUMNS 2 -->
                                     <div class="masonry-item col-lg-6 col-md-12 m-b30">
-                                              <div class="row mt-5">
-                                <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No product found</h2>
+                                        <div class="row mt-5">
+                                            <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No product found
+                                            </h2>
 
-                            </div>
-                            <div>
-                                <ul>
-                                    <strong>Suggestions:</strong>
-                                    <li>Make sure that all words are spelled correctly</li>
-                                    <li>Try different keywords</li>
-                                    <li>Try more general keywords</li>
-                                    <li>Try fewer keywords</li>
-                                </ul>
-                            </div>
                                         </div>
-                            {% endif %}
+                                        <div>
+                                            <ul>
+                                                <strong>Suggestions:</strong>
+                                                <li>Make sure that all words are spelled correctly</li>
+                                                <li>Try different keywords</li>
+                                                <li>Try more general keywords</li>
+                                                <li>Try fewer keywords</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endif %}
 
 
                             </div>
@@ -167,25 +176,26 @@
 
                     </div>
 
-                   <ul class="pagination m-b0 p-b0">
+                  <ul class="pagination m-b0 p-b0">
     {% if sellerProducts.has_previous %}
-        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}{% if location %}&location={{ location }}{% endif %}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Previous</a></li>
     {% endif %}
 
-    <li class="page-item"><a class="page-link" href="/search-by-location?page=1{% if location %}&location={{ location }}{% endif %}">First</a></li>
+    <li class="page-item"><a class="page-link" href="/search-by-location?page=1{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">First</a></li>
 
     {% for tpl in pageList %}
-        <li class="page-item"><a class="page-link" href="/search-by-location?page={{ tpl }}{% if location %}&location={{ location }}{% endif %}">{{ tpl }}</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ tpl }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">{{ tpl }}</a></li>
     {% endfor %}
 
     {% if sellerProducts.has_next %}
-        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}{% if location %}&location={{ location }}{% endif %}">Next</a></li>
-        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if location %}&location={{ location }}{% endif %}">Last</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Last</a></li>
     {% endif %}
 </ul>
 
 
-                    </ul>
+
+
 
 
                 </div>
@@ -232,7 +242,7 @@
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="/sell-drones/{{ FTP.slug }}">
-                                                     <i class="fa fa-eye wt-icon-box-xs"></i>
+                                                    <i class="fa fa-eye wt-icon-box-xs"></i>
                                                 </a>
 
                                             </div>
@@ -244,12 +254,12 @@
                                                 <a href="/sell-drones/{{ FTP.slug }}">{{ FTP.title }}</a>
                                             </h3>
 
-                                             <div class="product-features-item">
-                                                        <span>Brand | </span>{{ FTP.brand }}</div>
-                                                    <div class="product-features-item">
-                                                        <span>Color | </span>{{ FTP.color }}</div>
+                                            <div class="product-features-item">
+                                                <span>Brand | </span>{{ FTP.brand }}</div>
+                                            <div class="product-features-item">
+                                                <span>Color | </span>{{ FTP.color }}</div>
 
-                                                    <span class="price">
+                                            <span class="price">
                                                         <ins>
                                                                <span class="p-price">Price: {{ FTP.price }}</span>
                                                         </ins>

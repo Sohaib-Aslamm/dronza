@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="newsletter functionality added">
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="email added in admin page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/about.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/about_title_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/about_title_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/email_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/email_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/gallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/gallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/how_it_work.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/how_it_work.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/how_to_use.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/how_to_use.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/our_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/our_partner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/pricing.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/pricing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/privacy_policy.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/privacy_policy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/quality_trust.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/quality_trust.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/satisfied_clients.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/satisfied_clients.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/seo_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/seo_tags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/sliders.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/sliders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/social_media.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/social_media.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/video_gallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/video_gallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/what_people_say.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/what_people_say.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models/blog_review.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/blog_review.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models/contact_us.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/contact_us.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models/newsletter.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/newsletter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models/sell_your_drone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/search_seller_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_seller_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/sell_your_drone.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/sell_your_drone.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +274,10 @@
       <workItem from="1705901971244" duration="43000" />
       <workItem from="1705911887387" duration="272000" />
       <workItem from="1705912478997" duration="3326000" />
-      <workItem from="1705918082358" duration="4977000" />
+      <workItem from="1705918082358" duration="5065000" />
+      <workItem from="1705924037949" duration="495000" />
+      <workItem from="1705924611749" duration="1302000" />
+      <workItem from="1705934456391" duration="7304000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -413,7 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705922852323</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added meta names for all models">
+      <created>1705923848713</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705923848713</updated>
+    </task>
+    <task id="LOCAL-00019" summary="email added in admin page">
+      <created>1705924748274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705924748274</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +458,9 @@
     <MESSAGE value="description removed from list filter from services type admin page" />
     <MESSAGE value="review and privacy policy added in admin page to show on django admin panel" />
     <MESSAGE value="newsletter functionality added" />
-    <option name="LAST_COMMIT_MESSAGE" value="newsletter functionality added" />
+    <MESSAGE value="added meta names for all models" />
+    <MESSAGE value="email added in admin page" />
+    <option name="LAST_COMMIT_MESSAGE" value="email added in admin page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

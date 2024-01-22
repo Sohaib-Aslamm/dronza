@@ -15,7 +15,7 @@ urlpatterns = [
     path('privacy-policy', views.privacy_policy, name="privacy-policy"),
     path('blogReview', views.blogReview, name="blogReview"),
     path('thank-you', views.thankyou, name="thank-you"),
-    path('search-by-location', views.search_by_location, name='search-by-location'),
+    path('search-by-location', views.search_by_location_category, name='search-by-location'),
     path('coming-soon', views.coming_soon, name="coming-soon"),
 
     path('user-login', views.user_login, name="user-login"),
