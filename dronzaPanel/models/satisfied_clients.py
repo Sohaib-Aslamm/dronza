@@ -6,3 +6,6 @@ class HomeSRFP(models.Model):
     resolution = models.CharField(max_length=100, default="")
     flight_time = models.CharField(max_length=100, default="")
     project_done = models.CharField(max_length=100, default="")
+
+    class Meta:
+        verbose_name_plural = 'Satisfied Clients Section'

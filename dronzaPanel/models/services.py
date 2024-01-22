@@ -4,11 +4,6 @@ from ckeditor.fields import RichTextField
 
 from dronzaPanel.enumeratorts import ServicesType
 
-ServiceType = (
-    ('RegularService', 'RegularService'),
-    ('MainService', 'MainService'),
-)
-
 
 class ServicesTypes(models.Model):
     title = models.CharField(max_length=100, default="")
@@ -18,6 +13,9 @@ class ServicesTypes(models.Model):
     quote_by = models.CharField(max_length=100, default="")
     type = models.CharField(max_length=100, choices=ServicesType.choices, default=ServicesType.REGULAR_SERVICE)
     icons = models.ImageField(upload_to='services', default="")
+
+    class Meta:
+        verbose_name_plural = 'Services Section'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

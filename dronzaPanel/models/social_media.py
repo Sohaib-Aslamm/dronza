@@ -11,3 +11,6 @@ class SocialMedia(models.Model):
     youtube = models.CharField(max_length=255, default="")
     facebook = models.CharField(max_length=255, default="")
     twitter = models.CharField(max_length=255, default="")
+
+    class Meta:
+        verbose_name_plural = 'Social Media Section'

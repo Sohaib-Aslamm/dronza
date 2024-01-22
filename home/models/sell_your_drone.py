@@ -38,7 +38,7 @@ class sellYourDrone(models.Model):
     is_featured = models.BooleanField(default=False, verbose_name='Is Featured Product')
 
     class Meta:
-        verbose_name_plural = 'User Products'
+        verbose_name_plural = 'User Listings'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -52,4 +52,5 @@ class sellYourDroneImages(models.Model):
     Product = models.ForeignKey(sellYourDrone, on_delete=models.CASCADE)
     image = ResizedImageField(size=[1080, 720], force_format='PNG', upload_to=resource_location)
 
-    class Meta:        verbose_name_plural = 'User Products Images'
+    class Meta:
+        verbose_name_plural = 'User Listings Images'

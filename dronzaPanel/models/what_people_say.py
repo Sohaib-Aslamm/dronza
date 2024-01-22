@@ -6,3 +6,6 @@ class WhatPeopleSay(models.Model):
     designation = models.CharField(max_length=200, default="")
     say_something = models.TextField(default="")
     icon = models.ImageField(upload_to='Home/Testimonials', default="")
+
+    class Meta:
+        verbose_name_plural = 'Testimonial Section'

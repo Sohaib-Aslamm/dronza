@@ -5,3 +5,6 @@ class HomeHTU(models.Model):
     title = models.CharField(max_length=255, default="")
     description = models.TextField(default="")
     icon = models.ImageField(upload_to='Home_HowToUse', default="")
+
+    class Meta:
+        verbose_name_plural = 'How to Use Section'

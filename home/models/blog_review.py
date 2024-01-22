@@ -11,3 +11,6 @@ class blog_Review(models.Model):
     post = models.ForeignKey(userBlog, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
+
+    class Meta:
+        verbose_name_plural = 'Blog Post Reviews'

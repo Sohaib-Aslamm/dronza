@@ -11,3 +11,6 @@ class Pricing(models.Model):
     feature3 = models.CharField(max_length=255, default="")
     feature4 = models.CharField(max_length=255, default="")
     feature5 = models.CharField(max_length=255, default="")
+
+    class Meta:
+        verbose_name_plural = 'Pricing Table Section'

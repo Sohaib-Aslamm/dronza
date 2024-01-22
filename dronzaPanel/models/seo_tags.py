@@ -7,3 +7,7 @@ class seoTags(models.Model):
     canonical_link = models.TextField(default="")
     description = models.TextField(default="")
     tags = models.TextField(default="")
+
+    class Meta:
+        verbose_name_plural = 'SEO Section'
+

@@ -16,6 +16,9 @@ class userBlog(models.Model):
     Icon = models.ImageField(upload_to='Blog/Icons', default="")
     created_at = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        verbose_name_plural = 'Blog Section'
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)

@@ -16,6 +16,9 @@ class OurTeam(models.Model):
     description = RichTextField(default="")
     profile = models.FileField(upload_to='our_team', default="")
 
+    class Meta:
+        verbose_name_plural = 'Our Team Section'
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)

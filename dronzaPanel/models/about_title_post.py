@@ -8,3 +8,6 @@ class AboutTitlePost(models.Model):
     feature2 = models.TextField(default="")
     feature3 = models.TextField(default="")
     image = models.ImageField(upload_to='about_title_post', default="")
+
+    class Meta:
+        verbose_name_plural = 'About Title Post'

@@ -6,3 +6,6 @@ class HomeAbout(models.Model):
     title = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
     icon = models.ImageField(upload_to='Home_About', default="")
+
+    class Meta:
+        verbose_name_plural = 'About Section'

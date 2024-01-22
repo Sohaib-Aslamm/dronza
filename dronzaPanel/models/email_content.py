@@ -9,6 +9,9 @@ class EmailContent(models.Model):
     message = models.TextField(null=True, blank=True)
     html_message = models.TextField(null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = 'Email Content Section'
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)

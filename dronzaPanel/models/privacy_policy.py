@@ -7,3 +7,5 @@ class PrivacyPolicy(models.Model):
     heading = models.TextField(default="")
     description = RichTextField(default="")
 
+    class Meta:
+        verbose_name_plural = 'Privacy Policy'
