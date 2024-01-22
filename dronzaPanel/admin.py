@@ -129,3 +129,11 @@ class seoTagsAdmin(admin.ModelAdmin):
     list_filter = ('title', 'page',)
     search_fields = ['title', 'page', 'canonical_link', 'description', 'tags']
 
+
+@admin.register(EmailContent)
+class EmailContentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'subject', 'html_message')
+    list_filter = ('name',)
+    search_fields = ['name', 'subject', 'html_message']
+
+    exclude = ['slug']
