@@ -151,10 +151,12 @@
                                         {% with social_account=request.user.socialaccount_set.all.0 %}
                                             {% if social_account %}
                                                 <img src="{{ social_account.get_avatar_url }}"
-                                                     alt="User Profile"> <span class="px-2" style="color:white;">{{ user.username }}</span>
+                                                     alt="User Profile">
+                                                <span class="px-2" style="color:white;">{{ user.username }}</span>
                                             {% else %}
                                                 <img src="{% static 'Assets/dronza_images/team/pic1.jpg' %}"
-                                                     alt="User Profile"><span class="px-2" style="color:white;">{{ user.username }}</span>
+                                                     alt="User Profile">
+                                                <span class="px-2" style="color:white;">{{ user.username }}</span>
                                             {% endif %}
                                         {% endwith %}
                                         <div class="dropdown-content">
@@ -266,13 +268,19 @@
                             directly in your inbox.</p>
                         <div class="newsletter-input">
                             <div class="input-group">
-                                <input id="email" type="text" class="form-control" name="email"
-                                       placeholder="Enter your email">
-                                <div class="input-group-append">
-                                    <button class="input-group-text nl-search-btn text-black site-bg-primary title-style-2">
-                                        Subscribe
-                                    </button>
-                                </div>
+
+                                <form method="POST" action="/news-letter" enctype="multipart/form-data">
+                                     {% csrf_token %}
+                                    <input id="email" type="text" class="form-control" name="email"
+                                           placeholder="Enter your email">
+                                    <div class="mt-3">
+                                        <button class="input-group-text btn-block text-black site-bg-primary title-style-2"
+                                                type="submit">
+                                            Subscribe
+                                        </button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -316,7 +324,7 @@
             <div class="wt-footer-bot-left d-flex justify-content-center">
 
 
-                <span class="copyrights-text">© 2023 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
+                <span class="copyrights-text">© 2024 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
             </div>
         </div>
     </div>

@@ -13,3 +13,4 @@ from .sell_your_drone import *
 from .product_and_blog_reviews import *
 from .privacy_policy import *
 from .accounts import *
+from .news_letter import *

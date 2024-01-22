@@ -41,3 +41,10 @@ class blog_ReviewAdmin(admin.ModelAdmin):
     search_fields = ['author', 'email', 'comment', 'timestamp']
     autocomplete_fields = ('post', )
 
+
+@admin.register(NewsLetterSubscriber)
+class NewsLetterSubscriberAdmin(admin.ModelAdmin):
+    list_display = ('email', 'timestamp')
+    list_filter = ('email',)
+    search_fields = ['email', 'timestamp']
+
