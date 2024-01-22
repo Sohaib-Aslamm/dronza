@@ -94,9 +94,9 @@ class PricingAdmin(admin.ModelAdmin):
 
 @admin.register(PrivacyPolicy)
 class PrivacyPolicyAdmin(admin.ModelAdmin):
-    list_display = ('title', 'heading' 'description')
+    list_display = ('title', 'heading', 'description')
     list_filter = ('title', 'heading')
-    search_fields = ['title', 'heading' 'description']
+    search_fields = ['title', 'heading', 'description']
 
 
 @admin.register(Gallery)
