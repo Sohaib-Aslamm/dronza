@@ -33,3 +33,11 @@ class sellYourDroneImagesAdmin(admin.ModelAdmin):
     search_fields = ['Product', ]
     autocomplete_fields = ('Product', )
 
+
+@admin.register(blog_Review)
+class sellYourDroneImagesAdmin(admin.ModelAdmin):
+    list_display = ('author', 'email', 'comment' 'post', 'timestamp')
+    list_filter = ('author', 'email')
+    search_fields = ['author', 'email', 'comment', 'timestamp']
+    autocomplete_fields = ('post', )
+
