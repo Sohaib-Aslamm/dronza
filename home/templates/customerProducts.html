@@ -1,0 +1,369 @@
+{% extends 'baseHome.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <!-- CONTENT START -->
+    <div class="page-content">
+
+        <!-- INNER PAGE BANNER -->
+        {% for slider in main_slider %}
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
+                            </div>
+                        </div>
+                        <!-- BREADCRUMB ROW -->
+
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/sell-drones">Dronza Sell Point</a></li>
+                                <li class="text-white">Your Products</li>
+                            </ul>
+                        </div>
+
+                        <!-- BREADCRUMB ROW END -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- INNER PAGE BANNER END -->
+
+
+        <!-- SECTION CONTENT START -->
+        <div class="section-full p-t80 p-b50">
+            <div class="container">
+                <div class="section-content">
+
+
+                    <div class="container-fluid mt-5">
+
+                        <div class="row container-fluid justify-content-end">
+
+                            {% if user.is_authenticated %}
+                                <button class="btn bg-greeno white" data-toggle="modal"
+                                        data-target="#exampleModalCenter">+ Add Product
+                                </button>
+                            {% else %}
+                                <a href="/user-login" class="btn bg-greeno white">Login Please!</a>
+                            {% endif %}
+                        </div>
+
+                        <table class="table table-hover table-bordered mt-5">
+                            <thead class="bg-greeno white">
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Thumbnail</th>
+                                <th scope="col" class="text-center">Operations</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for data in customer_products %}
+                                <tr>
+                                    <td>{{ data.title }}</td>
+                                    <td>{{ data.status }}</td>
+                                    <td>{{ data.category }}</td>
+                                    <td>{{ data.price }}</td>
+                                    <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;"
+                                             alt="{{ data.title }}"/></td>
+                                    <td class="text-center">
+                                        <a class="text-center mx-2" href="/customer-product/{{ data.slug }}/update"><i
+                                                class="fa fa-edit fa-lg text-success"></i></a>
+                                        <a class="text-center mx-2" href="/customer-product/{{ data.slug }}/delete"><i
+                                                class="fa fa-trash fa-lg text-danger"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <ul class="pagination m-b0 p-b0">
+
+                        {% if customer_products.has_previous %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/customer-product/page/{{ customer_products.previous_page_number }}">Previous</a>
+                            </li>
+                        {% endif %}
+
+                        <li class="page-item"><a class="page-link" href="/customer-product/page/1">First</a></li>
+
+
+                        {% for tpl in page_list %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/customer-product/page/{{ tpl }}">{{ tpl }}</a></li>
+                        {% endfor %}
+
+                        {% if customer_products.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/customer-product/page/{{ customer_products.next_page_number }}">Next</a>
+                            </li>
+                            <li class="page-item"><a class="page-link"
+                                                     href="/customer-product/page/{{ lastPage }}">Last</a></li>
+                        {% endif %}
+
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- SECTION CONTENT END -->
+
+
+    </div>
+    <!-- CONTENT END -->
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content text-greeno">
+                <div class="modal-header bg-greeno">
+                    <h5 class="modal-title white" id="exampleModalLongTitle">Add Your Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <!-- Hidden input fields for latitude and longitude -->
+                    <input type="hidden" name="latitude" id="latitude" value="">
+                    <input type="hidden" name="longitude" id="longitude" value="">
+
+                    <div class="modal-body">
+
+                        <div class="row mb-3">
+
+                            <div class="col-3">
+                                <label>Your Name</label>
+                                <input type="text" class="form-control" name="name" required="required"
+                                       placeholder="enter your name"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" required="required"
+                                       placeholder="enter your email"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Primary Contact</label>
+                                <input type="text" class="form-control" name="pPhone" required="required"
+                                       placeholder="ex. (631) 643-0459"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Secondary Contact</label>
+                                <input type="text" class="form-control" name="sPhone"
+                                       placeholder="ex. (434) 985-8943 (optional)"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-12">
+                                <label>Enter Your Address</label>
+                                <input type="text" class="form-control" name="address" required="required"
+                                       placeholder="ex. (845) 787-0703396 Washington St Newburgh, New York(NY), 12550"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mb-3">
+
+
+                            <div class="col-12">
+                                <label>Product Title</label>
+                                <input type="text" class="form-control" name="title" required="required"
+                                       placeholder="ex. Dronza Mavic 2"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <label>Category</label>
+                                <select class="form-control" name="category" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in categories %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <label>Condition</label>
+                                <select class="form-control" name="condition" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                      {% for value, label in condition %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row mb-4">
+
+                            <div class="col-4">
+                                <label>Price</label>
+                                <input type="text" class="form-control" name="price" required="required"
+                                       placeholder="$100 / 3000 PKR"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                            <div class="col-4">
+                                <label>Color</label>
+                                <select class="form-control" name="color" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in color %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-4">
+                                <label>Brand</label>
+                                <select class="form-control" name="brand" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in brand %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mb-4">
+
+                            <div class="col-3">
+                                <label>Label</label>
+                                <input type="text" class="form-control" name="label1" placeholder="Label"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Input</label>
+                                <input type="text" class="form-control" name="input1" placeholder="description"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Label</label>
+                                <input type="text" class="form-control" name="label2" placeholder="Label"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Input</label>
+                                <input type="text" class="form-control" name="input2" placeholder="description"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mb-4">
+
+                            <div class="col-3">
+                                <label>Label</label>
+                                <input type="text" class="form-control" name="label3" placeholder="Label"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Input</label>
+                                <input type="text" class="form-control" name="input3" placeholder="description"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Label</label>
+                                <input type="text" class="form-control" name="label4" placeholder="Label"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+                            <div class="col-3">
+                                <label>Input</label>
+                                <input type="text" class="form-control" name="input4" placeholder="description"
+                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                            </div>
+
+                        </div>
+
+
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label>Description</label>
+                                <textarea type="text" class="form-control" name="description" required="required"
+                                          style="border: 1px solid #D4D4D4; border-radius: 3px;">Write here ...</textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label>Thumbnail</label>
+                                <input type="file" class="form-control-file" name="thumbnail" required="required">
+                                <small>(size limit 320x180, Upto this size system will drop the quality
+                                    automatically)</small>
+                            </div>
+                            <div class="col-6">
+                                <label>Images (Multiple)</label>
+                                <input type="file" name="images" class="form-control-file" multiple/>
+                                <small>(size limit 1080x720, Upto this size system will drop the quality
+                                    automatically)</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn bg-greeno white">Save Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Update hidden input fields
+                document.getElementById('latitude').value = latitude;
+                document.getElementById('longitude').value = longitude;
+
+                // Submit the form
+                document.getElementById('myForm').submit();
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    </script>
+
+{% endblock content %}
