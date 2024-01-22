@@ -79,7 +79,7 @@ class OurTeamAdmin(admin.ModelAdmin):
 @admin.register(ServicesTypes)
 class ServicesTypesAdmin(admin.ModelAdmin):
     list_display = ('title', 'Description', 'type', 'icons')
-    list_filter = ('title', 'Description', 'type')
+    list_filter = ('title', 'type')
     search_fields = ['title', 'Description', 'type']
 
     exclude = ['slug']
