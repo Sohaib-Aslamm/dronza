@@ -80,7 +80,7 @@ def read_blog_post(request, slug):
         'popular_posts': userBlog.objects.all().order_by('-sNo')[10:16],
         'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'main_slider': MainSlider.objects.filter(page='blog_detail_page'),
-        'RCPST': userBlog.objects.all().order_by('-sNo')[:2],
+        'RCPST': userBlog.objects.order_by('-sNo')[:2],
         'seo_tags': seo_tags,
     }
     return render(request, 'postDetail.html', context)
