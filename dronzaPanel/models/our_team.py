@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 
 class OurTeam(models.Model):
@@ -12,7 +13,7 @@ class OurTeam(models.Model):
     socialmedia1 = models.CharField(max_length=100, default="")
     socialmedia2 = models.CharField(max_length=100, default="")
     socialmedia3 = models.CharField(max_length=100, default="")
-    description = models.TextField(default="")
+    description = RichTextField(default="")
     profile = models.FileField(upload_to='our_team', default="")
 
     def save(self, *args, **kwargs):

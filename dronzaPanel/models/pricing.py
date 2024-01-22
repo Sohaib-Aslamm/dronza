@@ -1,18 +1,10 @@
 from django.db import models
 
-
-category = (
-    ('Nature', 'Nature'),
-    ('Urbanistic', 'Urbanistic'),
-    ('Landscape', 'Landscape'),
-    ('Sports', 'Sports'),
-    ('Shooting', 'Shooting'),
-    ('Traveling', 'Traveling'),
-)
+from dronzaPanel.enumeratorts import ServicesCategory
 
 
 class Pricing(models.Model):
-    category = models.CharField(max_length=255, choices=category, default="")
+    category = models.CharField(max_length=255, choices=ServicesCategory.choices, default=ServicesCategory.NATURE)
     price = models.CharField(max_length=255, default="")
     feature1 = models.CharField(max_length=255, default="")
     feature2 = models.CharField(max_length=255, default="")

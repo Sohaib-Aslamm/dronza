@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="redirect middleware added for live production">
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="blog recent post issue resolved now are visible">
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/enumeratorts/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dronzaPanel/enumeratorts/enumerator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/about.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/our_team.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/pricing.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/pricing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Services.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/serviceDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/serviceDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/teamDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/teamDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/services.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,26 +51,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hp/PycharmProjects/dronza/static/Assets/dronza_images/team",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/PycharmProjects/dronza/home/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\dronza\home\templates" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\static\Assets\dronza_images\team" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\dronzaPanel" />
       <recent name="C:\Users\hp\PycharmProjects\dronza\home" />
       <recent name="C:\Users\hp\PycharmProjects\dronza" />
-      <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hp\PycharmProjects\dronza\home\views" />
@@ -268,7 +277,10 @@
       <workItem from="1705470489032" duration="4000" />
       <workItem from="1705742415232" duration="23890000" />
       <workItem from="1705782495100" duration="5958000" />
-      <workItem from="1705830014841" duration="11393000" />
+      <workItem from="1705830014841" duration="14391000" />
+      <workItem from="1705901971244" duration="43000" />
+      <workItem from="1705911887387" duration="272000" />
+      <workItem from="1705912478997" duration="2982000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -319,7 +331,35 @@
       <option name="project" value="LOCAL" />
       <updated>1705859568555</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="some home page product changes and avatar for user profile">
+      <created>1705860786890</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705860786890</updated>
+    </task>
+    <task id="LOCAL-00009" summary="blog rcpst changes revert">
+      <created>1705866014511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705866014511</updated>
+    </task>
+    <task id="LOCAL-00010" summary="customer product template added">
+      <created>1705912154580</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705912154580</updated>
+    </task>
+    <task id="LOCAL-00011" summary="blog recent post issue resolved now are visible">
+      <created>1705912714552</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705912714552</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +396,11 @@
     <MESSAGE value="requirement changes, env decouple lib installed, etc" />
     <MESSAGE value="dronza migrations from start, and removed non-used stuff from project" />
     <MESSAGE value="redirect middleware added for live production" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect middleware added for live production" />
+    <MESSAGE value="some home page product changes and avatar for user profile" />
+    <MESSAGE value="blog rcpst changes revert" />
+    <MESSAGE value="customer product template added" />
+    <MESSAGE value="blog recent post issue resolved now are visible" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog recent post issue resolved now are visible" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

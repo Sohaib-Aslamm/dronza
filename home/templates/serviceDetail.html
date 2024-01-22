@@ -76,7 +76,7 @@
                             <div class="wt-box services-etc m-b30">
                                 <div class="wt-info">
                                 	<h3 class="wt-title">{{ rec.title }}</h3>
-                                    <p>{{ rec.Description }}</p>
+                                    <p>{{ rec.Description | safe }}</p>
 
                                     <blockquote class="m-tb20 bg-gray p-a30">
                                         <i class="fa fa-quote-left font-20"></i>
@@ -97,19 +97,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-12">
-                                    	<div class="  service-detail-single-list">
-                                            <h3 class="wt-tilte">Highlights </h3>
-                                            <ul class="list-check">
-                                                <li>{{ rec.highlight1 }}</li>
-                                                <li>{{ rec.highlight2 }}</li>
-                                                <li>{{ rec.highlight3 }}</li>
-                                                <li>{{ rec.highlight4 }}</li>
-                                                <li>{{ rec.highlight5 }}</li>
-                                                <li>{{ rec.highlight6 }}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
 
                                 </div>
 

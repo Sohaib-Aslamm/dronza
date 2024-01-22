@@ -25,7 +25,7 @@ class HomeHTUAdmin(admin.ModelAdmin):
 
 @admin.register(HomeAbout)
 class HomeAboutAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'feature1', 'feature2', 'feature3', 'icon')
+    list_display = ('title', 'description', 'icon')
     list_filter = ('title',)
     search_fields = ['title', 'description']
 
