@@ -22,7 +22,6 @@ urlpatterns = [
     path('user-logout', views.user_logout, name="user-logout"),
     path('register', views.user_registration, name="register"),
     path('news-letter', views.news_letter_subscriber, name="news-letter"),
-
     path('blog/page/<int:page_number>', views.blog, name="blog_page"),
     path('sell-drones/page/<int:page_number>', views.sellDrones, name="sell_drones_page"),
     path('customer-product/page/<int:page_number>', views.customer_product, name="customer_product_page"),

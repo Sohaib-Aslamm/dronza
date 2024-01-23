@@ -152,15 +152,15 @@
                                             {% if social_account %}
                                                 <img src="{{ social_account.get_avatar_url }}"
                                                      alt="User Profile">
-                                                <span class="px-2" style="color:white;">{{ user.username }}</span>
+                                                <span class="px-2" style="color:white;">{{ user.first_name }}</span>
                                             {% else %}
                                                 <img src="{% static 'Assets/dronza_images/team/pic1.jpg' %}"
                                                      alt="User Profile">
-                                                <span class="px-2" style="color:white;">{{ user.username }}</span>
+                                                <span class="px-2" style="color:white;">{{ user.first_name }}</span>
                                             {% endif %}
                                         {% endwith %}
                                         <div class="dropdown-content">
-                                            <a href="#">{{ user.username }}</a>
+                                            <a href="#">{{ user.first_name }}</a>
                                             <a href="/user-logout">Logout</a>
                                         </div>
                                     </div>

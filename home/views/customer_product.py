@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from geopy.geocoders import Nominatim
 from django.core.paginator import Paginator
 from dronzaPanel.models import SocialMedia, userBlog, MainSlider
@@ -47,7 +48,9 @@ def customer_product(request, page_number=None):
         images = request.FILES.getlist('images')
         for image in images:
             sellYourDroneImages.objects.create(image=image, Product=selling_resource)
-
+    if request.user.is_anonymous:
+        messages.error(request, 'please login in order to list your product')
+        return redirect('user-login')
     paginator = Paginator(sellYourDrone.objects.filter(user=request.user).order_by('-id'), 8)
     customer_products = paginator.get_page(page_number)
 
