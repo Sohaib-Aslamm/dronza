@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from django_resized import ResizedImageField
 
 from dronzaPanel.enumeratorts import ServicesType
 
@@ -12,7 +13,8 @@ class ServicesTypes(models.Model):
     quote = models.CharField(max_length=100, default="")
     quote_by = models.CharField(max_length=100, default="")
     type = models.CharField(max_length=100, choices=ServicesType.choices, default=ServicesType.REGULAR_SERVICE)
-    icons = models.ImageField(upload_to='services', default="")
+    icons = ResizedImageField(force_format='JPEG',
+                              quality=50, upload_to='services', keep_meta=True, default="")
 
     class Meta:
         verbose_name_plural = 'Services Section'

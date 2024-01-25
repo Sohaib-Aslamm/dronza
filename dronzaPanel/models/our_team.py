@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from django_resized import ResizedImageField
 
 
 class OurTeam(models.Model):
@@ -10,11 +11,15 @@ class OurTeam(models.Model):
     phone = models.CharField(max_length=100, default="")
     experience = models.CharField(max_length=100, default="")
     designation = models.CharField(max_length=100, default="")
-    socialmedia1 = models.CharField(max_length=100, default="")
-    socialmedia2 = models.CharField(max_length=100, default="")
-    socialmedia3 = models.CharField(max_length=100, default="")
+    social_name_1 = models.CharField(max_length=100, default="")
+    social_link_1 = models.CharField(max_length=200, default="")
+    social_name_2 = models.CharField(max_length=100, default="")
+    social_link_2 = models.CharField(max_length=200, default="")
+    social_name_3 = models.CharField(max_length=100, default="")
+    social_link_3 = models.CharField(max_length=200, default="")
     description = RichTextField(default="")
-    profile = models.FileField(upload_to='our_team', default="")
+    profile = ResizedImageField(force_format='JPEG',
+                                quality=50, upload_to='our_team', keep_meta=True, default="")
 
     class Meta:
         verbose_name_plural = 'Our Team Section'

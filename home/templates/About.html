@@ -3,75 +3,77 @@
 {% load static %}
 {% block content %}
 
- <!-- CONTENT START -->
-        <div class="page-content">
+    <!-- CONTENT START -->
+    <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
+        <!-- INNER PAGE BANNER -->
 
         {% for slider in main_slider %}
             <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
-            	<div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
                 <div class="container">
                     <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">{{ slider.title }}</h2>
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
 
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/">Home</a></li>
-                                    <li class="text-white">About</li>
-                                </ul>
-                            </div>
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/">Home</a></li>
+                                <li class="text-white">About</li>
+                            </ul>
+                        </div>
 
                         <!-- BREADCRUMB ROW END -->
                     </div>
                 </div>
             </div>
         {% endfor %}
-            <!-- INNER PAGE BANNER END -->
+        <!-- INNER PAGE BANNER END -->
 
 
-            {% for TD in about_title_post %}
+        {% for TD in about_title_post %}
             <!-- ABOUT ONE SECTION START -->
             <div class="section-full p-t80 p-b50 bg-gray">
-            	<div class="about-section-one">
+                <div class="about-section-one">
                     <div class="container">
                         <div class="section-content">
                             <div class="row justify-content-center d-flex">
 
                                 <div class="col-lg-6 col-md-12 m-b30">
                                     <div class="about-drone-one">
-                                        <div class="about-drone-one-media"><img src="{{ TD.image.url }}" alt=""  class="slide-top"></div>
-                                        <div class="about-drone-one-info"><span class="outline-title">HD 4K</span><strong>Resolution!</strong></div>
+                                        <div class="about-drone-one-media"><img src="{{ TD.image.url }}" alt=""
+                                                                                class="slide-top"></div>
+                                        <div class="about-drone-one-info"><span
+                                                class="outline-title">HD 4K</span><strong>Resolution!</strong></div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-12 m-b30">
                                     <div class="about-section-one-right">
-                                    <!-- TITLE START-->
-                                    <div class="left wt-small-separator-outer">
-                                        <div class="wt-small-separator site-text-primary">
-                                            <div  class="sep-leaf-left"></div>
-                                            <div>About</div>
-                                            <div  class="sep-leaf-right"></div>
+                                        <!-- TITLE START-->
+                                        <div class="left wt-small-separator-outer">
+                                            <div class="wt-small-separator site-text-primary">
+                                                <div class="sep-leaf-left"></div>
+                                                <div>About</div>
+                                                <div class="sep-leaf-right"></div>
+                                            </div>
+                                            <h2>{{ TD.title }}</h2>
+                                            <p> {{ TD.description }} </p>
+
+
                                         </div>
-                                        <h2>{{ TD.title }}</h2>
-                                        <p> {{ TD.description }} </p>
+                                        <!-- TITLE END-->
+                                        <ul class="site-list-style-one icon-style">
+                                            <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature1 }}</li>
+                                            <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature2 }}</li>
+                                            <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature3 }}</li>
+                                        </ul>
 
-
-                                    </div>
-                                    <!-- TITLE END-->
-                                    <ul class="site-list-style-one icon-style">
-                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature1 }}</li>
-                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature2 }}</li>
-                                        <li><i class="fa fa-check" style="color:#d72323;"></i>{{ TD.feature3 }}</li>
-                                    </ul>
-
-                                    <a href="/services" class="site-button site-btn-effect">Explore</a>
+                                        <a href="/services" class="site-button site-btn-effect">Explore</a>
                                     </div>
                                 </div>
 
@@ -82,44 +84,46 @@
                 </div>
             </div>
 
-            {% endfor %}
-            <!-- ABOUT ONE SECTION END -->
+        {% endfor %}
+        <!-- ABOUT ONE SECTION END -->
 
-<!-- QUALITY SECTION START -->
-            <div class="section-full p-t80 overlay-wraper bg-top-center bg-center" style="background-image:url({% static 'Assets/dronza_images/background/bg-1.jpg' %})">
-            	<div class="overlay-main bg-black opacity-08"></div>
-                <div class="container">
-                    <!-- TITLE START-->
-                    <div class="section-head center wt-small-separator-outer text-center text-white">
-                        <div class="wt-small-separator site-text-white">
-                            <div  class="sep-leaf-left"></div>
-                            <div>About Quality</div>
-                            <div  class="sep-leaf-right"></div>
-                        </div>
-                        <h2>We're about Quality and Trust.</h2>
+        <!-- QUALITY SECTION START -->
+        <div class="section-full p-t80 overlay-wraper bg-top-center bg-center"
+             style="background-image:url({% static 'Assets/dronza_images/background/bg-1.jpg' %})">
+            <div class="overlay-main bg-black opacity-08"></div>
+            <div class="container">
+                <!-- TITLE START-->
+                <div class="section-head center wt-small-separator-outer text-center text-white">
+                    <div class="wt-small-separator site-text-white">
+                        <div class="sep-leaf-left"></div>
+                        <div>About Quality</div>
+                        <div class="sep-leaf-right"></div>
                     </div>
-                    <!-- TITLE END-->
+                    <h2>We're about Quality and Trust.</h2>
                 </div>
+                <!-- TITLE END-->
+            </div>
 
-                <div class="section-content quality-section-outer bg-white">
-                    <div class="container">
-                        <div class="quality-section-content">
-                            <div class="row justify-content-center">
+            <div class="section-content quality-section-outer bg-white">
+                <div class="container">
+                    <div class="quality-section-content">
+                        <div class="row justify-content-center">
 
 
-                                {% for QTD in quality_trust %}
+                            {% for QTD in quality_trust %}
                                 <div class="col-lg-4 col-md-12 m-b30">
                                     <div class="corner-line">
                                         <div class="wt-box d-icon-box-one bg-white shadow ">
 
                                             <div class="wt-icon-box-wraper m-b40">
                                                 <div class="icon-xl inline-icon">
-                                                   <span class="icon-cell site-text-primary"><img src="{{ QTD.icon.url }}"> </span>
+                                                    <span class="icon-cell site-text-primary"><img
+                                                            src="{{ QTD.icon.url }}"> </span>
                                                 </div>
                                             </div>
 
                                             <div class="d-icon-box-title title-style-2 site-text-secondry">
-                                                <h3  class="s-title-one">{{ QTD.title }}</h3>
+                                                <h3 class="s-title-one">{{ QTD.title }}</h3>
                                             </div>
 
                                             <div class="d-icon-box-content">
@@ -132,37 +136,38 @@
                                 </div>
                             {% endfor %}
 
-                            </div>
                         </div>
-
-                        <div class="quality-video-section">
-                            <span>Delivering help and hope to people through sponsorship</span>
-                            <div class="quality-video">
-                                 <a href="https://www.youtube.com/watch?v=c1XNqw2gSbU" class="mfp-video play-now">
-                                    <i class="icon fa fa-play"></i>
-                                    <span class="ripple"></span>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="quality-video-section">
+                        <span>Delivering help and hope to people through sponsorship</span>
+                        <div class="quality-video">
+                            <a href="https://www.youtube.com/watch?v=c1XNqw2gSbU" class="mfp-video play-now">
+                                <i class="icon fa fa-play"></i>
+                                <span class="ripple"></span>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <!-- QUALITY SECTION END -->
+        </div>
+        <!-- QUALITY SECTION END -->
 
 
-            <!-- OUR TEAM START -->
-            <div class="section-full p-t80 p-b50 bg-gray team-bg-section-outer">
-            	<div class="team-bg-map site-bg-secondry bg-repeat-x" style="background-image:url({% static 'images/background/bg-map2.html' %})"></div>
-                <div class="container">
-                    <div class="section-content">
+        <!-- OUR TEAM START -->
+        <div class="section-full p-t80 p-b50 bg-gray team-bg-section-outer">
+            <div class="team-bg-map site-bg-secondry bg-repeat-x"
+                 style="background-image:url({% static 'images/background/bg-map2.html' %})"></div>
+            <div class="container">
+                <div class="section-content">
 
                     <!-- TITLE START-->
                     <div class="section-head center wt-small-separator-outer text-center">
                         <div class="wt-small-separator site-text-primary">
-                            <div  class="sep-leaf-left"></div>
+                            <div class="sep-leaf-left"></div>
                             <div>Our Experts</div>
-                            <div  class="sep-leaf-right"></div>
+                            <div class="sep-leaf-right"></div>
                         </div>
                         <h2>Expert team</h2>
                     </div>
@@ -172,38 +177,43 @@
                         <div class="row justify-content-center">
 
                             {% for TMD in our_team %}
-							<div class="col-lg-4 col-md-6 col-sm-12 m-b30">
-                                <div class="wt-team-1">
+                                <div class="col-lg-4 col-md-6 col-sm-12 m-b30">
+                                    <div class="wt-team-1">
 
-                                    <div class="wt-media">
-                                        <a href="/experts/{{ TMD.slug }}"> <img src="{{ TMD.profile.url }}" alt=""> </a>
-                                    </div>
-
-                                    <div class="wt-info">
-                                        <div class="team-detail p-t30">
-                                            <span class="title-style-2 team-position site-text-primary">{{ TMD.designation }}</span>
-                                            <h3 class="m-t0 team-name"><a href="/experts/{{ TMD.slug }}">{{ TMD.name }}</a></h3>
+                                        <div class="wt-media">
+                                            <a href="/experts/{{ TMD.slug }}"> <img src="{{ TMD.profile.url }}" alt="">
+                                            </a>
                                         </div>
-                                        <div class="team-social-center">
-                                            <ul class="team-social-bar">
-                                                <li><a href="{{ TMD.socialmedia1 }}" target="_blank">Linkedin</a></li>
-                                                <li><a href="{{ TMD.socialmedia2 }}" target="_blank">Facebook</a></li>
-                                                <li><a href="{{ TMD.socialmedia3 }}" target="_blank">Twitter</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
 
+                                        <div class="wt-info">
+                                            <div class="team-detail p-t30">
+                                                <span class="title-style-2 team-position site-text-primary">{{ TMD.designation }}</span>
+                                                <h3 class="m-t0 team-name"><a
+                                                        href="/experts/{{ TMD.slug }}">{{ TMD.name }}</a></h3>
+                                            </div>
+                                            <div class="team-social-center">
+                                                <ul class="team-social-bar">
+                                                    <li><a href="{{ TMD.social_link_1 }}">{{ TMD.social_name_1 }}</a>
+                                                    </li>
+                                                    <li><a href="{{ TMD.social_link_2 }}">{{ TMD.social_name_2 }}</a>
+                                                    </li>
+                                                    <li><a href="{{ TMD.social_link_3 }}">{{ TMD.social_name_3 }}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
                             {% endfor %}
 
                         </div>
                     </div>
 
-                    </div>
                 </div>
             </div>
-            <!-- OUR TEAM SECTION END -->
         </div>
-        <!-- CONTENT END -->
+        <!-- OUR TEAM SECTION END -->
+    </div>
+    <!-- CONTENT END -->
 {% endblock content %}

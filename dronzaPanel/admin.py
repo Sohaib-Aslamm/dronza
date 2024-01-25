@@ -4,7 +4,7 @@ from dronzaPanel.models import *
 
 @admin.register(MainSlider)
 class MainSliderAdmin(admin.ModelAdmin):
-    list_display = ('title', 'page', 'image', 'background_image')
+    list_display = ('title', 'page', 'image')
     list_filter = ('title', 'page')
     search_fields = ['title', 'page']
 
@@ -68,8 +68,7 @@ class QualityTrustAdmin(admin.ModelAdmin):
 
 @admin.register(OurTeam)
 class OurTeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'experience', 'designation', 'description', 'profile',
-                    'socialmedia1', 'socialmedia2', 'socialmedia3')
+    list_display = ('name', 'email', 'phone', 'experience', 'designation', 'description', 'profile')
     list_filter = ('name', 'designation')
     search_fields = ['name', 'email', 'experience', 'designation', 'description']
 

@@ -33,8 +33,8 @@ class sellYourDrone(models.Model):
     input3 = models.CharField(max_length=100, default="N/A", null=True)
     input4 = models.CharField(max_length=100, default="N/A", null=True)
     description = RichTextField(default="")
-    thumbnail = ResizedImageField(size=[320, 180], force_format='PNG',
-                                  quality=-1, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
+    thumbnail = ResizedImageField(size=[320, 180], force_format='JPEG',
+                                  quality=80, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
     is_featured = models.BooleanField(default=False, verbose_name='Is Featured Product')
 
     class Meta:
@@ -50,7 +50,7 @@ class sellYourDroneImages(models.Model):
         return f'sellYourDrone/{self.Product.name}/{filename}'
 
     Product = models.ForeignKey(sellYourDrone, on_delete=models.CASCADE)
-    image = ResizedImageField(size=[1080, 720], force_format='PNG', upload_to=resource_location)
+    image = ResizedImageField(size=[750, 750], quality=60, force_format='JPEG', upload_to=resource_location)
 
     class Meta:
         verbose_name_plural = 'User Listings Images'

@@ -47,4 +47,3 @@ class NewsLetterSubscriberAdmin(admin.ModelAdmin):
     list_display = ('email', 'timestamp')
     list_filter = ('email',)
     search_fields = ['email', 'timestamp']
-
