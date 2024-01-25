@@ -9,7 +9,7 @@ class AboutTitlePost(models.Model):
     feature2 = models.TextField(default="")
     feature3 = models.TextField(default="")
     image = ResizedImageField(force_format='JPEG',
-                              quality=50, upload_to='about_title_post', keep_meta=True, default="")
+                              quality=80, upload_to='about_title_post', keep_meta=True, default="")
 
     class Meta:
         verbose_name_plural = 'About Title Post'
