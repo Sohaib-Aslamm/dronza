@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="image resized field added for all images field in all project">
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="quality changes for some models due to high loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/about.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/about.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/about_title_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/about_title_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/how_it_work.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/how_it_work.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/how_to_use.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/how_to_use.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/our_partner.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/our_partner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dronzaPanel/models/quality_trust.py" beforeDir="false" afterPath="$PROJECT_DIR$/dronzaPanel/models/quality_trust.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/Services.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/services.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +285,7 @@
       <workItem from="1706077429560" duration="3000" />
       <workItem from="1706083801280" duration="1559000" />
       <workItem from="1706120022383" duration="4305000" />
-      <workItem from="1706163266834" duration="2952000" />
+      <workItem from="1706163266834" duration="4293000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -459,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706164823580</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="quality changes for some models due to high loss">
+      <created>1706166997335</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1706166997335</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +515,8 @@
     <MESSAGE value="customized google and facebook login form for continue, if not user then user cant list a product on platform" />
     <MESSAGE value="registration form required added for first and last name and email" />
     <MESSAGE value="image resized field added for all images field in all project" />
-    <option name="LAST_COMMIT_MESSAGE" value="image resized field added for all images field in all project" />
+    <MESSAGE value="quality changes for some models due to high loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="quality changes for some models due to high loss" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />

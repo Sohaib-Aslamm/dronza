@@ -54,25 +54,17 @@
                             <div class="row justify-content-center d-flex">
 
                                 {% for MS in RegularServices %}
-                                <div class="col-lg-4 col-md-6 m-b30">
-                                    <div class="wt-box d-icon-box-one bg-white shadow card1">
-
-                                        <div class="wt-icon-box-wraper m-b40">
-                                            <div class="icon-xl inline-icon">
-                                                <span class="icon-cell site-text-primary"><img src="{{ MS.icons.url }}"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-icon-box-title title-style-2 site-text-secondry">
-                                            <h3  class="s-title-one">{{ MS.title }}</h3>
-                                        </div>
-
-                                        <div class="d-icon-box-content">
+                                 <div class="col-lg-4 col-md-6 m-b30">
+                                <div class="imghvr-zoom-out-down grayscale-img">
+                                   <img src="{{ MS.icons.url }}" alt="">
+                                    <div class="imghvr-content">
+                                    	<div class="imghvr-mid">
+                                            <h3 class="wt-title">{{ MS.title }}</h3>
                                             <a href="/services/{{ MS.slug }}" class="site-button-link site-text-primary">Read More</a>
                                         </div>
-
                                     </div>
                                 </div>
+                            </div>
                                 {% endfor %}
 
 
@@ -111,7 +103,7 @@
                             </div>
 
                             <div class="col-lg-7 col-md-6 wt-separator-two-part-right text-left">
-                                <p>We provide expert inspection services for your organization’s mission critical assets using drone technology.</p>
+                                <p>We provide expert inspection services for your organization’s mission-critical assets using drone technology.</p>
                             </div>
 
                     	</div>
@@ -123,7 +115,7 @@
                         <div class="row justify-content-center d-flex">
 
 
-                            {% for EMS in MAINSERVICES %}
+                            {% for EMS in MainServices %}
                             <div class="col-lg-4 col-md-6 m-b30">
                                 <div class="imghvr-zoom-out-down grayscale-img">
                                    <img src="{{ EMS.icons.url }}" alt="">
@@ -164,7 +156,7 @@
                                 <div class="row d-flex justify-content-center">
 
 
-                                {% for PR in PRCDT %}
+                                {% for PR in pricing_table %}
 
                                     <div class="col-lg-4 col-md-6 col-sm-12 m-b30">
                                         <div class="pricingtable-wrapper bg-white">
