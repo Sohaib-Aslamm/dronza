@@ -269,18 +269,16 @@
                             <div class="input-group">
 
                                 <form method="POST" action="/news-letter" enctype="multipart/form-data">
-                                     {% csrf_token %}
-                                    <input id="email" type="text" class="form-control" name="email"
-                                           placeholder="Enter your email">
-                                    <div class="mt-3">
-                                        <button class="input-group-text btn-block text-black site-bg-primary title-style-2"
-                                                type="submit">
-                                            Subscribe
-                                        </button>
-                                    </div>
-                                </form>
+    {% csrf_token %}
+    <div class="input-group">
+        <input id="email" type="text" class="form-control" name="email" placeholder="Enter your email">
+        <div class="input-group-append">
+             <button type="submit" class="btn text-white nl-search-btn text-black site-bg-primary title-style-2" style="font-weight: bold;">
+                Subscribe
+            </button>
+                                </div>
+                                 </form>
 
-                            </div>
                         </div>
                     </div>
 
