@@ -1,18 +1,30 @@
 from django.db import models
 
 
-class DRONE_CATEGORY(models.TextChoices):
-    METAL = 'metal', 'Metal'
-    FABRIC = 'fabric', 'Fabric'
-    PLASTIC = 'plastic', 'Plastic'
-    TITANIUM = 'titanium', 'Titanium'
+class PRODUCT_TYPE(models.TextChoices):
+    DRONE = 'drone', 'Drone'
     PARTS = 'parts', 'Parts'
-    OTHER = 'other', 'Other'
+
+
+class PRODUCT_CATEGORY(models.TextChoices):
+    A1 = 'a1', 'A1 250-900g'
+    A2 = 'a2', 'A2 4kg'
+    A3 = 'a3', 'A3 25kg'
 
 
 class SOLD_STATUS(models.TextChoices):
     AVAILABLE = 'available', 'Available'
     SOLD = 'sold', 'Sold'
+
+
+class SPEED_MODE(models.TextChoices):
+    LOW_SPEED = 'low_speed', 'Low-speed'
+    HIGH_SPEEED = 'high_speed', 'High-speed'
+
+
+class WING_TYPE(models.TextChoices):
+    MULTI_ROTOR = 'multi_rotor', 'Multi-rotor'
+    FIXED_WING = 'fixed_wing', 'Fixed-wing'
 
 
 class DRONE_COLOR(models.TextChoices):

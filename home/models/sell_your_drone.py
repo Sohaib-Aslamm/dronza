@@ -4,7 +4,8 @@ from ckeditor.fields import RichTextField
 from django_resized import ResizedImageField
 from django.utils.text import slugify
 from django.contrib.auth.models import User
-from home.enumerators import DRONE_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND
+from home.enumerators import SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND, SPEED_MODE, WING_TYPE, \
+    PRODUCT_TYPE, PRODUCT_CATEGORY
 
 
 class sellYourDrone(models.Model):
@@ -22,16 +23,13 @@ class sellYourDrone(models.Model):
     brand = models.CharField(max_length=100, default=DRONE_BRAND.DRONZA, choices=DRONE_BRAND.choices)
     color = models.CharField(max_length=100, default=DRONE_COLOR.WHITE, choices=DRONE_COLOR.choices)
     condition = models.CharField(max_length=100, default=DRONE_CONDITION.EXCELLENT, choices=DRONE_CONDITION.choices)
-    category = models.CharField(max_length=100, default=DRONE_CATEGORY.OTHER, choices=DRONE_CATEGORY.choices)
+    product_type = models.CharField(max_length=100, default=PRODUCT_TYPE.DRONE, choices=PRODUCT_TYPE.choices)
+    product_category = models.CharField(max_length=100, default=PRODUCT_CATEGORY.A1, choices=PRODUCT_CATEGORY.choices)
     status = models.CharField(max_length=100, default=SOLD_STATUS.AVAILABLE, choices=SOLD_STATUS.choices)
-    label1 = models.CharField(max_length=100, default="N/A", null=True)
-    label2 = models.CharField(max_length=100, default="N/A", null=True)
-    label3 = models.CharField(max_length=100, default="N/A", null=True)
-    label4 = models.CharField(max_length=100, default="N/A", null=True)
-    input1 = models.CharField(max_length=100, default="N/A", null=True)
-    input2 = models.CharField(max_length=100, default="N/A", null=True)
-    input3 = models.CharField(max_length=100, default="N/A", null=True)
-    input4 = models.CharField(max_length=100, default="N/A", null=True)
+    speed_mode = models.CharField(max_length=100, default=SPEED_MODE.LOW_SPEED, choices=SPEED_MODE.choices)
+    wing_type = models.CharField(max_length=100, default=WING_TYPE.FIXED_WING, choices=WING_TYPE.choices)
+    drone_model = models.CharField(max_length=255, default="")
+    noise_level = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
     thumbnail = ResizedImageField(size=[320, 180], force_format='JPEG',
                                   quality=80, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")

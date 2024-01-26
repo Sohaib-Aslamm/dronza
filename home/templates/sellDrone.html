@@ -36,50 +36,96 @@
         {% endfor %}
         <!-- INNER PAGE BANNER END -->
 
+<!-- Buttons Row -->
+<div class="row mt-3 justify-content-end mr-md-4 py-3">
+    <div class="col-md-auto">
+        <a href="/contact-us" class="site-button"><i class="fa fa-drone"></i> Complaint Us</a>
+    </div>
+    <div class="col-md-auto">
+        <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i> + Add Your Product</a>
+    </div>
+</div>
 
-        <div class="row mt-3 justify-content-end mr-4">
-            <a href="/contact-us" class="site-button"><i class="fa fa-drone"></i>Complaint Us</a><span>|</span>
-            <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
-        </div>
+<!-- Search Form Row -->
+<div class="row mt-3 mb-5 justify-content-center">
+    <div class="col-md-8 ">
+        <!-- SEARCH -->
+        <div class="widget p-a20">
+            <div class="search-bx">
+                <form role="search" method="POST" action="/search-by-location">
+                    {% csrf_token %}
+                    <div class="input-group">
 
-        <div class="row mt-3 mb-5 justify-content-center">
-            <div class="col-md-6">
-                <!-- SEARCH -->
-                <div class="widget p-a20">
-                    <div class="search-bx">
-                        <form role="search" method="POST" action="/search-by-location">
-                            {% csrf_token %}
-                            <div class="input-group">
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="product_type">
+                                        <option disabled selected>select type</option>
+                                        {% for value, label in product_type %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-                                <select class="form-control border" name="category">
-                                    <option disabled selected>select category</option>
-                                    {% for value, label in categories %}
-                                        <option value="{{ value }}">{{ label }}</option>
-                                    {% endfor %}
-                                </select>
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="product_category">
+                                        <option disabled selected>select category</option>
+                                        {% for value, label in product_category %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-                                <select class="form-control border" name="brand">
-                                    <option disabled selected>select brand</option>
-                                    {% for value, label in brand %}
-                                        <option value="{{ value }}">{{ label }}</option>
-                                    {% endfor %}
-                                </select>
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="brand">
+                                        <option disabled selected>select brand</option>
+                                        {% for value, label in brand %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-                                <select class="form-control border" name="condition">
-                                    <option disabled selected>select condition</option>
-                                    {% for value, label in condition %}
-                                        <option value="{{ value }}">{{ label }}</option>
-                                    {% endfor %}
-                                </select>
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="condition">
+                                        <option disabled selected>select condition</option>
+                                        {% for value, label in condition %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="speed_mode">
+                                        <option disabled selected>speed mode</option>
+                                        {% for value, label in speed_mode %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-                                <input name="location" type="text" class="form-control border"
-                                       placeholder="location...">
+                                <div class="form-group d-md-inline-block">
+                                    <select class="form-control border" name="wing_type">
+                                        <option disabled selected>wing type</option>
+                                        {% for value, label in wing_type %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
 
-                                <span class="input-group-btn">
-                                 <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-                                </span>
+                                <div class="form-group d-md-inline-block">
+                                    <input name="location" type="text" class="form-control border"
+                                           placeholder="location...">
+                                </div>
+
                             </div>
+
+                            <!-- Search Button Row -->
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-block btn-primary"><i class="fa fa-search"></i>
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>

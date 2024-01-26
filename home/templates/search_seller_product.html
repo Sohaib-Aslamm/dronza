@@ -51,17 +51,25 @@
                             {% csrf_token %}
                             <div class="input-group">
 
-                                <select class="form-control border" name="category">
-                                    <option disabled selected>select category</option>
-                                    {% for value, label in categories_list %}
+                                <select class="form-control border" name="product_type">
+                                    <option disabled selected>select type</option>
+                                    {% for value, label in product_choices %}
                                         <option value="{{ value }}"
-                                              {% if value == category %}selected{% endif %}>{{ label }}</option>
+                                              {% if value == product_type %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                             <select class="form-control border" name="product_category">
+                                    <option disabled selected>select category</option>
+                                    {% for value, label in category_choices %}
+                                        <option value="{{ value }}"
+                                              {% if value == product_category %}selected{% endif %}>{{ label }}</option>
                                     {% endfor %}
                                 </select>
 
                                 <select class="form-control border" name="brand">
                                     <option disabled selected>select brand</option>
-                                    {% for value, label in brands_list %}
+                                    {% for value, label in brands_choices %}
                                         <option value="{{ value }}"
                                         {% if value == brand %}selected{% endif %}>{{ label }}</option>
                                     {% endfor %}
@@ -69,9 +77,25 @@
 
                                 <select class="form-control border" name="condition">
                                     <option disabled selected>select condition</option>
-                                    {% for value, label in conditions_list %}
+                                    {% for value, label in condition_choices %}
                                         <option value="{{ value }}"
                                         {% if value == condition %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                            <select class="form-control border" name="speed_mode">
+                                    <option disabled selected>speed mode</option>
+                                    {% for value, label in speed_mode_choices %}
+                                        <option value="{{ value }}"
+                                        {% if value == speed_mode %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                              <select class="form-control border" name="wing_type">
+                                    <option disabled selected>wing type</option>
+                                    {% for value, label in wing_type_choices %}
+                                        <option value="{{ value }}"
+                                        {% if value == wing_type %}selected{% endif %}>{{ label }}</option>
                                     {% endfor %}
                                 </select>
 
@@ -153,7 +177,7 @@
                                     <!-- COLUMNS 2 -->
                                     <div class="masonry-item col-lg-6 col-md-12 m-b30">
                                         <div class="row mt-5">
-                                            <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No product found
+                                            <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No Listing found
                                             </h2>
 
                                         </div>
@@ -178,18 +202,18 @@
 
                   <ul class="pagination m-b0 p-b0">
     {% if sellerProducts.has_previous %}
-        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.previous_page_number }}{% if product_type %}&product_type={{ product_type }}{% endif %}{% if product_category %}&product_category={{ product_category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}{% if speed_mode %}&speed_mode={{ speed_mode }}{% endif %}{% if wing_type %}&wing_type={{ wing_type }}{% endif %}{% if location %}&location={{ location }}{% endif %}">Previous</a></li>
     {% endif %}
 
-    <li class="page-item"><a class="page-link" href="/search-by-location?page=1{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">First</a></li>
+    <li class="page-item"><a class="page-link" href="/search-by-location?page=1{% if product_type %}&product_type={{ product_type }}{% endif %}{% if product_category %}&product_category={{ product_category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}{% if speed_mode %}&speed_mode={{ speed_mode }}{% endif %}{% if wing_type %}&wing_type={{ wing_type }}{% endif %}{% if location %}&location={{ location }}{% endif %}">First</a></li>
 
     {% for tpl in pageList %}
-        <li class="page-item"><a class="page-link" href="?page={{ tpl }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">{{ tpl }}</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ tpl }}{% if product_type %}&product_type={{ product_type }}{% endif %}{% if product_category %}&product_category={{ product_category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}{% if speed_mode %}&speed_mode={{ speed_mode }}{% endif %}{% if wing_type %}&wing_type={{ wing_type }}{% endif %}{% if location %}&location={{ location }}{% endif %}">{{ tpl }}</a></li>
     {% endfor %}
 
     {% if sellerProducts.has_next %}
-        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Next</a></li>
-        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if location %}&location={{ location }}{% endif %}{% if category %}&category={{ category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}">Last</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ sellerProducts.next_page_number }}{% if product_type %}&product_type={{ product_type }}{% endif %}{% if product_category %}&product_category={{ product_category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}{% if speed_mode %}&speed_mode={{ speed_mode }}{% endif %}{% if wing_type %}&wing_type={{ wing_type }}{% endif %}{% if location %}&location={{ location }}{% endif %}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ lastPage }}{% if product_type %}&product_type={{ product_type }}{% endif %}{% if product_category %}&product_category={{ product_category }}{% endif %}{% if brand %}&brand={{ brand }}{% endif %}{% if condition %}&condition={{ condition }}{% endif %}{% if speed_mode %}&speed_mode={{ speed_mode }}{% endif %}{% if wing_type %}&wing_type={{ wing_type }}{% endif %}{% if location %}&location={{ location }}{% endif %}">Last</a></li>
     {% endif %}
 </ul>
 

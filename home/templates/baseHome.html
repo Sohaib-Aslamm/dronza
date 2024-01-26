@@ -4,7 +4,6 @@
 
 {% load static %}
 
-{% load cart_tag %}
 
 <head>
     <meta charset="UTF-8">
@@ -372,6 +371,12 @@
 <script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
 <script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/extensions/revolution-plugin.js' %}"></script>
 <script src="{% static 'Assets/dronza_js/rev-script-3.js' %}"></script>
+
+
+<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor1');
+</script>
 
 <script>
     $(function () {

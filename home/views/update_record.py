@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
 from dronzaPanel.models import MainSlider
-from home.enumerators import DRONE_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND
+from home.enumerators import PRODUCT_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND, SPEED_MODE, \
+    WING_TYPE, PRODUCT_TYPE
 from home.models import sellYourDrone
 
 
@@ -16,21 +17,18 @@ def UpdatebyUUID(request, type, slug):
             Record.sPhone = request.POST.get('sPhone')
             Record.address = request.POST.get('address')
             Record.title = request.POST.get('title')
-            Record.category = request.POST.get('category')
+            Record.product_category = request.POST.get('product_category')
+            Record.product_type = request.POST.get('product_type')
             Record.condition = request.POST.get('condition')
             Record.price = request.POST.get('price')
             Record.color = request.POST.get('color')
             Record.brand = request.POST.get('brand')
+            Record.speed_mode = request.POST.get('speed_mode')
+            Record.wing_type = request.POST.get('wing_type')
+            Record.drone_model = request.POST.get('drone_model')
+            Record.noise_level = request.POST.get('noise_level')
             Record.status = request.POST.get('status')
-            Record.label1 = request.POST.get('label1')
-            Record.input1 = request.POST.get('input1')
-            Record.label2 = request.POST.get('label2')
-            Record.input2 = request.POST.get('input2')
-            Record.label3 = request.POST.get('label3')
-            Record.input3 = request.POST.get('input3')
-            Record.label4 = request.POST.get('label4')
-            Record.input4 = request.POST.get('input4')
-            Record.description = request.POST.get('description')
+            Record.description = request.POST.get('editor1')
 
             file_data = request.POST.get('edit_file')
             if not file_data == 'False':
@@ -40,7 +38,10 @@ def UpdatebyUUID(request, type, slug):
             return redirect('/customer-product')
         main_slider = MainSlider.objects.filter(page='edit_customer_product_page')
         context = {
-            'categories': DRONE_CATEGORY.choices,
+            'product_category': PRODUCT_CATEGORY.choices,
+            'product_type': PRODUCT_TYPE.choices,
+            'speed_mode': SPEED_MODE.choices,
+            'wing_type': WING_TYPE.choices,
             'brand': DRONE_BRAND.choices,
             'condition': DRONE_CONDITION.choices,
             'color': DRONE_COLOR.choices,

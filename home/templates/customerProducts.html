@@ -57,7 +57,7 @@
                             <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Category</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Thumbnail</th>
                                 <th scope="col" class="text-center">Operations</th>
@@ -69,7 +69,7 @@
                                 <tr>
                                     <td>{{ data.title }}</td>
                                     <td>{{ data.status }}</td>
-                                    <td>{{ data.category }}</td>
+                                    <td>{{ data.product_type }}</td>
                                     <td>{{ data.price }}</td>
                                     <td><img src="{{ data.thumbnail.url }}" style="width: 70px; height: 70px;"
                                              alt="{{ data.title }}"/></td>
@@ -149,7 +149,7 @@
                         <div class="row mb-3">
 
                             <div class="col-3">
-                                <label>Your Name</label>
+                                <label>Name</label>
                                 <input type="text" class="form-control" name="name" required="required"
                                        placeholder="enter your name"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -161,13 +161,13 @@
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
                             <div class="col-3">
-                                <label>Primary Contact</label>
+                                <label>Primary</label>
                                 <input type="text" class="form-control" name="pPhone" required="required"
                                        placeholder="ex. (631) 643-0459"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
                             <div class="col-3">
-                                <label>Secondary Contact</label>
+                                <label>Secondary</label>
                                 <input type="text" class="form-control" name="sPhone"
                                        placeholder="ex. (434) 985-8943 (optional)"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -178,7 +178,7 @@
                         <div class="row mb-3">
 
                             <div class="col-12">
-                                <label>Enter Your Address</label>
+                                <label>Address</label>
                                 <input type="text" class="form-control" name="address" required="required"
                                        placeholder="ex. (845) 787-0703396 Washington St Newburgh, New York(NY), 12550"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -191,7 +191,7 @@
 
 
                             <div class="col-12">
-                                <label>Product Title</label>
+                                <label>Title</label>
                                 <input type="text" class="form-control" name="title" required="required"
                                        placeholder="ex. Dronza Mavic 2"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -200,50 +200,27 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-6">
-                                <label>Category</label>
-                                <select class="form-control" name="category" required
+                            <div class="col-4">
+                                <label>Product-type</label>
+                                <select class="form-control" name="product_type" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                    {% for value, label in categories %}
+                                    {% for value, label in product_type %}
                                         <option value="{{ value }}">{{ label }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-6">
-                                <label>Condition</label>
-                                <select class="form-control" name="condition" required
+                        <div class="col-4">
+                                <label>Product-category</label>
+                                <select class="form-control" name="product_category" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                      {% for value, label in condition %}
-                                        <option value="{{ value }}">{{ label }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="row mb-4">
-
-                            <div class="col-4">
-                                <label>Price</label>
-                                <input type="text" class="form-control" name="price" required="required"
-                                       placeholder="$100"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                            </div>
-
-                            <div class="col-4">
-                                <label>Color</label>
-                                <select class="form-control" name="color" required
-                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                    {% for value, label in color %}
+                                    {% for value, label in product_category %}
                                         <option value="{{ value }}">{{ label }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
 
-                            <div class="col-4">
-                                <label>Brand</label>
+                          <div class="col-4">
+                                <label>Designed-by</label>
                                 <select class="form-control" name="brand" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                     {% for value, label in brand %}
@@ -257,61 +234,91 @@
 
                         <div class="row mb-4">
 
+                        <div class="col-3">
+                                <label>Condition</label>
+                                <select class="form-control" name="condition" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                      {% for value, label in condition %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+
                             <div class="col-3">
-                                <label>Label</label>
-                                <input type="text" class="form-control" name="label1" placeholder="Label"
+                                <label>Color</label>
+                                <select class="form-control" name="color" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in color %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                         <div class="col-3">
+                                <label>Speed-mode</label>
+                                <select class="form-control" name="speed_mode" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in speed_mode %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                       <div class="col-3">
+                                <label>Wing-type</label>
+                                <select class="form-control" name="wing_type" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                    {% for value, label in wing_type %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+
+                      <div class="row mb-4">
+
+                             <div class="col-4">
+                                <label>Price</label>
+                                <input type="text" class="form-control" name="price" required="required"
+                                       placeholder="$100"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
-                            <div class="col-3">
-                                <label>Input</label>
-                                <input type="text" class="form-control" name="input1" placeholder="description"
+
+                            <div class="col-4">
+                                <label>Model</label>
+                               <input type="text" class="form-control" name="drone_model"
+                                       placeholder="Dronza A1-200"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
-                            <div class="col-3">
-                                <label>Label</label>
-                                <input type="text" class="form-control" name="label2" placeholder="Label"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                            </div>
-                            <div class="col-3">
-                                <label>Input</label>
-                                <input type="text" class="form-control" name="input2" placeholder="description"
+
+                      <div class="col-4">
+                                <label>Noise-level</label>
+                                <input type="text" class="form-control" name="noise_level"
+                                       placeholder="high noise"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
 
                         </div>
 
+                    <div class="row mb-4">
 
-                        <div class="row mb-4">
-
-                            <div class="col-3">
-                                <label>Label</label>
-                                <input type="text" class="form-control" name="label3" placeholder="Label"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                        <div class="col-12">
+                                <label>Status</label>
+                                <select class="form-control" name="status" required
+                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                      {% for value, label in status %}
+                                        <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
-                            <div class="col-3">
-                                <label>Input</label>
-                                <input type="text" class="form-control" name="input3" placeholder="description"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                            </div>
-                            <div class="col-3">
-                                <label>Label</label>
-                                <input type="text" class="form-control" name="label4" placeholder="Label"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                            </div>
-                            <div class="col-3">
-                                <label>Input</label>
-                                <input type="text" class="form-control" name="input4" placeholder="description"
-                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                            </div>
-
-                        </div>
-
+                    </div>
 
                         <div class="row mb-4">
                             <div class="col-12">
                                 <label>Description</label>
-                                <textarea type="text" class="form-control" name="description" required="required"
-                                          style="border: 1px solid #D4D4D4; border-radius: 3px;">Write here ...</textarea>
+                                <textarea class="form-control" name="editor1" ></textarea>
                             </div>
 
                         </div>
@@ -320,13 +327,13 @@
                             <div class="col-6">
                                 <label>Thumbnail</label>
                                 <input type="file" class="form-control-file" name="thumbnail" required="required">
-                                <small>(size limit 320x180, Upto this size system will drop the quality
+                                <small>(size limit 320x180, Upto this size system will drop quality
                                     automatically)</small>
                             </div>
                             <div class="col-6">
                                 <label>Images (Multiple)</label>
                                 <input type="file" name="images" class="form-control-file" multiple/>
-                                <small>(size limit 1080x720, Upto this size system will drop the quality
+                                <small>(size limit 750X750, Upto this size system will drop quality
                                     automatically)</small>
                             </div>
                         </div>
@@ -334,8 +341,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn bg-greeno white">Save Post</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-danger">Save Post</button>
                     </div>
                 </form>
             </div>

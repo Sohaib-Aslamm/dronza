@@ -3,7 +3,8 @@ from django.contrib import messages
 from geopy.geocoders import Nominatim
 from django.core.paginator import Paginator
 from dronzaPanel.models import SocialMedia, userBlog, MainSlider
-from home.enumerators import DRONE_CATEGORY, DRONE_BRAND, DRONE_CONDITION, DRONE_COLOR, SOLD_STATUS
+from home.enumerators import PRODUCT_CATEGORY, DRONE_BRAND, DRONE_CONDITION, DRONE_COLOR, SOLD_STATUS, PRODUCT_TYPE, \
+    SPEED_MODE, WING_TYPE
 from home.models import sellYourDrone, sellYourDroneImages
 from django.urls import reverse
 
@@ -15,7 +16,7 @@ def customer_product(request, page_number=None):
         location = geolocator.reverse((request.POST.get('latitude'), request.POST.get('longitude')), language='en')
 
         # Extract relevant information from the location object
-        user_location = location.address if location else "Location not found"
+        user_location = location.address if location else request.POST.get('address')
 
         form_data = {
             'user': request.user,
@@ -27,20 +28,17 @@ def customer_product(request, page_number=None):
             'address': request.POST.get('address'),
             'title': request.POST.get('title'),
             'price': request.POST.get('price'),
-            'category': request.POST.get('category'),
+            'product_category': request.POST.get('product_category'),
+            'product_type': request.POST.get('product_type'),
             'brand': request.POST.get('brand'),
             'color': request.POST.get('color'),
+            'speed_mode': request.POST.get('speed_mode'),
+            'wing_type': request.POST.get('wing_type'),
+            'drone_model': request.POST.get('drone_model'),
+            'noise_level': request.POST.get('noise_level'),
             'condition': request.POST.get('condition'),
             'status': request.POST.get('status'),
-            'label1': request.POST.get('label1'),
-            'input1': request.POST.get('input1'),
-            'label2': request.POST.get('label2'),
-            'input2': request.POST.get('input2'),
-            'label3': request.POST.get('label3'),
-            'input3': request.POST.get('input3'),
-            'label4': request.POST.get('label4'),
-            'input4': request.POST.get('input4'),
-            'description': request.POST.get('description'),
+            'description': request.POST.get('editor1'),
             'thumbnail': request.FILES['thumbnail'],
         }
         selling_resource = sellYourDrone.objects.create(**form_data)
@@ -77,9 +75,13 @@ def customer_product(request, page_number=None):
         'social_media': SocialMedia.objects.all(),
         'seo_tags': seo_tags,
         'main_slider': MainSlider.objects.filter(page='customer_product_page'),
-        'categories': DRONE_CATEGORY.choices,
+        'product_category': PRODUCT_CATEGORY.choices,
+        'product_type': PRODUCT_TYPE.choices,
         'brand': DRONE_BRAND.choices,
         'condition': DRONE_CONDITION.choices,
+        'speed_mode': SPEED_MODE.choices,
+        'wing_type': WING_TYPE.choices,
         'color': DRONE_COLOR.choices,
+        'status': SOLD_STATUS.choices,
     }
     return render(request, 'customerProducts.html', context)
