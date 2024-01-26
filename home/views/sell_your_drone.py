@@ -41,10 +41,10 @@ def sellDrones(request, page_number=None):
         'condition': DRONE_CONDITION.choices,
         'lastPage': total_pages,
         'pageList': [n + 1 for n in range(total_pages)],
-        'RCPST': recent_blog_post,
-        'SMDT': social_media,
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'seo_tags': seo_tags,
         'FEATURED': featured_listings,
-        'SEOTAGS': seo_tags,
         'SLIDER': slider
     }
     return render(request, 'sellDrone.html', context)
@@ -106,10 +106,10 @@ def search_by_location_category(request):
         'sellerProducts': seller_products_final,
         'lastPage': total_pages,
         'pageList': range(1, total_pages + 1),
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
-        'SMDT': SocialMedia.objects.all(),
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'seo_tags': seoTags.objects.filter(page='sell_your_drone_search_by_location'),
         'FEATURED': sellYourDrone.objects.filter(is_featured=True),
-        'SEOTAGS': seoTags.objects.filter(page='sell_your_drone_search_by_location'),
 
         # choices to loop from enumerators to select or change
         'product_choices': PRODUCT_TYPE.choices,

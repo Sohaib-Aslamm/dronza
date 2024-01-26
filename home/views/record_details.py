@@ -1,44 +1,49 @@
 from django.shortcuts import render, redirect
 from dronzaPanel.models import ServicesTypes, Pricing, OurTeam, SocialMedia, userBlog, MainSlider
 from home.models import sellYourDrone, sellYourDroneImages
-from django.contrib.auth.models import User
-from django.core.paginator import Paginator
 
 
-def DetailRecord(request, type, slug):
-    if type == 'services':
-        Record = ServicesTypes.objects.get(slug=slug)
-        PriceDetail = Pricing.objects.all()
-        RCPST = userBlog.objects.order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-        SLIDER = MainSlider.objects.filter(page='services_detail_page')
-        SEOTAGS = [{'title': Record.title, 'description': Record.Description[:160], 'tags': Record.title,
-                    'canonical_link': f'https://dronza.org/services/{Record.slug}'}]
+def get_instance_detail(request, record_type, slug):
+    if record_type == 'services':
+        instance = ServicesTypes.objects.get(slug=slug)
+        seo_tags = [{'title': instance.title, 'description': instance.Description[:160], 'tags': instance.title,
+                    'canonical_link': f'https://dronza.org/services/{instance.slug}'}]
 
-        context = {'rec': Record, 'PRCDT': PriceDetail, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS,
-                   'SLIDER': SLIDER}
+        context = {
+            'rec': instance,
+            'price_detail': Pricing.objects.all(),
+            'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+            'social_media': SocialMedia.objects.all(),
+            'seo_tags': seo_tags,
+            'SLIDER': MainSlider.objects.filter(page='services_detail_page'),
+        }
         return render(request, 'serviceDetail.html', context)
 
-    if type == 'experts':
-        Record = OurTeam.objects.get(slug=slug)
-        RCPST = userBlog.objects.order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-        SLIDER = MainSlider.objects.filter(page='experts_detail_page')
-        SEOTAGS = [{'title': Record.name, 'description': Record.description[:160], 'tags': Record.name,
-                    'canonical_link': f'https://dronza.org/experts/{Record.slug}'}]
+    if record_type == 'experts':
+        instance = OurTeam.objects.get(slug=slug)
+        seo_tags = [{'title': instance.name, 'description': instance.description[:160], 'tags': instance.name,
+                    'canonical_link': f'https://dronza.org/experts/{instance.slug}'}]
 
-        context = {'rec': Record, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS, 'SLIDER': SLIDER}
+        context = {
+            'rec': instance,
+            'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+            'social_media': SocialMedia.objects.all(),
+            'seo_tags': seo_tags,
+            'SLIDER': MainSlider.objects.filter(page='experts_detail_page'),
+        }
         return render(request, 'teamDetail.html', context)
 
-    if type == 'sell-drones':
-        Record = sellYourDrone.objects.get(slug=slug)
-        product_images = sellYourDroneImages.objects.filter(Product=Record)
-        RCPST = userBlog.objects.order_by('-sNo')[:2]
-        SMDT = SocialMedia.objects.all()
-        SLIDER = MainSlider.objects.filter(page='sell_drones_detail_page')
-        SEOTAGS = [{'title': Record.title, 'description': Record.description[:160], 'tags': Record.title,
-                    'canonical_link': f'https://dronza.org/sell-drones/{Record.slug}'}]
+    if record_type == 'sell-drones':
+        instance = sellYourDrone.objects.get(slug=slug)
+        seo_tags = [{'title': instance.title, 'description': instance.description[:160], 'tags': instance.title,
+                    'canonical_link': f'https://dronza.org/sell-drones/{instance.slug}'}]
 
-        context = {'rec': Record, 'product_images': product_images, 'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS,
-                   'SLIDER': SLIDER}
+        context = {
+            'rec': instance,
+            'product_images': sellYourDroneImages.objects.filter(Product=instance),
+            'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+            'social_media': SocialMedia.objects.all(),
+            'seo_tags': seo_tags,
+            'SLIDER': MainSlider.objects.filter(page='sell_drones_detail_page')
+        }
         return render(request, 'sellDrone_Detail.html', context)

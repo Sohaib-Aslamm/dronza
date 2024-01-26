@@ -7,7 +7,7 @@ def about(request):
         'about_title_post': AboutTitlePost.objects.all(),
         'quality_trust': QualityTrust.objects.all(),
         'our_team': OurTeam.objects.all(),
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'social_media': SocialMedia.objects.all(),
         'seo_tags': seoTags.objects.filter(page='about_page'),
         'main_slider': MainSlider.objects.filter(page='about_page')

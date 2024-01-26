@@ -41,7 +41,7 @@
                         <ul class="masonry-filter">
                                 <li class="active"><a data-filter="*" href="#">All</a></li>
 
-                            {% for GL in GLLRY2 %}
+                            {% for GL in categories %}
                                 <li><a data-filter=".{{ GL.category }}" href="#">{{ GL.category }}</a></li>
                             {% endfor %}
 
@@ -54,7 +54,7 @@
 
 
 
-                         {% for GL in GLLRY %}
+                         {% for GL in gallery %}
                         <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 {{ GL.category }}">
                             <div class="galleryhvr-zoom-out-down">
                                 <img src="{{ GL.image.url }}" alt="">

@@ -20,15 +20,11 @@ def contactus(request):
     else:
         form = contactForm()
 
-    SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.filter(page='contact_us_page')
-    SLIDER = MainSlider.objects.filter(page='contact_us_page')
-    RCPST = userBlog.objects.order_by('-sNo')[:2]
     context = {
         'form': form,
-        'RCPST': RCPST,
-        'SMDT': SMDT,
-        'SEOTAGS': SEOTAGS,
-        'SLIDER': SLIDER
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'seo_tags': seoTags.objects.filter(page='contact_us_page'),
+        'SLIDER': MainSlider.objects.filter(page='contact_us_page'),
     }
     return render(request, 'contactUs.html', context)

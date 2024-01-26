@@ -13,7 +13,7 @@ urlpatterns = [
     path('contact-us', views.contactus, name="contact-us"),
     path('sell-drones', views.sellDrones, name="sell-drones"),
     path('privacy-policy', views.privacy_policy, name="privacy-policy"),
-    path('blogReview', views.blogReview, name="blogReview"),
+    path('blogReview', views.blog_post_review, name="blogReview"),
     path('thank-you', views.thankyou, name="thank-you"),
     path('search-by-location', views.search_by_location_category, name='search-by-location'),
     path('coming-soon', views.coming_soon, name="coming-soon"),
@@ -26,9 +26,9 @@ urlpatterns = [
     path('sell-drones/page/<int:page_number>', views.sellDrones, name="sell_drones_page"),
     path('customer-product/page/<int:page_number>', views.customer_product, name="customer_product_page"),
     path('<str:slug>', views.read_blog_post, name="read_blog_post"),
-    path('<str:type>/<str:slug>', views.DetailRecord, name="DetailRecord"),
-    path('<str:type>/<str:slug>/delete', views.DeletebyUUID, name="Delete_with_diuu"),
-    path('<str:type>/<str:slug>/update', views.UpdatebyUUID, name="Update_with_diuu"),
+    path('<str:type>/<str:slug>', views.get_instance_detail, name="DetailRecord"),
+    path('<str:type>/<str:slug>/delete', views.delete_record_by_uuid, name="Delete_with_diuu"),
+    path('<str:type>/<str:slug>/update', views.update_record_by_uuid, name="Update_with_diuu"),
 
 
 

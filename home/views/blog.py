@@ -31,7 +31,7 @@ def blog(request, page_number=None):
         'popular_posts': userBlog.objects.all().order_by('-sNo')[10:16],
         'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'social_media': SocialMedia.objects.all(),
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'seo_tags': seo_tags,
         'main_slider': MainSlider.objects.filter(page='blog_page')
     }
@@ -59,7 +59,7 @@ def search_blog(request):
         'popular_posts': blog_posts.order_by('-sNo')[10:16],
         'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'social_media': SocialMedia.objects.all(),
-        'RCPST': blog_posts.order_by('-sNo')[:2],
+        'recent_blog_post': blog_posts.order_by('-sNo')[:2],
         'seo_tags': seoTags.objects.filter(page='search_blog'),
         'search_keyword': search_keyword,
         'main_slider': MainSlider.objects.filter(page='search_blog_page')
@@ -80,7 +80,8 @@ def read_blog_post(request, slug):
         'popular_posts': userBlog.objects.all().order_by('-sNo')[10:16],
         'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         'main_slider': MainSlider.objects.filter(page='blog_detail_page'),
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'seo_tags': seo_tags,
     }
     return render(request, 'postDetail.html', context)

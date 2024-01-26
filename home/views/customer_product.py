@@ -71,7 +71,7 @@ def customer_product(request, page_number=None):
         'customer_products': customer_products,
         'lastPage': customer_products.paginator.num_pages,
         'page_list': [n + 1 for n in range(customer_products.paginator.num_pages)],
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'social_media': SocialMedia.objects.all(),
         'seo_tags': seo_tags,
         'main_slider': MainSlider.objects.filter(page='customer_product_page'),

@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from home.models import userBlog, blog_Review
 
 
-def blogReview(request):
+def blog_post_review(request):
     if request.method == 'POST':
         slug = request.POST.get('slug')
         author = request.POST.get('author')

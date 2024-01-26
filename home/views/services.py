@@ -9,10 +9,10 @@ def services(request):
     context = {
         'RegularServices': ServicesTypes.objects.filter(type=ServicesType.REGULAR_SERVICE),
         'pricing_table': Pricing.objects.all(),
-        'RCPST': userBlog.objects.order_by('-sNo')[:2],
-        'SMDT': SocialMedia.objects.all(),
+        'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+        'social_media': SocialMedia.objects.all(),
+        'seo_tags': seoTags.objects.filter(page='services_page'),
         'MainServices': ServicesTypes.objects.filter(type=ServicesType.MAIN_SERVICE),
-        'SEOTAGS': seoTags.objects.filter(page='services_page'),
         'SLIDER': MainSlider.objects.filter(page='services_page')
     }
 

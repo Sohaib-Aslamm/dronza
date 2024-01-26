@@ -1,40 +1,40 @@
 from django.shortcuts import render, redirect
 
-from dronzaPanel.models import MainSlider
+from dronzaPanel.models import MainSlider, userBlog, SocialMedia, seoTags
 from home.enumerators import PRODUCT_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND, SPEED_MODE, \
     WING_TYPE, PRODUCT_TYPE
 from home.models import sellYourDrone
 
 
-def UpdatebyUUID(request, type, slug):
-    if type == 'customer-product':
+def update_record_by_uuid(request, record_type, slug):
+    if record_type == 'customer-product':
 
-        Record = sellYourDrone.objects.get(slug=slug)
+        instance = sellYourDrone.objects.get(slug=slug)
         if request.method == 'POST':
-            Record.name = request.POST.get('name')
-            Record.email = request.POST.get('email')
-            Record.pPhone = request.POST.get('pPhone')
-            Record.sPhone = request.POST.get('sPhone')
-            Record.address = request.POST.get('address')
-            Record.title = request.POST.get('title')
-            Record.product_category = request.POST.get('product_category')
-            Record.product_type = request.POST.get('product_type')
-            Record.condition = request.POST.get('condition')
-            Record.price = request.POST.get('price')
-            Record.color = request.POST.get('color')
-            Record.brand = request.POST.get('brand')
-            Record.speed_mode = request.POST.get('speed_mode')
-            Record.wing_type = request.POST.get('wing_type')
-            Record.drone_model = request.POST.get('drone_model')
-            Record.noise_level = request.POST.get('noise_level')
-            Record.status = request.POST.get('status')
-            Record.description = request.POST.get('editor1')
+            instance.name = request.POST.get('name')
+            instance.email = request.POST.get('email')
+            instance.pPhone = request.POST.get('pPhone')
+            instance.sPhone = request.POST.get('sPhone')
+            instance.address = request.POST.get('address')
+            instance.title = request.POST.get('title')
+            instance.product_category = request.POST.get('product_category')
+            instance.product_type = request.POST.get('product_type')
+            instance.condition = request.POST.get('condition')
+            instance.price = request.POST.get('price')
+            instance.color = request.POST.get('color')
+            instance.brand = request.POST.get('brand')
+            instance.speed_mode = request.POST.get('speed_mode')
+            instance.wing_type = request.POST.get('wing_type')
+            instance.drone_model = request.POST.get('drone_model')
+            instance.noise_level = request.POST.get('noise_level')
+            instance.status = request.POST.get('status')
+            instance.description = request.POST.get('editor1')
 
             file_data = request.POST.get('edit_file')
             if not file_data == 'False':
-                Record.thumbnail = request.FILES['thumbnail']
+                instance.thumbnail = request.FILES['thumbnail']
 
-            Record.save()
+            instance.save()
             return redirect('/customer-product')
         main_slider = MainSlider.objects.filter(page='edit_customer_product_page')
         context = {
@@ -47,6 +47,9 @@ def UpdatebyUUID(request, type, slug):
             'color': DRONE_COLOR.choices,
             'status': SOLD_STATUS.choices,
             'main_slider': main_slider,
-            'Record': Record,
+            'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
+            'social_media': SocialMedia.objects.all(),
+            'seo_tags': seoTags.objects.filter(page='update_user_listing'),
+            'instance': instance,
         }
         return render(request, 'update/customerProducts.html', context)
