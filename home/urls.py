@@ -26,9 +26,9 @@ urlpatterns = [
     path('sell-drones/page/<int:page_number>', views.sellDrones, name="sell_drones_page"),
     path('customer-product/page/<int:page_number>', views.customer_product, name="customer_product_page"),
     path('<str:slug>', views.read_blog_post, name="read_blog_post"),
-    path('<str:type>/<str:slug>', views.get_instance_detail, name="DetailRecord"),
-    path('<str:type>/<str:slug>/delete', views.delete_record_by_uuid, name="Delete_with_diuu"),
-    path('<str:type>/<str:slug>/update', views.update_record_by_uuid, name="Update_with_diuu"),
+    path('<str:record_type>/<str:slug>', views.get_instance_detail, name="DetailRecord"),
+    path('<str:record_type>/<str:slug>/delete', views.delete_record_by_uuid, name="Delete_with_diuu"),
+    path('<str:record_type>/<str:slug>/update', views.update_record_by_uuid, name="Update_with_diuu"),
 
 
 

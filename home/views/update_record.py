@@ -36,7 +36,8 @@ def update_record_by_uuid(request, record_type, slug):
 
             instance.save()
             return redirect('/customer-product')
-        main_slider = MainSlider.objects.filter(page='edit_customer_product_page')
+        seo_tags = [{'title': instance.title, 'description': instance.description[:160], 'tags': instance.title,
+                     'canonical_link': f'https://dronza.org/customer-product/{instance.slug}/update'}]
         context = {
             'product_category': PRODUCT_CATEGORY.choices,
             'product_type': PRODUCT_TYPE.choices,
@@ -46,10 +47,10 @@ def update_record_by_uuid(request, record_type, slug):
             'condition': DRONE_CONDITION.choices,
             'color': DRONE_COLOR.choices,
             'status': SOLD_STATUS.choices,
-            'main_slider': main_slider,
+            'main_slider': MainSlider.objects.filter(page='edit_customer_product_page'),
             'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
             'social_media': SocialMedia.objects.all(),
-            'seo_tags': seoTags.objects.filter(page='update_user_listing'),
+            'seo_tags': seo_tags,
             'instance': instance,
         }
         return render(request, 'update/customerProducts.html', context)
