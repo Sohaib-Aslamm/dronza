@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="some variable naming convention corrections in all home application">
+    <list default="true" id="e2b3b7cb-6292-4a7a-95fd-030adac5b9c2" name="Changes" comment="correct some naming conventions in update functions and urls in home application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/baseHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/baseHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views/update_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/update_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/search_seller_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/search_seller_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sellDrone.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sellDrone.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +287,8 @@
       <workItem from="1706120022383" duration="4305000" />
       <workItem from="1706163266834" duration="4711000" />
       <workItem from="1706176908342" duration="13046000" />
-      <workItem from="1706268488053" duration="7424000" />
+      <workItem from="1706268488053" duration="8125000" />
+      <workItem from="1706337508878" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="home page changes for navbar">
       <created>1702671894750</created>
@@ -493,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706276103085</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="correct some naming conventions in update functions and urls in home application">
+      <created>1706276811053</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1706276811053</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dronza mager changes in structure" />
     <MESSAGE value="requirement changes, env decouple lib installed, etc" />
     <MESSAGE value="dronza migrations from start, and removed non-used stuff from project" />
     <MESSAGE value="redirect middleware added for live production" />
@@ -550,7 +556,8 @@
     <MESSAGE value="filters improved at seller center" />
     <MESSAGE value="news letter button corrections" />
     <MESSAGE value="some variable naming convention corrections in all home application" />
-    <option name="LAST_COMMIT_MESSAGE" value="some variable naming convention corrections in all home application" />
+    <MESSAGE value="correct some naming conventions in update functions and urls in home application" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct some naming conventions in update functions and urls in home application" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dronza$definedEmails.coverage" NAME="definedEmails Coverage Results" MODIFIED="1673209239185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/home" />
