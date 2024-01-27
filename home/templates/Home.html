@@ -5,6 +5,33 @@
 
 {% block content %}
 
+    <style>
+
+ .featured_image {
+              position: relative;
+            max-height: 300px; /* Adjust the value as needed */
+            overflow: hidden;
+        }
+
+ .product-showcase {
+     padding-top: 50px;
+ }
+
+     .featured-highlight {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Adjust the left position as needed */
+            background-color: #ffce32;
+            color: black;
+            padding: 5px 10px;
+            z-index: 2;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+    </style>
+
 
     <!-- CONTENT START -->
     <div class="page-content">
@@ -900,16 +927,20 @@
                         {% for PR in featured_products %}
                             <div class="item">
                                 <div class="product-showcase">
-                                    <div class="product-show-media">
+
+                                    <div class="featured_image">
+                                         <span class="featured-highlight">Featured</span>
                                         <img src="{{ PR.thumbnail.url }}" alt="Featured Product">
                                     </div>
                                     <div class="product-show-block">
                                         <div class="product-show-info shadow">
-                                            <div class="p-price">{{ PR.price }}</div>
+                                            <div class="p-price">Price: {{ PR.price }}</div>
                                             <div class="p-specification">
                                                 <ul>
-                                                    <li><span class="p-specification-title"><a
-                                                            href="/sell-drones/{{ PR.slug }}">{{ PR.title }}</a></span>
+                                                    <li>
+                                                        <span class="p-specification-title">
+                                                        <a href="/sell-drones/{{ PR.slug }}">{{ PR.title }}</a>
+                                                    </span>
                                                     </li>
                                                 </ul>
                                             </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from dronzaPanel.models import MainSlider, userBlog, SocialMedia, seoTags
+from dronzaPanel.models import MainSlider, userBlog, SocialMedia
 from home.enumerators import PRODUCT_CATEGORY, SOLD_STATUS, DRONE_COLOR, DRONE_CONDITION, DRONE_BRAND, SPEED_MODE, \
     WING_TYPE, PRODUCT_TYPE
 from home.models import sellYourDrone

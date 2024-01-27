@@ -10,13 +10,10 @@ from django.urls import reverse
 
 
 def sellDrones(request, page_number=None):
-    seller_products = sellYourDrone.objects.filter(status=SOLD_STATUS.AVAILABLE).order_by('-id')
-    paginator = Paginator(seller_products, 8)
+    non_featured_products = sellYourDrone.objects.filter(status=SOLD_STATUS.AVAILABLE, is_featured=False).order_by('-id')
+    paginator = Paginator(non_featured_products, 8)
     seller_products_final = paginator.get_page(page_number)
     total_pages = seller_products_final.paginator.num_pages
-    recent_blog_post = userBlog.objects.order_by('-sNo')[:2]
-    social_media = SocialMedia.objects.all()
-    slider = MainSlider.objects.filter(page='sell_drones_page')
 
     canonical_link = reverse('sell-drones')  # Assuming 'blog' is the name of your URL pattern
     if page_number:
@@ -30,9 +27,8 @@ def sellDrones(request, page_number=None):
         'canonical_link': request.build_absolute_uri(canonical_link)
     }]
 
-    featured_listings = sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE)
     context = {
-        'sellerProducts': seller_products_final,
+        'non_featured_products': seller_products_final,
         'product_type': PRODUCT_TYPE.choices,
         'product_category': PRODUCT_CATEGORY.choices,
         'speed_mode': SPEED_MODE.choices,
@@ -44,8 +40,9 @@ def sellDrones(request, page_number=None):
         'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'social_media': SocialMedia.objects.all(),
         'seo_tags': seo_tags,
-        'FEATURED': featured_listings,
-        'SLIDER': slider
+        'all_featured_listings': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
+        'highlighted_featured_listings': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE)[:3],
+        'SLIDER': MainSlider.objects.filter(page='sell_drones_page'),
     }
     return render(request, 'sellDrone.html', context)
 
@@ -91,10 +88,8 @@ def search_by_location_category(request):
     if wing_type and wing_type != 'speed mode':
         filter_conditions &= Q(wing_type=wing_type)
 
-    listing_products = sellYourDrone.objects.all()
-
     # Apply filters to the queryset
-    listing_products = sellYourDrone.objects.filter(filter_conditions).order_by('-id')
+    listing_products = sellYourDrone.objects.filter(filter_conditions, is_featured=False).order_by('-id')
 
     # Pagination
     paginator = Paginator(listing_products, 8)
@@ -103,13 +98,14 @@ def search_by_location_category(request):
     total_pages = seller_products_final.paginator.num_pages
 
     context = {
-        'sellerProducts': seller_products_final,
+        'non_featured_products': seller_products_final,
         'lastPage': total_pages,
         'pageList': range(1, total_pages + 1),
         'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
         'social_media': SocialMedia.objects.all(),
         'seo_tags': seoTags.objects.filter(page='sell_your_drone_search_by_location'),
-        'FEATURED': sellYourDrone.objects.filter(is_featured=True),
+        'all_featured_listings': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
+        'highlighted_featured_listings': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE)[:3],
 
         # choices to loop from enumerators to select or change
         'product_choices': PRODUCT_TYPE.choices,

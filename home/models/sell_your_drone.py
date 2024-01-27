@@ -31,8 +31,7 @@ class sellYourDrone(models.Model):
     drone_model = models.CharField(max_length=255, default="")
     noise_level = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
-    thumbnail = ResizedImageField(size=[320, 180], force_format='JPEG',
-                                  quality=80, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
+    thumbnail = ResizedImageField(quality=60, upload_to='sellYourDrone/thumbnail', keep_meta=True, default="")
     is_featured = models.BooleanField(default=False, verbose_name='Is Featured Product')
 
     class Meta:
