@@ -42,98 +42,118 @@
             <a href="/customer-product" class="site-button"><i class="fa fa-drone"></i>+ Add Your Product</a>
         </div>
 
-      <div class="container">
+    <!-- Search Form Row -->
+<div class="container">
     <div class="row mt-3 justify-content-center">
-            <!-- SEARCH -->
-            <div class="widget p-a20">
-                <div class="search-bx">
-                    <form role="search" method="POST" action="/search-by-location">
-                        {% csrf_token %}
-                        <div class="input-group">
+        <!-- SEARCH -->
+        <div class="widget p-a20">
+            <div class="search-bx">
+                <form role="search" method="POST" action="/search-by-location">
+                    {% csrf_token %}
+                    <div class="input-group">
 
-                            <!-- Filter Button -->
-                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filterCollapse">
-                                <i class="fa fa-filter"></i> Filters
-                            </button>
+                        <!-- Filter Button -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">
+                            <i class="fa fa-filter"></i> Filters
+                        </button>
 
-                            <!-- Collapsible Filters (Initially Open) -->
-                            <div id="filterCollapse" class="collapse show">
+                        <!-- Modal -->
+                        <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
 
-                                <!-- Product Type -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="product_type">
-                                        <option disabled selected>select type</option>
-                                        {% for value, label in product_choices %}
-                                            <option value="{{ value }}" {% if value == product_type %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="filterModalLabel">Filters</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal Body -->
+                                    <div class="modal-body">
+
+                                        <!-- Product Type -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="product_type">
+                                                <option disabled selected>select type</option>
+                                                {% for value, label in product_choices %}
+                                                    <option value="{{ value }}" {% if value == product_type %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Product Category -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="product_category">
+                                                <option disabled selected>select category</option>
+                                                {% for value, label in category_choices %}
+                                                    <option value="{{ value }}" {% if value == product_category %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Brand -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="brand">
+                                                <option disabled selected>select brand</option>
+                                                {% for value, label in brands_choices %}
+                                                    <option value="{{ value }}" {% if value == brand %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Condition -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="condition">
+                                                <option disabled selected>select condition</option>
+                                                {% for value, label in condition_choices %}
+                                                    <option value="{{ value }}" {% if value == condition %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Speed Mode -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="speed_mode">
+                                                <option disabled selected>speed mode</option>
+                                                {% for value, label in speed_mode_choices %}
+                                                    <option value="{{ value }}" {% if value == speed_mode %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Wing Type -->
+                                        <div class="form-group d-md-inline-block">
+                                            <select class="form-control border" name="wing_type">
+                                                <option disabled selected>wing type</option>
+                                                {% for value, label in wing_type_choices %}
+                                                    <option value="{{ value }}" {% if value == wing_type %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Location Input -->
+                                        <div class="form-group d-md-inline-block">
+                                            <input name="location" type="text" class="form-control border" placeholder="location..." value="{% if location %}{{ location }}{% endif %}">
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal Footer -->
+                                    <div class="modal-footer">
+                                        <!-- Search Button -->
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+
                                 </div>
-
-                                <!-- Product Category -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="product_category">
-                                        <option disabled selected>select category</option>
-                                        {% for value, label in category_choices %}
-                                            <option value="{{ value }}" {% if value == product_category %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-
-                                <!-- Brand -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="brand">
-                                        <option disabled selected>select brand</option>
-                                        {% for value, label in brands_choices %}
-                                            <option value="{{ value }}" {% if value == brand %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-
-                                <!-- Condition -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="condition">
-                                        <option disabled selected>select condition</option>
-                                        {% for value, label in condition_choices %}
-                                            <option value="{{ value }}" {% if value == condition %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-
-                                <!-- Speed Mode -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="speed_mode">
-                                        <option disabled selected>speed mode</option>
-                                        {% for value, label in speed_mode_choices %}
-                                            <option value="{{ value }}" {% if value == speed_mode %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-
-                                <!-- Wing Type -->
-                                <div class="form-group d-md-inline-block">
-                                    <select class="form-control border" name="wing_type">
-                                        <option disabled selected>wing type</option>
-                                        {% for value, label in wing_type_choices %}
-                                            <option value="{{ value }}" {% if value == wing_type %}selected{% endif %}>{{ label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-
-                                <!-- Location Input -->
-                                <div class="form-group d-md-inline-block">
-                                    <input name="location" type="text" class="form-control border" placeholder="location..." value="{% if location %}{{ location }}{% endif %}">
-                                </div>
-
-                                <!-- Search Button -->
-                                <div class="form-group d-md-inline-block">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                                </div>
-
                             </div>
                         </div>
-                    </form>
-                </div>
+
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
 </div>
 
