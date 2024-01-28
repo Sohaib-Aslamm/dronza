@@ -114,7 +114,7 @@ class SocialMediaAdmin(admin.ModelAdmin):
 
 @admin.register(userBlog)
 class userBlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'heading', 'description', 'Icon', 'created_at')
+    list_display = ('title', 'Icon', 'created_at')
     list_filter = ('title', 'created_at')
     search_fields = ['title', 'heading', 'description', 'created_at']
     date_hierarchy = 'created_at'
