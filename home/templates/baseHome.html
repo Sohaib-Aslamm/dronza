@@ -12,7 +12,7 @@
     <meta name="author" content="dronza organization">
     {% for seo in seo_tags %}
         {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
-        <meta name="description" content="{{ seo.description | safe }}">
+        <meta name="description" content="{{ seo.description }}">
         <meta name="keywords" content="{{ seo.tags }}">
         <link rel="canonical" href="{{ seo.canonical_link }}">
     {% endfor %}

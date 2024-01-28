@@ -70,7 +70,7 @@ def search_blog(request):
 def read_blog_post(request, slug):
     blog_post = userBlog.objects.filter(slug=slug)
     seo_tags = [{'title': blog_post.first().title if blog_post else None,
-                 'description': blog_post.first().description[:160] if blog_post else None,
+                 'description': f'Explore the latest insights on {blog_post.first().title}' if blog_post else None,
                  'tags': blog_post.first().title if blog_post else None,
                  'canonical_link': f'https://dronza.org/{blog_post.first().slug}' if blog_post else None}]
 

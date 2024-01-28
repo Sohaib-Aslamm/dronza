@@ -6,7 +6,9 @@ from home.models import sellYourDrone, sellYourDroneImages
 def get_instance_detail(request, record_type, slug):
     if record_type == 'services':
         instance = ServicesTypes.objects.get(slug=slug)
-        seo_tags = [{'title': instance.title, 'description': instance.Description[:160], 'tags': instance.title,
+        seo_tags = [{'title': instance.title,
+                     'description': f'Explore our latest service: {instance.title}',
+                     'tags': instance.title,
                     'canonical_link': f'https://dronza.org/services/{instance.slug}'}]
 
         context = {
@@ -21,8 +23,10 @@ def get_instance_detail(request, record_type, slug):
 
     if record_type == 'experts':
         instance = OurTeam.objects.get(slug=slug)
-        seo_tags = [{'title': instance.name, 'description': instance.description[:160], 'tags': instance.name,
-                    'canonical_link': f'https://dronza.org/experts/{instance.slug}'}]
+        seo_tags = [{'title': instance.name,
+                     'description': f'View our expert: {instance.name}',
+                     'tags': instance.name,
+                     'canonical_link': f'https://dronza.org/experts/{instance.slug}'}]
 
         context = {
             'rec': instance,
@@ -35,8 +39,10 @@ def get_instance_detail(request, record_type, slug):
 
     if record_type == 'sell-drones':
         instance = sellYourDrone.objects.get(slug=slug)
-        seo_tags = [{'title': instance.title, 'description': instance.description[:160], 'tags': instance.title,
-                    'canonical_link': f'https://dronza.org/sell-drones/{instance.slug}'}]
+        seo_tags = [{'title': instance.title,
+                     'description': f'Explore this customer listing: {instance.title}',
+                     'tags': instance.title,
+                     'canonical_link': f'https://dronza.org/sell-drones/{instance.slug}'}]
 
         context = {
             'rec': instance,
