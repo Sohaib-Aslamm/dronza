@@ -18,7 +18,9 @@
                 <div class="wt-bnr-inr-entry">
                     <div class="banner-title-outer">
                         <div class="banner-title-name">
-                            <h2 class="site-text-white">{{ slider.title }}</h2>
+                               {% for data in blog_post %}
+                            <h2 class="site-text-white font-weight-normal">{{ data.title }}</h2>
+                                   {% endfor %}
                         </div>
                     </div>
                     <!-- BREADCRUMB ROW -->
@@ -59,12 +61,11 @@
                                             </ul>
                                         </div>
                                         <div class="wt-post-title ">
-                                            <h3 class="post-title">{{ data.title }}</h3>
+                                            <h3 class="post-title">{{  data.heading }}</h3>
                                         </div>
 
                                         <div class="wt-post-text">
 
-                                            <h4>{{ data.heading }}</h4>
                                             <p>{{ data.description | safe }}</p>
                                             <blockquote>
                                                 <i class="fa fa-quote-left font-20"></i>
