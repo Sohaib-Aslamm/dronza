@@ -4,23 +4,23 @@
 
 {% block content %}
 
- <!-- CONTENT START -->
-        <div class="page-content">
+    <div class="page-content">
 
             <!-- Error SECTION START -->
-            {% for slider in SLIDER %}
-            <div class="error-full-page bg-cover overlay-wraper bg-image-moving" style="background-image:url({{ slider.background_image.url }})">
+            <div class="error-full-page bg-cover overlay-wraper bg-image-moving" style="background-image:url({% static 'Assets/dronza_images/background/bg-2.jpg' %}); background-position: -1122px 0px;">
 					<div class="overlay-main bg-black opacity-07"></div>
 
                     <div class="error-full-page-inner">
                     	<div class="error-full-page-inner-info">
                             	<div class="error-media">
-                                	<img src="{{ slider.image.url }}" class="slide-top" alt="">
+                                	<img src="{% static 'Assets/dronza_images/d-testimonial.png' %}" class="slide-top" alt="error-404">
                                 </div>
-
+                                <h3 class="title-style-2">Error</h3>
+                                <strong>500</strong>
                                 <h4 class="title-style-2">
-                                    Are You Ready For This ?
+                                    Oops! Something went wrong.
                                 </h4>
+                                <p>We’re sorry for the inconvenience. This might be temporary.</p>
                                 <a href="/" class="site-button site-btn-effect">GO TO HOME</a>
 
                         </div>
@@ -28,11 +28,9 @@
 
 
             </div>
-            {% endfor %}
             <!-- Error  SECTION END -->
 
         </div>
-        <!-- CONTENT END -->
 
 
 {% endblock content %}

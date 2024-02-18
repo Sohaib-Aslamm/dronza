@@ -19,8 +19,8 @@
             overflow: hidden;
         }
 
-        .additional-images{
-            max-height: 180px;
+        .additional-images {
+            max-height: 200px;
             max-width: 50px;
         }
 
@@ -31,10 +31,10 @@
             margin: 0 auto; /* Center the images */
         }
 
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: #d72323; /* Set the navigation button color */
-    }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #d72323; /* Set the navigation button color */
+        }
 
 
     </style>
@@ -89,33 +89,33 @@
                                                  style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 
 
-                                            <div class="swiper-container">
-    <div class="swiper-wrapper">
-        {% for images in product_images %}
-            <div class="swiper-slide">
-                <a href="{{ images.image.url }}">
-                    <img width="400" height="400"
-                         src="{{ images.image.url }}"
-                         class="wp-post-image" alt="img" decoding="async"
-                         title="pic-3" data-caption=""
-                         data-src="{{ images.image.url }}"
-                         data-large_image="{{ images.image.url }}"
-                         data-large_image_width="400"
-                         data-large_image_height="400"
-                         loading="lazy"
-                         sizes="(max-width: 400px) 100vw, 400px"
-                         draggable="false">
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Add Navigation -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
-
+                                                <div class="swiper-container">
+                                                    <div class="swiper-wrapper">
+                                                        {% for images in product_images %}
+                                                            <div class="swiper-slide">
+                                                                <a href="{{ images.image.url }}">
+                                                                    <img width="400" height="400"
+                                                                         src="{{ images.image.url }}"
+                                                                         class="wp-post-image" alt="img"
+                                                                         decoding="async"
+                                                                         title="pic-3" data-caption=""
+                                                                         data-src="{{ images.image.url }}"
+                                                                         data-large_image="{{ images.image.url }}"
+                                                                         data-large_image_width="400"
+                                                                         data-large_image_height="400"
+                                                                         loading="lazy"
+                                                                         sizes="(max-width: 400px) 100vw, 400px"
+                                                                         draggable="false">
+                                                                </a>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <!-- Add Pagination -->
+                                                    <div class="swiper-pagination"></div>
+                                                    <!-- Add Navigation -->
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
+                                                </div>
 
 
                                             </div>
@@ -126,185 +126,185 @@
                                 </div>
 
 
-                            <div class="col-lg-6 col-md-12">
-                                <div class="summary entry-summary product-detail-info p-a30">
-                                    <h2 class="product_title entry-title post-title">{{ rec.title }}</h2>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="summary entry-summary product-detail-info p-a30">
+                                        <h2 class="product_title entry-title post-title">{{ rec.title }}</h2>
 
-                                    <div class="product_meta">
-                                            <span class="posted_in text-danger">Price: <a
-                                                    href="https://gridvalley.net/wp/dronza/product-category/shop/"
-                                                    rel="tag"> {{ rec.price }}</a></span>
-                                    </div>
-                                    <div class="product_meta">
-                                            <span class="posted_in">Availability: <a
-                                                    href="https://gridvalley.net/wp/dronza/product-category/shop/"
-                                                    rel="tag">{{ rec.status }}</a></span>
-                                    </div>
+                                        <span class="p-single-new-price">{{ rec.price }} </span>
+                                        <div class="product-single-availability">
+                                            Availability: <span>{{ rec.status }}</span>
+                                        </div>
+                                    <div class="product-single-availability">
+                                            Model: <span>{{ rec.drone_model }}</span>
+                                        </div>
 
 
-                                    <div class="product_meta">
-                                            <span class="posted_in">Model: <a
-                                                    href="https://gridvalley.net/wp/dronza/product-category/shop/"
-                                                    rel="tag">{{ rec.drone_model }}</a></span>
+                                        <div class="product-single-rating">
+                                           <span class="star-rating">
+                                                {% for _ in filled_stars %}
+                                                    <i class="fa fa-star"></i>
+                                                {% endfor %}
+                                                {% for _ in empty_stars %}
+                                                    <i class="fa fa-star-o"></i>
+                                                {% endfor %}
+                                            </span>
 
-                                    </div>
-                                    <div class="product_meta">
-                                            <span class="posted_in">Wing-type: <a
-                                                    href="https://gridvalley.net/wp/dronza/product-category/shop/"
-                                                    rel="tag">{{ rec.wing_type }}</a></span>
+                                            <span class="font-weight-600 text-black">
+                                                 {% for value, label in condition %}
+                                                    {% if value == rec.condition %}({{ label }} Condition){% endif %}
+                                                {% endfor %}
+                                            </span>
 
-                                    </div>
-                                    <div class="product_meta">
-                                            <span class="posted_in">Noise-level: <a
-                                                    href="https://gridvalley.net/wp/dronza/product-category/shop/"
-                                                    rel="tag">{{ rec.noise_level }}</a></span>
+                                        </div>
 
+                                      <div class="wt-product-text">
+                                <p>{{ rec.description|safe }}</p>
+                            </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                     <!-- just an additional view row of images -->
+                            <!-- just an additional view row of images -->
 
-                        <div class="row m-b30">
-                            <div class="col-lg-12 col-md-12  m-b30">
-                                <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
+                            <div class="row m-b30">
+                                <div class="col-lg-12 col-md-12  m-b30">
+                                    <div class="masonry-wrap mfp-gallery  row clearfix d-flex justify-content-center flex-wrap">
 
-                                    {% for img in product_images %}
+                                        {% for img in product_images %}
 
-                                        <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 ">
-                                            <div class="galleryhvr-zoom-out-down">
-                                                <div class="card shadow-lg rounded">
-                                                    <img src="{{ img.image.url }}" alt="" class="additional-images">
+                                            <div class="masonry-item col-xl-3 col-lg-4 col-md-6 m-b30 ">
+                                                <div class="galleryhvr-zoom-out-down">
+                                                    <div class="card shadow-lg rounded">
+                                                        <img src="{{ img.image.url }}" alt="" class="additional-images">
 
-                                                    <div class="galleryhvr-content">
-                                                        <div class="galleryhvr-mid">
-                                                            <a href="{{ img.image.url }}" class="mfp-link"><i
-                                                                    class="fa fa-search-plus"></i></a>
+                                                        <div class="galleryhvr-content">
+                                                            <div class="galleryhvr-mid">
+                                                                <a href="{{ img.image.url }}" class="mfp-link"><i
+                                                                        class="fa fa-search-plus"></i></a>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endfor %}
-
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="wt-tabs border bg-tabs">
-                            <ul class="nav nav-tabs">
-                                <li><a data-toggle="tab" href="#web-design-19" class="active">Description</a></li>
-                                <li><a data-toggle="tab" href="#graphic-design-19"> Additional information</a></li>
-                                <li><a data-toggle="tab" href="#developement-19">Seller Contact</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="web-design-19" class="tab-pane active">
-                                    <div class=" p-a10">
-                                        <p class="m-b10">{{ rec.description | safe }}</p>
-
+                                        {% endfor %}
 
                                     </div>
+
                                 </div>
-                                <div id="graphic-design-19" class="tab-pane">
-                                    <table class="table m-b0 no-border">
-                                        <tbody>
-
-                                        <tr>
-                                            <td><b>Availability</b></td>
-                                            <td>{{ rec.status }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Product-type</b></td>
-                                            <td>{{ rec.product_type }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Category</b></td>
-                                            <td>{{ rec.product_category }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Color</b></td>
-                                            <td>{{ rec.color }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Condition</b></td>
-                                            <td>{{ rec.condition }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Brand</b></td>
-                                            <td>{{ rec.brand }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Model</b></td>
-                                            <td>{{ rec.drone_model }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Wing-type</b></td>
-                                            <td>{{ rec.wing_type }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Speed-mode</b></td>
-                                            <td>{{ rec.speed_mode }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Noise-level</b></td>
-                                            <td>{{ rec.noise_level }}</td>
-                                        </tr>
+                            </div>
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div id="developement-19" class="tab-pane">
-                                    <table class="table m-b0 no-border">
-                                        <tbody>
-                                        <tr>
-                                            <td><b>Name</b></td>
-                                            <td>{{ rec.name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Email</b></td>
-                                            <td>{{ rec.email }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Primary Contact</b></td>
-                                            <td>{{ rec.pPhone }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Secondary Contact</b></td>
-                                            <td>{{ rec.sPhone }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Address</b></td>
-                                            <td>{{ rec.address }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><b>Location</b></td>
-                                            <td>{{ rec.location }}</td>
-                                        </tr>
+                            <div class="wt-tabs border bg-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li><a data-toggle="tab" href="#web-design-19" class="active">Description</a></li>
+                                    <li><a data-toggle="tab" href="#graphic-design-19"> Additional information</a></li>
+                                    <li><a data-toggle="tab" href="#developement-19">Seller Contact</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="web-design-19" class="tab-pane active">
+                                        <div class=" p-a10">
+                                            <p class="m-b10">{{ rec.description | safe }}</p>
 
 
-                                        </tbody>
-                                    </table>
+                                        </div>
+                                    </div>
+                                    <div id="graphic-design-19" class="tab-pane">
+                                        <table class="table m-b0 no-border">
+                                            <tbody>
+
+                                            <tr>
+                                                <td><b>Availability</b></td>
+                                                <td>{{ rec.status }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Product-type</b></td>
+                                                <td>{{ rec.product_type }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Category</b></td>
+                                                <td>{{ rec.product_category }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Color</b></td>
+                                                <td>{{ rec.color }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Condition</b></td>
+                                                <td>{{ rec.condition }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Brand</b></td>
+                                                <td>{{ rec.brand }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Model</b></td>
+                                                <td>{{ rec.drone_model }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Wing-type</b></td>
+                                                <td>{{ rec.wing_type }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Speed-mode</b></td>
+                                                <td>{{ rec.speed_mode }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Noise-level</b></td>
+                                                <td>{{ rec.noise_level }}</td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="developement-19" class="tab-pane">
+                                        <table class="table m-b0 no-border">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Name</b></td>
+                                                <td>{{ rec.name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Email</b></td>
+                                                <td>{{ rec.email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Primary Contact</b></td>
+                                                <td>{{ rec.pPhone }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Secondary Contact</b></td>
+                                                <td>{{ rec.sPhone }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Address</b></td>
+                                                <td>{{ rec.address }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Location</b></td>
+                                                <td>{{ rec.location }}</td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 </div>
             </main>
@@ -313,30 +313,111 @@
 
 
 
-<!-- Add Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        loop: true,
-        autoplay: {
-            delay: 5000, // Set autoplay delay in milliseconds
-        },
-        centeredSlides: true, // Center the active slide
-        centeredSlidesBounds: true, // Make sure the previous and next slides are partially visible
-    });
-</script>
+    <!-- Add Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 5000, // Set autoplay delay in milliseconds
+            },
+            centeredSlides: true, // Center the active slide
+            centeredSlidesBounds: true, // Make sure the previous and next slides are partially visible
+        });
+    </script>
 
-
+    {#        <script>#}
+    {#            $(document).ready(function () {#}
+    {##}
+    {#                var sync1 = $("#sync1");#}
+    {#                var sync2 = $("#sync2");#}
+    {#                var slidesPerPage = 4; //globaly define number of elements per page#}
+    {#                var syncedSecondary = true;#}
+    {##}
+    {#                sync1.owlCarousel({#}
+    {#                    items: 1,#}
+    {#                    slideSpeed: 2000,#}
+    {#                    nav: true,#}
+    {#                    autoplay: false,#}
+    {#                    dots: false,#}
+    {#                    loop: true,#}
+    {#                    responsiveRefreshRate: 200,#}
+    {#                    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],#}
+    {#                }).on('changed.owl.carousel', syncPosition);#}
+    {##}
+    {#                sync2#}
+    {#                    .on('initialized.owl.carousel', function () {#}
+    {#                        sync2.find(".owl-item").eq(0).addClass("current");#}
+    {#                    })#}
+    {#                    .owlCarousel({#}
+    {#                        items: slidesPerPage,#}
+    {#                        dots: false,#}
+    {#                        nav: false,#}
+    {#                        margin: 5,#}
+    {#                        smartSpeed: 200,#}
+    {#                        slideSpeed: 500,#}
+    {#                        slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel#}
+    {#                        responsiveRefreshRate: 100#}
+    {#                    }).on('changed.owl.carousel', syncPosition2);#}
+    {##}
+    {#                function syncPosition(el) {#}
+    {#                    //if you set loop to false, you have to restore this next line#}
+    {#                    //var current = el.item.index;#}
+    {##}
+    {#                    //if you disable loop you have to comment this block#}
+    {#                    var count = el.item.count - 1;#}
+    {#                    var current = Math.round(el.item.index - (el.item.count / 2) - .5);#}
+    {##}
+    {#                    if (current < 0) {#}
+    {#                        current = count;#}
+    {#                    }#}
+    {#                    if (current > count) {#}
+    {#                        current = 0;#}
+    {#                    }#}
+    {##}
+    {#                    //end block#}
+    {##}
+    {#                    sync2#}
+    {#                        .find(".owl-item")#}
+    {#                        .removeClass("current")#}
+    {#                        .eq(current)#}
+    {#                        .addClass("current");#}
+    {#                    var onscreen = sync2.find('.owl-item.active').length - 1;#}
+    {#                    var start = sync2.find('.owl-item.active').first().index();#}
+    {#                    var end = sync2.find('.owl-item.active').last().index();#}
+    {##}
+    {#                    if (current > end) {#}
+    {#                        sync2.data('owl.carousel').to(current, 100, true);#}
+    {#                    }#}
+    {#                    if (current < start) {#}
+    {#                        sync2.data('owl.carousel').to(current - onscreen, 100, true);#}
+    {#                    }#}
+    {#                }#}
+    {##}
+    {#                function syncPosition2(el) {#}
+    {#                    if (syncedSecondary) {#}
+    {#                        var number = el.item.index;#}
+    {#                        sync1.data('owl.carousel').to(number, 100, true);#}
+    {#                    }#}
+    {#                }#}
+    {##}
+    {#                sync2.on("click", ".owl-item", function (e) {#}
+    {#                    e.preventDefault();#}
+    {#                    var number = $(this).index();#}
+    {#                    sync1.data('owl.carousel').to(number, 300, true);#}
+    {#                });#}
+    {#            });#}
+    {#        </script>#}
 
 
 {% endblock content %}

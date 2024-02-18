@@ -8,18 +8,13 @@ class contactForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name', 'autocomplete': 'off',
-                                           'style': "border: 1px solid #000000;"}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name', 'autocomplete': 'off'}),
 
-            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject', 'autocomplete': 'off',
-                                           'style': "border: 1px solid #000000;"}),
+            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject', 'autocomplete': 'off'}),
 
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone', 'autocomplete': 'off',
-                                           'style': "border: 1px solid #000000;"}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone', 'autocomplete': 'off'}),
 
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your valid Email',
-                                             'autocomplete': 'off', 'style': "border: 1px solid #000000;"}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
 
-            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message', 'autocomplete': 'off',
-                                           'style': "border: 1px solid #000000;"}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message', 'autocomplete': 'off'}),
         }

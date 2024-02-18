@@ -107,7 +107,8 @@ class GalleryAdmin(admin.ModelAdmin):
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ('email', 'skype', 'phone', 'github', 'linkedin', 'google_plus', 'youtube', 'facebook', 'twitter')
+    list_display = ('email', 'skype', 'phone', 'github', 'linkedin', 'google_plus', 'youtube', 'facebook', 'twitter',
+                    'rights_year', 'address')
     list_filter = ('email', 'phone',)
     search_fields = ['email', 'skype', 'phone', 'github', 'linkedin', 'google_plus', 'youtube', 'facebook', 'twitter']
 
@@ -136,3 +137,17 @@ class EmailContentAdmin(admin.ModelAdmin):
     search_fields = ['name', 'subject', 'html_message']
 
     exclude = ['slug']
+
+
+@admin.register(ActivityLog)
+class ActivityLogAdmin(admin.ModelAdmin):
+    list_display = ('user', 'user_ip', 'django_view', 'message', 'stack_trace', 'created_at')
+    list_filter = ('user',)
+    search_fields = ['user', 'user_ip', 'django_view']
+
+
+@admin.register(OpeningHours)
+class OpeningHoursAdmin(admin.ModelAdmin):
+    list_display = ('from_to_day', 'close_one', 'close_two')
+    list_filter = ('from_to_day',)
+    search_fields = ['from_to_day', 'close_one', 'close_two']

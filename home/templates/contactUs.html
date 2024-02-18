@@ -4,177 +4,178 @@
 
 {% block content %}
 
-       <!-- CONTENT START -->
-        <div class="page-content">
+    <!-- CONTENT START -->
+    <div class="page-content">
 
-            <!-- INNER PAGE BANNER -->
+        <!-- INNER PAGE BANNER -->
         {% for slider in SLIDER %}
             <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({{ slider.image.url }});">
-            	<div class="overlay-main site-bg-secondry opacity-09"></div>
+                <div class="overlay-main site-bg-secondry opacity-09"></div>
                 <div class="container">
                     <div class="wt-bnr-inr-entry">
-                    	<div class="banner-title-outer">
-                        	<div class="banner-title-name">
-                        		<h2 class="site-text-white">{{ slider.title }}</h2>
+                        <div class="banner-title-outer">
+                            <div class="banner-title-name">
+                                <h2 class="site-text-white">{{ slider.title }}</h2>
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
 
-                            <div>
-                                <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/">Home</a></li>
-                                    <li class="text-white">Contact Us</li>
-                                </ul>
-                            </div>
+                        <div>
+                            <ul class="wt-breadcrumb breadcrumb-style-2">
+                                <li><a href="/">Home</a></li>
+                                <li class="text-white">Contact Us</li>
+                            </ul>
+                        </div>
 
                         <!-- BREADCRUMB ROW END -->
                     </div>
                 </div>
             </div>
         {% endfor %}
-            <!-- INNER PAGE BANNER END -->
+        <!-- INNER PAGE BANNER END -->
 
 
-               <!-- CONTACT FORM -->
-             <div class="section-full  p-t80 p-b50 bg-cover" style="background-image:url({% static 'images/background/bg-7.html' %})">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="contact-one">
-                            <!-- CONTACT FORM-->
-                            <div class="row  d-flex justify-content-center flex-wrap">
+        <!-- CONTACT FORM -->
+        <div class="section-full  p-t80 p-b50 bg-cover"
+             style="background-image:url({% static 'images/background/bg-7.html' %})">
+            <div class="section-content">
+                <div class="container">
+                    <div class="contact-one">
+                        <!-- CONTACT FORM-->
+                        <div class="row  d-flex justify-content-center flex-wrap">
 
-                                <div class="col-lg-6 col-md-6 m-b30">
-                                    <div class="contact-info">
-                                        <div class="contact-info-inner">
+                            <div class="col-lg-6 col-md-6 m-b30">
+                                <div class="contact-info">
+                                    <div class="contact-info-inner">
 
-                                            <!-- TITLE START-->
-                                            <div class="section-head left wt-small-separator-outer">
-                                                <h3>Our Full Info</h3>
+                                        <!-- TITLE START-->
+                                        <div class="section-head left wt-small-separator-outer">
+                                            <h3>Our Full Info</h3>
+                                        </div>
+                                        <!-- TITLE END-->
+
+                                        <div class="contact-info-section">
+                                            {% for SM in social_media %}
+                                                <div class="wt-icon-box-wraper left m-b30">
+
+                                                    <div class="icon-content">
+                                                        <span class="m-t0">Phone number</span>
+
+                                                        <p>{{ SM.phone }}</p>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="wt-icon-box-wraper left m-b30">
+
+                                                    <div class="icon-content">
+                                                        <span class="m-t0">Email address</span>
+                                                        <p>{{ SM.email }}</p>
+                                                    </div>
+                                                </div>
+
+
+                                            <div class="wt-icon-box-wraper left m-b30">
+
+                                                <div class="icon-content">
+                                                    <span class="m-t0">Address info</span>
+                                                    <p>{{ SM.address }}</p>
+                                                </div>
                                             </div>
-                                            <!-- TITLE END-->
+                                         {% endfor %}
 
-                                            <div class="contact-info-section">
+                                        {% for op_hours in opening_hours %}
+                                            <div class="wt-icon-box-wraper left">
 
-                                                    <div class="wt-icon-box-wraper left m-b30">
-
-                                                        <div class="icon-content">
-                                                            <span class="m-t0">Phone number</span>
-                                                             {% for SM in SMDT %}
-                                                            <p>{{ SM.phone }}</p>
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="wt-icon-box-wraper left m-b30">
-
-                                                        <div class="icon-content">
-                                                            <span class="m-t0">Email address</span>
-                                                            <p>info@dronza.org</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="wt-icon-box-wraper left m-b30">
-
-                                                        <div class="icon-content">
-                                                            <span class="m-t0">Address info</span>
-                                                            <p>Dronza Head office, Islamabad 44000, Pakistan</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="wt-icon-box-wraper left">
-
-                                                        <div class="icon-content">
-                                                            <span class="m-t0">Opening Hours</span>
-                                                            <ul class="list-unstyled m-b0">
-                                                              <li>Mon-Fri: 9 am – 6 pm</li>
-                                                              <li>Saturday: Closed</li>
-                                                              <li>Sunday: Closed</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
+                                                <div class="icon-content">
+                                                    <span class="m-t0">Opening Hours</span>
+                                                    <ul class="list-unstyled m-b0">
+                                                        <li>{{ op_hours.from_to_day }}</li>
+                                                        <li>{{ op_hours.close_one }}</li>
+                                                        <li>{{ op_hours.close_two }}</li>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                        {% endfor %}
 
                                         </div>
+
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-md-6 m-b30">
-
-                                    <form  class="cons-contact" method="POST" action="" enctype="multipart/form-data">
-
-                                        {% csrf_token %}
-                                        <!-- TITLE START -->
-                                        <div class="section-head left wt-small-separator-outer">
-                                            <h3>Get In Touch</h3>
-                                        </div>
-                                        <!-- TITLE END -->
-
-                                        <div class="row">
-                                           <div class="col-lg-12 col-md-12">
-                                                <div class="form-group">
-                                                    {{ form.name }}
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class="form-group">
-                                                   {{ form.email }}
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class="form-group">
-                                                    {{ form.phone }}
-                                                 </div>
-                                            </div>
-
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class="form-group">
-                                                     {{ form.subject }}
-                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   {{ form.message }}
-                                                 </div>
-                                            </div>
-
-                                           <div class="col-md-12">
-                                                <button type="submit" class="site-button site-btn-effect">Submit Now</button>
-                                            </div>
-
-                                        </div>
-                                   </form>
-                                </div>
-
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
+                            <div class="col-lg-6 col-md-6 m-b30">
+                                <form class="cons-contact-form" method="POST" action="" enctype="multipart/form-data">
+                                    <!-- TITLE START -->
+                                    <div class="section-head left wt-small-separator-outer">
+                                        <h3>Get In Touch</h3>
+                                    </div>
+                                    <!-- TITLE END -->
 
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                {{ form.name }}
+                                            </div>
+                                        </div>
 
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                {{ form.email }}
+                                            </div>
+                                        </div>
 
-                   <!-- GOOGLE MAP -->
-             <div class="section-full bg-white p-t80">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="gmap-outline">
-                            <div id="gmap_canvas2" class="google-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13271.80750128224!2d73.07895497571928!3d33.736060535479794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc0829dec9161%3A0xa7e2db6cf652dbb3!2sF-5%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650523769880!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                {{ form.phone }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                {{ form.subject }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                {{ form.message }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <button type="submit" class="site-button site-btn-effect">Submit Now
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-        <!-- CONTENT END -->
+
+
+        <!-- GOOGLE MAP -->
+        <div class="section-full bg-white p-t80">
+            <div class="section-content">
+                <div class="container">
+                    <div class="gmap-outline">
+                        <div id="gmap_canvas2" class="google-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13271.80750128224!2d73.07895497571928!3d33.736060535479794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc0829dec9161%3A0xa7e2db6cf652dbb3!2sF-5%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650523769880!5m2!1sen!2s"
+                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- CONTENT END -->
 
 
 

@@ -115,169 +115,193 @@
                                             </select>
                                         </div>
 
-                                     <div class="col-4">
-                                        <label>Product-category</label>
-                                        <select class="form-control" name="product_category" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                            {% for value, label in product_category %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.product_category %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
+                                        <div class="col-4">
+                                            <label>Product-category</label>
+                                            <select class="form-control" name="product_category" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                {% for value, label in product_category %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.product_category %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
 
-                                    <div class="col-4">
-                                        <label>Designed-by</label>
-                                        <select class="form-control" name="brand" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                            {% for value, label in brand %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.brand %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
+                                        <div class="col-4">
+                                            <label>Designed-by</label>
+                                            <select class="form-control" name="brand" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                                {% for value, label in brand %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.brand %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
 
-                                </div>
-
-
-                                <div class="row mb-4">
-
-                                    <div class="col-3">
-                                        <label>Condition</label>
-                                        <select class="form-control" name="condition" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                            {% for value, label in condition %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.condition %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <label>Color</label>
-                                        <select class="form-control" name="color" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                            {% for value, label in color %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.color %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <label>Speed-mode</label>
-                                        <select class="form-control" name="speed_mode" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                            {% for value, label in speed_mode %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.speed_mode %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-
-                                    <div class="col-3">
-                                        <label>Wing-type</label>
-                                        <select class="form-control" name="wing_type" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                            {% for value, label in wing_type %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.wing_type %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div class="row mb-4">
-                                    <div class="col-4">
-                                        <label>Price</label>
-                                        <input type="text" class="form-control" name="price" required="required"
-                                               value="{{ Record.price }}"
-                                               style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                    </div>
-
-                                    <div class="col-4">
-                                        <label>Model</label>
-                                        <input type="text" class="form-control" name="drone_model" required="required"
-                                               value="{{ Record.drone_model }}"
-                                               style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                    </div>
-
-                                    <div class="col-4">
-                                        <label>Noise-level</label>
-                                        <input type="text" class="form-control" name="noise_level" required="required"
-                                               value="{{ Record.noise_level }}"
-                                               style="border: 1px solid #D4D4D4; border-radius: 3px;">
                                     </div>
 
 
-                                </div>
+                                    <div class="row mb-4">
 
-                                <div class="row mb-4">
-                                    <div class="col-12">
-                                        <label>Status</label>
-                                        <select class="form-control" name="status" required
-                                                style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
-                                            {% for value, label in status %}
-                                                <option value="{{ value }}"
-                                                        {% if value == Record.status %}selected{% endif %}>{{ label }}</option>
-                                            {% endfor %}
-                                        </select>
+                                        <div class="col-3">
+                                            <label>Condition</label>
+                                            <select class="form-control" name="condition" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                                {% for value, label in condition %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.condition %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Color</label>
+                                            <select class="form-control" name="color" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                                {% for value, label in color %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.color %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Speed-mode</label>
+                                            <select class="form-control" name="speed_mode" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                                {% for value, label in speed_mode %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.speed_mode %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Wing-type</label>
+                                            <select class="form-control" name="wing_type" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                                {% for value, label in wing_type %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.wing_type %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
                                     </div>
-                                </div>
 
-                                <div class="row mb-4">
-                                    <div class="col-12">
-                                        <label>Description</label>
-                                        <textarea type="text" class="form-control" name="editor1" required
-                                                  style="border: 1px solid #D4D4D4; border-radius: 3px;">{{ Record.description }}</textarea>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label>Edit Thumbnail (Optional)</label>
-                                    <select class="form-control" name="edit_file" id="editFiles1"
-                                            style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                        <option value="False">NO</option>
-                                        <option value="True">YES</option>
-
-                                    </select>
-
-                                    <div id="editFiles">
-                                        <div class="row mt-4 container">
-                                            <label>Edit Files:</label>
-                                            <input type="file" class="form-control" name="thumbnail"
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            <label>Price</label>
+                                            <input type="text" class="form-control" name="price" required="required"
+                                                   value="{{ Record.price }}"
                                                    style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label>Model</label>
+                                            <input type="text" class="form-control" name="drone_model"
+                                                   required="required"
+                                                   value="{{ Record.drone_model }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label>Noise-level</label>
+                                            <input type="text" class="form-control" name="noise_level"
+                                                   required="required"
+                                                   value="{{ Record.noise_level }}"
+                                                   style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col-12">
+                                            <label>Status</label>
+                                            <select class="form-control" name="status" required
+                                                    style="border: 1px solid #D4D4D4; border-radius: 3px; border-radius: 3px;">
+                                                {% for value, label in status %}
+                                                    <option value="{{ value }}"
+                                                            {% if value == Record.status %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
 
+                                    <div class="row mb-4">
+                                        <div class="col-12">
+                                            <label>Description</label>
+                                            <textarea type="text" class="form-control" name="editor1" required
+                                                      style="border: 1px solid #D4D4D4; border-radius: 3px;">{{ Record.description }}</textarea>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row mb-3">
+                                        <label>Edit Thumbnail (Optional)</label>
+                                        <select class="form-control" name="edit_file" id="editFiles1"
+                                                style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            <option value="False">NO</option>
+                                            <option value="True">YES</option>
+
+                                        </select>
+
+                                        <div id="editFiles">
+                                            <div class="row mt-4 container">
+                                                <label>Edit Files:</label>
+                                                <input type="file" class="form-control" name="thumbnail"
+                                                       style="border: 1px solid #D4D4D4; border-radius: 3px;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mb-3 d-flex justify-content-end">
+                                        <a href="/customer-product" class="btn btn-outline-danger mr-3">
+                                            <i class="fa fa-backward"></i> Go Back</a>
+                                        <button type="submit" class="btn btn-outline-danger">Update Record</button>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="row mb-3 d-flex justify-content-end">
-                                    <a href="/customer-product" class="btn btn-outline-danger mr-3">
-                                        <i class="fa fa-backward"></i> Go Back</a>
-                                    <button type="submit" class="btn btn-outline-danger">Update Record</button>
+                                <div class="d-flex justify-content-end">
 
                                 </div>
+                            </form>
+
 
                         </div>
-
-                        <div class="d-flex justify-content-end">
-
-                        </div>
-                        </form>
-
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     </div>
     <!-- CONTENT END -->
 
+    {% block script %}
+        <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('editor1');
+        </script>
+
+
+        <script>
+            $(function () {
+                $('#editFiles').hide();
+                $('#editFiles1').change(function () {
+                    if ($('#editFiles1').val() == 'True') {
+                        $('#editFiles').show();
+                        document.getElementById('icon').required = true;
+                    } else {
+                        $('#editFiles').hide();
+                        document.getElementById('icon').required = false;
+                    }
+                });
+            });
+        </script>
+    {% endblock script %}
 
 {% endblock content %}

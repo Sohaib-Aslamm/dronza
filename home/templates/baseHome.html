@@ -198,18 +198,19 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
+                    {% for SM in social_media %}
+                        <div class="widget recent-posts-entry">
+                            <h3 class="widget-title">Get in Touch</h3>
+                            <ul class="widget_address">
+                                <li><i class="fa fa-map-marker"></i>{{ SM.address }}</li>
+                                <li><i class="fa fa-envelope"></i>{{ SM.email }}</li>
 
-                    <div class="widget recent-posts-entry">
-                        <h3 class="widget-title">Get in Touch</h3>
-                        <ul class="widget_address">
-                            <li><i class="fa fa-map-marker"></i>Dronza Head Quarter, Islamabad 44000, Pakistan</li>
-                            <li><i class="fa fa-envelope"></i>info@dronza.org</li>
-                            {% for SM in social_media %}
                                 <li><i class="fa fa-phone"></i>{{ SM.phone }}</li>
-                            {% endfor %}
 
-                        </ul>
-                    </div>
+
+                            </ul>
+                        </div>
+                    {% endfor %}
 
 
                 </div>
@@ -269,62 +270,65 @@
                             <div class="input-group">
 
                                 <form method="POST" action="/news-letter" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="input-group">
-        <input id="email" type="text" class="form-control" name="email" placeholder="Enter your email">
-        <div class="input-group-append">
-             <button type="submit" class="btn text-white nl-search-btn text-black site-bg-primary title-style-2" style="font-weight: bold;">
-                Subscribe
-            </button>
-                                </div>
-                                 </form>
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <input id="email" type="text" class="form-control" name="email"
+                                               placeholder="Enter your email">
+                                        <div class="input-group-append">
+                                            <button type="submit"
+                                                    class="btn text-white nl-search-btn text-black site-bg-primary title-style-2"
+                                                    style="font-weight: bold;">
+                                                Subscribe
+                                            </button>
+                                        </div>
+                                </form>
 
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
-    <!-- FOOTER COPYRIGHT -->
+        <!-- FOOTER COPYRIGHT -->
+        {% for SM in social_media %}
+            <div class="footer-middle">
 
-    <div class="footer-middle">
+                <div class="container">
+                    <div class="footer-middle-content">
+                        <div class="logo-footer">
+                            <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt=""></a>
+                        </div>
 
-        <div class="container">
-            <div class="footer-middle-content">
-                <div class="logo-footer">
-                    <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt=""></a>
+                        <ul class="copyrights-nav">
+                            <li><a href="/coming-soon" target="_blank">Terms &amp; Condition</a></li>
+                            <li><a href="/privacy-policy" target="_blank">Privacy Policy</a></li>
+                            <li><a href="/contact-us" target="_blank">Contact Us</a></li>
+                        </ul>
+
+
+                        <ul class="social-icons  wt-social-links footer-social-icon">
+
+                            <li><a href="{{ SM.linkedin }}" target="_blank" class="fa fa-linkedin"></a></li>
+                            <li><a href="{{ SM.twitter }}" target="_blank" class="fa fa-twitter"></a></li>
+                            <li><a href="{{ SM.facebook }}" target="_blank" class="fa fa-facebook"></a></li>
+
+                        </ul>
+
+                    </div>
                 </div>
 
-                <ul class="copyrights-nav">
-                    <li><a href="/coming-soon" target="_blank">Terms &amp; Condition</a></li>
-                    <li><a href="/privacy-policy" target="_blank">Privacy Policy</a></li>
-                    <li><a href="/contact-us" target="_blank">Contact Us</a></li>
-                </ul>
-
-
-                <ul class="social-icons  wt-social-links footer-social-icon">
-                    {% for SM in social_media %}
-                        <li><a href="{{ SM.linkedin }}" target="_blank" class="fa fa-linkedin"></a></li>
-                        <li><a href="{{ SM.twitter }}" target="_blank" class="fa fa-twitter"></a></li>
-                        <li><a href="{{ SM.facebook }}" target="_blank" class="fa fa-facebook"></a></li>
-                    {% endfor %}
-                </ul>
-
             </div>
-        </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="wt-footer-bot-left d-flex justify-content-center">
 
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="wt-footer-bot-left d-flex justify-content-center">
-
-
-                <span class="copyrights-text">© 2024 Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
+                        <span class="copyrights-text">© {{ SM.rights_year }} Dronza <span class="site-text-primary"> All Rights Reserved</span></span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        {% endfor %}
 
 
 </footer>
@@ -367,27 +371,9 @@
 <script src="{% static 'Assets/dronza_js/jquery-ui.js' %}"></script>
 <script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
 <script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
-<script src="{% static 'Assets/dronza_plugins/revolution/revolution/js/extensions/revolution-plugin.js' %}"></script>
-<script src="{% static 'Assets/dronza_js/rev-script-3.js' %}"></script>
 
-<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('editor1');
-</script>
+{% block script %} {% endblock script %}
 
-<script>
-    $(function () {
-        $('#editFiles').hide();
-        $('#editFiles1').change(function () {
-            if ($('#editFiles1').val() == 'True') {
-                $('#editFiles').show();
-                document.getElementById('icon').required = true;
-            } else {
-                $('#editFiles').hide();
-                document.getElementById('icon').required = false;
-            }
-        });
-    });
-</script>
+
 
 </html>

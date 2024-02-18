@@ -17,6 +17,8 @@ urlpatterns = [
     path('thank-you', views.thankyou, name="thank-you"),
     path('search-by-location', views.search_by_location_category, name='search-by-location'),
     path('coming-soon', views.coming_soon, name="coming-soon"),
+    path('error-404', views.error_404, name="error-404"),
+    path('bad-request', views.general_error, name="bad-request"),
 
     path('user-login', views.user_login, name="user-login"),
     path('user-logout', views.user_logout, name="user-logout"),

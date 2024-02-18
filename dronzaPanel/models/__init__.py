@@ -17,4 +17,5 @@ from .blog import *
 from .seo_tags import *
 from .email_content import *
 from .privacy_policy import *
-
+from .activity_logs import *
+from .opening_hours import *

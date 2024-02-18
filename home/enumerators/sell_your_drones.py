@@ -39,6 +39,11 @@ class DRONE_CONDITION(models.TextChoices):
     EXCELLENT = 'excellent', 'Excellent'
     MINT = 'mint', 'Mint'
     GOOD = 'good', 'Good'
+    POOR = 'poor', 'Poor'
+
+
+class STAR_MAP:
+    star_map = {'excellent': 5, 'good': 4, 'mint': 3, 'poor': 2}
 
 
 class DRONE_BRAND(models.TextChoices):

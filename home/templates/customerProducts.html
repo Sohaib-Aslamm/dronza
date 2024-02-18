@@ -46,9 +46,9 @@
 
                         <div class="row container-fluid justify-content-end">
 
-                                <button class="btn btn-outline-danger" data-toggle="modal"
-                                        data-target="#exampleModalCenter">+ Add Product
-                                </button>
+                            <button class="btn btn-outline-danger" data-toggle="modal"
+                                    data-target="#exampleModalCenter">+ Add Product
+                            </button>
 
                         </div>
 
@@ -209,7 +209,7 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                        <div class="col-4">
+                            <div class="col-4">
                                 <label>Product-category</label>
                                 <select class="form-control" name="product_category" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -219,7 +219,7 @@
                                 </select>
                             </div>
 
-                          <div class="col-4">
+                            <div class="col-4">
                                 <label>Designed-by</label>
                                 <select class="form-control" name="brand" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -234,11 +234,11 @@
 
                         <div class="row mb-4">
 
-                        <div class="col-3">
+                            <div class="col-3">
                                 <label>Condition</label>
                                 <select class="form-control" name="condition" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                      {% for value, label in condition %}
+                                    {% for value, label in condition %}
                                         <option value="{{ value }}">{{ label }}</option>
                                     {% endfor %}
                                 </select>
@@ -255,7 +255,7 @@
                                 </select>
                             </div>
 
-                         <div class="col-3">
+                            <div class="col-3">
                                 <label>Speed-mode</label>
                                 <select class="form-control" name="speed_mode" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -265,7 +265,7 @@
                                 </select>
                             </div>
 
-                       <div class="col-3">
+                            <div class="col-3">
                                 <label>Wing-type</label>
                                 <select class="form-control" name="wing_type" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
@@ -277,9 +277,9 @@
 
                         </div>
 
-                      <div class="row mb-4">
+                        <div class="row mb-4">
 
-                             <div class="col-4">
+                            <div class="col-4">
                                 <label>Price</label>
                                 <input type="text" class="form-control" name="price" required="required"
                                        placeholder="$100"
@@ -288,12 +288,12 @@
 
                             <div class="col-4">
                                 <label>Model</label>
-                               <input type="text" class="form-control" name="drone_model"
+                                <input type="text" class="form-control" name="drone_model"
                                        placeholder="Dronza A1-200"
                                        style="border: 1px solid #D4D4D4; border-radius: 3px;">
                             </div>
 
-                      <div class="col-4">
+                            <div class="col-4">
                                 <label>Noise-level</label>
                                 <input type="text" class="form-control" name="noise_level"
                                        placeholder="high noise"
@@ -302,23 +302,23 @@
 
                         </div>
 
-                    <div class="row mb-4">
+                        <div class="row mb-4">
 
-                        <div class="col-12">
+                            <div class="col-12">
                                 <label>Status</label>
                                 <select class="form-control" name="status" required
                                         style="border: 1px solid #D4D4D4; border-radius: 3px;">
-                                      {% for value, label in status %}
+                                    {% for value, label in status %}
                                         <option value="{{ value }}">{{ label }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                    </div>
+                        </div>
 
                         <div class="row mb-4">
                             <div class="col-12">
                                 <label>Description</label>
-                                <textarea class="form-control" name="editor1" ></textarea>
+                                <textarea class="form-control" name="editor1"></textarea>
                             </div>
 
                         </div>
@@ -351,7 +351,6 @@
 
 
 
-
     <script>
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -369,5 +368,29 @@
             console.log("Geolocation is not supported by this browser.");
         }
     </script>
+
+    {% block script %}
+        <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+
+        <script>
+            CKEDITOR.replace('editor1');
+        </script>
+
+        <script>
+            $(function () {
+                $('#editFiles').hide();
+                $('#editFiles1').change(function () {
+                    if ($('#editFiles1').val() == 'True') {
+                        $('#editFiles').show();
+                        document.getElementById('icon').required = true;
+                    } else {
+                        $('#editFiles').hide();
+                        document.getElementById('icon').required = false;
+                    }
+                });
+            });
+        </script>
+    {% endblock script %}
+
 
 {% endblock content %}

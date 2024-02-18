@@ -1,0 +1,38 @@
+{% extends 'baseHome.html' %}
+
+{% load static %}
+
+{% block content %}
+
+ <!-- CONTENT START -->
+        <div class="page-content">
+
+            <!-- Error SECTION START -->
+            {% for slider in SLIDER %}
+            <div class="error-full-page bg-cover overlay-wraper bg-image-moving" style="background-image:url({{ slider.background_image.url }})">
+					<div class="overlay-main bg-black opacity-07"></div>
+
+                    <div class="error-full-page-inner">
+                    	<div class="error-full-page-inner-info">
+                            	<div class="error-media">
+                                	<img src="{% static 'Assets/dronza_images/d-testimonial.png' %}" class="slide-top" alt="">
+                                </div>
+
+                                <h4 class="title-style-2">
+                                    Are You Ready For This ?
+                                </h4>
+                                <a href="/" class="site-button site-btn-effect">GO TO HOME</a>
+
+                        </div>
+                    </div>
+
+
+            </div>
+            {% endfor %}
+            <!-- Error  SECTION END -->
+
+        </div>
+        <!-- CONTENT END -->
+
+
+{% endblock content %}

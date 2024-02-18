@@ -420,4 +420,26 @@
     </div>
     <!-- CONTENT END -->
 
+
+    <!-- Add this script to your sellDrone.html template -->
+<script>
+    // Prompt the user for location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                // Send the user's location to the server
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "{% url 'sell-drones' %}?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude, true);
+                xhr.send();
+            },
+            function (error) {
+                console.error("Error getting location: " + error.message);
+            }
+        );
+    } else {
+        console.error("Geolocation is not supported by this browser.");
+    }
+</script>
+
+
 {% endblock content %}
