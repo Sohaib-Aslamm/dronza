@@ -122,7 +122,7 @@
                                             <form class="comment-form" id="commentform" method="POST" action="/blogReview">
                                                 {% csrf_token %}
 
-                                                {% for post in rdPost %}
+                                                {% for post in blog_post %}
                                                     <input type="hidden" id="slug" name="slug" value="{{ post.slug }}">
                                                 {% endfor %}
                                                 <p class="comment-form-author">

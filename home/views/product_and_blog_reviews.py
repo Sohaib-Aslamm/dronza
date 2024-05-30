@@ -2,7 +2,8 @@ from django.shortcuts import redirect
 
 from home.commands import Data_Logger
 from home.enumerators import DJANGO_VIEWS
-from home.models import userBlog, blog_Review
+from home.models import blog_Review
+from dronzaPanel.models import userBlog
 
 
 def blog_post_review(request):
