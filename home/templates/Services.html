@@ -56,7 +56,7 @@
                                 {% for MS in RegularServices %}
                                  <div class="col-lg-4 col-md-6 m-b30">
                                 <div class="imghvr-zoom-out-down grayscale-img">
-                                   <img src="{{ MS.icons.url }}" alt="">
+                                   <img src="{{ MS.icons.url }}" alt="{{ MS.title }}">
                                     <div class="imghvr-content">
                                     	<div class="imghvr-mid">
                                             <h3 class="wt-title">{{ MS.title }}</h3>
@@ -118,7 +118,7 @@
                             {% for EMS in MainServices %}
                             <div class="col-lg-4 col-md-6 m-b30">
                                 <div class="imghvr-zoom-out-down grayscale-img">
-                                   <img src="{{ EMS.icons.url }}" alt="">
+                                   <img src="{{ EMS.icons.url }}" alt="{{ EMS.title }}">
                                     <div class="imghvr-content">
                                     	<div class="imghvr-mid">
                                             <h3 class="wt-title">{{ EMS.title }}</h3>

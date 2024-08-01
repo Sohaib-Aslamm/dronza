@@ -241,7 +241,7 @@
                                 {% for RP in recent_blog_post %}
                                     <div class="widget-post clearfix">
                                         <div class="wt-post-media">
-                                            <img src="{{ RP.Icon.url }}" alt="">
+                                            <img src="{{ RP.Icon.url }}" alt="{{ RP.title }}">
                                         </div>
                                         <div class="wt-post-info">
                                             <div class="wt-post-meta">
@@ -298,7 +298,7 @@
                 <div class="container">
                     <div class="footer-middle-content">
                         <div class="logo-footer">
-                            <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt=""></a>
+                            <a href="/"><img src="{% static '/Assets/dronza_images/logo_bg_dark.png' %}" alt="dronza social media"></a>
                         </div>
 
                         <ul class="copyrights-nav">

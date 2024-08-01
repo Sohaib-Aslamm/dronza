@@ -33,7 +33,7 @@ def index(request):
             'blog_post': userBlog.objects.order_by('sNo')[:3],
             'recent_blog_post': userBlog.objects.order_by('-sNo')[:2],
             'social_media': SocialMedia.objects.all(),
-            'seo_tags': seoTags.objects.filter(page='gallery_page'),
+            'seo_tags': seoTags.objects.filter(page='home_page'),
             'featured_products': sellYourDrone.objects.filter(is_featured=True, status=SOLD_STATUS.AVAILABLE),
         }
         return render(request, 'Home.html', context)

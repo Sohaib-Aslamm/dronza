@@ -47,7 +47,7 @@
                             {% for post in search_data %}
                                 <div class="blog-post blog-style-1 blog-list-style">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="/{{ post.slug }}"><img src="{{ post.Icon.url }}" alt="{{ post.tags }}"></a>
+                                        <a href="/{{ post.slug }}"><img src="{{ post.Icon.url }}" alt="{{ post.title }}"></a>
                                     </div>
                                     <div class="wt-post-info">
                                         <div class="wt-post-meta">
@@ -122,7 +122,7 @@
                                             {% for data in popular_posts %}
                                                 <div class="widget-post clearfix">
                                                     <div class="wt-post-media">
-                                                        <a href="/{{ data.slug }}"><img src="{{ data.Icon.url }}" alt=""></a>
+                                                        <a href="/{{ data.slug }}"><img src="{{ data.Icon.url }}" alt="{{ data.title }}"></a>
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-meta">
